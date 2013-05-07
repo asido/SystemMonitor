@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define AM_UNUSED(var)  (void)(var)
+
 @interface AMUtils : NSObject
 
 @end

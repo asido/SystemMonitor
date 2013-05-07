@@ -8,6 +8,7 @@
 
 #import <sys/sysctl.h>
 #import <mach/mach_host.h>
+#import "AMLog.h"
 #import "CPUInfoController.h"
 
 @interface CPUInfoController()
@@ -97,14 +98,14 @@
     
     if (sysctl(query, 2, NULL, &strLen, NULL, 0) == -1)
     {
-        NSLog(@"%s: sysctl CTL_HW.HW_MODEL length failed: %s",
+        AMWarn(@"%s: sysctl CTL_HW.HW_MODEL length failed: %s",
               __PRETTY_FUNCTION__, strerror(errno));
     }
     
     char str[strLen];
     if (sysctl(query, 2, str, &strLen, NULL, 0) == -1)
     {
-        NSLog(@"%s: sysctl CTL_HW.HW_MODEL value failed: %s",
+        AMWarn(@"%s: sysctl CTL_HW.HW_MODEL value failed: %s",
               __PRETTY_FUNCTION__, strerror(errno));
     }
     
@@ -120,7 +121,7 @@
     
     if (sysctl(query, 2, NULL, &len, NULL, 0) == -1)
     {
-        NSLog(@"%s: sysctl CTL_HW.HW_BYTEORDER length failed: %s",
+        AMWarn(@"%s: sysctl CTL_HW.HW_BYTEORDER length failed: %s",
               __PRETTY_FUNCTION__, strerror(errno));
     }
     assert(len <= sizeof(NSInteger));
@@ -128,7 +129,7 @@
     NSInteger val = 0;
     if (sysctl(query, 2, &val, &len, NULL, 0) == -1)
     {
-        NSLog(@"%s: sysctl CTL_HW.HW_BYTEORDER value failed: %s",
+        AMWarn(@"%s: sysctl CTL_HW.HW_BYTEORDER value failed: %s",
               __PRETTY_FUNCTION__, strerror(errno));
     }
     
@@ -142,6 +143,8 @@
         result = @"Big endian";
     }
     
+    AMWarn(@"Test warning");
+    
     return result;
 }
 
@@ -150,7 +153,7 @@
     size_t size;
     if (sysctlbyname("hw.activecpu", NULL, &size, NULL, 0) == -1)
     {
-        NSLog(@"%s: sysctlbyname hw.activecpu failed: %s",
+        AMWarn(@"%s: sysctlbyname hw.activecpu failed: %s",
               __PRETTY_FUNCTION__, strerror(errno));
     }
     assert(size <= sizeof(NSUInteger));

@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ActivityMonitor++/CPUInfoController.m"
-         timestampString = "389647143.95944"
+         timestampString = "389647654.870513"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
+         startingLineNumber = "46"
+         endingLineNumber = "46"
          landmarkName = "-getCpuInfo"
          landmarkType = "5">
       </FileBreakpoint>

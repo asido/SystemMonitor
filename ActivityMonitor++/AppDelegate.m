@@ -7,13 +7,20 @@
 //
 
 #import "CPUInfoController.h"
+#import "DDLog.h"
+#import "DDASLLogger.h"
+#import "DDTTYLogger.h"
+#import "DDFileLogger.h"
 #import "AppDelegate.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // Initialize logger
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [DDLog addLogger:[[DDFileLogger alloc] init]];
     
     return YES;
 }
