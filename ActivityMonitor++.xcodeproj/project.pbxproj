@@ -19,16 +19,15 @@
 		703D22F5173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703D22F3173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard */; };
 		703D22F8173818EC0001E3B3 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703D22F6173818EC0001E3B3 /* MainStoryboard_iPad.storyboard */; };
 		703D22FB173818EC0001E3B3 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703D22FA173818EC0001E3B3 /* FirstViewController.m */; };
-		703D22FD173818EC0001E3B3 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D22FC173818EC0001E3B3 /* first.png */; };
-		703D22FF173818EC0001E3B3 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D22FE173818EC0001E3B3 /* first@2x.png */; };
-		703D2302173818EC0001E3B3 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703D2301173818EC0001E3B3 /* SecondViewController.m */; };
-		703D2304173818EC0001E3B3 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D2303173818EC0001E3B3 /* second.png */; };
-		703D2306173818EC0001E3B3 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D2305173818EC0001E3B3 /* second@2x.png */; };
 		703D230E173818EC0001E3B3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D230D173818EC0001E3B3 /* SenTestingKit.framework */; };
 		703D230F173818EC0001E3B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DB173818EC0001E3B3 /* UIKit.framework */; };
 		703D2310173818EC0001E3B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DD173818EC0001E3B3 /* Foundation.framework */; };
 		703D2318173818EC0001E3B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 703D2316173818EC0001E3B3 /* InfoPlist.strings */; };
 		703D231B173818EC0001E3B3 /* ActivityMonitor__Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 703D231A173818EC0001E3B3 /* ActivityMonitor__Tests.m */; };
+		703D232A17382AE10001E3B3 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232917382AE10001E3B3 /* background@2x.png */; };
+		703D232C17382F0C0001E3B3 /* CellNoJoins@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232B17382F0C0001E3B3 /* CellNoJoins@2x.png */; };
+		703D232F1738323E0001E3B3 /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703D232E1738323E0001E3B3 /* ProcessViewController.m */; };
+		703D2332173834BB0001E3B3 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 703D2331173834BB0001E3B3 /* ProcessCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,18 +58,18 @@
 		703D22F7173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		703D22F9173818EC0001E3B3 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		703D22FA173818EC0001E3B3 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		703D22FC173818EC0001E3B3 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		703D22FE173818EC0001E3B3 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		703D2300173818EC0001E3B3 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		703D2301173818EC0001E3B3 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		703D2303173818EC0001E3B3 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		703D2305173818EC0001E3B3 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		703D230C173818EC0001E3B3 /* ActivityMonitor++Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ActivityMonitor++Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		703D230D173818EC0001E3B3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		703D2315173818EC0001E3B3 /* ActivityMonitor++Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ActivityMonitor++Tests-Info.plist"; sourceTree = "<group>"; };
 		703D2317173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		703D2319173818EC0001E3B3 /* ActivityMonitor__Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActivityMonitor__Tests.h; sourceTree = "<group>"; };
 		703D231A173818EC0001E3B3 /* ActivityMonitor__Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActivityMonitor__Tests.m; sourceTree = "<group>"; };
+		703D232917382AE10001E3B3 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		703D232B17382F0C0001E3B3 /* CellNoJoins@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CellNoJoins@2x.png"; sourceTree = "<group>"; };
+		703D232D1738323E0001E3B3 /* ProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessViewController.h; sourceTree = "<group>"; };
+		703D232E1738323E0001E3B3 /* ProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessViewController.m; sourceTree = "<group>"; };
+		703D2330173834BB0001E3B3 /* ProcessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessCell.h; sourceTree = "<group>"; };
+		703D2331173834BB0001E3B3 /* ProcessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +99,7 @@
 		703D22CF173818EB0001E3B3 = {
 			isa = PBXGroup;
 			children = (
+				703D232417381ED80001E3B3 /* Media */,
 				703D22E1173818EC0001E3B3 /* ActivityMonitor++ */,
 				703D2313173818EC0001E3B3 /* ActivityMonitor++Tests */,
 				703D22DA173818EC0001E3B3 /* Frameworks */,
@@ -136,12 +136,10 @@
 				703D22F6173818EC0001E3B3 /* MainStoryboard_iPad.storyboard */,
 				703D22F9173818EC0001E3B3 /* FirstViewController.h */,
 				703D22FA173818EC0001E3B3 /* FirstViewController.m */,
-				703D22FC173818EC0001E3B3 /* first.png */,
-				703D22FE173818EC0001E3B3 /* first@2x.png */,
-				703D2300173818EC0001E3B3 /* SecondViewController.h */,
-				703D2301173818EC0001E3B3 /* SecondViewController.m */,
-				703D2303173818EC0001E3B3 /* second.png */,
-				703D2305173818EC0001E3B3 /* second@2x.png */,
+				703D232D1738323E0001E3B3 /* ProcessViewController.h */,
+				703D232E1738323E0001E3B3 /* ProcessViewController.m */,
+				703D2330173834BB0001E3B3 /* ProcessCell.h */,
+				703D2331173834BB0001E3B3 /* ProcessCell.m */,
 				703D22E2173818EC0001E3B3 /* Supporting Files */,
 			);
 			path = "ActivityMonitor++";
@@ -178,6 +176,15 @@
 				703D2316173818EC0001E3B3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		703D232417381ED80001E3B3 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				703D232917382AE10001E3B3 /* background@2x.png */,
+				703D232B17382F0C0001E3B3 /* CellNoJoins@2x.png */,
+			);
+			name = Media;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,10 +264,8 @@
 				703D22F2173818EC0001E3B3 /* Default-568h@2x.png in Resources */,
 				703D22F5173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard in Resources */,
 				703D22F8173818EC0001E3B3 /* MainStoryboard_iPad.storyboard in Resources */,
-				703D22FD173818EC0001E3B3 /* first.png in Resources */,
-				703D22FF173818EC0001E3B3 /* first@2x.png in Resources */,
-				703D2304173818EC0001E3B3 /* second.png in Resources */,
-				703D2306173818EC0001E3B3 /* second@2x.png in Resources */,
+				703D232A17382AE10001E3B3 /* background@2x.png in Resources */,
+				703D232C17382F0C0001E3B3 /* CellNoJoins@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +303,8 @@
 				703D22E8173818EC0001E3B3 /* main.m in Sources */,
 				703D22EC173818EC0001E3B3 /* AppDelegate.m in Sources */,
 				703D22FB173818EC0001E3B3 /* FirstViewController.m in Sources */,
-				703D2302173818EC0001E3B3 /* SecondViewController.m in Sources */,
+				703D232F1738323E0001E3B3 /* ProcessViewController.m in Sources */,
+				703D2332173834BB0001E3B3 /* ProcessCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

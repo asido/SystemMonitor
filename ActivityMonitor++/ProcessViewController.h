@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  ProcessViewController.h
 //  ActivityMonitor++
 //
 //  Created by st on 06/05/2013.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface ProcessViewController : UITableViewController
 
 @end
