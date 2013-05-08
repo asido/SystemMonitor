@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 st. All rights reserved.
 //
 
-#import "CPUInfoController.h"
 #import "DDLog.h"
 #import "DDASLLogger.h"
 #import "DDTTYLogger.h"
@@ -28,6 +27,9 @@
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     [DDLog addLogger:[[DDFileLogger alloc] init]];
     
+    self.cpuInfoCtrl = [[CPUInfoController alloc] init];
+    self.deviceInfoCtrl = [[DeviceInfoController alloc] init];
+    // AMDevice uses all the controllers above therefore should be initialized last.
     self.iDevice = [[AMDevice alloc] init];
     
     return YES;

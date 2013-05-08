@@ -7,9 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "CPUInfoController.h"
 #import "CPUViewController.h"
 
-@interface CPUViewController ()
+@interface CPUViewController() <CPUInfoControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *cpuNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *architectureLabel;
 @property (weak, nonatomic) IBOutlet UILabel *physicalCoresLabel;
@@ -25,6 +26,8 @@
 
 @implementation CPUViewController
 
+static const NSUInteger CPU_LOAD_UPDATES_PER_SEC = 5;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -37,6 +40,7 @@
     
     
     AppDelegate *app = [AppDelegate sharedDelegate];
+    
     [self.cpuNameLabel setText:app.iDevice.cpuInfo.cpuName];
     [self.architectureLabel setText:app.iDevice.cpuInfo.cpuSubtype];
     [self.physicalCoresLabel setText:[NSString stringWithFormat:@"%u", app.iDevice.cpuInfo.physicalCPUCount]];
@@ -48,6 +52,9 @@
     [self.l2CacheLabel setText:(app.iDevice.cpuInfo.l2Cache == 0 ? @"-" : [NSString stringWithFormat:@"%d KB", app.iDevice.cpuInfo.l2Cache])];
     [self.l3CacheLabel setText:(app.iDevice.cpuInfo.l3Cache == 0 ? @"-" : [NSString stringWithFormat:@"%d KB", app.iDevice.cpuInfo.l3Cache])];
     [self.endianessLabel setText:app.iDevice.cpuInfo.endianess];
+    
+    [app.cpuInfoCtrl setDelegate:self];
+    [app.cpuInfoCtrl startCPULoadUpdatesWithFrequency:CPU_LOAD_UPDATES_PER_SEC];
 }
 
 - (void)didReceiveMemoryWarning
@@ -108,6 +115,18 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+#pragma mark - CPUInfoController delegate
+
+- (void)cpuLoadUpdated:(NSArray *)loadArray
+{
+    for (NSUInteger i = 0; i < loadArray.count; ++i)
+    {
+        CPULoad *cpuLoad = [loadArray objectAtIndex:i];
+        double totalLoad = cpuLoad.system + cpuLoad.user + cpuLoad.nice;
+        NSLog(@"CORE %d  [[ %d%% ]]", i, (NSUInteger)totalLoad);
+    }
 }
 
 @end

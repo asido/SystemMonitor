@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "AMDevice.h"
+#import "CPUInfoController.h"
+#import "DeviceInfoController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-@property (strong, nonatomic) UIWindow *window;
-@property (retain) AMDevice *iDevice;
+@property (strong, nonatomic) UIWindow  *window;
+
+@property (retain) AMDevice             *iDevice;
+@property (retain) CPUInfoController    *cpuInfoCtrl;
+@property (retain) DeviceInfoController *deviceInfoCtrl;
 
 + (AppDelegate*)sharedDelegate;
 @end

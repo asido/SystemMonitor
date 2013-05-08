@@ -7,6 +7,7 @@
 //
 
 #import "AMUtils.h"
+#import "AppDelegate.h"
 #import "HardcodedDeviceData.h"
 #import "DeviceInfoController.h"
 #import "CPUInfoController.h"
@@ -31,8 +32,9 @@
         HardcodedDeviceData *hardcodeData = [HardcodedDeviceData sharedDeviceData];
         [hardcodeData setHwMachine:hwMachine];
         
-        _deviceInfo = [[[DeviceInfoController alloc] init] getDeviceInfo];
-        _cpuInfo = [[[CPUInfoController alloc] init] getCpuInfo];
+        AppDelegate *app = [AppDelegate sharedDelegate];
+        _deviceInfo = [app.deviceInfoCtrl getDeviceInfo];
+        _cpuInfo = [app.cpuInfoCtrl getCPUInfo];
     }
     return self;
 }

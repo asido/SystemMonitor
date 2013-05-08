@@ -7,13 +7,20 @@
 //
 
 #import <sys/sysctl.h>
+#import <mach/mach_host.h>
 #import <mach/machine.h>
+#import <mach/task_info.h>
+#import <mach/mach_types.h>
+#import <mach/mach_init.h>
+#import <mach/vm_map.h>
 #import "HardcodedDeviceData.h"
 #import "AMLog.h"
 #import "AMUtils.h"
 #import "CPUInfoController.h"
 
 @interface CPUInfoController()
+@property (retain) CPUInfo *cpuInfo;
+
 - (NSString*)getCPUName;
 - (NSUInteger)getActiveCPUCount;
 - (NSUInteger)getPhysicalCPUCount;
@@ -31,32 +38,109 @@
 
 - (NSString*)cpuTypeToString:(cpu_type_t)cpuType;
 - (NSString*)cpuSubtypeToString:(cpu_subtype_t)cpuSubtype;
+
+@property (retain) NSTimer *cpuLoadUpdateTimer;
+- (void)cpuLoadUpdateTimerCB:(NSNotification*)notification;
+- (NSArray*)calculateCPUUsage;
 @end
 
 @implementation CPUInfoController
+{
+    processor_cpu_load_info_t priorCpuTicks;
+    mach_port_t host;
+    processor_set_name_port_t processorSet;
+}
+
+@synthesize delegate;
+
+@synthesize cpuInfo;
+
+@synthesize cpuLoadUpdateTimer;
+
+#pragma mark - override
+
+- (id)init
+{
+    if (self = [super init])
+    {     
+        // Set up mach host and default processor set for later calls.
+        host = mach_host_self();
+        processor_set_default(host, &processorSet);
+        
+        // Build the storage for the prior ticks and store the first block of data.
+        NSUInteger cpuCount;
+        processor_cpu_load_info_t processorTickInfo;
+        mach_msg_type_number_t processorMsgCount;
+        kern_return_t kStatus = host_processor_info(host, PROCESSOR_CPU_LOAD_INFO, &cpuCount,
+                                                    (processor_info_array_t*)&processorTickInfo, &processorMsgCount);
+        if (kStatus == KERN_SUCCESS)
+        {
+            priorCpuTicks = malloc(cpuCount * sizeof(*priorCpuTicks));
+            for (NSUInteger i = 0; i < cpuCount; ++i)
+            {
+                for (NSUInteger j = 0; j < CPU_STATE_MAX; ++j)
+                {
+                    priorCpuTicks[i].cpu_ticks[j] = processorTickInfo[i].cpu_ticks[j];
+                }
+            }
+            vm_deallocate(mach_task_self(), (vm_address_t)processorTickInfo, (vm_size_t)(processorMsgCount * sizeof(*processorTickInfo)));
+        }
+        else
+        {
+            AMWarn(@"%s: failure retreiving host_processor_info. kStatus == %d",
+                   __PRETTY_FUNCTION__, kStatus);
+        }
+        
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    free(priorCpuTicks);
+}
 
 #pragma mark - public
 
-- (CPUInfo*)getCpuInfo
+- (CPUInfo*)getCPUInfo
 {
-    CPUInfo *cpuInfo = [[CPUInfo alloc] init];
+    if (!self.cpuInfo)
+    {
+        self.cpuInfo = [[CPUInfo alloc] init];
+        
+        self.cpuInfo.cpuName = [self getCPUName];
+        self.cpuInfo.activeCPUCount = [self getActiveCPUCount];
+        self.cpuInfo.physicalCPUCount = [self getPhysicalCPUCount];
+        self.cpuInfo.physicalCPUMaxCount = [self getPhysicalCPUMaxCount];
+        self.cpuInfo.logicalCPUCount = [self getLogicalCPUCount];
+        self.cpuInfo.logicalCPUMaxCount = [self getLogicalCPUMaxCount];
+        self.cpuInfo.cpuFrequency = [self getCPUFrequency];
+        self.cpuInfo.l1DCache = [self getL1DCache];
+        self.cpuInfo.l1ICache = [self getL1ICache];
+        self.cpuInfo.l2Cache = [self getL2Cache];
+        self.cpuInfo.l3Cache = [self getL3Cache];
+        self.cpuInfo.cpuType = [self getCPUType];
+        self.cpuInfo.cpuSubtype = [self getCPUSubtype];
+        self.cpuInfo.endianess = [self getEndianess];
+    }
     
-    cpuInfo.cpuName = [self getCPUName];
-    cpuInfo.activeCPUCount = [self getActiveCPUCount];
-    cpuInfo.physicalCPUCount = [self getPhysicalCPUCount];
-    cpuInfo.physicalCPUMaxCount = [self getPhysicalCPUMaxCount];
-    cpuInfo.logicalCPUCount = [self getLogicalCPUCount];
-    cpuInfo.logicalCPUMaxCount = [self getLogicalCPUMaxCount];
-    cpuInfo.cpuFrequency = [self getCPUFrequency];
-    cpuInfo.l1DCache = [self getL1DCache];
-    cpuInfo.l1ICache = [self getL1ICache];
-    cpuInfo.l2Cache = [self getL2Cache];
-    cpuInfo.l3Cache = [self getL3Cache];
-    cpuInfo.cpuType = [self getCPUType];
-    cpuInfo.cpuSubtype = [self getCPUSubtype];
-    cpuInfo.endianess = [self getEndianess];
-    
-    return cpuInfo;
+    return self.cpuInfo;
+}
+
+- (void)startCPULoadUpdatesWithFrequency:(NSUInteger)frequency
+{
+    [self stopCPULoadUpdates];
+    self.cpuLoadUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 / frequency
+                                                               target:self
+                                                             selector:@selector(cpuLoadUpdateTimerCB:)
+                                                             userInfo:nil
+                                                              repeats:YES];
+}
+
+- (void)stopCPULoadUpdates
+{
+    [self.cpuLoadUpdateTimer invalidate];
+    self.cpuLoadUpdateTimer = nil;
 }
 
 #pragma mark - private
@@ -213,6 +297,141 @@
         case CPU_SUBTYPE_ARM_V7S:   return @"ARMv7S";       break;
         default:                    return @"Unknown";      break;
     }
+}
+
+- (void)cpuLoadUpdateTimerCB:(NSNotification*)notification
+{
+    NSArray *cpuLoadArray = [self calculateCPUUsage];
+    [self.delegate cpuLoadUpdated:cpuLoadArray];
+}
+
+- (NSArray*)calculateCPUUsage
+{
+    // host_info params
+    unsigned int                processorCount;
+    processor_cpu_load_info_t   processorTickInfo;
+    mach_msg_type_number_t      processorMsgCount;
+    // Errors
+    kern_return_t               kStatus;
+    // Loops
+    unsigned int                i, j;
+    // Data per proc
+    unsigned long               system, user, nice, idle;
+    unsigned long long          total, totalnonice;
+    // Data average for all procs
+    unsigned long long          systemall = 0;
+    unsigned long long          userall = 0;
+    unsigned long long          niceall = 0;
+    unsigned long long          idleall = 0;
+    unsigned long long          totalall = 0;
+    unsigned long long          totalallnonice = 0;
+    // Return data
+    NSMutableArray *loadArr;
+    
+    if (!priorCpuTicks)
+    {
+        goto Error;
+    }
+    
+    // Read the current ticks
+    kStatus = host_processor_info(mach_host_self(), PROCESSOR_CPU_LOAD_INFO, &processorCount,
+                                  (processor_info_array_t*)&processorTickInfo, &processorMsgCount);
+    if (kStatus != KERN_SUCCESS)
+    {
+        goto Error;
+    }
+    
+    loadArr = [NSMutableArray arrayWithCapacity:processorCount];
+    
+    // Loop the processors
+    for (i = 0; i < processorCount; ++i)
+    {
+        // Calc load types and totals, with guards against overflows.
+        
+        if (processorTickInfo[i].cpu_ticks[CPU_STATE_SYSTEM] >= priorCpuTicks[i].cpu_ticks[CPU_STATE_SYSTEM])
+        {
+            system = processorTickInfo[i].cpu_ticks[CPU_STATE_SYSTEM] - priorCpuTicks[i].cpu_ticks[CPU_STATE_SYSTEM];
+        }
+        else
+        {
+            system = processorTickInfo[i].cpu_ticks[CPU_STATE_SYSTEM] + (ULONG_MAX - priorCpuTicks[i].cpu_ticks[CPU_STATE_SYSTEM] + 1);
+        }
+        
+        if (processorTickInfo[i].cpu_ticks[CPU_STATE_USER] >= priorCpuTicks[i].cpu_ticks[CPU_STATE_USER])
+        {
+            user = processorTickInfo[i].cpu_ticks[CPU_STATE_USER] - priorCpuTicks[i].cpu_ticks[CPU_STATE_USER];
+        }
+        else
+        {
+            user = processorTickInfo[i].cpu_ticks[CPU_STATE_USER] + (ULONG_MAX - priorCpuTicks[i].cpu_ticks[CPU_STATE_USER] + 1);
+        }
+        
+        if (processorTickInfo[i].cpu_ticks[CPU_STATE_NICE] >= priorCpuTicks[i].cpu_ticks[CPU_STATE_NICE])
+        {
+            nice = processorTickInfo[i].cpu_ticks[CPU_STATE_NICE] - priorCpuTicks[i].cpu_ticks[CPU_STATE_NICE];
+        }
+        else
+        {
+            nice = processorTickInfo[i].cpu_ticks[CPU_STATE_NICE] + (ULONG_MAX - priorCpuTicks[i].cpu_ticks[CPU_STATE_NICE] + 1);
+        }
+        
+        if (processorTickInfo[i].cpu_ticks[CPU_STATE_IDLE] >= priorCpuTicks[i].cpu_ticks[CPU_STATE_IDLE])
+        {
+            idle = processorTickInfo[i].cpu_ticks[CPU_STATE_IDLE] - priorCpuTicks[i].cpu_ticks[CPU_STATE_IDLE];
+        }
+        else
+        {
+            idle = processorTickInfo[i].cpu_ticks[CPU_STATE_IDLE] + (ULONG_MAX - priorCpuTicks[i].cpu_ticks[CPU_STATE_IDLE] + 1);
+        }
+        
+        total = system + user + nice + idle;
+        totalnonice = system + user + idle;
+        
+        systemall += system;
+        userall += user;
+        niceall += nice;
+        idleall += idle;
+        totalall += total;
+        totalallnonice += totalnonice;
+        
+        // Sanity
+        if (total < 1)
+        {
+            total = 1;
+        }
+        if (totalnonice < 1)
+        {
+            totalnonice = 1;
+        }
+        
+        CPULoad *loadObj            = [[CPULoad alloc] init];
+        loadObj.system              = MIN(100.0, (double)system / total         * 100.0);
+        loadObj.user                = MIN(100.0, (double)user   / total         * 100.0);
+        loadObj.nice                = MIN(100.0, (double)nice   / total         * 100.0);
+        loadObj.systemWithoutNice   = MIN(100.0, (double)system / totalnonice   * 100.0);
+        loadObj.userWithoutNice     = MIN(100.0, (double)user   / totalnonice   * 100.0);
+        [loadArr addObject:loadObj];
+    }
+    
+    for (i = 0; i < processorCount; ++i)
+    {
+        for (j = 0; j < CPU_STATE_MAX; ++j)
+        {
+            priorCpuTicks[i].cpu_ticks[j] = processorTickInfo[i].cpu_ticks[j];
+        }
+    }
+    
+    vm_deallocate(mach_task_self(), (vm_address_t)processorTickInfo, (vm_size_t)(processorMsgCount * sizeof(*processorTickInfo)));
+    
+    return loadArr;
+    
+Error:
+    loadArr = [NSMutableArray arrayWithCapacity:self.cpuInfo.activeCPUCount];
+    for (NSUInteger i = 0; i < self.cpuInfo.activeCPUCount; ++i)
+    {
+        [loadArr addObject:[[CPULoad alloc] init]];
+    }
+    return loadArr;
 }
 
 @end

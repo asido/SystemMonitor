@@ -7,8 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CPULoad.h"
 #import "CPUInfo.h"
 
+@protocol CPUInfoControllerDelegate
+- (void)cpuLoadUpdated:(NSArray*)loadArray;
+@end
+
 @interface CPUInfoController : NSObject
-- (CPUInfo*)getCpuInfo;
+@property (assign) id<CPUInfoControllerDelegate> delegate;
+
+- (CPUInfo*)getCPUInfo;
+- (void)startCPULoadUpdatesWithFrequency:(NSUInteger)frequency;
+- (void)stopCPULoadUpdates;
 @end
