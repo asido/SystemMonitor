@@ -14,6 +14,12 @@
 #import "AppDelegate.h"
 
 @implementation AppDelegate
+@synthesize iDevice;
+
++ (AppDelegate*)sharedDelegate
+{
+    return (AppDelegate*)[[UIApplication sharedApplication] delegate];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -21,6 +27,8 @@
     [DDLog addLogger:[DDASLLogger sharedInstance]];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     [DDLog addLogger:[[DDFileLogger alloc] init]];
+    
+    self.iDevice = [[AMDevice alloc] init];
     
     return YES;
 }

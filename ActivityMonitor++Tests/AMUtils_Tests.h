@@ -1,13 +1,13 @@
 //
-//  DeviceInfo.m
+//  AMUtils_Tests.h
 //  ActivityMonitor++
 //
 //  Created by st on 07/05/2013.
 //  Copyright (c) 2013 st. All rights reserved.
 //
 
-#import "DeviceInfo.h"
+#import <SenTestingKit/SenTestingKit.h>
 
-@implementation DeviceInfo
-@synthesize deviceName;
+@interface AMUtils_Tests : SenTestCase
+
 @end

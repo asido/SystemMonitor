@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface DeviceInfo : NSObject
-@property (retain) NSString *machineName;
+@property (retain) const NSString *deviceName;
 @end

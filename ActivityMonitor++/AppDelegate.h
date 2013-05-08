@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMDevice.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
 @property (strong, nonatomic) UIWindow *window;
+@property (retain) AMDevice *iDevice;
 
++ (AppDelegate*)sharedDelegate;
 @end

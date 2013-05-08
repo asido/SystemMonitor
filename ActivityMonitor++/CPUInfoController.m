@@ -7,17 +7,30 @@
 //
 
 #import <sys/sysctl.h>
-#import <mach/mach_host.h>
+#import <mach/machine.h>
+#import "HardcodedDeviceData.h"
 #import "AMLog.h"
+#import "AMUtils.h"
 #import "CPUInfoController.h"
 
 @interface CPUInfoController()
+- (NSString*)getCPUName;
+- (NSUInteger)getActiveCPUCount;
+- (NSUInteger)getPhysicalCPUCount;
+- (NSUInteger)getPhysicalCPUMaxCount;
+- (NSUInteger)getLogicalCPUCount;
+- (NSUInteger)getLogicalCPUMaxCount;
+- (NSUInteger)getCPUFrequency;
+- (NSUInteger)getL1ICache;
+- (NSUInteger)getL1DCache;
+- (NSUInteger)getL2Cache;
+- (NSUInteger)getL3Cache;
+- (NSString*)getCPUType;
+- (NSString*)getCPUSubtype;
+- (NSString*)getEndianess;
+
 - (NSString*)cpuTypeToString:(cpu_type_t)cpuType;
 - (NSString*)cpuSubtypeToString:(cpu_subtype_t)cpuSubtype;
-- (host_basic_info_data_t*)getHostInfo:(host_basic_info_data_t*)hostInfo;
-- (NSString*)getMachineModel;
-- (NSString*)getEndianess;
-- (NSUInteger)getActiveCPUCount;
 @end
 
 @implementation CPUInfoController
@@ -28,25 +41,146 @@
 {
     CPUInfo *cpuInfo = [[CPUInfo alloc] init];
     
-    
-    host_basic_info_data_t hostInfo;
-    [self getHostInfo:&hostInfo];
-    
+    cpuInfo.cpuName = [self getCPUName];
     cpuInfo.activeCPUCount = [self getActiveCPUCount];
-    cpuInfo.physicalCPUCount = hostInfo.physical_cpu;
-    cpuInfo.physicalCPUMaxCount = hostInfo.physical_cpu_max;
-    cpuInfo.logicalCPUCount = hostInfo.logical_cpu;
-    cpuInfo.logicalCPUMaxCount = hostInfo.logical_cpu_max;
-    cpuInfo.cpuType = [self cpuTypeToString:hostInfo.cpu_type];
-    cpuInfo.cpuSubtype = [self cpuSubtypeToString:hostInfo.cpu_subtype];
-
-    cpuInfo.cpuModel = [self getMachineModel];
+    cpuInfo.physicalCPUCount = [self getPhysicalCPUCount];
+    cpuInfo.physicalCPUMaxCount = [self getPhysicalCPUMaxCount];
+    cpuInfo.logicalCPUCount = [self getLogicalCPUCount];
+    cpuInfo.logicalCPUMaxCount = [self getLogicalCPUMaxCount];
+    cpuInfo.cpuFrequency = [self getCPUFrequency];
+    cpuInfo.l1DCache = [self getL1DCache];
+    cpuInfo.l1ICache = [self getL1ICache];
+    cpuInfo.l2Cache = [self getL2Cache];
+    cpuInfo.l3Cache = [self getL3Cache];
+    cpuInfo.cpuType = [self getCPUType];
+    cpuInfo.cpuSubtype = [self getCPUSubtype];
     cpuInfo.endianess = [self getEndianess];
     
     return cpuInfo;
 }
 
 #pragma mark - private
+
+- (NSString*)getCPUName
+{
+    HardcodedDeviceData *hardcodeData = [HardcodedDeviceData sharedDeviceData];
+    return (NSString*)[hardcodeData getCPUName];
+}
+
+- (NSUInteger)getActiveCPUCount
+{
+    return (NSUInteger)[AMUtils getSysCtl64WithSpecifier:"hw.activecpu"];
+}
+
+- (NSUInteger)getPhysicalCPUCount
+{
+    return (NSUInteger)[AMUtils getSysCtl64WithSpecifier:"hw.physicalcpu"];
+}
+
+- (NSUInteger)getPhysicalCPUMaxCount
+{
+    return (NSUInteger)[AMUtils getSysCtl64WithSpecifier:"hw.physicalcpu_max"];
+}
+
+- (NSUInteger)getLogicalCPUCount
+{
+    return (NSUInteger)[AMUtils getSysCtl64WithSpecifier:"hw.logicalcpu"];
+}
+
+- (NSUInteger)getLogicalCPUMaxCount
+{
+    return (NSUInteger)[AMUtils getSysCtl64WithSpecifier:"hw.logicalcpu_max"];
+}
+
+- (NSUInteger)getCPUFrequency
+{
+    HardcodedDeviceData *hardcodeData = [HardcodedDeviceData sharedDeviceData];
+    return [hardcodeData getCPUFrequency];
+}
+
+- (NSUInteger)getL1ICache
+{
+    NSUInteger val = (NSUInteger)[AMUtils getSysCtl64WithSpecifier:"hw.l1icachesize"];
+    if (val == -1)
+    {
+        val = 0;
+    }
+    {
+        val = B_TO_KB(val);
+    }
+    return val;
+}
+
+- (NSUInteger)getL1DCache
+{
+    NSUInteger val = (NSUInteger)[AMUtils getSysCtl64WithSpecifier:"hw.l1dcachesize"];
+    if (val == -1)
+    {
+        val = 0;
+    }
+    {
+        val = B_TO_KB(val);
+    }
+    return val;
+}
+
+- (NSUInteger)getL2Cache
+{
+    NSUInteger val = (NSUInteger)[AMUtils getSysCtl64WithSpecifier:"hw.l2cachesize"];
+    if (val == -1)
+    {
+        val = 0;
+    }
+    else
+    {
+        val = B_TO_KB(val);
+    }
+    return val;
+}
+
+- (NSUInteger)getL3Cache
+{
+    NSUInteger val = (NSUInteger)[AMUtils getSysCtl64WithSpecifier:"hw.l3cachesize"];
+    if (val == -1)
+    {
+        val = 0;
+    }
+    else
+    {
+        val = B_TO_KB(val);
+    }
+    return val;
+}
+
+- (NSString*)getCPUType
+{
+    cpu_type_t cpuType = (cpu_type_t)[AMUtils getSysCtl64WithSpecifier:"hw.cputype"];
+    return [self cpuTypeToString:cpuType];
+}
+
+- (NSString*)getCPUSubtype
+{
+    cpu_subtype_t cpuSubtype = [AMUtils getSysCtl64WithSpecifier:"hw.cpusubtype"];
+    return [self cpuSubtypeToString:cpuSubtype];
+}
+
+- (NSString*)getEndianess
+{
+    NSUInteger value = (NSUInteger)[AMUtils getSysCtl64WithSpecifier:"hw.byteorder"];
+    
+    if (value == 1234)
+    {
+        return @"Little endian";
+    }
+    else if (value == 4321)
+    {
+        return @"Big endian";
+    }
+    else
+    {
+        return @"-";
+    }
+}
 
 - (NSString*)cpuTypeToString:(cpu_type_t)cpuType
 {
@@ -56,7 +190,7 @@
         case CPU_TYPE_HPPA:     return @"HP PA-RISC";       break;
         case CPU_TYPE_I386:     return @"Intel i386";       break;
         case CPU_TYPE_I860:     return @"Intel i860";       break;
-        case CPU_TYPE_MC680x0:  return @"Motorola680x0";    break;
+        case CPU_TYPE_MC680x0:  return @"Motorola 680x0";   break;
         case CPU_TYPE_MC88000:  return @"Motorola 88000";   break;
         case CPU_TYPE_MC98000:  return @"Motorola 98000";   break;
         case CPU_TYPE_POWERPC:  return @"Power PC";         break;
@@ -79,88 +213,6 @@
         case CPU_SUBTYPE_ARM_V7S:   return @"ARMv7S";       break;
         default:                    return @"Unknown";      break;
     }
-}
-
-- (host_basic_info_data_t*)getHostInfo:(host_basic_info_data_t*)hostInfo
-{
-    mach_msg_type_number_t infoCount;
-    
-    infoCount = HOST_BASIC_INFO_COUNT;
-    host_info(mach_host_self(), HOST_BASIC_INFO, (host_info_t)hostInfo, &infoCount);
-    
-    return hostInfo;
-}
-
-- (NSString*)getMachineModel
-{
-    int query[] = { CTL_HW, HW_MODEL };
-    size_t strLen;
-    
-    if (sysctl(query, 2, NULL, &strLen, NULL, 0) == -1)
-    {
-        AMWarn(@"%s: sysctl CTL_HW.HW_MODEL length failed: %s",
-              __PRETTY_FUNCTION__, strerror(errno));
-    }
-    
-    char str[strLen];
-    if (sysctl(query, 2, str, &strLen, NULL, 0) == -1)
-    {
-        AMWarn(@"%s: sysctl CTL_HW.HW_MODEL value failed: %s",
-              __PRETTY_FUNCTION__, strerror(errno));
-    }
-    
-    NSString *result = [NSString stringWithCString:str
-                                          encoding:NSUTF8StringEncoding];
-    return result;
-}
-
-- (NSString*)getEndianess
-{
-    int query[] = { CTL_HW, HW_BYTEORDER };
-    size_t len;
-    
-    if (sysctl(query, 2, NULL, &len, NULL, 0) == -1)
-    {
-        AMWarn(@"%s: sysctl CTL_HW.HW_BYTEORDER length failed: %s",
-              __PRETTY_FUNCTION__, strerror(errno));
-    }
-    assert(len <= sizeof(NSInteger));
-    
-    NSInteger val = 0;
-    if (sysctl(query, 2, &val, &len, NULL, 0) == -1)
-    {
-        AMWarn(@"%s: sysctl CTL_HW.HW_BYTEORDER value failed: %s",
-              __PRETTY_FUNCTION__, strerror(errno));
-    }
-    
-    NSString *result = @"Unknown";
-    if (val == 1234)
-    {
-        result = @"Little endian";
-    }
-    else if (val == 4321)
-    {
-        result = @"Big endian";
-    }
-    
-    AMWarn(@"Test warning");
-    
-    return result;
-}
-
-- (NSUInteger)getActiveCPUCount
-{
-    size_t size;
-    if (sysctlbyname("hw.activecpu", NULL, &size, NULL, 0) == -1)
-    {
-        AMWarn(@"%s: sysctlbyname hw.activecpu failed: %s",
-              __PRETTY_FUNCTION__, strerror(errno));
-    }
-    assert(size <= sizeof(NSUInteger));
-    
-    uint32_t val = 0;
-    sysctlbyname("hw.activecpu", &val, &size, NULL, 0);
-    return val;
 }
 
 @end

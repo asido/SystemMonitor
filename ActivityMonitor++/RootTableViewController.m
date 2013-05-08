@@ -6,22 +6,31 @@
 //  Copyright (c) 2013 st. All rights reserved.
 //
 
+#import "AMLog.h"
 #import "RootTableViewController.h"
 
-@interface RootTableViewController ()
+typedef enum {
+    VIEW_CTRL_GENERAL=0,
+    VIEW_CTRL_CPU,
+    VIEW_CTRL_PROCESSES,
+    VIEW_CTRL_RAM,
+    VIEW_CTRL_END
+} ViewCtrl_t;
 
+@interface RootTableViewController ()
+- (void)switchView:(ViewCtrl_t)viewCtrl;
 @end
 
 @implementation RootTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+static const NSString *ViewCtrlIdentifiers[] = {
+    [VIEW_CTRL_GENERAL]     = @"GeneralViewController",
+    [VIEW_CTRL_CPU]         = @"CPUViewController",
+    [VIEW_CTRL_PROCESSES]   = @"TODO",
+    [VIEW_CTRL_RAM]         = @"TODO"
+};
+
+#pragma mark - override
 
 - (void)viewDidLoad
 {
@@ -32,12 +41,38 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self switchView:VIEW_CTRL_GENERAL];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+                                animated:NO
+                          scrollPosition:UITableViewScrollPositionTop];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - private
+
+- (void)switchView:(ViewCtrl_t)viewCtrl
+{
+    assert(viewCtrl < VIEW_CTRL_END);
+    
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:(NSInteger)viewCtrl inSection:0]
+                                animated:NO
+                          scrollPosition:UITableViewScrollPositionTop];
+    
+    NSString *identifier = (NSString*)ViewCtrlIdentifiers[viewCtrl];
+    UIViewController *ctrl = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+    self.splitViewController.viewControllers = [NSArray arrayWithObjects:self.navigationController, ctrl, nil];
 }
 
 #pragma mark - Table view data source
@@ -66,56 +101,12 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    ViewCtrl_t viewCtrl = (ViewCtrl_t)indexPath.row;
+    [self switchView:viewCtrl];
 }
 
 @end

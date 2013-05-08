@@ -6,17 +6,24 @@
 //  Copyright (c) 2013 st. All rights reserved.
 //
 
-#import "CPUInfoController.h"
+#import "AppDelegate.h"
 #import "CPUViewController.h"
 
 @interface CPUViewController ()
-@property (retain) CPUInfoController    *cpuCtrl;
-@property (retain) CPUInfo              *cpuInfo;
+@property (weak, nonatomic) IBOutlet UILabel *cpuNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *architectureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *physicalCoresLabel;
+@property (weak, nonatomic) IBOutlet UILabel *logicalCoresLabel;
+@property (weak, nonatomic) IBOutlet UILabel *maxLogicalCoresLabel;
+@property (weak, nonatomic) IBOutlet UILabel *frequencyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *l1iCacheLabel;
+@property (weak, nonatomic) IBOutlet UILabel *l1dCacheLabel;
+@property (weak, nonatomic) IBOutlet UILabel *l2CacheLabel;
+@property (weak, nonatomic) IBOutlet UILabel *l3CacheLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endianessLabel;
 @end
 
 @implementation CPUViewController
-@synthesize cpuCtrl;
-@synthesize cpuInfo;
 
 - (void)viewDidLoad
 {
@@ -28,8 +35,19 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.cpuCtrl = [[CPUInfoController alloc] init];
-    self.cpuInfo = [cpuCtrl getCpuInfo];
+    
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    [self.cpuNameLabel setText:app.iDevice.cpuInfo.cpuName];
+    [self.architectureLabel setText:app.iDevice.cpuInfo.cpuSubtype];
+    [self.physicalCoresLabel setText:[NSString stringWithFormat:@"%u", app.iDevice.cpuInfo.physicalCPUCount]];
+    [self.logicalCoresLabel setText:[NSString stringWithFormat:@"%u", app.iDevice.cpuInfo.logicalCPUCount]];
+    [self.maxLogicalCoresLabel setText:[NSString stringWithFormat:@"%u", app.iDevice.cpuInfo.logicalCPUMaxCount]];
+    [self.frequencyLabel setText:[NSString stringWithFormat:@"%u MHz", app.iDevice.cpuInfo.cpuFrequency]];
+    [self.l1iCacheLabel setText:(app.iDevice.cpuInfo.l1ICache == 0 ? @"-" : [NSString stringWithFormat:@"%d KB", app.iDevice.cpuInfo.l1ICache])];
+    [self.l1dCacheLabel setText:(app.iDevice.cpuInfo.l1DCache == 0 ? @"-" : [NSString stringWithFormat:@"%d KB", app.iDevice.cpuInfo.l1DCache])];
+    [self.l2CacheLabel setText:(app.iDevice.cpuInfo.l2Cache == 0 ? @"-" : [NSString stringWithFormat:@"%d KB", app.iDevice.cpuInfo.l2Cache])];
+    [self.l3CacheLabel setText:(app.iDevice.cpuInfo.l3Cache == 0 ? @"-" : [NSString stringWithFormat:@"%d KB", app.iDevice.cpuInfo.l3Cache])];
+    [self.endianessLabel setText:app.iDevice.cpuInfo.endianess];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,30 +57,6 @@
 }
 
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
 
 /*
 // Override to support conditional editing of the table view.

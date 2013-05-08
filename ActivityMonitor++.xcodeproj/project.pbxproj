@@ -22,15 +22,16 @@
 		703D230F173818EC0001E3B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DB173818EC0001E3B3 /* UIKit.framework */; };
 		703D2310173818EC0001E3B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DD173818EC0001E3B3 /* Foundation.framework */; };
 		703D2318173818EC0001E3B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 703D2316173818EC0001E3B3 /* InfoPlist.strings */; };
-		703D231B173818EC0001E3B3 /* ActivityMonitor__Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 703D231A173818EC0001E3B3 /* ActivityMonitor__Tests.m */; };
 		703D232A17382AE10001E3B3 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232917382AE10001E3B3 /* background@2x.png */; };
 		703D232C17382F0C0001E3B3 /* CellNoJoins@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232B17382F0C0001E3B3 /* CellNoJoins@2x.png */; };
-		703D232F1738323E0001E3B3 /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703D232E1738323E0001E3B3 /* ProcessViewController.m */; };
-		703D2332173834BB0001E3B3 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 703D2331173834BB0001E3B3 /* ProcessCell.m */; };
 		70AF61321739250800EF49E9 /* CPUInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF61311739250800EF49E9 /* CPUInfo.m */; };
 		70AF61351739255700EF49E9 /* CPUInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF61341739255700EF49E9 /* CPUInfoController.m */; };
 		70AF613A17392CE600EF49E9 /* AMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF613917392CE600EF49E9 /* AMUtils.m */; };
 		70AF613D173965D500EF49E9 /* RootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF613C173965D500EF49E9 /* RootTableViewController.m */; };
+		70C2E9231739BAA8008CB1B1 /* AMUtils_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9221739BAA8008CB1B1 /* AMUtils_Tests.m */; };
+		70C2E9261739C7B7008CB1B1 /* GeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */; };
+		70C2E9291739C8D2008CB1B1 /* AMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9281739C8D2008CB1B1 /* AMDevice.m */; };
+		70CD01BC1739AB870047E72F /* HardcodedDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */; };
 		70F1F1661739676F007224AD /* FollowingRootCell-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F1F1641739676F007224AD /* FollowingRootCell-88@2x.png */; };
 		70F1F1671739676F007224AD /* TopRootCell-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F1F1651739676F007224AD /* TopRootCell-88@2x.png */; };
 		70F1F16D1739712D007224AD /* CPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F16C1739712C007224AD /* CPUViewController.m */; };
@@ -76,14 +77,8 @@
 		703D230D173818EC0001E3B3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		703D2315173818EC0001E3B3 /* ActivityMonitor++Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ActivityMonitor++Tests-Info.plist"; sourceTree = "<group>"; };
 		703D2317173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		703D2319173818EC0001E3B3 /* ActivityMonitor__Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActivityMonitor__Tests.h; sourceTree = "<group>"; };
-		703D231A173818EC0001E3B3 /* ActivityMonitor__Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActivityMonitor__Tests.m; sourceTree = "<group>"; };
 		703D232917382AE10001E3B3 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		703D232B17382F0C0001E3B3 /* CellNoJoins@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CellNoJoins@2x.png"; sourceTree = "<group>"; };
-		703D232D1738323E0001E3B3 /* ProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessViewController.h; sourceTree = "<group>"; };
-		703D232E1738323E0001E3B3 /* ProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessViewController.m; sourceTree = "<group>"; };
-		703D2330173834BB0001E3B3 /* ProcessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessCell.h; sourceTree = "<group>"; };
-		703D2331173834BB0001E3B3 /* ProcessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessCell.m; sourceTree = "<group>"; };
 		70AF61301739250800EF49E9 /* CPUInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUInfo.h; sourceTree = "<group>"; };
 		70AF61311739250800EF49E9 /* CPUInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUInfo.m; sourceTree = "<group>"; };
 		70AF61331739255700EF49E9 /* CPUInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUInfoController.h; sourceTree = "<group>"; };
@@ -92,6 +87,14 @@
 		70AF613917392CE600EF49E9 /* AMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtils.m; sourceTree = "<group>"; };
 		70AF613B173965D400EF49E9 /* RootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTableViewController.h; sourceTree = "<group>"; };
 		70AF613C173965D500EF49E9 /* RootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTableViewController.m; sourceTree = "<group>"; };
+		70C2E9211739BAA8008CB1B1 /* AMUtils_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMUtils_Tests.h; sourceTree = "<group>"; };
+		70C2E9221739BAA8008CB1B1 /* AMUtils_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtils_Tests.m; sourceTree = "<group>"; };
+		70C2E9241739C7B6008CB1B1 /* GeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralViewController.h; sourceTree = "<group>"; };
+		70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralViewController.m; sourceTree = "<group>"; };
+		70C2E9271739C8D1008CB1B1 /* AMDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDevice.h; sourceTree = "<group>"; };
+		70C2E9281739C8D2008CB1B1 /* AMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDevice.m; sourceTree = "<group>"; };
+		70CD01BA1739AB870047E72F /* HardcodedDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardcodedDeviceData.h; sourceTree = "<group>"; };
+		70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HardcodedDeviceData.m; sourceTree = "<group>"; };
 		70F1F1641739676F007224AD /* FollowingRootCell-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FollowingRootCell-88@2x.png"; sourceTree = "<group>"; };
 		70F1F1651739676F007224AD /* TopRootCell-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TopRootCell-88@2x.png"; sourceTree = "<group>"; };
 		70F1F16B1739712C007224AD /* CPUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUViewController.h; sourceTree = "<group>"; };
@@ -184,6 +187,10 @@
 				70AF613817392CE600EF49E9 /* AMUtils.h */,
 				70AF613917392CE600EF49E9 /* AMUtils.m */,
 				70F1F18F17398C37007224AD /* AMLog.h */,
+				70C2E9271739C8D1008CB1B1 /* AMDevice.h */,
+				70C2E9281739C8D2008CB1B1 /* AMDevice.m */,
+				70CD01BA1739AB870047E72F /* HardcodedDeviceData.h */,
+				70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */,
 				703D22EA173818EC0001E3B3 /* AppDelegate.h */,
 				703D22EB173818EC0001E3B3 /* AppDelegate.m */,
 			);
@@ -209,8 +216,8 @@
 		703D2313173818EC0001E3B3 /* ActivityMonitor++Tests */ = {
 			isa = PBXGroup;
 			children = (
-				703D2319173818EC0001E3B3 /* ActivityMonitor__Tests.h */,
-				703D231A173818EC0001E3B3 /* ActivityMonitor__Tests.m */,
+				70C2E9211739BAA8008CB1B1 /* AMUtils_Tests.h */,
+				70C2E9221739BAA8008CB1B1 /* AMUtils_Tests.m */,
 				703D2314173818EC0001E3B3 /* Supporting Files */,
 			);
 			path = "ActivityMonitor++Tests";
@@ -243,12 +250,10 @@
 				703D22F6173818EC0001E3B3 /* MainStoryboard_iPad.storyboard */,
 				70AF613B173965D400EF49E9 /* RootTableViewController.h */,
 				70AF613C173965D500EF49E9 /* RootTableViewController.m */,
+				70C2E9241739C7B6008CB1B1 /* GeneralViewController.h */,
+				70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */,
 				70F1F16B1739712C007224AD /* CPUViewController.h */,
 				70F1F16C1739712C007224AD /* CPUViewController.m */,
-				703D232D1738323E0001E3B3 /* ProcessViewController.h */,
-				703D232E1738323E0001E3B3 /* ProcessViewController.m */,
-				703D2330173834BB0001E3B3 /* ProcessCell.h */,
-				703D2331173834BB0001E3B3 /* ProcessCell.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -433,8 +438,6 @@
 			files = (
 				703D22E8173818EC0001E3B3 /* main.m in Sources */,
 				703D22EC173818EC0001E3B3 /* AppDelegate.m in Sources */,
-				703D232F1738323E0001E3B3 /* ProcessViewController.m in Sources */,
-				703D2332173834BB0001E3B3 /* ProcessCell.m in Sources */,
 				70AF61321739250800EF49E9 /* CPUInfo.m in Sources */,
 				70AF61351739255700EF49E9 /* CPUInfoController.m in Sources */,
 				70AF613A17392CE600EF49E9 /* AMUtils.m in Sources */,
@@ -449,6 +452,9 @@
 				70F1F18A17398B6D007224AD /* DDTTYLogger.m in Sources */,
 				70F1F18B17398B6D007224AD /* ContextFilterLogFormatter.m in Sources */,
 				70F1F18C17398B6D007224AD /* DispatchQueueLogFormatter.m in Sources */,
+				70CD01BC1739AB870047E72F /* HardcodedDeviceData.m in Sources */,
+				70C2E9261739C7B7008CB1B1 /* GeneralViewController.m in Sources */,
+				70C2E9291739C8D2008CB1B1 /* AMDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,7 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				703D231B173818EC0001E3B3 /* ActivityMonitor__Tests.m in Sources */,
+				70C2E9231739BAA8008CB1B1 /* AMUtils_Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

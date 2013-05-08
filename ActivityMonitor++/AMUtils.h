@@ -10,6 +10,10 @@
 
 #define AM_UNUSED(var)  (void)(var)
 
-@interface AMUtils : NSObject
+#define B_TO_KB(a)      ((a) / 1024)
 
+@interface AMUtils : NSObject
++ (uint64_t)getSysCtl64WithSpecifier:(char*)specifier;
++ (NSString*)getSysCtlChrWithSpecifier:(char*)specifier;
++ (uint64_t)getSysCtlHw:(uint32_t)hwSpecifier;
 @end
