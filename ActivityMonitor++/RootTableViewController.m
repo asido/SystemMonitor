@@ -14,7 +14,8 @@ typedef enum {
     VIEW_CTRL_CPU,
     VIEW_CTRL_PROCESSES,
     VIEW_CTRL_RAM,
-    VIEW_CTRL_END
+    VIEW_CTRL_GPU,
+    VIEW_CTRL_MAX
 } ViewCtrl_t;
 
 @interface RootTableViewController ()
@@ -27,7 +28,8 @@ static const NSString *ViewCtrlIdentifiers[] = {
     [VIEW_CTRL_GENERAL]     = @"GeneralViewController",
     [VIEW_CTRL_CPU]         = @"CPUViewController",
     [VIEW_CTRL_PROCESSES]   = @"TODO",
-    [VIEW_CTRL_RAM]         = @"TODO"
+    [VIEW_CTRL_RAM]         = @"TODO",
+    [VIEW_CTRL_GPU]         = @"GPUViewController"
 };
 
 #pragma mark - override
@@ -64,7 +66,7 @@ static const NSString *ViewCtrlIdentifiers[] = {
 
 - (void)switchView:(ViewCtrl_t)viewCtrl
 {
-    assert(viewCtrl < VIEW_CTRL_END);
+    NSParameterAssert(viewCtrl < VIEW_CTRL_MAX);
     
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:(NSInteger)viewCtrl inSection:0]
                                 animated:NO

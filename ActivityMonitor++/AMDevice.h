@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "DeviceInfo.h"
 #import "CPUInfo.h"
+#import "GPUInfo.h"
 
 @interface AMDevice : NSObject
 @property (readonly) DeviceInfo     *deviceInfo;
 @property (readonly) CPUInfo        *cpuInfo;
+@property (readonly) GPUInfo        *gpuInfo;
 @end

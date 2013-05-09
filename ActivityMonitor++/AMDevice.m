@@ -20,6 +20,7 @@
 {
     DeviceInfo  *_deviceInfo;
     CPUInfo     *_cpuInfo;
+    GPUInfo     *_gpuInfo;
 }
 
 - (id)init
@@ -35,6 +36,7 @@
         AppDelegate *app = [AppDelegate sharedDelegate];
         _deviceInfo = [app.deviceInfoCtrl getDeviceInfo];
         _cpuInfo = [app.cpuInfoCtrl getCPUInfo];
+        _gpuInfo = [app.gpuInfoCtrl getGPUInfo];
     }
     return self;
 }

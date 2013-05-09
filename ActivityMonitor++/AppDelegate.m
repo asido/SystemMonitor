@@ -14,6 +14,9 @@
 
 @implementation AppDelegate
 @synthesize iDevice;
+@synthesize cpuInfoCtrl;
+@synthesize deviceInfoCtrl;
+@synthesize gpuInfoCtrl;
 
 + (AppDelegate*)sharedDelegate
 {
@@ -29,6 +32,7 @@
     
     self.cpuInfoCtrl = [[CPUInfoController alloc] init];
     self.deviceInfoCtrl = [[DeviceInfoController alloc] init];
+    self.gpuInfoCtrl = [[GPUInfoController alloc] init];
     // AMDevice uses all the controllers above therefore should be initialized last.
     self.iDevice = [[AMDevice alloc] init];
     
