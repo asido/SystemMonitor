@@ -24,6 +24,7 @@
 		703D2318173818EC0001E3B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 703D2316173818EC0001E3B3 /* InfoPlist.strings */; };
 		703D232A17382AE10001E3B3 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232917382AE10001E3B3 /* background@2x.png */; };
 		703D232C17382F0C0001E3B3 /* CellNoJoins@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232B17382F0C0001E3B3 /* CellNoJoins@2x.png */; };
+		70459D19173C652200065BDD /* GraphLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 70459D18173C652200065BDD /* GraphLine.png */; };
 		70AF61321739250800EF49E9 /* CPUInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF61311739250800EF49E9 /* CPUInfo.m */; };
 		70AF61351739255700EF49E9 /* CPUInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF61341739255700EF49E9 /* CPUInfoController.m */; };
 		70AF613A17392CE600EF49E9 /* AMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF613917392CE600EF49E9 /* AMUtils.m */; };
@@ -38,6 +39,9 @@
 		70D92D67173B2B4D00C57DEA /* GPUInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D66173B2B4D00C57DEA /* GPUInfo.m */; };
 		70D92D69173B302600C57DEA /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D92D68173B302600C57DEA /* GLKit.framework */; };
 		70D92D6B173B308200C57DEA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D92D6A173B308100C57DEA /* OpenGLES.framework */; };
+		70DB194F173C6D8E002125F6 /* GraphLine2.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DB194E173C6D8E002125F6 /* GraphLine2.png */; };
+		70DB1951173C7099002125F6 /* GraphLine3.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DB1950173C7099002125F6 /* GraphLine3.png */; };
+		70DB1953173C7137002125F6 /* GraphLine4.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DB1952173C7137002125F6 /* GraphLine4.png */; };
 		70F1F1661739676F007224AD /* FollowingRootCell-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F1F1641739676F007224AD /* FollowingRootCell-88@2x.png */; };
 		70F1F1671739676F007224AD /* TopRootCell-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F1F1651739676F007224AD /* TopRootCell-88@2x.png */; };
 		70F1F16D1739712D007224AD /* CPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F16C1739712C007224AD /* CPUViewController.m */; };
@@ -51,6 +55,7 @@
 		70F1F18B17398B6D007224AD /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F18217398B6D007224AD /* ContextFilterLogFormatter.m */; };
 		70F1F18C17398B6D007224AD /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F18417398B6D007224AD /* DispatchQueueLogFormatter.m */; };
 		70F1F18D17398B6D007224AD /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 70F1F18517398B6D007224AD /* README.txt */; };
+		70FE9F11173BC5830056B891 /* GLLineGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FE9F10173BC5830056B891 /* GLLineGraph.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +90,7 @@
 		703D2317173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		703D232917382AE10001E3B3 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		703D232B17382F0C0001E3B3 /* CellNoJoins@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CellNoJoins@2x.png"; sourceTree = "<group>"; };
+		70459D18173C652200065BDD /* GraphLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GraphLine.png; sourceTree = "<group>"; };
 		70AF61301739250800EF49E9 /* CPUInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUInfo.h; sourceTree = "<group>"; };
 		70AF61311739250800EF49E9 /* CPUInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUInfo.m; sourceTree = "<group>"; };
 		70AF61331739255700EF49E9 /* CPUInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUInfoController.h; sourceTree = "<group>"; };
@@ -111,6 +117,9 @@
 		70D92D66173B2B4D00C57DEA /* GPUInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUInfo.m; sourceTree = "<group>"; };
 		70D92D68173B302600C57DEA /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		70D92D6A173B308100C57DEA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		70DB194E173C6D8E002125F6 /* GraphLine2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GraphLine2.png; sourceTree = "<group>"; };
+		70DB1950173C7099002125F6 /* GraphLine3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GraphLine3.png; sourceTree = "<group>"; };
+		70DB1952173C7137002125F6 /* GraphLine4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GraphLine4.png; sourceTree = "<group>"; };
 		70F1F1641739676F007224AD /* FollowingRootCell-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FollowingRootCell-88@2x.png"; sourceTree = "<group>"; };
 		70F1F1651739676F007224AD /* TopRootCell-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TopRootCell-88@2x.png"; sourceTree = "<group>"; };
 		70F1F16B1739712C007224AD /* CPUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUViewController.h; sourceTree = "<group>"; };
@@ -135,6 +144,8 @@
 		70F1F18417398B6D007224AD /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		70F1F18517398B6D007224AD /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		70F1F18F17398C37007224AD /* AMLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMLog.h; sourceTree = "<group>"; };
+		70FE9F0F173BC5830056B891 /* GLLineGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLLineGraph.h; sourceTree = "<group>"; };
+		70FE9F10173BC5830056B891 /* GLLineGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLLineGraph.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +212,7 @@
 		703D22E1173818EC0001E3B3 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				70FE9F0E173BC49E0056B891 /* Graph */,
 				70AF612E173924B100EF49E9 /* UI */,
 				70AF61361739256400EF49E9 /* CPU */,
 				70D92D5C173B21D800C57DEA /* GPU */,
@@ -256,6 +268,10 @@
 		703D232417381ED80001E3B3 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				70459D18173C652200065BDD /* GraphLine.png */,
+				70DB194E173C6D8E002125F6 /* GraphLine2.png */,
+				70DB1950173C7099002125F6 /* GraphLine3.png */,
+				70DB1952173C7137002125F6 /* GraphLine4.png */,
 				703D232917382AE10001E3B3 /* background@2x.png */,
 				703D232B17382F0C0001E3B3 /* CellNoJoins@2x.png */,
 				70F1F1641739676F007224AD /* FollowingRootCell-88@2x.png */,
@@ -356,6 +372,15 @@
 			path = "ActivityMonitor++";
 			sourceTree = "<group>";
 		};
+		70FE9F0E173BC49E0056B891 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				70FE9F0F173BC5830056B891 /* GLLineGraph.h */,
+				70FE9F10173BC5830056B891 /* GLLineGraph.m */,
+			);
+			name = Graph;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -438,6 +463,10 @@
 				70F1F1661739676F007224AD /* FollowingRootCell-88@2x.png in Resources */,
 				70F1F1671739676F007224AD /* TopRootCell-88@2x.png in Resources */,
 				70F1F18D17398B6D007224AD /* README.txt in Resources */,
+				70459D19173C652200065BDD /* GraphLine.png in Resources */,
+				70DB194F173C6D8E002125F6 /* GraphLine2.png in Resources */,
+				70DB1951173C7099002125F6 /* GraphLine3.png in Resources */,
+				70DB1953173C7137002125F6 /* GraphLine4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +524,7 @@
 				70D92D61173B299B00C57DEA /* GPUInfoController.m in Sources */,
 				70D92D64173B29AE00C57DEA /* GPUViewController.m in Sources */,
 				70D92D67173B2B4D00C57DEA /* GPUInfo.m in Sources */,
+				70FE9F11173BC5830056B891 /* GLLineGraph.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

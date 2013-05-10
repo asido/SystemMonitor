@@ -6,11 +6,16 @@
 //  Copyright (c) 2013 st. All rights reserved.
 //
 
+#import <GLKit/GLKit.h>
+#import "GLLineGraph.h"
 #import "AppDelegate.h"
 #import "CPUInfoController.h"
 #import "CPUViewController.h"
 
 @interface CPUViewController() <CPUInfoControllerDelegate>
+@property (retain) GLLineGraph *glGraph;
+@property (weak, nonatomic) IBOutlet GLKView *cpuUsageGLView;
+
 @property (weak, nonatomic) IBOutlet UILabel *cpuNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *architectureLabel;
 @property (weak, nonatomic) IBOutlet UILabel *physicalCoresLabel;
@@ -55,6 +60,8 @@ static const NSUInteger CPU_LOAD_UPDATES_PER_SEC = 5;
     
     [app.cpuInfoCtrl setDelegate:self];
     [app.cpuInfoCtrl startCPULoadUpdatesWithFrequency:CPU_LOAD_UPDATES_PER_SEC];
+    
+    self.glGraph = [[GLLineGraph alloc] initWithGLKView:self.cpuUsageGLView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -126,6 +133,8 @@ static const NSUInteger CPU_LOAD_UPDATES_PER_SEC = 5;
         CPULoad *cpuLoad = [loadArray objectAtIndex:i];
         double totalLoad = cpuLoad.system + cpuLoad.user + cpuLoad.nice;
         NSLog(@"CORE %d  [[ %d%% ]]", i, (NSUInteger)totalLoad);
+        
+        [self.glGraph appendValue:totalLoad];
     }
 }
 

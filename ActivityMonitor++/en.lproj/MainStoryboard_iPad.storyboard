@@ -534,14 +534,23 @@
                             </tableViewSection>
                             <tableViewSection id="xsc-Qg-o0U">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="DVN-TB-jkR">
-                                        <rect key="frame" x="0.0" y="536" width="703" height="102"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="200" id="DVN-TB-jkR">
+                                        <rect key="frame" x="0.0" y="536" width="703" height="202"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="43" y="1" width="617" height="99"/>
+                                            <rect key="frame" x="43" y="1" width="617" height="199"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <glkView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76u-kz-dvS"/>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="76u-kz-dvS" firstAttribute="leading" secondItem="DVN-TB-jkR" secondAttribute="leading" constant="43" id="NwY-hZ-coE"/>
+                                            <constraint firstAttribute="bottom" secondItem="76u-kz-dvS" secondAttribute="bottom" constant="2" id="PAH-PX-Ghw"/>
+                                            <constraint firstItem="76u-kz-dvS" firstAttribute="top" secondItem="DVN-TB-jkR" secondAttribute="top" constant="1" id="aLH-p8-p41"/>
+                                            <constraint firstItem="76u-kz-dvS" firstAttribute="centerX" secondItem="DVN-TB-jkR" secondAttribute="centerX" type="default" id="sgk-tA-J5l"/>
+                                        </constraints>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -556,6 +565,7 @@
                     <connections>
                         <outlet property="architectureLabel" destination="r7J-t7-eFd" id="9F6-eU-YBl"/>
                         <outlet property="cpuNameLabel" destination="DZs-jE-tMd" id="Ovn-sQ-pA1"/>
+                        <outlet property="cpuUsageGLView" destination="76u-kz-dvS" id="XtP-6R-5IK"/>
                         <outlet property="endianessLabel" destination="g4x-pB-DxM" id="Q9k-Jn-2De"/>
                         <outlet property="frequencyLabel" destination="ikS-y8-hqU" id="wx2-lX-FAZ"/>
                         <outlet property="l1dCacheLabel" destination="TaB-8C-gQH" id="Yo0-3C-q2y"/>
@@ -863,6 +873,40 @@
             <point key="canvasLocation" x="3379" y="918"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="CPUViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CPUViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="architectureLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="cpuNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="cpuUsageGLView" candidateClass="GLKView"/>
+                <relationship kind="outlet" name="endianessLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="frequencyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="l1dCacheLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="l1iCacheLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="l2CacheLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="l3CacheLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="logicalCoresLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="maxLogicalCoresLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="physicalCoresLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GPUViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPUViewController.h"/>
+        </class>
+        <class className="GeneralViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GeneralViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="deviceLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RootTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
