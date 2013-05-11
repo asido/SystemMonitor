@@ -10,6 +10,15 @@
 #import <GLKit/GLKit.h>
 
 @interface GLLineGraph : GLKViewController
-- (id)initWithGLKView:(GLKView*)aGLView;
-- (void)appendValue:(float)value;
+@property (assign) float    fromValue;
+@property (assign) float    toValue;
+@property (retain) NSArray  *rangeTitles; // NSString* array
+
+- (id)initWithGLKView:(GLKView*)aGLView
+        dataLineCount:(NSUInteger)count
+            fromValue:(float)from
+              toValue:(float)to
+          rangeTitles:(NSArray*)titles;
+
+- (void)appendDataValue:(float)value;
 @end

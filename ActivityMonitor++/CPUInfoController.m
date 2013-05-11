@@ -16,10 +16,12 @@
 #import "HardcodedDeviceData.h"
 #import "AMLog.h"
 #import "AMUtils.h"
+#import "CPULoadFilter.h"
 #import "CPUInfoController.h"
 
 @interface CPUInfoController()
 @property (retain) CPUInfo *cpuInfo;
+@property (retain) CPULoadFilter *cpuLoadFilter;
 
 - (NSString*)getCPUName;
 - (NSUInteger)getActiveCPUCount;
@@ -54,6 +56,7 @@
 @synthesize delegate;
 
 @synthesize cpuInfo;
+@synthesize cpuLoadFilter;
 
 @synthesize cpuLoadUpdateTimer;
 
@@ -62,7 +65,9 @@
 - (id)init
 {
     if (self = [super init])
-    {     
+    {
+        self.cpuLoadFilter = [[CPULoadFilter alloc] init];
+        
         // Set up mach host and default processor set for later calls.
         host = mach_host_self();
         processor_set_default(host, &processorSet);
@@ -302,6 +307,8 @@
 - (void)cpuLoadUpdateTimerCB:(NSNotification*)notification
 {
     NSArray *cpuLoadArray = [self calculateCPUUsage];
+    CPULoad *filteredLoad = [self.cpuLoadFilter filterLoad:[cpuLoadArray objectAtIndex:0]];
+    cpuLoadArray = [NSArray arrayWithObject:filteredLoad];
     [self.delegate cpuLoadUpdated:cpuLoadArray];
 }
 

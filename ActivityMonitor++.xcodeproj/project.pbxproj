@@ -55,6 +55,7 @@
 		70F1F18B17398B6D007224AD /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F18217398B6D007224AD /* ContextFilterLogFormatter.m */; };
 		70F1F18C17398B6D007224AD /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F18417398B6D007224AD /* DispatchQueueLogFormatter.m */; };
 		70F1F18D17398B6D007224AD /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 70F1F18517398B6D007224AD /* README.txt */; };
+		70F4D7D8173D147F007E58E2 /* CPULoadFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F4D7D7173D147F007E58E2 /* CPULoadFilter.m */; };
 		70FE9F11173BC5830056B891 /* GLLineGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FE9F10173BC5830056B891 /* GLLineGraph.m */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +145,8 @@
 		70F1F18417398B6D007224AD /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		70F1F18517398B6D007224AD /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		70F1F18F17398C37007224AD /* AMLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMLog.h; sourceTree = "<group>"; };
+		70F4D7D6173D147F007E58E2 /* CPULoadFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoadFilter.h; sourceTree = "<group>"; };
+		70F4D7D7173D147F007E58E2 /* CPULoadFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPULoadFilter.m; sourceTree = "<group>"; };
 		70FE9F0F173BC5830056B891 /* GLLineGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLLineGraph.h; sourceTree = "<group>"; };
 		70FE9F10173BC5830056B891 /* GLLineGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLLineGraph.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -300,6 +303,8 @@
 		70AF61361739256400EF49E9 /* CPU */ = {
 			isa = PBXGroup;
 			children = (
+				70F4D7D6173D147F007E58E2 /* CPULoadFilter.h */,
+				70F4D7D7173D147F007E58E2 /* CPULoadFilter.m */,
 				70D92D59173AA91300C57DEA /* CPULoad.h */,
 				70D92D5A173AA91300C57DEA /* CPULoad.m */,
 				70AF61301739250800EF49E9 /* CPUInfo.h */,
@@ -525,6 +530,7 @@
 				70D92D64173B29AE00C57DEA /* GPUViewController.m in Sources */,
 				70D92D67173B2B4D00C57DEA /* GPUInfo.m in Sources */,
 				70FE9F11173BC5830056B891 /* GLLineGraph.m in Sources */,
+				70F4D7D8173D147F007E58E2 /* CPULoadFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

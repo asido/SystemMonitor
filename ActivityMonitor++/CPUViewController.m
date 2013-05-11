@@ -61,7 +61,10 @@ static const NSUInteger CPU_LOAD_UPDATES_PER_SEC = 5;
     [app.cpuInfoCtrl setDelegate:self];
     [app.cpuInfoCtrl startCPULoadUpdatesWithFrequency:CPU_LOAD_UPDATES_PER_SEC];
     
-    self.glGraph = [[GLLineGraph alloc] initWithGLKView:self.cpuUsageGLView];
+    self.glGraph = [[GLLineGraph alloc] initWithGLKView:self.cpuUsageGLView
+                                          dataLineCount:1
+                                              fromValue:0.0f toValue:100.0f
+                                            rangeTitles:[NSArray arrayWithObjects:@"0%", @"50%", @"100%", nil]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -128,13 +131,13 @@ static const NSUInteger CPU_LOAD_UPDATES_PER_SEC = 5;
 
 - (void)cpuLoadUpdated:(NSArray *)loadArray
 {
-    for (NSUInteger i = 0; i < loadArray.count; ++i)
+//    for (NSUInteger i = 0; i < loadArray.count; ++i)
     {
-        CPULoad *cpuLoad = [loadArray objectAtIndex:i];
+        CPULoad *cpuLoad = [loadArray objectAtIndex:0];
         double totalLoad = cpuLoad.system + cpuLoad.user + cpuLoad.nice;
-        NSLog(@"CORE %d  [[ %d%% ]]", i, (NSUInteger)totalLoad);
+        NSLog(@"CORE %d  [[ %d%% ]]", 1, (NSUInteger)totalLoad);
         
-        [self.glGraph appendValue:totalLoad];
+        [self.glGraph appendDataValue:totalLoad];
     }
 }
 
