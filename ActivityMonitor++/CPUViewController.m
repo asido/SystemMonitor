@@ -12,8 +12,8 @@
 #import "CPUInfoController.h"
 #import "CPUViewController.h"
 
-@interface CPUViewController() <CPUInfoControllerDelegate>
-@property (retain) GLLineGraph *glGraph;
+@interface CPUViewController() <CPUInfoControllerDelegate, GLLineGraphDelegate>
+@property (strong, nonatomic) GLLineGraph *glGraph;
 @property (weak, nonatomic) IBOutlet GLKView *cpuUsageGLView;
 
 @property (weak, nonatomic) IBOutlet UILabel *cpuNameLabel;
@@ -30,8 +30,6 @@
 @end
 
 @implementation CPUViewController
-
-static const NSUInteger CPU_LOAD_UPDATES_PER_SEC = 5;
 
 - (void)viewDidLoad
 {
@@ -58,13 +56,11 @@ static const NSUInteger CPU_LOAD_UPDATES_PER_SEC = 5;
     [self.l3CacheLabel setText:(app.iDevice.cpuInfo.l3Cache == 0 ? @"-" : [NSString stringWithFormat:@"%d KB", app.iDevice.cpuInfo.l3Cache])];
     [self.endianessLabel setText:app.iDevice.cpuInfo.endianess];
     
-    [app.cpuInfoCtrl setDelegate:self];
-    [app.cpuInfoCtrl startCPULoadUpdatesWithFrequency:CPU_LOAD_UPDATES_PER_SEC];
-    
     self.glGraph = [[GLLineGraph alloc] initWithGLKView:self.cpuUsageGLView
                                           dataLineCount:1
                                               fromValue:0.0f toValue:100.0f
-                                            rangeTitles:[NSArray arrayWithObjects:@"0%", @"50%", @"100%", nil]];
+                                                legends:[NSArray arrayWithObjects:@"0%", @"50%", @"100%", nil]
+                                               delegate:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -139,6 +135,15 @@ static const NSUInteger CPU_LOAD_UPDATES_PER_SEC = 5;
         
         [self.glGraph appendDataValue:totalLoad];
     }
+}
+
+#pragma mark - GLLineGraph delegate
+
+- (void)graphFinishedInitializing
+{
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    [app.cpuInfoCtrl setDelegate:self];
+    [app.cpuInfoCtrl startCPULoadUpdatesWithFrequency:5];
 }
 
 @end

@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface GPUInfo : NSObject
-@property (retain) NSString *gpuName;
-@property (retain) NSString *openGLVersion;
-@property (retain) NSString *openGLVendor;
-@property (retain) NSArray  *openGLExtensions;
+@property (strong, nonatomic) NSString *gpuName;
+@property (strong, nonatomic) NSString *openGLVersion;
+@property (strong, nonatomic) NSString *openGLVendor;
+@property (strong, nonatomic) NSArray  *openGLExtensions;
 @end

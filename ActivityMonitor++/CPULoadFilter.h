@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class CPULoad;
+#import "CPULoad.h"
 
 @interface CPULoadFilter : NSObject
 - (CPULoad*)filterLoad:(CPULoad*)cpuLoad;

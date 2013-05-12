@@ -67,6 +67,16 @@
     [self _doTestSysCtlChrWithSpecifier:"hw.machinearch" forSuccess:NO];
 }
 
+- (void)test_percentageValue
+{
+    float max = 100.0f;
+    float min = 0.0f;
+    float percent = 20.0f;
+    float expected = 20.0f;
+    
+    STAssertTrue([AMUtils percentageValueFromMax:max min:min percent:percent] == expected, @"AMUtils::percentageValueFromMax is dodgy (1)");
+}
+
 #pragma mark - private
 
 - (void)_doTestSysCtl64WithSpecifier:(char*)specifier forSuccess:(BOOL)success

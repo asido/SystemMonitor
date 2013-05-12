@@ -133,4 +133,10 @@
     return val;
 }
 
++ (float)percentageValueFromMax:(float)max min:(float)min percent:(float)percent
+{
+    assert(max > min);
+    return min + ((max - min) / 100 * percent);
+}
+
 @end

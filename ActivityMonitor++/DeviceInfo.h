@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface DeviceInfo : NSObject
-@property (retain) const NSString *deviceName;
+@property (strong, nonatomic) const NSString *deviceName;
 @end

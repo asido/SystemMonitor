@@ -7,10 +7,11 @@
 //
 
 #import "AMLog.h"
+#import "AMUtils.h"
 #import "GLLineGraph.h"
 
 #if DEBUG
-#define CHECK_GL_ERROR()                        \
+#define GL_CHECK_ERROR()                        \
     do {                                        \
         GLenum error = glGetError();            \
         if (error != GL_NO_ERROR)               \
@@ -24,92 +25,120 @@
 #define CHECK_GL_ERROR()
 #endif
 
+typedef struct {
+    GLKVector3 positionCoords;
+    GLKVector2 textureCoords;
+} VertexData_t;
+
 @interface GLLineGraph() <GLKViewDelegate>
-@property (assign) NSUInteger       dataLineCount;
+@property (assign, nonatomic) BOOL          initialized;
 
-@property (retain) GLKView          *glView;
+@property (assign, nonatomic) NSUInteger    dataLineCount;
+@property (assign, nonatomic) float         fromValue;
+@property (assign, nonatomic) float         toValue;
+@property (strong, nonatomic) NSArray       *legendStrings; // NSString* array
 
-/*
- * Data line.
- */
-@property (retain) GLKBaseEffect    *dataLineBaseEffect;
-@property (assign) GLuint           dataLineGlBuffer;       /* GL line vertex buffer */
-@property (assign) GLuint           dataLineGlBufferSize;   /* Valid buffer index count */
-@property (assign) GLuint           dataLineGlBufferCurrIdx;/* Current index to be written new values to */
+@property (strong, nonatomic) GLKView       *glView;
+@property (strong, nonatomic) GLKBaseEffect *effect;
+@property (assign, nonatomic) GLfloat       aspectRatio;
 
-/*
- * Reference lines.
- */
-@property (retain) GLKBaseEffect    *referenceLineBaseEffect;
-@property (assign) GLuint           referenceLineGlBuffer;
+/* Data line
+ * TODO: this will need to be dynamic based on data line count */
+@property (assign, nonatomic) GLuint        glVertexArrayDataLine;
+@property (assign, nonatomic) GLuint        glBufferDataLine;
+@property (assign, nonatomic) GLuint        dataLineDataValidSize;  /* Valid buffer index count */
+@property (assign, nonatomic) GLuint        dataLineDataCurrIdx;    /* Current index to be written new values to */
+@property (assign, nonatomic) GLfloat       dataLineDataNextX;      /* Each added data element gets it's own unique X position */
+/* dataLineData is a circular array and so in order to utilize GL_LINE_STRIP without creating an
+ * impression of GL_LINE_LOOP we declare 2 matrixes.
+ * The first translates 0 - dataLineDataCurrIdx verticies.
+ * The second translates dataLineDataCurrIdx+1 - dataLineDataValidSize-1 verticies. */
+@property (assign, nonatomic) GLKVector3    dataLinePosition1;
+@property (assign, nonatomic) GLKVector3    dataLinePosition2;
 
-- (void)initDataLines;
-- (void)shiftDataCurve:(GLfloat)shiftSize;
-- (void)drawDataCurve;
+/* Reference lines */
+@property (assign, nonatomic) GLuint        glVertexArrayReferenceLine;
+@property (assign, nonatomic) GLuint        glBufferReferenceLine;
 
-- (void)initReferenceLines;
-- (void)drawReferenceLines;
+/* Legends */
+@property (assign, nonatomic) GLuint        glVertexArrayLegends;
+@property (assign, nonatomic) GLuint        glBufferLegends;
 
-- (void)initLegends;
-- (void)drawLegends;
+/* Graph boundaries determined based on projection and viewport. */
+@property (assign, nonatomic) GLfloat       graphBottom;
+@property (assign, nonatomic) GLfloat       graphTop;
+@property (assign, nonatomic) GLfloat       graphRight;
+@property (assign, nonatomic) GLfloat       graphLeft;
+
+- (void)setupGL;
+- (void)tearDownGL;
+
+- (void)renderDataCurve;
+- (void)renderReferenceLines;
+- (void)renderLegends;
+
+- (UIImage*)imageWithText:(NSString*)text
+                 fontName:(NSString*)fontName
+                    color:(UIColor*)color
+                    width:(float)width
+                   height:(float)height
+               rightAlign:(BOOL)rightAlign;
 @end
 
 @implementation GLLineGraph
-@synthesize dataLineCount;
+@synthesize initialized;
 
-@synthesize glView;
-@synthesize dataLineBaseEffect;
-@synthesize dataLineGlBuffer;
-@synthesize dataLineGlBufferSize;
-@synthesize dataLineGlBufferCurrIdx;
+@synthesize dataLineCount=_dataLineCount;
+@synthesize fromValue=_fromValue;
+@synthesize toValue=_toValue;
+@synthesize legendStrings=_legendStrings;
 
-@synthesize referenceLineBaseEffect;
-@synthesize referenceLineGlBuffer;
+@synthesize glView=_glView;
+@synthesize effect=_effect;
+@synthesize aspectRatio=_aspectRatio;
 
-@synthesize fromValue;
-@synthesize toValue;
-@synthesize rangeTitles;
+@synthesize glVertexArrayDataLine=_glVertexArrayDataLine;
+@synthesize glBufferDataLine=_glBufferDataLine;
+@synthesize dataLineDataValidSize=_dataLineDataValidSize;
+@synthesize dataLineDataCurrIdx=_dataLineDataCurrIdx;
+@synthesize dataLineDataNextX=_dataLineDataNextX;
+@synthesize dataLinePosition1=_dataLinePosition1;
+@synthesize dataLinePosition2=_dataLinePosition2;
 
-typedef struct {
-    GLKVector3 positionCoords;
-} LineSegment_t;
+@synthesize glVertexArrayReferenceLine=_glVertexArrayReferenceLine;
+@synthesize glBufferReferenceLine=_glBufferReferenceLine;
+
+@synthesize glVertexArrayLegends=_glVertexArrayLegends;
+@synthesize glBufferLegends=_glBufferLegends;
 
 static const GLfloat kProjectionLeft    = -10.0f;
 static const GLfloat kProjectionRight   =  10.0f;
 static const GLfloat kProjectionBottom  = -5.0f;
 static const GLfloat kProjectionTop     =  5.0f;
 static const GLfloat kProjectionNear    =  1.0f;
-static const GLfloat kProjectionFar     =  100.0f;
+static const GLfloat kProjectionFar     =  10.0f;
 
-static const GLfloat kGraphBottom       = kProjectionBottom + 1.5f;
-static const GLfloat kGraphTop          = kProjectionTop - 1.5f;
-static const GLfloat kGraphRight        = kProjectionRight - 1.0f;
-static const GLfloat kGraphLeft         = kProjectionLeft + 0.5f;
+static const GLfloat kModelZ            = -2.0f;
 
-/*
- * Data line
- */
-static const GLfloat kDataLineSegmentHeight = 3.0f;
-static const GLfloat kDataLineSegmentWidth  = 0.05f;
-static const GLfloat kDataLineVertexZ       = 0.0f;
 // TODO: we should make required buffer size calculate dynamically based on each line
 // segment width and total available screen/projection area.
 // WARNING: THE VALUE MUST BE EVEN!
-static const GLuint kMaxDataLineSegments            = 3072;
-static LineSegment_t dataLineBufferData[kMaxDataLineSegments];
+static const GLuint kMaxDataLineData    = 1500;
+static VertexData_t dataLineData[kMaxDataLineData];
+static const GLfloat kDataLineShiftSize = 0.05f;
 
-/*
- * Reference lines
- */
-static const GLfloat kReferenceLineHeight   = 1.0f;
-static const GLfloat kReferenceLineVertexZ  = 0.0f;
-static const LineSegment_t referenceLinesBufferData[] = {
-    {{ kGraphLeft , kGraphBottom                    , kReferenceLineVertexZ }}, // Bottom line
-    {{ kGraphRight, kGraphBottom                    , kReferenceLineVertexZ }},
-    {{ kGraphLeft , (kGraphTop + kGraphBottom) / 2  , kReferenceLineVertexZ }}, // Mid line
-    {{ kGraphRight, (kGraphTop + kGraphBottom) / 2  , kReferenceLineVertexZ }},
-    {{ kGraphLeft , kGraphTop                       , kReferenceLineVertexZ }}, // Top line
-    {{ kGraphRight, kGraphTop                       , kReferenceLineVertexZ }}
+static const VertexData_t referenceLineData[] = {
+    {{ 0.0f, 0.0f, 0.0f }},
+    {{ 1.0f, 0.0f, 0.0f }}
+};
+
+static const VertexData_t legendData[] = {
+    {{ 0.0f, 0.0f, 0.0f }, { 0.0f, 0.0f }},
+    {{ 1.0f, 0.0f, 0.0f }, { 1.0f, 0.0f }},
+    {{ 0.0f, 1.0f, 0.0f }, { 0.0f, 1.0f }},
+    {{ 1.0f, 0.0f, 0.0f }, { 1.0f, 0.0f }},
+    {{ 1.0f, 1.0f, 0.0f }, { 1.0f, 1.0f }},
+    {{ 0.0f, 1.0f, 0.0f }, { 0.0f, 1.0f }}
 };
 
 #pragma mark - public
@@ -118,251 +147,422 @@ static const LineSegment_t referenceLinesBufferData[] = {
         dataLineCount:(NSUInteger)count
             fromValue:(float)from
               toValue:(float)to
-          rangeTitles:(NSArray*)titles
+              legends:(NSArray*)legends
+             delegate:(id)aDelegate
 {
     if (self = [super init])
     {
+        self.delegate = aDelegate;
+        
         self.dataLineCount = count;
         self.fromValue = from;
         self.toValue = to;
-        self.rangeTitles = titles;
+        self.legendStrings = legends;
         
         self.glView = aGLView;
         self.view = self.glView;
+                
+        self.graphTop = [AMUtils percentageValueFromMax:kProjectionTop min:kProjectionBottom percent:90];
+        self.graphBottom = [AMUtils percentageValueFromMax:kProjectionTop min:kProjectionBottom percent:20];
+        self.graphLeft = [AMUtils percentageValueFromMax:kProjectionRight min:kProjectionLeft percent:5];
+        self.graphRight = [AMUtils percentageValueFromMax:kProjectionRight min:kProjectionLeft percent:95];
         
-        EAGLContext *glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-        if (!glContext)
-        {
-            AMWarn(@"%s: EAGLContext == nil", __PRETTY_FUNCTION__);
-            return nil;
-        }
+        self.dataLineDataValidSize = 0;
+        self.dataLineDataCurrIdx = 0;
         
-        [self.glView setContext:glContext];
-        [EAGLContext setCurrentContext:self.glView.context];
-        
-        // Enable for performance reasons as it removes many of the triangles to draw.
-        glEnable(GL_CULL_FACE);
-        // Enabled by default.
-        glDisable(GL_DITHER);
-        CHECK_GL_ERROR();
-
-        [self initDataLines];
-        [self initReferenceLines];
-        [self initLegends];
+        [self setupGL];
     }
     return self;
 }
 
+- (void)dealloc
+{
+    [self tearDownGL];
+}
+
 - (void)appendDataValue:(float)value
 {
-    CGFloat aspectRatio = (GLfloat)self.glView.drawableWidth / (GLfloat)self.glView.drawableHeight;
-    GLfloat vX = kGraphRight * aspectRatio;
-    GLfloat vY = kGraphBottom + ((kGraphTop - kGraphBottom) / 100 * value);
+    GLfloat vX = self.dataLineDataNextX++;
+    GLfloat vY = [AMUtils percentageValueFromMax:self.graphTop min:self.graphBottom percent:value];
+    BOOL bufferSizeIncreased = NO;
     
-    [self shiftDataCurve:kDataLineSegmentWidth];
-    
-    if (self.dataLineGlBufferSize > 0)
+    if (self.dataLineDataValidSize == 0)
     {
-        NSUInteger prevIdx;
+        dataLineData[0].positionCoords.x = vX;
+        dataLineData[0].positionCoords.y = vY;
+        dataLineData[0].positionCoords.z = kModelZ;
         
-        if (self.dataLineGlBufferCurrIdx == 0)
+        self.dataLineDataCurrIdx++;
+        self.dataLineDataValidSize++;
+        bufferSizeIncreased = YES;
+    }
+    else
+    {        
+        dataLineData[self.dataLineDataCurrIdx].positionCoords.x = vX;
+        dataLineData[self.dataLineDataCurrIdx].positionCoords.y = vY;
+        dataLineData[self.dataLineDataCurrIdx].positionCoords.z = kModelZ;
+        
+        self.dataLineDataCurrIdx++;
+        
+        if (self.dataLineDataValidSize < kMaxDataLineData)
         {
-            prevIdx = self.dataLineGlBufferSize - 1;
+            self.dataLineDataValidSize++;
+            bufferSizeIncreased = YES;
         }
-        else
-        {
-            prevIdx = self.dataLineGlBufferCurrIdx - 1;
-        }
+    }
+    
+    // Check if we need to wrap the circular data line buffer.
+    if (self.dataLineDataCurrIdx >= kMaxDataLineData)
+    {
+        // First we move the first data position vector to the second in order to keep the old values moving.
+        // It is assumed that the old values which dataLinePosition2 was moving before this assignment
+        // are already offscreen.
+        self.dataLinePosition2 = self.dataLinePosition1;
         
-        dataLineBufferData[self.dataLineGlBufferCurrIdx].positionCoords.x = dataLineBufferData[prevIdx].positionCoords.x;
-        dataLineBufferData[self.dataLineGlBufferCurrIdx].positionCoords.y = dataLineBufferData[prevIdx].positionCoords.y;
-        dataLineBufferData[self.dataLineGlBufferCurrIdx].positionCoords.z = dataLineBufferData[prevIdx].positionCoords.z;
+        // Then re-init the first data position vector to starting position.
+        GLfloat xTranslate = self.graphRight * self.aspectRatio;
+        self.dataLinePosition1 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
         
-        self.dataLineGlBufferCurrIdx++;
+        self.dataLineDataNextX = 0;
+        self.dataLineDataCurrIdx = 0;
     }
     else
     {
-        dataLineBufferData[0].positionCoords.x = vX - kDataLineSegmentWidth;
-        dataLineBufferData[0].positionCoords.y = vY;
-        dataLineBufferData[0].positionCoords.z = kDataLineVertexZ;
-        
-        self.dataLineGlBufferCurrIdx++;
+        // Shift data line translation matrixes.
+        GLKVector3 shift = GLKVector3Make(-kDataLineShiftSize, 0.0f, 0.0f);
+        self.dataLinePosition1 = GLKVector3Add(self.dataLinePosition1, shift);
+        self.dataLinePosition2 = GLKVector3Add(self.dataLinePosition2, shift);
     }
-
-    dataLineBufferData[self.dataLineGlBufferCurrIdx].positionCoords.x = vX;
-    dataLineBufferData[self.dataLineGlBufferCurrIdx].positionCoords.y = vY;
-    dataLineBufferData[self.dataLineGlBufferCurrIdx].positionCoords.z = kDataLineVertexZ;
-    self.dataLineGlBufferCurrIdx++;
     
-    if (self.dataLineGlBufferSize < kMaxDataLineSegments)
+    glBindBuffer(GL_ARRAY_BUFFER, self.glBufferDataLine);
+    
+    if (bufferSizeIncreased)
     {
-        // Increase GL buffer size.
-        self.dataLineGlBufferSize += 2;
+        glBufferData(GL_ARRAY_BUFFER,
+                     self.dataLineDataValidSize * sizeof(VertexData_t),
+                     dataLineData, GL_DYNAMIC_DRAW);
     }
-    
-    if (self.dataLineGlBufferCurrIdx >= kMaxDataLineSegments)
+    else
     {
-        // Start filling the array from the beginning.
-        self.dataLineGlBufferCurrIdx = 0;
+        glBufferSubData(GL_ARRAY_BUFFER, 0,
+                        self.dataLineDataValidSize * sizeof(VertexData_t),
+                        dataLineData);
     }
     
-    glBindBuffer(GL_ARRAY_BUFFER, self.dataLineGlBuffer);
-    glBufferData(GL_ARRAY_BUFFER,
-                 self.dataLineGlBufferSize * sizeof(LineSegment_t),
-                 dataLineBufferData, GL_DYNAMIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
 #pragma mark - private
 
-- (void)initDataLines
+- (void)setupGL
 {
-    self.dataLineGlBufferSize = 0;
-    self.dataLineGlBufferCurrIdx = 0;
-    
-    // Color
-    self.dataLineBaseEffect = [[GLKBaseEffect alloc] init];
-    self.dataLineBaseEffect.useConstantColor = GL_TRUE;    // Yellow
-    self.dataLineBaseEffect.constantColor = GLKVector4Make(1.0f,  // R
-                                                           1.0f,  // G
-                                                           0.0f,  // B
-                                                           1.0f); // A
-    
-    // Transformation
-    self.dataLineBaseEffect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -5.0f);
-    
-    // Data
-    glGenBuffers(1, &dataLineGlBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, self.dataLineGlBuffer);
-    glBufferData(GL_ARRAY_BUFFER, 0, dataLineBufferData, GL_DYNAMIC_DRAW);
-    
-    CHECK_GL_ERROR();
-}
-
-- (void)shiftDataCurve:(GLfloat)shiftSize
-{
-    NSUInteger idx;
-    
-    if (self.dataLineGlBufferSize == 0)
+    EAGLContext *glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    if (!glContext)
     {
+        AMWarn(@"%s: EAGLContext == nil", __PRETTY_FUNCTION__);
         return;
     }
     
-    // First we shift the values which are ahead of current index in the array.
-    idx = self.dataLineGlBufferCurrIdx;
-    while (idx < self.dataLineGlBufferSize)
+    [self.glView setContext:glContext];
+    [EAGLContext setCurrentContext:self.glView.context];
+    
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    
+    // Enable for performance reasons as it removes many of the triangles to draw.
+    glEnable(GL_CULL_FACE);
+    // Enabled by default.
+    glDisable(GL_DITHER);
+    
+    self.effect = [[GLKBaseEffect alloc] init];
+    self.effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -5.0f);
+    
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArrayOES(0);
+    
+    /*
+     * Data line VBO.
+     */
     {
-        dataLineBufferData[idx].positionCoords.x -= shiftSize;
-        idx++;
+        glGenVertexArraysOES(1, &_glVertexArrayDataLine);
+        glBindVertexArrayOES(self.glVertexArrayDataLine);
+        
+        glGenBuffers(1, &_glBufferDataLine);
+        glBindBuffer(GL_ARRAY_BUFFER, self.glBufferDataLine);
+        glBufferData(GL_ARRAY_BUFFER, self.dataLineDataValidSize * sizeof(VertexData_t), dataLineData, GL_DYNAMIC_DRAW);
+        
+        glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(VertexData_t),
+                              NULL + offsetof(VertexData_t, positionCoords));
+        glEnableVertexAttribArray(GLKVertexAttribPosition);
+        
+        GL_CHECK_ERROR();
     }
     
-    // Lastly shift the values which are before current index.
-    idx = 0;
-    while (idx != self.dataLineGlBufferCurrIdx)
+    /*
+     * Reference lines VBO.
+     */
     {
-        dataLineBufferData[idx].positionCoords.x -= shiftSize;
-        idx++;
+        glGenVertexArraysOES(1, &_glVertexArrayReferenceLine);
+        glBindVertexArrayOES(self.glVertexArrayReferenceLine);
+        
+        glGenBuffers(1, &_glBufferReferenceLine);
+        glBindBuffer(GL_ARRAY_BUFFER, self.glBufferReferenceLine);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(referenceLineData), referenceLineData, GL_STATIC_DRAW);
+        
+        glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(VertexData_t),
+                              NULL + offsetof(VertexData_t, positionCoords));
+        glEnableVertexAttribArray(GLKVertexAttribPosition);
+        
+        GL_CHECK_ERROR();
+    }
+    
+    /*
+     * Legend lines VBO.
+     */
+    {
+        glGenVertexArraysOES(1, &_glVertexArrayLegends);
+        glBindVertexArrayOES(self.glVertexArrayLegends);
+        
+        glGenBuffers(1, &_glBufferLegends);
+        glBindBuffer(GL_ARRAY_BUFFER, self.glBufferLegends);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(legendData), legendData, GL_STATIC_DRAW);
+        
+        glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE,
+                              sizeof(VertexData_t), NULL + offsetof(VertexData_t, positionCoords));
+        glEnableVertexAttribArray(GLKVertexAttribPosition);
+        
+        
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        
+        GL_CHECK_ERROR();
     }
 }
 
-- (void)drawDataCurve
+- (void)tearDownGL
 {
-    if (self.dataLineGlBufferSize == 0)
+    glDeleteBuffers(1, &_glBufferDataLine);
+    glDeleteVertexArraysOES(1, &_glVertexArrayDataLine);
+    glDeleteBuffers(1, &_glBufferReferenceLine);
+    glDeleteVertexArraysOES(1, &_glVertexArrayReferenceLine);
+    glDeleteBuffers(1, &_glBufferLegends);
+    glDeleteVertexArraysOES(1, &_glVertexArrayLegends);
+    self.effect = nil;
+    
+    GL_CHECK_ERROR();
+}
+
+- (void)renderDataCurve
+{
+    if (self.dataLineDataValidSize == 0)
     {
         // No verticies to draw.
         return;
     }
     
-    CGFloat aspectRatio = (GLfloat)self.glView.drawableWidth / (GLfloat)self.glView.drawableHeight;
-    self.dataLineBaseEffect.transform.projectionMatrix = GLKMatrix4MakeOrtho(kProjectionLeft * aspectRatio,
-                                                                             kProjectionRight * aspectRatio,
-                                                                             kProjectionBottom,
-                                                                             kProjectionTop,
-                                                                             kProjectionNear,
-                                                                             kProjectionFar);
+    /*
+     * Render the first batch starting from 0 to self.dataLineDataCurrIdx.
+     */
+    {
+        glBindVertexArrayOES(self.glVertexArrayDataLine);
+        
+        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
+        GLKVector3 position = self.dataLinePosition1;
+        GLKMatrix4 xRotationMatrix = GLKMatrix4MakeXRotation(rotation.x);
+        GLKMatrix4 yRotationMatrix = GLKMatrix4MakeYRotation(rotation.y);
+        GLKMatrix4 zRotationMatrix = GLKMatrix4MakeZRotation(rotation.z);
+        GLKMatrix4 scaleMatrix = GLKMatrix4MakeScale(kDataLineShiftSize, 1.0f, 1.0f);
+        GLKMatrix4 translateMatrix = GLKMatrix4MakeTranslation(position.x, position.y, position.z);
+        
+        GLKMatrix4 modelMatrix = GLKMatrix4Multiply(translateMatrix,
+                                                    GLKMatrix4Multiply(scaleMatrix,
+                                                                       GLKMatrix4Multiply(zRotationMatrix,
+                                                                                          GLKMatrix4Multiply(yRotationMatrix,
+                                                                                                             xRotationMatrix))));
+        self.effect.transform.modelviewMatrix = modelMatrix;
+        self.effect.useConstantColor = YES;
+        self.effect.constantColor = GLKVector4Make(1.0f, 1.0f, 0.0f, 1.0f);
+        [self.effect prepareToDraw];
+        
+        glLineWidth(3.0f);
+        glDrawArrays(GL_LINE_STRIP, 0, self.dataLineDataCurrIdx);
+        
+        GL_CHECK_ERROR();
+    }
     
-    glLineWidth(kDataLineSegmentHeight);
-    
-    // Prepare verticies.
-    glBindBuffer(GL_ARRAY_BUFFER, self.dataLineGlBuffer);
-    glEnableVertexAttribArray(GLKVertexAttribPosition);
-    glVertexAttribPointer(GLKVertexAttribPosition,
-                          3,                                        // Components per vertex
-                          GL_FLOAT,                                 // Data is float
-                          GL_FALSE,                                 // No fixed point scaling
-                          sizeof(LineSegment_t),                    // No gaps in data
-                          NULL + offsetof(LineSegment_t, positionCoords));  // Data offset
-    
-    [self.dataLineBaseEffect prepareToDraw];
-    glDrawArrays(GL_LINES, 0, self.dataLineGlBufferSize);
-    
-    CHECK_GL_ERROR();
+    /*
+     * Render the second batch starting from self.dataLineDataCurrIdx+1 to the end.
+     */
+    if (self.dataLineDataValidSize > self.dataLineDataCurrIdx)
+    {
+        glBindVertexArrayOES(self.glVertexArrayDataLine);
+        
+        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
+        GLKVector3 position = self.dataLinePosition2;
+        GLKMatrix4 xRotationMatrix = GLKMatrix4MakeXRotation(rotation.x);
+        GLKMatrix4 yRotationMatrix = GLKMatrix4MakeYRotation(rotation.y);
+        GLKMatrix4 zRotationMatrix = GLKMatrix4MakeZRotation(rotation.z);
+        GLKMatrix4 scaleMatrix = GLKMatrix4MakeScale(kDataLineShiftSize, 1.0f, 1.0f);
+        GLKMatrix4 translateMatrix = GLKMatrix4MakeTranslation(position.x, position.y, position.z);
+        
+        GLKMatrix4 modelMatrix = GLKMatrix4Multiply(translateMatrix,
+                                                    GLKMatrix4Multiply(scaleMatrix,
+                                                                       GLKMatrix4Multiply(zRotationMatrix,
+                                                                                          GLKMatrix4Multiply(yRotationMatrix,
+                                                                                                             xRotationMatrix))));
+        self.effect.transform.modelviewMatrix = modelMatrix;
+        self.effect.useConstantColor = YES;
+        self.effect.constantColor = GLKVector4Make(1.0f, 1.0f, 0.0f, 1.0f);
+        [self.effect prepareToDraw];
+        
+        glLineWidth(3.0f);
+        glDrawArrays(GL_LINE_STRIP, self.dataLineDataCurrIdx, self.dataLineDataValidSize - self.dataLineDataCurrIdx);
+        
+        GL_CHECK_ERROR();
+    }
 }
 
-- (void)initReferenceLines
-{    
-    // Color
-    self.referenceLineBaseEffect = [[GLKBaseEffect alloc] init];
-    self.referenceLineBaseEffect.useConstantColor = GL_TRUE;
-    self.referenceLineBaseEffect.constantColor = GLKVector4Make(0.25f, 0.25f, 0.25f, 1.0f);
+- (void)renderReferenceLines
+{
+    GLfloat x = self.graphLeft * self.aspectRatio;
+    GLfloat xScale = (self.graphRight - self.graphLeft) * self.aspectRatio;
     
-    // Projection
-    self.referenceLineBaseEffect.transform.projectionMatrix = GLKMatrix4MakeOrtho(kProjectionLeft,
-                                                                                  kProjectionRight,
-                                                                                  kProjectionBottom,
-                                                                                  kProjectionTop,
-                                                                                  kProjectionNear,
-                                                                                  kProjectionFar);
+    /*
+     * Top reference line.
+     */
+    {
+        glBindVertexArrayOES(self.glVertexArrayReferenceLine);
+        
+        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
+        GLKVector3 position = GLKVector3Make(x, self.graphTop, kModelZ);
+        GLKMatrix4 xRotationMatrix = GLKMatrix4MakeXRotation(rotation.x);
+        GLKMatrix4 yRotationMatrix = GLKMatrix4MakeYRotation(rotation.y);
+        GLKMatrix4 zRotationMatrix = GLKMatrix4MakeZRotation(rotation.z);
+        GLKMatrix4 scaleMatrix = GLKMatrix4MakeScale(xScale, 1.0f, 1.0f);
+        GLKMatrix4 translateMatrix = GLKMatrix4MakeTranslation(position.x, position.y, position.z);
+        
+        GLKMatrix4 modelMatrix = GLKMatrix4Multiply(translateMatrix,
+                                                    GLKMatrix4Multiply(scaleMatrix,
+                                                                       GLKMatrix4Multiply(zRotationMatrix,
+                                                                                          GLKMatrix4Multiply(yRotationMatrix,
+                                                                                                             xRotationMatrix))));
+        self.effect.transform.modelviewMatrix = modelMatrix;
+        self.effect.useConstantColor = YES;
+        self.effect.constantColor = GLKVector4Make(0.25f, 0.25f, 0.25f, 1.0f);
+        [self.effect prepareToDraw];
+        
+        glLineWidth(1.0f);
+        glDrawArrays(GL_LINES, 0, sizeof(referenceLineData) / sizeof(VertexData_t));
+        
+        GL_CHECK_ERROR();
+    }
     
-    // Transformation
-    self.referenceLineBaseEffect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -5.0f);
+    /*
+     * Mid reference line.
+     */
+    {
+        GLfloat y = [AMUtils percentageValueFromMax:self.graphTop min:self.graphBottom percent:50];
+        
+        glBindVertexArrayOES(self.glVertexArrayReferenceLine);
+        
+        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
+        GLKVector3 position = GLKVector3Make(x, y, kModelZ);
+        GLKMatrix4 xRotationMatrix = GLKMatrix4MakeXRotation(rotation.x);
+        GLKMatrix4 yRotationMatrix = GLKMatrix4MakeYRotation(rotation.y);
+        GLKMatrix4 zRotationMatrix = GLKMatrix4MakeZRotation(rotation.z);
+        GLKMatrix4 scaleMatrix = GLKMatrix4MakeScale(xScale, 1.0f, 1.0f);
+        GLKMatrix4 translateMatrix = GLKMatrix4MakeTranslation(position.x, position.y, position.z);
+        
+        GLKMatrix4 modelMatrix = GLKMatrix4Multiply(translateMatrix,
+                                                    GLKMatrix4Multiply(scaleMatrix,
+                                                                       GLKMatrix4Multiply(zRotationMatrix,
+                                                                                          GLKMatrix4Multiply(yRotationMatrix,
+                                                                                                             xRotationMatrix))));
+        self.effect.transform.modelviewMatrix = modelMatrix;
+        self.effect.useConstantColor = YES;
+        self.effect.constantColor = GLKVector4Make(0.25f, 0.25f, 0.25f, 1.0f);
+        [self.effect prepareToDraw];
+        
+        glLineWidth(1.0f);
+        glDrawArrays(GL_LINES, 0, sizeof(referenceLineData) / sizeof(VertexData_t));
+        
+        GL_CHECK_ERROR();
+    }
     
-    // Data
-    glGenBuffers(1, &referenceLineGlBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, self.referenceLineGlBuffer);
-    glBufferData(GL_ARRAY_BUFFER,
-                 sizeof(referenceLinesBufferData),
-                 referenceLinesBufferData,
-                 GL_STATIC_DRAW);
-
-    CHECK_GL_ERROR();
+    /*
+     * Bottom reference line.
+     */
+    {
+        glBindVertexArrayOES(self.glVertexArrayReferenceLine);
+        
+        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
+        GLKVector3 position = GLKVector3Make(x, self.graphBottom, kModelZ);
+        GLKMatrix4 xRotationMatrix = GLKMatrix4MakeXRotation(rotation.x);
+        GLKMatrix4 yRotationMatrix = GLKMatrix4MakeYRotation(rotation.y);
+        GLKMatrix4 zRotationMatrix = GLKMatrix4MakeZRotation(rotation.z);
+        GLKMatrix4 scaleMatrix = GLKMatrix4MakeScale(xScale, 1.0f, 1.0f);
+        GLKMatrix4 translateMatrix = GLKMatrix4MakeTranslation(position.x, position.y, position.z);
+        
+        GLKMatrix4 modelMatrix = GLKMatrix4Multiply(translateMatrix,
+                                                    GLKMatrix4Multiply(scaleMatrix,
+                                                                       GLKMatrix4Multiply(zRotationMatrix,
+                                                                                          GLKMatrix4Multiply(yRotationMatrix,
+                                                                                                             xRotationMatrix))));
+        self.effect.transform.modelviewMatrix = modelMatrix;
+        self.effect.useConstantColor = YES;
+        self.effect.constantColor = GLKVector4Make(0.25f, 0.25f, 0.25f, 1.0f);
+        [self.effect prepareToDraw];
+        
+        glLineWidth(1.0f);
+        glDrawArrays(GL_LINES, 0, sizeof(referenceLineData) / sizeof(VertexData_t));
+        
+        GL_CHECK_ERROR();
+    }
 }
 
-- (void)drawReferenceLines
-{    
-    glLineWidth(kReferenceLineHeight);
+- (void)renderLegends
+{
+    /*
+    glBindVertexArrayOES(self.legendsGlVAO);
+    [self.legendsEffect prepareToDraw];
+    glDrawArrays(GL_TRIANGLES, 0, sizeof(legendsData) / sizeof(LegendVertexData_t));
     
-    // Prepare verticies.
-    glBindBuffer(GL_ARRAY_BUFFER, self.referenceLineGlBuffer);
-    glEnableVertexAttribArray(GLKVertexAttribPosition);
-    glVertexAttribPointer(GLKVertexAttribPosition,
-                          3,
-                          GL_FLOAT,
-                          GL_FALSE,
-                          sizeof(LineSegment_t),
-                          NULL + offsetof(LineSegment_t, positionCoords));
-    
-    [self.referenceLineBaseEffect prepareToDraw];
-    glDrawArrays(GL_LINES,
-                 0,
-                 sizeof(referenceLinesBufferData) / sizeof(LineSegment_t));
-    
-    CHECK_GL_ERROR();
+    GL_CHECK_ERROR();
+     */
 }
 
-- (void)initLegends
-{    
-    CHECK_GL_ERROR();
-}
-
-- (void)drawLegends
-{    
-    CHECK_GL_ERROR();
+- (UIImage*)imageWithText:(NSString*)text
+                 fontName:(NSString*)fontName
+                    color:(UIColor*)color
+                    width:(float)width
+                   height:(float)height
+               rightAlign:(BOOL)rightAlign
+{
+    // TODO: finish implementation.
+    return nil;
 }
 
 #pragma mark - private override
 
 -(void)update
 {
+    if (!initialized)
+    {
+        self.initialized = YES;
+        
+        self.aspectRatio = fabsf((GLfloat)self.view.bounds.size.width / (GLfloat)self.view.bounds.size.height);
+        
+        GLfloat xTranslate = self.graphRight * self.aspectRatio;
+        self.dataLinePosition1 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
+        self.dataLinePosition2 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
+        
+        [self.delegate graphFinishedInitializing];
+    }
+    
+    self.effect.transform.projectionMatrix = GLKMatrix4MakeOrtho(kProjectionLeft * self.aspectRatio,
+                                                                 kProjectionRight * self.aspectRatio,
+                                                                 kProjectionBottom,
+                                                                 kProjectionTop,
+                                                                 kProjectionNear,
+                                                                 kProjectionFar);
 }
 
 #pragma mark - GLKView delegate
@@ -371,9 +571,9 @@ static const LineSegment_t referenceLinesBufferData[] = {
 {
     glClear(GL_COLOR_BUFFER_BIT);
     
-    [self drawReferenceLines];
-    [self drawLegends];
-    [self drawDataCurve];
+    [self renderReferenceLines];
+    [self renderLegends];
+    [self renderDataCurve];
 }
 
 @end

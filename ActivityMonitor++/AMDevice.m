@@ -11,6 +11,9 @@
 #import "HardcodedDeviceData.h"
 #import "DeviceInfoController.h"
 #import "CPUInfoController.h"
+#import "DeviceInfo.h"
+#import "CPUInfo.h"
+#import "GPUInfo.h"
 #import "AMDevice.h"
 
 @interface AMDevice()

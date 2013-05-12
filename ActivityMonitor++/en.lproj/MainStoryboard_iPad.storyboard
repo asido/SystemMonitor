@@ -546,10 +546,10 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="76u-kz-dvS" secondAttribute="bottom" constant="2" id="M8d-qf-w9a"/>
                                             <constraint firstItem="76u-kz-dvS" firstAttribute="leading" secondItem="DVN-TB-jkR" secondAttribute="leading" constant="43" id="NwY-hZ-coE"/>
-                                            <constraint firstAttribute="bottom" secondItem="76u-kz-dvS" secondAttribute="bottom" constant="2" id="PAH-PX-Ghw"/>
                                             <constraint firstItem="76u-kz-dvS" firstAttribute="top" secondItem="DVN-TB-jkR" secondAttribute="top" constant="1" id="aLH-p8-p41"/>
-                                            <constraint firstItem="76u-kz-dvS" firstAttribute="centerX" secondItem="DVN-TB-jkR" secondAttribute="centerX" type="default" id="sgk-tA-J5l"/>
+                                            <constraint firstItem="76u-kz-dvS" firstAttribute="centerX" secondItem="DVN-TB-jkR" secondAttribute="centerX" type="default" id="cwP-R5-TRD"/>
                                         </constraints>
                                     </tableViewCell>
                                 </cells>

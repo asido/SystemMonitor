@@ -16,12 +16,14 @@
 #import "HardcodedDeviceData.h"
 #import "AMLog.h"
 #import "AMUtils.h"
+#import "CPUInfo.h"
+#import "CPULoad.h"
 #import "CPULoadFilter.h"
 #import "CPUInfoController.h"
 
 @interface CPUInfoController()
-@property (retain) CPUInfo *cpuInfo;
-@property (retain) CPULoadFilter *cpuLoadFilter;
+@property (strong, nonatomic) CPUInfo *cpuInfo;
+@property (strong, nonatomic) CPULoadFilter *cpuLoadFilter;
 
 - (NSString*)getCPUName;
 - (NSUInteger)getActiveCPUCount;
@@ -41,7 +43,7 @@
 - (NSString*)cpuTypeToString:(cpu_type_t)cpuType;
 - (NSString*)cpuSubtypeToString:(cpu_subtype_t)cpuSubtype;
 
-@property (retain) NSTimer *cpuLoadUpdateTimer;
+@property (strong, nonatomic) NSTimer *cpuLoadUpdateTimer;
 - (void)cpuLoadUpdateTimerCB:(NSNotification*)notification;
 - (NSArray*)calculateCPUUsage;
 @end

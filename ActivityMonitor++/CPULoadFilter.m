@@ -10,7 +10,7 @@
 #import "CPULoadFilter.h"
 
 @interface CPULoadFilter()
-@property (retain) NSMutableArray *rawCpuLoadHistory;
+@property (strong, nonatomic) NSMutableArray *rawCpuLoadHistory;
 
 - (void)appendRawCpuLoad:(CPULoad*)cpuLoad;
 @end

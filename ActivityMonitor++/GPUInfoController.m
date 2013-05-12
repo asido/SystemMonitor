@@ -8,10 +8,11 @@
 
 #import <GLKit/GLKit.h>
 #import "AMLog.h"
+#import "GPUInfo.h"
 #import "GPUInfoController.h"
 
 @interface GPUInfoController()
-@property (retain) GPUInfo *gpuInfo;
+@property (strong, nonatomic) GPUInfo *gpuInfo;
 @end
 
 @implementation GPUInfoController

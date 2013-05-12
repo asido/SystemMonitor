@@ -9,16 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
+@protocol GLLineGraphDelegate
+- (void)graphFinishedInitializing;
+@end
+
 @interface GLLineGraph : GLKViewController
-@property (assign) float    fromValue;
-@property (assign) float    toValue;
-@property (retain) NSArray  *rangeTitles; // NSString* array
+@property (assign, nonatomic) id<GLLineGraphDelegate> delegate;
 
 - (id)initWithGLKView:(GLKView*)aGLView
         dataLineCount:(NSUInteger)count
             fromValue:(float)from
               toValue:(float)to
-          rangeTitles:(NSArray*)titles;
+              legends:(NSArray*)legends
+             delegate:(id)aDelegate;
 
 - (void)appendDataValue:(float)value;
 @end
