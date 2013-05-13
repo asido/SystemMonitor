@@ -291,9 +291,14 @@ static VertexData_t dataBlur[] = {
         return;
     }
     
+    assert(self.glView.bounds.size.width > 0);
+    assert(self.glView.bounds.size.height > 0);
+    
     self.initialized = YES;
     
-    self.aspectRatio = fabsf((GLfloat)self.view.bounds.size.width / (GLfloat)self.view.bounds.size.height);
+    GLfloat drawableWidth = self.glView.contentScaleFactor * self.glView.bounds.size.width;
+    GLfloat drawableHeight = self.glView.contentScaleFactor * self.glView.bounds.size.height;
+    self.aspectRatio = fabsf(drawableWidth / drawableHeight);
     
     GLfloat xTranslate = self.graphRight * self.aspectRatio;
     self.dataLinePosition1 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
@@ -307,13 +312,6 @@ static VertexData_t dataBlur[] = {
                                                                  kProjectionFar);
     
     /* Blur FBO */
-    self.blurViewportWidth = [AMUtils percentageValueFromMax:self.view.bounds.size.width
-                                                         min:0
-                                                     percent:100 - (kGraphGapPercentLeft + kGraphGapPercentRight)];
-    self.blurViewportHeight = [AMUtils percentageValueFromMax:self.view.bounds.size.height
-                                                          min:0
-                                                      percent:100 - (kGraphGapPercentBottom + kGraphGapPercentTop)];
-    
     glGenFramebuffers(1, &_blurFbo);
     glGenTextures(1, &_blurTexture);
     
@@ -324,7 +322,7 @@ static VertexData_t dataBlur[] = {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, self.blurViewportWidth, self.blurViewportHeight,
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, drawableWidth, drawableHeight,
                  0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, self.blurTexture, 0);
     
@@ -489,12 +487,11 @@ static VertexData_t dataBlur[] = {
 - (void)renderDataCurveToTexture
 {
     glBindFramebuffer(GL_FRAMEBUFFER, self.blurFbo);
-    glViewport(0, 0, self.glView.drawableWidth, self.glView.drawableHeight);//self.blurViewportWidth, self.blurViewportHeight);
-    NSLog(@"%d | %d | %f | %f", self.glView.drawableWidth, self.glView.drawableHeight, self.blurViewportWidth, self.blurViewportHeight);
+    glViewport(0, 0, self.glView.drawableWidth, self.glView.drawableHeight);
     
-    glClearColor(1.0f, 0.0f, 0.0f, 0.3f);
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-    
+
     /*
      * Render the first batch starting from 0 to self.dataLineDataCurrIdx.
      */
@@ -553,18 +550,11 @@ static VertexData_t dataBlur[] = {
 - (void)renderDataCurveTexture
 {
     // Render the texture back to the screen.
-
-    /*
-     GLfloat x = kProjectionLeft * self.aspectRatio;
-     GLfloat y = kProjectionBottom;
-     GLfloat xScale = (kProjectionRight - kProjectionLeft) * self.aspectRatio;
-     GLfloat yScale = kProjectionTop - kProjectionBottom;
-     */
     
-    GLfloat x = self.graphLeft * self.aspectRatio;
-    GLfloat y = self.graphBottom;
-    GLfloat xScale = (self.graphRight - self.graphLeft) * self.aspectRatio;
-    GLfloat yScale = self.graphTop - self.graphBottom;
+    GLfloat x = kProjectionLeft * self.aspectRatio;
+    GLfloat y = kProjectionBottom;
+    GLfloat xScale = (kProjectionRight - kProjectionLeft) * self.aspectRatio;
+    GLfloat yScale = kProjectionTop - kProjectionBottom;
     
     glBindVertexArrayOES(self.glVertexArrayBlur);
     
@@ -731,7 +721,7 @@ static VertexData_t dataBlur[] = {
 
 #pragma mark - private override
 
-- (void)viewWillLayoutSubviews
+- (void)viewDidLayoutSubviews
 {
     [self lateInit];
 }
@@ -743,7 +733,7 @@ static VertexData_t dataBlur[] = {
 #pragma mark - GLKView delegate
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
-{
+{    
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     
