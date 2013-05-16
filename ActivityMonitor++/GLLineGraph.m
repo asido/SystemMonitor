@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 st. All rights reserved.
 //
 
+#import <OpenGLES/EAGLDrawable.h>
 #import "AMLog.h"
 #import "AMUtils.h"
 #import "GLLineGraph.h"
@@ -56,8 +57,6 @@ typedef struct {
 @property (assign, nonatomic) GLKVector3    dataLinePosition1;
 @property (assign, nonatomic) GLKVector3    dataLinePosition2;
 @property (assign, nonatomic) GLuint        blurFbo;
-@property (assign, nonatomic) GLfloat       blurViewportWidth;
-@property (assign, nonatomic) GLfloat       blurViewportHeight;
 @property (assign, nonatomic) GLuint        blurTexture;
 @property (assign, nonatomic) GLuint        glVertexArrayBlur;
 @property (assign, nonatomic) GLuint        glBufferBlur;
@@ -114,8 +113,6 @@ typedef struct {
 @synthesize dataLinePosition1=_dataLinePosition1;
 @synthesize dataLinePosition2=_dataLinePosition2;
 @synthesize blurFbo=_blurFbo;
-@synthesize blurViewportWidth=_blurViewportWidth;
-@synthesize blurViewportHeight=_blurViewportHeight;
 @synthesize blurTexture=_blurTexture;
 @synthesize glVertexArrayBlur=_glVertexArrayBlur;
 @synthesize glBufferBlur=_glBufferBlur;
@@ -311,17 +308,16 @@ static VertexData_t dataBlur[] = {
                                                                  kProjectionNear,
                                                                  kProjectionFar);
     
-    /* Blur FBO */
+    /* Data line blur framebuffer */
     glGenFramebuffers(1, &_blurFbo);
-    glGenTextures(1, &_blurTexture);
-    
-    glBindTexture(GL_TEXTURE_2D, self.blurTexture);
     glBindFramebuffer(GL_FRAMEBUFFER, self.blurFbo);
+
+    glGenTextures(1, &_blurTexture);
+    glBindTexture(GL_TEXTURE_2D, self.blurTexture);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, drawableWidth, drawableHeight,
                  0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, self.blurTexture, 0);
@@ -350,6 +346,8 @@ static VertexData_t dataBlur[] = {
     
     [self.glView setContext:glContext];
     [EAGLContext setCurrentContext:self.glView.context];
+    
+    self.glView.drawableMultisample = GLKViewDrawableMultisample4X;
     
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -507,8 +505,9 @@ static VertexData_t dataBlur[] = {
         self.effect.useConstantColor = YES;
         self.effect.constantColor = GLKVector4Make(1.0f, 1.0f, 0.0f, 1.0f);
         self.effect.texture2d0.enabled = NO;
-        [self.effect prepareToDraw];
         
+        [self.effect prepareToDraw];
+
         glLineWidth(3.0f);
         glDrawArrays(GL_LINE_STRIP, 0, self.dataLineDataCurrIdx);
         
@@ -733,7 +732,9 @@ static VertexData_t dataBlur[] = {
 #pragma mark - GLKView delegate
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
-{    
+{
+    //glBlendEquation(GL_MAX_EXT);
+
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     

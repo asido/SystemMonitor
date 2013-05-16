@@ -33,6 +33,7 @@
 		70C2E9261739C7B7008CB1B1 /* GeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */; };
 		70C2E9291739C8D2008CB1B1 /* AMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9281739C8D2008CB1B1 /* AMDevice.m */; };
 		70CD01BC1739AB870047E72F /* HardcodedDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */; };
+		70CE6DDD174130EB00F09A5A /* GraphLine1.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CE6DDC174130EB00F09A5A /* GraphLine1.png */; };
 		70D92D5B173AA91300C57DEA /* CPULoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D5A173AA91300C57DEA /* CPULoad.m */; };
 		70D92D61173B299B00C57DEA /* GPUInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D60173B299B00C57DEA /* GPUInfoController.m */; };
 		70D92D64173B29AE00C57DEA /* GPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D63173B29AE00C57DEA /* GPUViewController.m */; };
@@ -108,6 +109,7 @@
 		70C2E9281739C8D2008CB1B1 /* AMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDevice.m; sourceTree = "<group>"; };
 		70CD01BA1739AB870047E72F /* HardcodedDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardcodedDeviceData.h; sourceTree = "<group>"; };
 		70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HardcodedDeviceData.m; sourceTree = "<group>"; };
+		70CE6DDC174130EB00F09A5A /* GraphLine1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GraphLine1.png; sourceTree = "<group>"; };
 		70D92D59173AA91300C57DEA /* CPULoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoad.h; sourceTree = "<group>"; };
 		70D92D5A173AA91300C57DEA /* CPULoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPULoad.m; sourceTree = "<group>"; };
 		70D92D5F173B299B00C57DEA /* GPUInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUInfoController.h; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				70459D18173C652200065BDD /* GraphLine.png */,
+				70CE6DDC174130EB00F09A5A /* GraphLine1.png */,
 				70DB194E173C6D8E002125F6 /* GraphLine2.png */,
 				70DB1950173C7099002125F6 /* GraphLine3.png */,
 				70DB1952173C7137002125F6 /* GraphLine4.png */,
@@ -472,6 +475,7 @@
 				70DB194F173C6D8E002125F6 /* GraphLine2.png in Resources */,
 				70DB1951173C7099002125F6 /* GraphLine3.png in Resources */,
 				70DB1953173C7137002125F6 /* GraphLine4.png in Resources */,
+				70CE6DDD174130EB00F09A5A /* GraphLine1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
