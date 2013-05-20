@@ -25,6 +25,9 @@
 		703D232A17382AE10001E3B3 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232917382AE10001E3B3 /* background@2x.png */; };
 		703D232C17382F0C0001E3B3 /* CellNoJoins@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232B17382F0C0001E3B3 /* CellNoJoins@2x.png */; };
 		70459D19173C652200065BDD /* GraphLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 70459D18173C652200065BDD /* GraphLine.png */; };
+		70A627EF17494C49008B39C1 /* AMGLBlurEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A627EE17494C49008B39C1 /* AMGLBlurEffect.m */; };
+		70A627F217494F40008B39C1 /* AMGLBlurEffect.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 70A627F117494F40008B39C1 /* AMGLBlurEffect.vsh */; };
+		70A627F417494F49008B39C1 /* AMGLBlurEffect.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 70A627F317494F49008B39C1 /* AMGLBlurEffect.fsh */; };
 		70AF61321739250800EF49E9 /* CPUInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF61311739250800EF49E9 /* CPUInfo.m */; };
 		70AF61351739255700EF49E9 /* CPUInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF61341739255700EF49E9 /* CPUInfoController.m */; };
 		70AF613A17392CE600EF49E9 /* AMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF613917392CE600EF49E9 /* AMUtils.m */; };
@@ -43,6 +46,8 @@
 		70DB194F173C6D8E002125F6 /* GraphLine2.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DB194E173C6D8E002125F6 /* GraphLine2.png */; };
 		70DB1951173C7099002125F6 /* GraphLine3.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DB1950173C7099002125F6 /* GraphLine3.png */; };
 		70DB1953173C7137002125F6 /* GraphLine4.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DB1952173C7137002125F6 /* GraphLine4.png */; };
+		70EE6080174A9F3400CB847D /* AMGLBlurEffect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 70A627F117494F40008B39C1 /* AMGLBlurEffect.vsh */; };
+		70EE6081174A9F3400CB847D /* AMGLBlurEffect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 70A627F317494F49008B39C1 /* AMGLBlurEffect.fsh */; };
 		70F1F1661739676F007224AD /* FollowingRootCell-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F1F1641739676F007224AD /* FollowingRootCell-88@2x.png */; };
 		70F1F1671739676F007224AD /* TopRootCell-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F1F1651739676F007224AD /* TopRootCell-88@2x.png */; };
 		70F1F16D1739712D007224AD /* CPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F16C1739712C007224AD /* CPUViewController.m */; };
@@ -93,6 +98,10 @@
 		703D232917382AE10001E3B3 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		703D232B17382F0C0001E3B3 /* CellNoJoins@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CellNoJoins@2x.png"; sourceTree = "<group>"; };
 		70459D18173C652200065BDD /* GraphLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GraphLine.png; sourceTree = "<group>"; };
+		70A627ED17494C49008B39C1 /* AMGLBlurEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGLBlurEffect.h; sourceTree = "<group>"; };
+		70A627EE17494C49008B39C1 /* AMGLBlurEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGLBlurEffect.m; sourceTree = "<group>"; };
+		70A627F117494F40008B39C1 /* AMGLBlurEffect.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AMGLBlurEffect.vsh; sourceTree = "<group>"; };
+		70A627F317494F49008B39C1 /* AMGLBlurEffect.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AMGLBlurEffect.fsh; sourceTree = "<group>"; };
 		70AF61301739250800EF49E9 /* CPUInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUInfo.h; sourceTree = "<group>"; };
 		70AF61311739250800EF49E9 /* CPUInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUInfo.m; sourceTree = "<group>"; };
 		70AF61331739255700EF49E9 /* CPUInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUInfoController.h; sourceTree = "<group>"; };
@@ -286,6 +295,17 @@
 			name = Media;
 			sourceTree = "<group>";
 		};
+		70A627F017494F1F008B39C1 /* BlurEffect */ = {
+			isa = PBXGroup;
+			children = (
+				70A627ED17494C49008B39C1 /* AMGLBlurEffect.h */,
+				70A627EE17494C49008B39C1 /* AMGLBlurEffect.m */,
+				70A627F117494F40008B39C1 /* AMGLBlurEffect.vsh */,
+				70A627F317494F49008B39C1 /* AMGLBlurEffect.fsh */,
+			);
+			name = BlurEffect;
+			sourceTree = "<group>";
+		};
 		70AF612E173924B100EF49E9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +403,7 @@
 		70FE9F0E173BC49E0056B891 /* Graph */ = {
 			isa = PBXGroup;
 			children = (
+				70A627F017494F1F008B39C1 /* BlurEffect */,
 				70FE9F0F173BC5830056B891 /* GLLineGraph.h */,
 				70FE9F10173BC5830056B891 /* GLLineGraph.m */,
 			);
@@ -460,6 +481,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70EE6080174A9F3400CB847D /* AMGLBlurEffect.vsh in Resources */,
+				70EE6081174A9F3400CB847D /* AMGLBlurEffect.fsh in Resources */,
 				703D22E6173818EC0001E3B3 /* InfoPlist.strings in Resources */,
 				703D22EE173818EC0001E3B3 /* Default.png in Resources */,
 				703D22F0173818EC0001E3B3 /* Default@2x.png in Resources */,
@@ -535,6 +558,9 @@
 				70D92D67173B2B4D00C57DEA /* GPUInfo.m in Sources */,
 				70FE9F11173BC5830056B891 /* GLLineGraph.m in Sources */,
 				70F4D7D8173D147F007E58E2 /* CPULoadFilter.m in Sources */,
+				70A627EF17494C49008B39C1 /* AMGLBlurEffect.m in Sources */,
+				70A627F217494F40008B39C1 /* AMGLBlurEffect.vsh in Sources */,
+				70A627F417494F49008B39C1 /* AMGLBlurEffect.fsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,7 +630,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arvydas Sidorenko (MF8V342975)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -620,7 +646,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "26EB6C7C-35A8-4303-9B15-9F6998788F81";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -638,7 +664,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arvydas Sidorenko (MF8V342975)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -647,7 +673,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "26EB6C7C-35A8-4303-9B15-9F6998788F81";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

@@ -9,6 +9,7 @@
 #import <OpenGLES/EAGLDrawable.h>
 #import "AMLog.h"
 #import "AMUtils.h"
+#import "AMGLBlurEffect.h"
 #import "GLLineGraph.h"
 
 #if DEBUG
@@ -60,6 +61,7 @@ typedef struct {
 @property (assign, nonatomic) GLuint        blurTexture;
 @property (assign, nonatomic) GLuint        glVertexArrayBlur;
 @property (assign, nonatomic) GLuint        glBufferBlur;
+@property (strong, nonatomic) AMGLBlurEffect *blurEffect;
 
 /* Reference lines */
 @property (assign, nonatomic) GLuint        glVertexArrayReferenceLine;
@@ -84,7 +86,6 @@ typedef struct {
 
 - (void)renderDataCurve;
 - (void)renderDataCurveToTexture;
-- (void)renderDataCurveBlur;
 - (void)renderDataCurveTexture;
 - (void)renderReferenceLines;
 - (void)renderLegends;
@@ -116,6 +117,7 @@ typedef struct {
 @synthesize blurTexture=_blurTexture;
 @synthesize glVertexArrayBlur=_glVertexArrayBlur;
 @synthesize glBufferBlur=_glBufferBlur;
+@synthesize blurEffect=_blurEffect;
 
 @synthesize glVertexArrayReferenceLine=_glVertexArrayReferenceLine;
 @synthesize glBufferReferenceLine=_glBufferReferenceLine;
@@ -188,7 +190,7 @@ static VertexData_t dataBlur[] = {
         
         self.glView = aGLView;
         self.view = self.glView;
-                
+                                
         self.graphTop = [AMUtils percentageValueFromMax:kProjectionTop min:kProjectionBottom percent:100-kGraphGapPercentTop];
         self.graphBottom = [AMUtils percentageValueFromMax:kProjectionTop min:kProjectionBottom percent:kGraphGapPercentBottom];
         self.graphLeft = [AMUtils percentageValueFromMax:kProjectionRight min:kProjectionLeft percent:kGraphGapPercentLeft];
@@ -365,6 +367,8 @@ static VertexData_t dataBlur[] = {
     self.effect.texture2d0.name = self.legendsTexture.name;
     self.effect.texture2d0.target = self.legendsTexture.target;
     
+    self.blurEffect = [[AMGLBlurEffect alloc] init];
+    
     [self setupVBOs];
 }
 
@@ -478,7 +482,6 @@ static VertexData_t dataBlur[] = {
     }
     
     [self renderDataCurveToTexture];
-    [self renderDataCurveBlur];
     [self renderDataCurveTexture];
 }
 
@@ -487,7 +490,7 @@ static VertexData_t dataBlur[] = {
     glBindFramebuffer(GL_FRAMEBUFFER, self.blurFbo);
     glViewport(0, 0, self.glView.drawableWidth, self.glView.drawableHeight);
     
-    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+    glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
     /*
@@ -503,14 +506,18 @@ static VertexData_t dataBlur[] = {
         
         self.effect.transform.modelviewMatrix = modelMatrix;
         self.effect.useConstantColor = YES;
-        self.effect.constantColor = GLKVector4Make(1.0f, 1.0f, 0.0f, 1.0f);
         self.effect.texture2d0.enabled = NO;
         
+        self.effect.constantColor = GLKVector4Make(1.0f, 1.0f, 0.0f, 1.0f);
         [self.effect prepareToDraw];
-
         glLineWidth(3.0f);
         glDrawArrays(GL_LINE_STRIP, 0, self.dataLineDataCurrIdx);
-        
+        /*
+        self.effect.constantColor = GLKVector4Make(1.0f, 1.0f, 1.0f, 1.0f);
+        [self.effect prepareToDraw];
+        glLineWidth(1.0f);
+        glDrawArrays(GL_LINE_STRIP, 0, self.dataLineDataCurrIdx);
+        */
         GL_CHECK_ERROR();
     }
     
@@ -530,20 +537,21 @@ static VertexData_t dataBlur[] = {
         self.effect.useConstantColor = YES;
         self.effect.constantColor = GLKVector4Make(1.0f, 1.0f, 0.0f, 1.0f);
         self.effect.texture2d0.enabled = NO;
-        [self.effect prepareToDraw];
         
+        self.effect.constantColor = GLKVector4Make(1.0f, 1.0f, 0.0f, 1.0f);
         glLineWidth(3.0f);
+        [self.effect prepareToDraw];
         glDrawArrays(GL_LINE_STRIP, self.dataLineDataCurrIdx, self.dataLineDataValidSize - self.dataLineDataCurrIdx);
-        
+        /*
+        self.effect.constantColor = GLKVector4Make(230.0f/255.0f, 230.0f/255.0f, 0.0f, 1.0f);
+        glLineWidth(1.0f);
+        [self.effect prepareToDraw];
+        glDrawArrays(GL_LINE_STRIP, self.dataLineDataCurrIdx, self.dataLineDataValidSize - self.dataLineDataCurrIdx);
+        */
         GL_CHECK_ERROR();
     }
     
     [self.glView bindDrawable];
-}
-
-- (void)renderDataCurveBlur
-{
-    // TODO: apply gaussian blur to the texture we just rendered.
 }
 
 - (void)renderDataCurveTexture
@@ -561,16 +569,13 @@ static VertexData_t dataBlur[] = {
     GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
     GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, yScale, 1.0f);
     GLKMatrix4 modelMatrix = [self modelMatrixWithPosition:position rotation:rotation scale:scale];
+    GLKMatrix4 mvpMatrix = GLKMatrix4Multiply(self.effect.transform.projectionMatrix, modelMatrix);
     
-    self.effect.transform.modelviewMatrix = modelMatrix;
-    self.effect.useConstantColor = GL_FALSE;
-    self.effect.texture2d0.enabled = YES;
-    self.effect.texture2d0.name = self.blurTexture;
-    self.effect.texture2d0.target = GL_TEXTURE_2D;
-    self.effect.texture2d0.envMode = GLKTextureEnvModeReplace;
-    [self.effect prepareToDraw];
+    self.blurEffect.mvpMatrix = mvpMatrix;
+    self.blurEffect.texture0 = self.blurTexture;
+    [self.blurEffect prepareToDraw];
     glDrawArrays(GL_TRIANGLES, 0, sizeof(dataBlur) / sizeof(VertexData_t));
-    
+
     GL_CHECK_ERROR();
 }
 
@@ -734,6 +739,8 @@ static VertexData_t dataBlur[] = {
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
     //glBlendEquation(GL_MAX_EXT);
+    
+    glViewport(0, 0, self.glView.drawableWidth, self.glView.drawableHeight);
 
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
