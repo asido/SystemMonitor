@@ -583,6 +583,7 @@ static VertexData_t dataBlur[] = {
 {
     GLfloat x = self.graphLeft * self.aspectRatio;
     GLfloat xScale = (self.graphRight - self.graphLeft) * self.aspectRatio;
+    GLfloat yScale = self.graphTop - self.graphBottom;
     
     /*
      * Top line.
@@ -611,6 +612,7 @@ static VertexData_t dataBlur[] = {
      * Mid line.
      */
     {
+        /*
         GLfloat y = [AMUtils percentageValueFromMax:self.graphTop min:self.graphBottom percent:50];
         
         glBindVertexArrayOES(self.glVertexArrayReferenceLine);
@@ -628,7 +630,7 @@ static VertexData_t dataBlur[] = {
         
         glLineWidth(1.0f);
         glDrawArrays(GL_LINES, 0, sizeof(referenceLineData) / sizeof(VertexData_t));
-        
+        */
         GL_CHECK_ERROR();
     }
     
@@ -646,6 +648,54 @@ static VertexData_t dataBlur[] = {
         self.effect.transform.modelviewMatrix = modelMatrix;
         self.effect.useConstantColor = YES;
         self.effect.constantColor = GLKVector4Make(0.25f, 0.25f, 0.25f, 1.0f);
+        self.effect.texture2d0.enabled = NO;
+        [self.effect prepareToDraw];
+        
+        glLineWidth(1.0f);
+        glDrawArrays(GL_LINES, 0, sizeof(referenceLineData) / sizeof(VertexData_t));
+        
+        GL_CHECK_ERROR();
+    }
+    
+    /*
+     * Right line.
+     */
+    {
+        glBindVertexArrayOES(self.glVertexArrayReferenceLine);
+        
+        GLfloat xVertical = self.graphRight * self.aspectRatio;
+        GLKVector3 position = GLKVector3Make(xVertical, self.graphBottom, kModelZ);
+        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, GLKMathDegreesToRadians(90.0f));
+        GLKMatrix4 scale = GLKMatrix4MakeScale(1.0f, yScale, 1.0f);
+        GLKMatrix4 modelMatrix = [self modelMatrixWithPosition:position rotation:rotation scale:scale];
+
+        self.effect.transform.modelviewMatrix = modelMatrix;
+        self.effect.useConstantColor = YES;
+        self.effect.constantColor = GLKVector4Make(0.2f, 0.2f, 0.2f, 1.0f);
+        self.effect.texture2d0.enabled = NO;
+        [self.effect prepareToDraw];
+        
+        glLineWidth(1.0f);
+        glDrawArrays(GL_LINES, 0, sizeof(referenceLineData) / sizeof(VertexData_t));
+        
+        GL_CHECK_ERROR();
+    }
+    
+    /*
+     * Left line.
+     */
+    {
+        glBindVertexArrayOES(self.glVertexArrayReferenceLine);
+        
+        GLfloat xVertical = self.graphLeft * self.aspectRatio;
+        GLKVector3 position = GLKVector3Make(xVertical, self.graphBottom, kModelZ);
+        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, GLKMathDegreesToRadians(90.0f));
+        GLKMatrix4 scale = GLKMatrix4MakeScale(1.0f, yScale, 1.0f);
+        GLKMatrix4 modelMatrix = [self modelMatrixWithPosition:position rotation:rotation scale:scale];
+        
+        self.effect.transform.modelviewMatrix = modelMatrix;
+        self.effect.useConstantColor = YES;
+        self.effect.constantColor = GLKVector4Make(0.2f, 0.2f, 0.2f, 1.0f);
         self.effect.texture2d0.enabled = NO;
         [self.effect prepareToDraw];
         
