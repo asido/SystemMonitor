@@ -57,7 +57,7 @@
     [self.endianessLabel setText:app.iDevice.cpuInfo.endianess];
     
     self.glGraph = [[GLLineGraph alloc] initWithGLKView:self.cpuUsageGLView
-                                          dataLineCount:app.iDevice.cpuInfo.physicalCPUCount
+                                          dataLineCount:1
                                               fromValue:0.0f toValue:100.0f
                                                 legends:[NSArray arrayWithObjects:@"0%", @"50%", @"100%", nil]
                                                delegate:self];
@@ -66,7 +66,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     AppDelegate *app = [AppDelegate sharedDelegate];
-    [self.glGraph appendDataArray:[app.cpuInfoCtrl cpuLoadHistory]];
+    [self.glGraph addDataArray:[app.cpuInfoCtrl cpuLoadHistory]];
     app.cpuInfoCtrl.delegate = self;
 }
 
@@ -134,13 +134,16 @@
 
 - (void)cpuLoadUpdated:(NSArray *)loadArray
 {
-//    for (NSUInteger i = 0; i < loadArray.count; ++i)
+    CGFloat avr = 0;
+    
+    for (CPULoad *load in loadArray)
     {
-        CPULoad *cpuLoad = [loadArray objectAtIndex:0];
-        NSLog(@"CORE %d  [[ %d%% ]]", 1, (NSUInteger)cpuLoad.total);
-        
-        [self.glGraph appendDataValue:cpuLoad.total];
+        avr += load.total;
     }
+    avr /= loadArray.count;
+    
+    NSNumber *number = [NSNumber numberWithFloat:avr];
+    [self.glGraph addDataValue:[NSArray arrayWithObject:number]];
 }
 
 #pragma mark - GLLineGraph delegate

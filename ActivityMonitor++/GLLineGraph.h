@@ -16,6 +16,14 @@
 @interface GLLineGraph : GLKViewController
 @property (assign, nonatomic) id<GLLineGraphDelegate> delegate;
 
+@property (strong, nonatomic) GLKBaseEffect *effect;
+@property (assign, nonatomic) GLfloat       aspectRatio;
+/* Graph boundaries determined based on projection and viewport. */
+@property (assign, nonatomic) GLfloat       graphBottom;
+@property (assign, nonatomic) GLfloat       graphTop;
+@property (assign, nonatomic) GLfloat       graphRight;
+@property (assign, nonatomic) GLfloat       graphLeft;
+
 - (id)initWithGLKView:(GLKView*)aGLView
         dataLineCount:(NSUInteger)count
             fromValue:(float)from
@@ -23,6 +31,6 @@
               legends:(NSArray*)legends
              delegate:(id)aDelegate;
 
-- (void)appendDataValue:(float)value;
-- (void)appendDataArray:(NSArray*)dataArray;
+- (void)addDataValue:(NSArray*)data;
+- (void)addDataArray:(NSArray*)dataArray;
 @end

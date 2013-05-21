@@ -46,6 +46,8 @@
 		70DB194F173C6D8E002125F6 /* GraphLine2.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DB194E173C6D8E002125F6 /* GraphLine2.png */; };
 		70DB1951173C7099002125F6 /* GraphLine3.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DB1950173C7099002125F6 /* GraphLine3.png */; };
 		70DB1953173C7137002125F6 /* GraphLine4.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DB1952173C7137002125F6 /* GraphLine4.png */; };
+		70E19A43174B718900A411C8 /* DataLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A42174B718900A411C8 /* DataLine.m */; };
+		70E19A46174B790400A411C8 /* GLCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A45174B790400A411C8 /* GLCommon.m */; };
 		70EE6080174A9F3400CB847D /* AMGLBlurEffect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 70A627F117494F40008B39C1 /* AMGLBlurEffect.vsh */; };
 		70EE6081174A9F3400CB847D /* AMGLBlurEffect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 70A627F317494F49008B39C1 /* AMGLBlurEffect.fsh */; };
 		70F1F1661739676F007224AD /* FollowingRootCell-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F1F1641739676F007224AD /* FollowingRootCell-88@2x.png */; };
@@ -132,6 +134,10 @@
 		70DB194E173C6D8E002125F6 /* GraphLine2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GraphLine2.png; sourceTree = "<group>"; };
 		70DB1950173C7099002125F6 /* GraphLine3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GraphLine3.png; sourceTree = "<group>"; };
 		70DB1952173C7137002125F6 /* GraphLine4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GraphLine4.png; sourceTree = "<group>"; };
+		70E19A41174B718900A411C8 /* DataLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataLine.h; sourceTree = "<group>"; };
+		70E19A42174B718900A411C8 /* DataLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataLine.m; sourceTree = "<group>"; };
+		70E19A44174B790400A411C8 /* GLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCommon.h; sourceTree = "<group>"; };
+		70E19A45174B790400A411C8 /* GLCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCommon.m; sourceTree = "<group>"; };
 		70F1F1641739676F007224AD /* FollowingRootCell-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FollowingRootCell-88@2x.png"; sourceTree = "<group>"; };
 		70F1F1651739676F007224AD /* TopRootCell-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TopRootCell-88@2x.png"; sourceTree = "<group>"; };
 		70F1F16B1739712C007224AD /* CPUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUViewController.h; sourceTree = "<group>"; };
@@ -406,6 +412,10 @@
 				70A627F017494F1F008B39C1 /* BlurEffect */,
 				70FE9F0F173BC5830056B891 /* GLLineGraph.h */,
 				70FE9F10173BC5830056B891 /* GLLineGraph.m */,
+				70E19A41174B718900A411C8 /* DataLine.h */,
+				70E19A42174B718900A411C8 /* DataLine.m */,
+				70E19A44174B790400A411C8 /* GLCommon.h */,
+				70E19A45174B790400A411C8 /* GLCommon.m */,
 			);
 			name = Graph;
 			sourceTree = "<group>";
@@ -561,6 +571,8 @@
 				70A627EF17494C49008B39C1 /* AMGLBlurEffect.m in Sources */,
 				70A627F217494F40008B39C1 /* AMGLBlurEffect.vsh in Sources */,
 				70A627F417494F49008B39C1 /* AMGLBlurEffect.fsh in Sources */,
+				70E19A43174B718900A411C8 /* DataLine.m in Sources */,
+				70E19A46174B790400A411C8 /* GLCommon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

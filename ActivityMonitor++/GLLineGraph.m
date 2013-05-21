@@ -10,27 +10,10 @@
 #import "AMLog.h"
 #import "AMUtils.h"
 #import "AMGLBlurEffect.h"
+#import "CPULoad.h"
+#import "DataLine.h"
+#import "GLCommon.h"
 #import "GLLineGraph.h"
-
-#if DEBUG
-#define GL_CHECK_ERROR()                        \
-    do {                                        \
-        GLenum error = glGetError();            \
-        if (error != GL_NO_ERROR)               \
-        {                                       \
-            AMWarn("%s: GL Error: 0x%x",        \
-                   __PRETTY_FUNCTION__, error); \
-        }                                       \
-    }                                           \
-    while (0)
-#else
-#define CHECK_GL_ERROR()
-#endif
-
-typedef struct {
-    GLKVector3 positionCoords;
-    GLKVector2 textureCoords;
-} VertexData_t;
 
 @interface GLLineGraph() <GLKViewDelegate>
 @property (assign, nonatomic) BOOL          initialized;
@@ -41,22 +24,9 @@ typedef struct {
 @property (strong, nonatomic) NSArray       *legendStrings; // NSString* array
 
 @property (strong, nonatomic) GLKView       *glView;
-@property (strong, nonatomic) GLKBaseEffect *effect;
-@property (assign, nonatomic) GLfloat       aspectRatio;
 
-/* Data line
- * TODO: this will need to be dynamic based on data line count */
-@property (assign, nonatomic) GLuint        glVertexArrayDataLine;
-@property (assign, nonatomic) GLuint        glBufferDataLine;
-@property (assign, nonatomic) GLuint        dataLineDataValidSize;  /* Valid buffer index count */
-@property (assign, nonatomic) GLuint        dataLineDataCurrIdx;    /* Current index to be written new values to */
-@property (assign, nonatomic) GLfloat       dataLineDataNextX;      /* Each added data element gets it's own unique X position */
-/* dataLineData is a circular array and so in order to utilize GL_LINE_STRIP without creating an
- * impression of GL_LINE_LOOP we declare 2 matrixes.
- * The first translates 0 - dataLineDataCurrIdx verticies.
- * The second translates dataLineDataCurrIdx+1 - dataLineDataValidSize-1 verticies. */
-@property (assign, nonatomic) GLKVector3    dataLinePosition1;
-@property (assign, nonatomic) GLKVector3    dataLinePosition2;
+/* Data line */
+@property (strong, nonatomic) NSArray       *dataLines;
 @property (assign, nonatomic) GLuint        blurFbo;
 @property (assign, nonatomic) GLuint        blurTexture;
 @property (assign, nonatomic) GLuint        glVertexArrayBlur;
@@ -72,12 +42,6 @@ typedef struct {
 @property (assign, nonatomic) GLuint        glBufferLegends;
 @property (strong, nonatomic) GLKTextureInfo *legendsTexture;
 
-/* Graph boundaries determined based on projection and viewport. */
-@property (assign, nonatomic) GLfloat       graphBottom;
-@property (assign, nonatomic) GLfloat       graphTop;
-@property (assign, nonatomic) GLfloat       graphRight;
-@property (assign, nonatomic) GLfloat       graphLeft;
-
 - (void)lateInit;
 
 - (void)setupGL;
@@ -91,10 +55,17 @@ typedef struct {
 - (void)renderLegends;
 
 - (UIImage*)imageWithText:(NSString*)text font:(UIFont*)font color:(UIColor*)color;
-- (GLKMatrix4)modelMatrixWithPosition:(GLKVector3)position rotation:(GLKVector3)rotation scale:(GLKMatrix4)scale;
 @end
 
 @implementation GLLineGraph
+@synthesize delegate;
+@synthesize effect;
+@synthesize aspectRatio;
+@synthesize graphBottom;
+@synthesize graphTop;
+@synthesize graphRight;
+@synthesize graphLeft;
+
 @synthesize initialized;
 
 @synthesize dataLineCount=_dataLineCount;
@@ -103,16 +74,8 @@ typedef struct {
 @synthesize legendStrings=_legendStrings;
 
 @synthesize glView=_glView;
-@synthesize effect=_effect;
-@synthesize aspectRatio=_aspectRatio;
 
-@synthesize glVertexArrayDataLine=_glVertexArrayDataLine;
-@synthesize glBufferDataLine=_glBufferDataLine;
-@synthesize dataLineDataValidSize=_dataLineDataValidSize;
-@synthesize dataLineDataCurrIdx=_dataLineDataCurrIdx;
-@synthesize dataLineDataNextX=_dataLineDataNextX;
-@synthesize dataLinePosition1=_dataLinePosition1;
-@synthesize dataLinePosition2=_dataLinePosition2;
+@synthesize dataLines=_dataLines;
 @synthesize blurFbo=_blurFbo;
 @synthesize blurTexture=_blurTexture;
 @synthesize glVertexArrayBlur=_glVertexArrayBlur;
@@ -137,15 +100,6 @@ static const GLfloat kGraphGapPercentLeft   = 5;
 static const GLfloat kGraphGapPercentTop    = 10;
 static const GLfloat kGraphGapPercentRight  = 5;
 static const GLfloat kGraphGapPercentBottom = 20;
-
-static const GLfloat kModelZ                = -2.0f;
-
-// TODO: we should make required buffer size calculate dynamically based on each line
-// segment width and total available screen/projection area.
-// WARNING: THE VALUE MUST BE EVEN!
-static const GLuint kMaxDataLineData        = 1500;
-static VertexData_t dataLineData[kMaxDataLineData];
-static const GLfloat kDataLineShiftSize     = 0.05f;
 
 static const VertexData_t referenceLineData[] = {
     {{ 0.0f, 0.0f, 0.0f }},
@@ -187,7 +141,7 @@ static VertexData_t dataBlur[] = {
         self.fromValue = from;
         self.toValue = to;
         self.legendStrings = legends;
-        
+                
         self.glView = aGLView;
         self.view = self.glView;
                                 
@@ -195,9 +149,6 @@ static VertexData_t dataBlur[] = {
         self.graphBottom = [AMUtils percentageValueFromMax:kProjectionTop min:kProjectionBottom percent:kGraphGapPercentBottom];
         self.graphLeft = [AMUtils percentageValueFromMax:kProjectionRight min:kProjectionLeft percent:kGraphGapPercentLeft];
         self.graphRight = [AMUtils percentageValueFromMax:kProjectionRight min:kProjectionLeft percent:100-kGraphGapPercentRight];
-        
-        self.dataLineDataValidSize = 0;
-        self.dataLineDataCurrIdx = 0;
         
         [self setupGL];
     }
@@ -209,80 +160,20 @@ static VertexData_t dataBlur[] = {
     [self tearDownGL];
 }
 
-- (void)appendDataValue:(float)value
+- (void)addDataValue:(NSArray*)data
 {
-    GLfloat vX = self.dataLineDataNextX++;
-    GLfloat vY = [AMUtils percentageValueFromMax:self.graphTop min:self.graphBottom percent:value];
-    BOOL bufferSizeIncreased = NO;
-    
-    if (self.dataLineDataValidSize == 0)
+    for (NSUInteger i = 0; i < data.count; ++i)
     {
-        dataLineData[0].positionCoords.x = vX;
-        dataLineData[0].positionCoords.y = vY;
-        dataLineData[0].positionCoords.z = kModelZ;
-        
-        self.dataLineDataCurrIdx++;
-        self.dataLineDataValidSize++;
-        bufferSizeIncreased = YES;
+        NSNumber *number = [data objectAtIndex:i];
+        GLfloat value = [number floatValue];
+        DataLine *dataLine = [self.dataLines objectAtIndex:i];
+        [dataLine addLineDataValue:value];
     }
-    else
-    {        
-        dataLineData[self.dataLineDataCurrIdx].positionCoords.x = vX;
-        dataLineData[self.dataLineDataCurrIdx].positionCoords.y = vY;
-        dataLineData[self.dataLineDataCurrIdx].positionCoords.z = kModelZ;
-        
-        self.dataLineDataCurrIdx++;
-        
-        if (self.dataLineDataValidSize < kMaxDataLineData)
-        {
-            self.dataLineDataValidSize++;
-            bufferSizeIncreased = YES;
-        }
-    }
-    
-    // Check if we need to wrap the circular data line buffer.
-    if (self.dataLineDataCurrIdx >= kMaxDataLineData)
-    {
-        // First we move the first data position vector to the second in order to keep the old values moving.
-        // It is assumed that the old values which dataLinePosition2 was moving before this assignment
-        // are already offscreen.
-        self.dataLinePosition2 = self.dataLinePosition1;
-        
-        // Then re-init the first data position vector to starting position.
-        GLfloat xTranslate = self.graphRight * self.aspectRatio;
-        self.dataLinePosition1 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
-        
-        self.dataLineDataNextX = 0;
-        self.dataLineDataCurrIdx = 0;
-    }
-    else
-    {
-        // Shift data line translation matrixes.
-        GLKVector3 shift = GLKVector3Make(-kDataLineShiftSize, 0.0f, 0.0f);
-        self.dataLinePosition1 = GLKVector3Add(self.dataLinePosition1, shift);
-        self.dataLinePosition2 = GLKVector3Add(self.dataLinePosition2, shift);
-    }
-    
-    glBindBuffer(GL_ARRAY_BUFFER, self.glBufferDataLine);
-    
-    if (bufferSizeIncreased)
-    {
-        glBufferData(GL_ARRAY_BUFFER,
-                     self.dataLineDataValidSize * sizeof(VertexData_t),
-                     dataLineData, GL_DYNAMIC_DRAW);
-    }
-    else
-    {
-        glBufferSubData(GL_ARRAY_BUFFER, 0,
-                        self.dataLineDataValidSize * sizeof(VertexData_t),
-                        dataLineData);
-    }
-    
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-- (void)appendDataArray:(NSArray*)dataArray
+- (void)addDataArray:(NSArray*)dataArray
 {
+    
 }
 
 #pragma mark - private
@@ -303,16 +194,23 @@ static VertexData_t dataBlur[] = {
     GLfloat drawableHeight = self.glView.contentScaleFactor * self.glView.bounds.size.height;
     self.aspectRatio = fabsf(drawableWidth / drawableHeight);
     
-    GLfloat xTranslate = self.graphRight * self.aspectRatio;
-    self.dataLinePosition1 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
-    self.dataLinePosition2 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
-    
     self.effect.transform.projectionMatrix = GLKMatrix4MakeOrtho(kProjectionLeft * self.aspectRatio,
                                                                  kProjectionRight * self.aspectRatio,
                                                                  kProjectionBottom,
                                                                  kProjectionTop,
                                                                  kProjectionNear,
                                                                  kProjectionFar);
+    
+    NSArray *lineColors = [NSArray arrayWithObjects:[UIColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1.0f],
+                                                    [UIColor colorWithRed:127.0f/255.0f green:149.0f/255.0f blue:183.0f/255.0f alpha:1.0f],
+                                                    nil];
+    NSMutableArray *lines = [[NSMutableArray alloc] initWithCapacity:self.dataLineCount];
+    for (NSUInteger i = 0; i < self.dataLineCount; ++i)
+    {
+        DataLine *dataLine = [[DataLine alloc] initWithColor:[lineColors objectAtIndex:i] forGraph:self];
+        [lines addObject:dataLine];
+    }
+    self.dataLines = [[NSArray alloc] initWithArray:lines];
     
     /* Data line blur framebuffer */
     glGenFramebuffers(1, &_blurFbo);
@@ -383,24 +281,6 @@ static VertexData_t dataBlur[] = {
     glBindVertexArrayOES(0);
     
     /*
-     * Data line VBO.
-     */
-    {
-        glGenVertexArraysOES(1, &_glVertexArrayDataLine);
-        glBindVertexArrayOES(self.glVertexArrayDataLine);
-        
-        glGenBuffers(1, &_glBufferDataLine);
-        glBindBuffer(GL_ARRAY_BUFFER, self.glBufferDataLine);
-        glBufferData(GL_ARRAY_BUFFER, self.dataLineDataValidSize * sizeof(VertexData_t), dataLineData, GL_DYNAMIC_DRAW);
-        
-        glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(VertexData_t),
-                              NULL + offsetof(VertexData_t, positionCoords));
-        glEnableVertexAttribArray(GLKVertexAttribPosition);
-        
-        GL_CHECK_ERROR();
-    }
-    
-    /*
      * Blur VBO.
      */
     {
@@ -466,8 +346,6 @@ static VertexData_t dataBlur[] = {
 
 - (void)tearDownGL
 {
-    glDeleteBuffers(1, &_glBufferDataLine);
-    glDeleteVertexArraysOES(1, &_glVertexArrayDataLine);
     glDeleteBuffers(1, &_glBufferReferenceLine);
     glDeleteVertexArraysOES(1, &_glVertexArrayReferenceLine);
     glDeleteBuffers(1, &_glBufferLegends);
@@ -478,13 +356,7 @@ static VertexData_t dataBlur[] = {
 }
 
 - (void)renderDataCurve
-{
-    if (self.dataLineDataValidSize == 0)
-    {
-        // No verticies to draw.
-        return;
-    }
-    
+{    
     [self renderDataCurveToTexture];
     [self renderDataCurveTexture];
 }
@@ -497,62 +369,9 @@ static VertexData_t dataBlur[] = {
     glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    /*
-     * Render the first batch starting from 0 to self.dataLineDataCurrIdx.
-     */
+    for (DataLine *line in self.dataLines)
     {
-        glBindVertexArrayOES(self.glVertexArrayDataLine);
-        
-        GLKVector3 position = self.dataLinePosition1;
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(kDataLineShiftSize, 1.0f, 1.0f);
-        GLKMatrix4 modelMatrix = [self modelMatrixWithPosition:position rotation:rotation scale:scale];
-        
-        self.effect.transform.modelviewMatrix = modelMatrix;
-        self.effect.useConstantColor = YES;
-        self.effect.texture2d0.enabled = NO;
-        
-        self.effect.constantColor = GLKVector4Make(1.0f, 1.0f, 0.0f, 1.0f);
-        [self.effect prepareToDraw];
-        glLineWidth(3.0f);
-        glDrawArrays(GL_LINE_STRIP, 0, self.dataLineDataCurrIdx);
-        /*
-        self.effect.constantColor = GLKVector4Make(1.0f, 1.0f, 1.0f, 1.0f);
-        [self.effect prepareToDraw];
-        glLineWidth(1.0f);
-        glDrawArrays(GL_LINE_STRIP, 0, self.dataLineDataCurrIdx);
-        */
-        GL_CHECK_ERROR();
-    }
-    
-    /*
-     * Render the second batch starting from self.dataLineDataCurrIdx+1 to the end.
-     */
-    if (self.dataLineDataValidSize > self.dataLineDataCurrIdx)
-    {
-        glBindVertexArrayOES(self.glVertexArrayDataLine);
-        
-        GLKVector3 position = self.dataLinePosition2;
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(kDataLineShiftSize, 1.0f, 1.0f);
-        GLKMatrix4 modelMatrix = [self modelMatrixWithPosition:position rotation:rotation scale:scale];
-        
-        self.effect.transform.modelviewMatrix = modelMatrix;
-        self.effect.useConstantColor = YES;
-        self.effect.constantColor = GLKVector4Make(1.0f, 1.0f, 0.0f, 1.0f);
-        self.effect.texture2d0.enabled = NO;
-        
-        self.effect.constantColor = GLKVector4Make(1.0f, 1.0f, 0.0f, 1.0f);
-        glLineWidth(3.0f);
-        [self.effect prepareToDraw];
-        glDrawArrays(GL_LINE_STRIP, self.dataLineDataCurrIdx, self.dataLineDataValidSize - self.dataLineDataCurrIdx);
-        /*
-        self.effect.constantColor = GLKVector4Make(230.0f/255.0f, 230.0f/255.0f, 0.0f, 1.0f);
-        glLineWidth(1.0f);
-        [self.effect prepareToDraw];
-        glDrawArrays(GL_LINE_STRIP, self.dataLineDataCurrIdx, self.dataLineDataValidSize - self.dataLineDataCurrIdx);
-        */
-        GL_CHECK_ERROR();
+        [line render];
     }
     
     [self.glView bindDrawable];
@@ -572,7 +391,7 @@ static VertexData_t dataBlur[] = {
     GLKVector3 position = GLKVector3Make(x, y, kModelZ);
     GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
     GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, yScale, 1.0f);
-    GLKMatrix4 modelMatrix = [self modelMatrixWithPosition:position rotation:rotation scale:scale];
+    GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
     GLKMatrix4 mvpMatrix = GLKMatrix4Multiply(self.effect.transform.projectionMatrix, modelMatrix);
     
     self.blurEffect.mvpMatrix = mvpMatrix;
@@ -598,7 +417,7 @@ static VertexData_t dataBlur[] = {
         GLKVector3 position = GLKVector3Make(x, self.graphTop, kModelZ);
         GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
         GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, 1.0f, 1.0f);
-        GLKMatrix4 modelMatrix = [self modelMatrixWithPosition:position rotation:rotation scale:scale];
+        GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.effect.transform.modelviewMatrix = modelMatrix;
         self.effect.useConstantColor = YES;
@@ -624,7 +443,7 @@ static VertexData_t dataBlur[] = {
         GLKVector3 position = GLKVector3Make(x, y, kModelZ);
         GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
         GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, 1.0f, 1.0f);
-        GLKMatrix4 modelMatrix = [self modelMatrixWithPosition:position rotation:rotation scale:scale];
+        GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.effect.transform.modelviewMatrix = modelMatrix;
         self.effect.useConstantColor = YES;
@@ -647,7 +466,7 @@ static VertexData_t dataBlur[] = {
         GLKVector3 position = GLKVector3Make(x, self.graphBottom, kModelZ);
         GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
         GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, 1.0f, 1.0f);
-        GLKMatrix4 modelMatrix = [self modelMatrixWithPosition:position rotation:rotation scale:scale];
+        GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.effect.transform.modelviewMatrix = modelMatrix;
         self.effect.useConstantColor = YES;
@@ -671,7 +490,7 @@ static VertexData_t dataBlur[] = {
         GLKVector3 position = GLKVector3Make(xVertical, self.graphBottom, kModelZ);
         GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, GLKMathDegreesToRadians(90.0f));
         GLKMatrix4 scale = GLKMatrix4MakeScale(1.0f, yScale, 1.0f);
-        GLKMatrix4 modelMatrix = [self modelMatrixWithPosition:position rotation:rotation scale:scale];
+        GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
 
         self.effect.transform.modelviewMatrix = modelMatrix;
         self.effect.useConstantColor = YES;
@@ -695,7 +514,7 @@ static VertexData_t dataBlur[] = {
         GLKVector3 position = GLKVector3Make(xVertical, self.graphBottom, kModelZ);
         GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, GLKMathDegreesToRadians(90.0f));
         GLKMatrix4 scale = GLKMatrix4MakeScale(1.0f, yScale, 1.0f);
-        GLKMatrix4 modelMatrix = [self modelMatrixWithPosition:position rotation:rotation scale:scale];
+        GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.effect.transform.modelviewMatrix = modelMatrix;
         self.effect.useConstantColor = YES;
@@ -721,7 +540,7 @@ static VertexData_t dataBlur[] = {
     GLKVector3 position = GLKVector3Make(0.0f, self.graphBottom, kModelZ);
     GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
     GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, yScale, 1.0f);
-    GLKMatrix4 modelMatrix = [self modelMatrixWithPosition:position rotation:rotation scale:scale];
+    GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
     
     self.effect.transform.modelviewMatrix = modelMatrix;
     self.effect.useConstantColor = GL_FALSE;
@@ -759,22 +578,6 @@ static VertexData_t dataBlur[] = {
     CGColorSpaceRelease(rgbColorSpace);    
     
     return texture;
-}
-
-- (GLKMatrix4)modelMatrixWithPosition:(GLKVector3)position rotation:(GLKVector3)rotation scale:(GLKMatrix4)scale
-{
-    GLKMatrix4 xRotationMatrix = GLKMatrix4MakeXRotation(rotation.x);
-    GLKMatrix4 yRotationMatrix = GLKMatrix4MakeYRotation(rotation.y);
-    GLKMatrix4 zRotationMatrix = GLKMatrix4MakeZRotation(rotation.z);
-    GLKMatrix4 scaleMatrix = scale;
-    GLKMatrix4 translateMatrix = GLKMatrix4MakeTranslation(position.x, position.y, position.z);
-    
-    GLKMatrix4 modelMatrix = GLKMatrix4Multiply(translateMatrix,
-                                                GLKMatrix4Multiply(scaleMatrix,
-                                                                   GLKMatrix4Multiply(zRotationMatrix,
-                                                                                      GLKMatrix4Multiply(yRotationMatrix,
-                                                                                                         xRotationMatrix))));
-    return modelMatrix;
 }
 
 #pragma mark - private override
