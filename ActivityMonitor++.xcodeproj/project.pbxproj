@@ -48,6 +48,9 @@
 		70DB1953173C7137002125F6 /* GraphLine4.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DB1952173C7137002125F6 /* GraphLine4.png */; };
 		70E19A43174B718900A411C8 /* DataLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A42174B718900A411C8 /* DataLine.m */; };
 		70E19A46174B790400A411C8 /* GLCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A45174B790400A411C8 /* GLCommon.m */; };
+		70E19A4A174BBBA400A411C8 /* ProcessInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A49174BBBA400A411C8 /* ProcessInfoController.m */; };
+		70E19A4D174BBBB600A411C8 /* ProcessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A4C174BBBB600A411C8 /* ProcessInfo.m */; };
+		70E19A53174C0FA500A411C8 /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A52174C0FA400A411C8 /* ProcessViewController.m */; };
 		70EE6080174A9F3400CB847D /* AMGLBlurEffect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 70A627F117494F40008B39C1 /* AMGLBlurEffect.vsh */; };
 		70EE6081174A9F3400CB847D /* AMGLBlurEffect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 70A627F317494F49008B39C1 /* AMGLBlurEffect.fsh */; };
 		70F1F1661739676F007224AD /* FollowingRootCell-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F1F1641739676F007224AD /* FollowingRootCell-88@2x.png */; };
@@ -138,6 +141,12 @@
 		70E19A42174B718900A411C8 /* DataLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataLine.m; sourceTree = "<group>"; };
 		70E19A44174B790400A411C8 /* GLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCommon.h; sourceTree = "<group>"; };
 		70E19A45174B790400A411C8 /* GLCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCommon.m; sourceTree = "<group>"; };
+		70E19A48174BBBA400A411C8 /* ProcessInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessInfoController.h; sourceTree = "<group>"; };
+		70E19A49174BBBA400A411C8 /* ProcessInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessInfoController.m; sourceTree = "<group>"; };
+		70E19A4B174BBBB600A411C8 /* ProcessInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessInfo.h; sourceTree = "<group>"; };
+		70E19A4C174BBBB600A411C8 /* ProcessInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessInfo.m; sourceTree = "<group>"; };
+		70E19A51174C0FA400A411C8 /* ProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessViewController.h; sourceTree = "<group>"; };
+		70E19A52174C0FA400A411C8 /* ProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessViewController.m; sourceTree = "<group>"; };
 		70F1F1641739676F007224AD /* FollowingRootCell-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FollowingRootCell-88@2x.png"; sourceTree = "<group>"; };
 		70F1F1651739676F007224AD /* TopRootCell-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TopRootCell-88@2x.png"; sourceTree = "<group>"; };
 		70F1F16B1739712C007224AD /* CPUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUViewController.h; sourceTree = "<group>"; };
@@ -237,6 +246,7 @@
 				70AF61361739256400EF49E9 /* CPU */,
 				70D92D5C173B21D800C57DEA /* GPU */,
 				70F1F16E17397CB7007224AD /* Device */,
+				70E19A47174BBB8600A411C8 /* Process */,
 				70AF613817392CE600EF49E9 /* AMUtils.h */,
 				70AF613917392CE600EF49E9 /* AMUtils.m */,
 				70F1F18F17398C37007224AD /* AMLog.h */,
@@ -325,6 +335,8 @@
 				70F1F16C1739712C007224AD /* CPUViewController.m */,
 				70D92D62173B29AE00C57DEA /* GPUViewController.h */,
 				70D92D63173B29AE00C57DEA /* GPUViewController.m */,
+				70E19A51174C0FA400A411C8 /* ProcessViewController.h */,
+				70E19A52174C0FA400A411C8 /* ProcessViewController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -353,6 +365,17 @@
 				70D92D60173B299B00C57DEA /* GPUInfoController.m */,
 			);
 			name = GPU;
+			sourceTree = "<group>";
+		};
+		70E19A47174BBB8600A411C8 /* Process */ = {
+			isa = PBXGroup;
+			children = (
+				70E19A4B174BBBB600A411C8 /* ProcessInfo.h */,
+				70E19A4C174BBBB600A411C8 /* ProcessInfo.m */,
+				70E19A48174BBBA400A411C8 /* ProcessInfoController.h */,
+				70E19A49174BBBA400A411C8 /* ProcessInfoController.m */,
+			);
+			name = Process;
 			sourceTree = "<group>";
 		};
 		70F1F16E17397CB7007224AD /* Device */ = {
@@ -573,6 +596,9 @@
 				70A627F417494F49008B39C1 /* AMGLBlurEffect.fsh in Sources */,
 				70E19A43174B718900A411C8 /* DataLine.m in Sources */,
 				70E19A46174B790400A411C8 /* GLCommon.m in Sources */,
+				70E19A4A174BBBA400A411C8 /* ProcessInfoController.m in Sources */,
+				70E19A4D174BBBB600A411C8 /* ProcessInfo.m in Sources */,
+				70E19A53174C0FA500A411C8 /* ProcessViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

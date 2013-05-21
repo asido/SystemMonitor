@@ -11,6 +11,7 @@
 #import "DeviceInfoController.h"
 #import "CPUInfoController.h"
 #import "GPUInfoController.h"
+#import "ProcessInfoController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow  *window;
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) CPUInfoController    *cpuInfoCtrl;
 @property (strong, nonatomic) DeviceInfoController *deviceInfoCtrl;
 @property (strong, nonatomic) GPUInfoController    *gpuInfoCtrl;
+@property (strong, nonatomic) ProcessInfoController *processInfoCtrl;
 
 + (AppDelegate*)sharedDelegate;
 @end

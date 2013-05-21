@@ -52,11 +52,6 @@
     deviceInfo.bootTime = [self getBootTime];
     deviceInfo.safeBoot = [self getSafeBoot];
     
-    NSString *s = [AMUtils getSysCtlChrWithSpecifier:"kern.symfile"];
-    uint64_t i = [AMUtils getSysCtl64WithSpecifier:"kern.aioprocmax"];
-    uint64_t i1 = [AMUtils getSysCtl64WithSpecifier:"kern.aiomax"];
-    uint64_t i2 = [AMUtils getSysCtl64WithSpecifier:"kern.safeboot"];
-    
     return deviceInfo;
 }
 

@@ -43,7 +43,7 @@
         NSMutableArray *extArray = [NSMutableArray arrayWithArray:[extensions componentsSeparatedByString:@" "]];
         // Last object is always empty because of trailing space.
         [extArray removeLastObject];
-        [extArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        [extArray sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
         self.gpuInfo.openGLExtensions = extArray;
     
         GLenum glError = glGetError();

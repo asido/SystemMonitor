@@ -15,4 +15,5 @@
 @property (readonly) DeviceInfo     *deviceInfo;
 @property (readonly) CPUInfo        *cpuInfo;
 @property (readonly) GPUInfo        *gpuInfo;
+@property (readonly) NSArray        *processes;
 @end

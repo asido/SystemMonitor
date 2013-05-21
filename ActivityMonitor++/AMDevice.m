@@ -24,6 +24,7 @@
     DeviceInfo  *_deviceInfo;
     CPUInfo     *_cpuInfo;
     GPUInfo     *_gpuInfo;
+    NSArray     *_processes;
 }
 
 - (id)init
@@ -40,6 +41,7 @@
         _deviceInfo = [app.deviceInfoCtrl getDeviceInfo];
         _cpuInfo = [app.cpuInfoCtrl getCPUInfo];
         _gpuInfo = [app.gpuInfoCtrl getGPUInfo];
+        _processes = [app.processInfoCtrl getProcesses];
     }
     return self;
 }
@@ -52,6 +54,11 @@
 - (CPUInfo*)getCpuInfo
 {
     return _cpuInfo;
+}
+
+- (NSArray*)getProcesses
+{
+    return _processes;
 }
 
 @end
