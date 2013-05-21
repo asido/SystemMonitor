@@ -20,7 +20,7 @@
 + (uint64_t)getSysCtl64WithSpecifier:(char*)specifier
 {
     size_t size = -1;
-    uint64_t val = -1;
+    uint64_t val = 0;
     
     if (!specifier)
     {
@@ -102,6 +102,29 @@
     result = [NSString stringWithUTF8String:val];
     free(val);
     return result;
+}
+
++ (void*)getSysCtlPtrWithSpecifier:(char*)specifier pointer:(void*)ptr size:(size_t)size
+{    
+    if (!specifier)
+    {
+        AMWarn(@"%s: specifier == NULL", __PRETTY_FUNCTION__);
+        return nil;
+    }
+    if (strlen(specifier) == 0)
+    {
+        AMWarn(@"%s: strlen(specifier) == 0", __PRETTY_FUNCTION__);
+        return nil;
+    }
+    
+    if (sysctlbyname(specifier, ptr, &size, NULL, 0) == -1)
+    {
+        AMWarn(@"%s: sysctlbyname value with specifier '%s' has failed: %s",
+               __PRETTY_FUNCTION__, specifier, strerror(errno));
+        return nil;
+    }
+    
+    return ptr;
 }
 
 + (uint64_t)getSysCtlHw:(uint32_t)hwSpecifier

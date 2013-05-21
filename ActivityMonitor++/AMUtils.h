@@ -16,6 +16,7 @@
 /* SysCtl */
 + (uint64_t)getSysCtl64WithSpecifier:(char*)specifier;
 + (NSString*)getSysCtlChrWithSpecifier:(char*)specifier;
++ (void*)getSysCtlPtrWithSpecifier:(char*)specifier pointer:(void*)ptr size:(size_t)size;
 + (uint64_t)getSysCtlHw:(uint32_t)hwSpecifier;
 
 // Returns a value representing a specified percent of the value between max and min.
