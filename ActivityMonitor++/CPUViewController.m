@@ -13,8 +13,8 @@
 #import "CPUViewController.h"
 
 @interface CPUViewController() <CPUInfoControllerDelegate, GLLineGraphDelegate>
-@property (strong, nonatomic) GLLineGraph *glGraph;
-@property (weak, nonatomic) IBOutlet GLKView *cpuUsageGLView;
+@property (strong, nonatomic) GLKView       *cpuUsageGLView;
+@property (strong, nonatomic) GLLineGraph   *glGraph;
 
 @property (weak, nonatomic) IBOutlet UILabel *cpuNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *architectureLabel;
@@ -41,6 +41,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-748.png"]]];
     
     AppDelegate *app = [AppDelegate sharedDelegate];
     
@@ -55,6 +56,10 @@
     [self.l2CacheLabel setText:(app.iDevice.cpuInfo.l2Cache == 0 ? @"-" : [NSString stringWithFormat:@"%d KB", app.iDevice.cpuInfo.l2Cache])];
     [self.l3CacheLabel setText:(app.iDevice.cpuInfo.l3Cache == 0 ? @"-" : [NSString stringWithFormat:@"%d KB", app.iDevice.cpuInfo.l3Cache])];
     [self.endianessLabel setText:app.iDevice.cpuInfo.endianess];
+    
+    self.cpuUsageGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 703.0f, 200.0f)];
+    self.cpuUsageGLView.opaque = NO;
+    self.cpuUsageGLView.backgroundColor = [UIColor clearColor];
     
     self.glGraph = [[GLLineGraph alloc] initWithGLKView:self.cpuUsageGLView
                                           dataLineCount:1
@@ -97,6 +102,21 @@
 
 #pragma mark - Table view data source
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 200.0f;
+}
+
+- (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CpuGraphBackground-250.png"]];
+    UIView *view = [[UIView alloc] initWithFrame:self.cpuUsageGLView.frame];
+    [view addSubview:backgroundView];
+    [view sendSubviewToBack:backgroundView];
+    [view addSubview:self.cpuUsageGLView];
+    return view;
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -135,19 +155,6 @@
     return YES;
 }
 */
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
 
 #pragma mark - CPUInfoController delegate
 

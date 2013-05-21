@@ -7,9 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "GeneralViewController.h"
+#import "OSViewController.h"
 
-@interface GeneralViewController ()
+@interface OSViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *deviceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hostnameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *osNameLabel;
@@ -35,7 +35,7 @@
 - (NSString*)formatUptime:(time_t)bootTime;
 @end
 
-@implementation GeneralViewController
+@implementation OSViewController
 
 #pragma mark - override
 
@@ -48,6 +48,8 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-748.png"]]];
     
     AppDelegate *app = [AppDelegate sharedDelegate];
     NSString *deviceName = [NSString stringWithFormat:@"Apple %@", app.iDevice.deviceInfo.deviceName];

@@ -24,7 +24,6 @@
 		703D2318173818EC0001E3B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 703D2316173818EC0001E3B3 /* InfoPlist.strings */; };
 		703D232A17382AE10001E3B3 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232917382AE10001E3B3 /* background@2x.png */; };
 		703D232C17382F0C0001E3B3 /* CellNoJoins@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232B17382F0C0001E3B3 /* CellNoJoins@2x.png */; };
-		70459D19173C652200065BDD /* GraphLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 70459D18173C652200065BDD /* GraphLine.png */; };
 		70A627EF17494C49008B39C1 /* AMGLBlurEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A627EE17494C49008B39C1 /* AMGLBlurEffect.m */; };
 		70A627F217494F40008B39C1 /* AMGLBlurEffect.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 70A627F117494F40008B39C1 /* AMGLBlurEffect.vsh */; };
 		70A627F417494F49008B39C1 /* AMGLBlurEffect.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 70A627F317494F49008B39C1 /* AMGLBlurEffect.fsh */; };
@@ -33,24 +32,27 @@
 		70AF613A17392CE600EF49E9 /* AMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF613917392CE600EF49E9 /* AMUtils.m */; };
 		70AF613D173965D500EF49E9 /* RootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF613C173965D500EF49E9 /* RootTableViewController.m */; };
 		70C2E9231739BAA8008CB1B1 /* AMUtils_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9221739BAA8008CB1B1 /* AMUtils_Tests.m */; };
-		70C2E9261739C7B7008CB1B1 /* GeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */; };
+		70C2E9261739C7B7008CB1B1 /* OSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9251739C7B6008CB1B1 /* OSViewController.m */; };
 		70C2E9291739C8D2008CB1B1 /* AMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9281739C8D2008CB1B1 /* AMDevice.m */; };
 		70CD01BC1739AB870047E72F /* HardcodedDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */; };
-		70CE6DDD174130EB00F09A5A /* GraphLine1.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CE6DDC174130EB00F09A5A /* GraphLine1.png */; };
 		70D92D5B173AA91300C57DEA /* CPULoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D5A173AA91300C57DEA /* CPULoad.m */; };
 		70D92D61173B299B00C57DEA /* GPUInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D60173B299B00C57DEA /* GPUInfoController.m */; };
 		70D92D64173B29AE00C57DEA /* GPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D63173B29AE00C57DEA /* GPUViewController.m */; };
 		70D92D67173B2B4D00C57DEA /* GPUInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D66173B2B4D00C57DEA /* GPUInfo.m */; };
 		70D92D69173B302600C57DEA /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D92D68173B302600C57DEA /* GLKit.framework */; };
 		70D92D6B173B308200C57DEA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D92D6A173B308100C57DEA /* OpenGLES.framework */; };
-		70DB194F173C6D8E002125F6 /* GraphLine2.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DB194E173C6D8E002125F6 /* GraphLine2.png */; };
-		70DB1951173C7099002125F6 /* GraphLine3.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DB1950173C7099002125F6 /* GraphLine3.png */; };
-		70DB1953173C7137002125F6 /* GraphLine4.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DB1952173C7137002125F6 /* GraphLine4.png */; };
 		70E19A43174B718900A411C8 /* DataLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A42174B718900A411C8 /* DataLine.m */; };
 		70E19A46174B790400A411C8 /* GLCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A45174B790400A411C8 /* GLCommon.m */; };
 		70E19A4A174BBBA400A411C8 /* ProcessInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A49174BBBA400A411C8 /* ProcessInfoController.m */; };
 		70E19A4D174BBBB600A411C8 /* ProcessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A4C174BBBB600A411C8 /* ProcessInfo.m */; };
 		70E19A53174C0FA500A411C8 /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A52174C0FA400A411C8 /* ProcessViewController.m */; };
+		70E19A55174C21CF00A411C8 /* Background-2008@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A54174C21CF00A411C8 /* Background-2008@2x.png */; };
+		70E19A57174C22BF00A411C8 /* Background-1496@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A56174C22BF00A411C8 /* Background-1496@2x.png */; };
+		70E19A59174C260300A411C8 /* Background-748@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A58174C260300A411C8 /* Background-748@2x.png */; };
+		70E19A5D174C289A00A411C8 /* Background-Left-748@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */; };
+		70E19A5F174C2CB000A411C8 /* FollowingRootCell-dark-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A5E174C2CB000A411C8 /* FollowingRootCell-dark-88@2x.png */; };
+		70E19A61174C2E2800A411C8 /* TopRootCell-dark-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A60174C2E2800A411C8 /* TopRootCell-dark-88@2x.png */; };
+		70E19A63174C35A600A411C8 /* CpuGraphBackground-250.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A62174C35A600A411C8 /* CpuGraphBackground-250.png */; };
 		70EE6080174A9F3400CB847D /* AMGLBlurEffect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 70A627F117494F40008B39C1 /* AMGLBlurEffect.vsh */; };
 		70EE6081174A9F3400CB847D /* AMGLBlurEffect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 70A627F317494F49008B39C1 /* AMGLBlurEffect.fsh */; };
 		70F1F1661739676F007224AD /* FollowingRootCell-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F1F1641739676F007224AD /* FollowingRootCell-88@2x.png */; };
@@ -102,7 +104,6 @@
 		703D2317173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		703D232917382AE10001E3B3 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		703D232B17382F0C0001E3B3 /* CellNoJoins@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CellNoJoins@2x.png"; sourceTree = "<group>"; };
-		70459D18173C652200065BDD /* GraphLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GraphLine.png; sourceTree = "<group>"; };
 		70A627ED17494C49008B39C1 /* AMGLBlurEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGLBlurEffect.h; sourceTree = "<group>"; };
 		70A627EE17494C49008B39C1 /* AMGLBlurEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGLBlurEffect.m; sourceTree = "<group>"; };
 		70A627F117494F40008B39C1 /* AMGLBlurEffect.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AMGLBlurEffect.vsh; sourceTree = "<group>"; };
@@ -117,13 +118,12 @@
 		70AF613C173965D500EF49E9 /* RootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTableViewController.m; sourceTree = "<group>"; };
 		70C2E9211739BAA8008CB1B1 /* AMUtils_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMUtils_Tests.h; sourceTree = "<group>"; };
 		70C2E9221739BAA8008CB1B1 /* AMUtils_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtils_Tests.m; sourceTree = "<group>"; };
-		70C2E9241739C7B6008CB1B1 /* GeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralViewController.h; sourceTree = "<group>"; };
-		70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralViewController.m; sourceTree = "<group>"; };
+		70C2E9241739C7B6008CB1B1 /* OSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSViewController.h; sourceTree = "<group>"; };
+		70C2E9251739C7B6008CB1B1 /* OSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSViewController.m; sourceTree = "<group>"; };
 		70C2E9271739C8D1008CB1B1 /* AMDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDevice.h; sourceTree = "<group>"; };
 		70C2E9281739C8D2008CB1B1 /* AMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDevice.m; sourceTree = "<group>"; };
 		70CD01BA1739AB870047E72F /* HardcodedDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardcodedDeviceData.h; sourceTree = "<group>"; };
 		70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HardcodedDeviceData.m; sourceTree = "<group>"; };
-		70CE6DDC174130EB00F09A5A /* GraphLine1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GraphLine1.png; sourceTree = "<group>"; };
 		70D92D59173AA91300C57DEA /* CPULoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoad.h; sourceTree = "<group>"; };
 		70D92D5A173AA91300C57DEA /* CPULoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPULoad.m; sourceTree = "<group>"; };
 		70D92D5F173B299B00C57DEA /* GPUInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUInfoController.h; sourceTree = "<group>"; };
@@ -134,9 +134,6 @@
 		70D92D66173B2B4D00C57DEA /* GPUInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUInfo.m; sourceTree = "<group>"; };
 		70D92D68173B302600C57DEA /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		70D92D6A173B308100C57DEA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		70DB194E173C6D8E002125F6 /* GraphLine2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GraphLine2.png; sourceTree = "<group>"; };
-		70DB1950173C7099002125F6 /* GraphLine3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GraphLine3.png; sourceTree = "<group>"; };
-		70DB1952173C7137002125F6 /* GraphLine4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GraphLine4.png; sourceTree = "<group>"; };
 		70E19A41174B718900A411C8 /* DataLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataLine.h; sourceTree = "<group>"; };
 		70E19A42174B718900A411C8 /* DataLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataLine.m; sourceTree = "<group>"; };
 		70E19A44174B790400A411C8 /* GLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCommon.h; sourceTree = "<group>"; };
@@ -147,6 +144,13 @@
 		70E19A4C174BBBB600A411C8 /* ProcessInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessInfo.m; sourceTree = "<group>"; };
 		70E19A51174C0FA400A411C8 /* ProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessViewController.h; sourceTree = "<group>"; };
 		70E19A52174C0FA400A411C8 /* ProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessViewController.m; sourceTree = "<group>"; };
+		70E19A54174C21CF00A411C8 /* Background-2008@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-2008@2x.png"; sourceTree = "<group>"; };
+		70E19A56174C22BF00A411C8 /* Background-1496@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-1496@2x.png"; sourceTree = "<group>"; };
+		70E19A58174C260300A411C8 /* Background-748@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-748@2x.png"; sourceTree = "<group>"; };
+		70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-Left-748@2x.png"; sourceTree = "<group>"; };
+		70E19A5E174C2CB000A411C8 /* FollowingRootCell-dark-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FollowingRootCell-dark-88@2x.png"; sourceTree = "<group>"; };
+		70E19A60174C2E2800A411C8 /* TopRootCell-dark-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TopRootCell-dark-88@2x.png"; sourceTree = "<group>"; };
+		70E19A62174C35A600A411C8 /* CpuGraphBackground-250.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CpuGraphBackground-250.png"; sourceTree = "<group>"; };
 		70F1F1641739676F007224AD /* FollowingRootCell-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FollowingRootCell-88@2x.png"; sourceTree = "<group>"; };
 		70F1F1651739676F007224AD /* TopRootCell-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TopRootCell-88@2x.png"; sourceTree = "<group>"; };
 		70F1F16B1739712C007224AD /* CPUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUViewController.h; sourceTree = "<group>"; };
@@ -298,15 +302,17 @@
 		703D232417381ED80001E3B3 /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				70459D18173C652200065BDD /* GraphLine.png */,
-				70CE6DDC174130EB00F09A5A /* GraphLine1.png */,
-				70DB194E173C6D8E002125F6 /* GraphLine2.png */,
-				70DB1950173C7099002125F6 /* GraphLine3.png */,
-				70DB1952173C7137002125F6 /* GraphLine4.png */,
+				70E19A54174C21CF00A411C8 /* Background-2008@2x.png */,
+				70E19A56174C22BF00A411C8 /* Background-1496@2x.png */,
+				70E19A58174C260300A411C8 /* Background-748@2x.png */,
+				70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */,
 				703D232917382AE10001E3B3 /* background@2x.png */,
 				703D232B17382F0C0001E3B3 /* CellNoJoins@2x.png */,
 				70F1F1641739676F007224AD /* FollowingRootCell-88@2x.png */,
+				70E19A5E174C2CB000A411C8 /* FollowingRootCell-dark-88@2x.png */,
+				70E19A60174C2E2800A411C8 /* TopRootCell-dark-88@2x.png */,
 				70F1F1651739676F007224AD /* TopRootCell-88@2x.png */,
+				70E19A62174C35A600A411C8 /* CpuGraphBackground-250.png */,
 			);
 			name = Media;
 			sourceTree = "<group>";
@@ -329,8 +335,8 @@
 				703D22F6173818EC0001E3B3 /* MainStoryboard_iPad.storyboard */,
 				70AF613B173965D400EF49E9 /* RootTableViewController.h */,
 				70AF613C173965D500EF49E9 /* RootTableViewController.m */,
-				70C2E9241739C7B6008CB1B1 /* GeneralViewController.h */,
-				70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */,
+				70C2E9241739C7B6008CB1B1 /* OSViewController.h */,
+				70C2E9251739C7B6008CB1B1 /* OSViewController.m */,
 				70F1F16B1739712C007224AD /* CPUViewController.h */,
 				70F1F16C1739712C007224AD /* CPUViewController.m */,
 				70D92D62173B29AE00C57DEA /* GPUViewController.h */,
@@ -527,11 +533,13 @@
 				70F1F1661739676F007224AD /* FollowingRootCell-88@2x.png in Resources */,
 				70F1F1671739676F007224AD /* TopRootCell-88@2x.png in Resources */,
 				70F1F18D17398B6D007224AD /* README.txt in Resources */,
-				70459D19173C652200065BDD /* GraphLine.png in Resources */,
-				70DB194F173C6D8E002125F6 /* GraphLine2.png in Resources */,
-				70DB1951173C7099002125F6 /* GraphLine3.png in Resources */,
-				70DB1953173C7137002125F6 /* GraphLine4.png in Resources */,
-				70CE6DDD174130EB00F09A5A /* GraphLine1.png in Resources */,
+				70E19A55174C21CF00A411C8 /* Background-2008@2x.png in Resources */,
+				70E19A57174C22BF00A411C8 /* Background-1496@2x.png in Resources */,
+				70E19A59174C260300A411C8 /* Background-748@2x.png in Resources */,
+				70E19A5D174C289A00A411C8 /* Background-Left-748@2x.png in Resources */,
+				70E19A5F174C2CB000A411C8 /* FollowingRootCell-dark-88@2x.png in Resources */,
+				70E19A61174C2E2800A411C8 /* TopRootCell-dark-88@2x.png in Resources */,
+				70E19A63174C35A600A411C8 /* CpuGraphBackground-250.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,7 +591,7 @@
 				70F1F18B17398B6D007224AD /* ContextFilterLogFormatter.m in Sources */,
 				70F1F18C17398B6D007224AD /* DispatchQueueLogFormatter.m in Sources */,
 				70CD01BC1739AB870047E72F /* HardcodedDeviceData.m in Sources */,
-				70C2E9261739C7B7008CB1B1 /* GeneralViewController.m in Sources */,
+				70C2E9261739C7B7008CB1B1 /* OSViewController.m in Sources */,
 				70C2E9291739C8D2008CB1B1 /* AMDevice.m in Sources */,
 				70D92D5B173AA91300C57DEA /* CPULoad.m in Sources */,
 				70D92D61173B299B00C57DEA /* GPUInfoController.m in Sources */,

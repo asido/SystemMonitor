@@ -623,7 +623,7 @@ static VertexData_t dataBlur[] = {
     
     glViewport(0, 0, self.glView.drawableWidth, self.glView.drawableHeight);
 
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     
     [self renderReferenceLines];

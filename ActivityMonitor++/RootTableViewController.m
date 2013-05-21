@@ -44,6 +44,10 @@ static const NSString *ViewCtrlIdentifiers[] = {
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-Left-748.png"]]];
+    
+    NSLog(@"%f | %f", self.tableView.bounds.size.width, self.tableView.bounds.size.height);
+    
     [self switchView:VIEW_CTRL_GENERAL];
 }
 
@@ -92,11 +96,11 @@ static const NSString *ViewCtrlIdentifiers[] = {
     NSString *cellBg = nil;
     if (indexPath.row == 0)
     {
-        cellBg = @"TopRootCell-88.png";
+        cellBg = @"TopRootCell-dark-88.png";
     }
     else
     {
-        cellBg = @"FollowingRootCell-88";
+        cellBg = @"FollowingRootCell-dark-88";
     }
     [cell setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:cellBg]]];
     

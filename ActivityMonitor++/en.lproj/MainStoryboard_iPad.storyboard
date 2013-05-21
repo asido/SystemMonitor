@@ -24,6 +24,7 @@
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Operating System" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgc-7z-0hn">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.49803921568627452" green="0.58431372549019611" blue="0.71764705882352942" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Khd-2A-wsm">
@@ -63,6 +64,7 @@
                                                         <constraint firstAttribute="height" constant="25" id="KKx-Oz-0LM"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.49803921569999998" green="0.58431372550000005" blue="0.71764705880000002" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -91,6 +93,7 @@
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Processes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hs7-YJ-SOz">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.49803921569999998" green="0.58431372550000005" blue="0.71764705880000002" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -119,6 +122,7 @@
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="RAM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9x-Cl-0ab">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.49803921569999998" green="0.58431372550000005" blue="0.71764705880000002" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -147,6 +151,7 @@
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="GPU" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMb-7c-G3N">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.49803921569999998" green="0.58431372550000005" blue="0.71764705880000002" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -177,7 +182,9 @@
         <scene sceneID="lj7-nu-ClQ">
             <objects>
                 <navigationController id="mNR-EH-Gwq" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="bKj-5B-VzD">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="bKj-5B-VzD">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -532,28 +539,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="xsc-Qg-o0U">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="200" id="DVN-TB-jkR">
-                                        <rect key="frame" x="0.0" y="536" width="703" height="202"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="43" y="1" width="617" height="199"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <glkView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76u-kz-dvS"/>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="76u-kz-dvS" secondAttribute="bottom" constant="2" id="M8d-qf-w9a"/>
-                                            <constraint firstItem="76u-kz-dvS" firstAttribute="leading" secondItem="DVN-TB-jkR" secondAttribute="leading" constant="43" id="NwY-hZ-coE"/>
-                                            <constraint firstItem="76u-kz-dvS" firstAttribute="top" secondItem="DVN-TB-jkR" secondAttribute="top" constant="1" id="aLH-p8-p41"/>
-                                            <constraint firstItem="76u-kz-dvS" firstAttribute="centerX" secondItem="DVN-TB-jkR" secondAttribute="centerX" type="default" id="cwP-R5-TRD"/>
-                                        </constraints>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="iz8-gd-xPw" id="hFO-oG-D3n"/>
@@ -565,7 +550,6 @@
                     <connections>
                         <outlet property="architectureLabel" destination="r7J-t7-eFd" id="9F6-eU-YBl"/>
                         <outlet property="cpuNameLabel" destination="DZs-jE-tMd" id="Ovn-sQ-pA1"/>
-                        <outlet property="cpuUsageGLView" destination="76u-kz-dvS" id="XtP-6R-5IK"/>
                         <outlet property="endianessLabel" destination="g4x-pB-DxM" id="Q9k-Jn-2De"/>
                         <outlet property="frequencyLabel" destination="ikS-y8-hqU" id="wx2-lX-FAZ"/>
                         <outlet property="l1dCacheLabel" destination="TaB-8C-gQH" id="Yo0-3C-q2y"/>
@@ -908,10 +892,10 @@
             </objects>
             <point key="canvasLocation" x="2627" y="918"/>
         </scene>
-        <!--General View Controller-->
+        <!--View Controller-->
         <scene sceneID="Sof-Bz-UFG">
             <objects>
-                <tableViewController storyboardIdentifier="GeneralViewController" id="rEd-SN-t0u" customClass="GeneralViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="GeneralViewController" id="rEd-SN-t0u" customClass="OSViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="HNO-BG-e1i">
                         <rect key="frame" x="0.0" y="20" width="703" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1433,8 +1417,11 @@
         <class className="GPUViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GPUViewController.h"/>
         </class>
-        <class className="GeneralViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GeneralViewController.h"/>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="OSViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OSViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="bootTimeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="deviceLabel" candidateClass="UILabel"/>
@@ -1452,9 +1439,6 @@
                 <relationship kind="outlet" name="tickFrequencyLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="uptimeLabel" candidateClass="UILabel"/>
             </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
         <class className="ProcessViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ProcessViewController.h"/>
