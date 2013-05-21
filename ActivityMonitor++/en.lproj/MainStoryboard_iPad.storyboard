@@ -1050,7 +1050,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="Darwin Kernel Version 13.0.0: Wed Feb 13 21:37:47 PST 2013; root:xnu-2107.23.23" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="z7m-M4-v5t">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Darwin Kernel Version 13.0.0: Wed Feb 13 21:37:47 PST 2013; root:xnu-2107.23.23" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="z7m-M4-v5t">
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="0en-jt-ReT"/>
