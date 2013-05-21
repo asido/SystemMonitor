@@ -24,4 +24,5 @@
              delegate:(id)aDelegate;
 
 - (void)appendDataValue:(float)value;
+- (void)appendDataArray:(NSArray*)dataArray;
 @end

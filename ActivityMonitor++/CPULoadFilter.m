@@ -60,6 +60,7 @@ static const NSUInteger kCpuLoadHistoryMax = 3;
     result.nice = avgNice / i;
     result.systemWithoutNice = avgSystemWithoutNice / i;
     result.userWithoutNice = avgUserWithoutNice / i;
+    result.total = result.system + result.user + result.nice;
     
     return result;
 }

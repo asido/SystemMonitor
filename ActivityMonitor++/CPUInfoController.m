@@ -43,6 +43,8 @@
 - (NSString*)cpuTypeToString:(cpu_type_t)cpuType;
 - (NSString*)cpuSubtypeToString:(cpu_subtype_t)cpuSubtype;
 
+- (void)pushCPUHistory:(NSArray*)cpuLoads;
+
 @property (strong, nonatomic) NSTimer *cpuLoadUpdateTimer;
 - (void)cpuLoadUpdateTimerCB:(NSNotification*)notification;
 - (NSArray*)calculateCPUUsage;
@@ -56,6 +58,7 @@
 }
 
 @synthesize delegate;
+@synthesize cpuLoadHistory;
 
 @synthesize cpuInfo;
 @synthesize cpuLoadFilter;
@@ -68,6 +71,7 @@
 {
     if (self = [super init])
     {
+        self.cpuLoadHistory = [[NSMutableArray alloc] init];
         self.cpuLoadFilter = [[CPULoadFilter alloc] init];
         
         // Set up mach host and default processor set for later calls.
@@ -306,11 +310,29 @@
     }
 }
 
+- (void)pushCPUHistory:(NSArray*)cpuLoads
+{
+    [self.cpuLoadHistory addObject:cpuLoads];
+    
+    // TODO: make history size dynamic based on how much the graph can store.
+    while (self.cpuLoadHistory.count > 1000)
+    {
+        [self.cpuLoadHistory removeObjectAtIndex:0];
+    }
+}
+
 - (void)cpuLoadUpdateTimerCB:(NSNotification*)notification
 {
-    NSArray *cpuLoadArray = [self calculateCPUUsage];
-    CPULoad *filteredLoad = [self.cpuLoadFilter filterLoad:[cpuLoadArray objectAtIndex:0]];
-    cpuLoadArray = [NSArray arrayWithObject:filteredLoad];
+    NSArray *rawLoadArray = [self calculateCPUUsage];
+    NSMutableArray *cpuLoadArray = [[NSMutableArray alloc] init];
+    
+    for (CPULoad *load in rawLoadArray)
+    {
+        CPULoad *filteredLoad = [self.cpuLoadFilter filterLoad:[rawLoadArray objectAtIndex:0]];
+        [cpuLoadArray addObject:filteredLoad];
+    }
+    
+    [self pushCPUHistory:cpuLoadArray];
     [self.delegate cpuLoadUpdated:cpuLoadArray];
 }
 
@@ -419,6 +441,7 @@
         loadObj.nice                = MIN(100.0, (double)nice   / total         * 100.0);
         loadObj.systemWithoutNice   = MIN(100.0, (double)system / totalnonice   * 100.0);
         loadObj.userWithoutNice     = MIN(100.0, (double)user   / totalnonice   * 100.0);
+        loadObj.total               = loadObj.system + loadObj.user + loadObj.nice;
         [loadArr addObject:loadObj];
     }
     

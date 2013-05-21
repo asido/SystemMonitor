@@ -36,6 +36,8 @@
     // AMDevice uses all the controllers above therefore should be initialized last.
     self.iDevice = [[AMDevice alloc] init];
     
+    [self.cpuInfoCtrl startCPULoadUpdatesWithFrequency:5];
+    
     return YES;
 }
 							

@@ -14,4 +14,5 @@
 @synthesize nice;
 @synthesize systemWithoutNice;
 @synthesize userWithoutNice;
+@synthesize total;
 @end

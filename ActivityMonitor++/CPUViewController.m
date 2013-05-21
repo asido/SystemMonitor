@@ -57,16 +57,23 @@
     [self.endianessLabel setText:app.iDevice.cpuInfo.endianess];
     
     self.glGraph = [[GLLineGraph alloc] initWithGLKView:self.cpuUsageGLView
-                                          dataLineCount:1
+                                          dataLineCount:app.iDevice.cpuInfo.physicalCPUCount
                                               fromValue:0.0f toValue:100.0f
                                                 legends:[NSArray arrayWithObjects:@"0%", @"50%", @"100%", nil]
                                                delegate:self];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    [self.glGraph appendDataArray:[app.cpuInfoCtrl cpuLoadHistory]];
+    app.cpuInfoCtrl.delegate = self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    app.cpuInfoCtrl.delegate = nil;
 }
 
 #pragma mark - Table view data source
@@ -130,10 +137,9 @@
 //    for (NSUInteger i = 0; i < loadArray.count; ++i)
     {
         CPULoad *cpuLoad = [loadArray objectAtIndex:0];
-        double totalLoad = cpuLoad.system + cpuLoad.user + cpuLoad.nice;
-        NSLog(@"CORE %d  [[ %d%% ]]", 1, (NSUInteger)totalLoad);
+        NSLog(@"CORE %d  [[ %d%% ]]", 1, (NSUInteger)cpuLoad.total);
         
-        [self.glGraph appendDataValue:totalLoad];
+        [self.glGraph appendDataValue:cpuLoad.total];
     }
 }
 
@@ -141,9 +147,8 @@
 
 - (void)graphFinishedInitializing
 {
-    AppDelegate *app = [AppDelegate sharedDelegate];
-    [app.cpuInfoCtrl setDelegate:self];
-    [app.cpuInfoCtrl startCPULoadUpdatesWithFrequency:5];
+  //  AppDelegate *app = [AppDelegate sharedDelegate];
+  //  [app.cpuInfoCtrl setDelegate:self];
 }
 
 @end

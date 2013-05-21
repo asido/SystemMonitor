@@ -10,9 +10,10 @@
 
 @interface CPULoad : NSObject
 // Values are in %
-@property (assign) double system;
-@property (assign) double user;
-@property (assign) double nice;
-@property (assign) double systemWithoutNice;
-@property (assign) double userWithoutNice;
+@property (assign, nonatomic) double system;
+@property (assign, nonatomic) double user;
+@property (assign, nonatomic) double nice;
+@property (assign, nonatomic) double systemWithoutNice;
+@property (assign, nonatomic) double userWithoutNice;
+@property (assign, nonatomic) double total;
 @end

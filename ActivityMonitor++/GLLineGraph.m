@@ -281,6 +281,10 @@ static VertexData_t dataBlur[] = {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
+- (void)appendDataArray:(NSArray*)dataArray
+{
+}
+
 #pragma mark - private
 
 - (void)lateInit
