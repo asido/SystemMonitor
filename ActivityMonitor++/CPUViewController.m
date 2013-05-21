@@ -66,7 +66,26 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     AppDelegate *app = [AppDelegate sharedDelegate];
-    [self.glGraph addDataArray:[app.cpuInfoCtrl cpuLoadHistory]];
+    NSArray *cpuLoadArray = [app.cpuInfoCtrl cpuLoadHistory];
+    NSMutableArray *graphData = [NSMutableArray arrayWithCapacity:cpuLoadArray.count];
+    CGFloat avr;
+    
+    for (NSUInteger i = 0; i < cpuLoadArray.count; ++i)
+    {
+        NSArray *data = [cpuLoadArray objectAtIndex:i];
+        avr = 0;
+        
+        for (NSUInteger j = 0; j < data.count; ++j)
+        {
+            CPULoad *load = [data objectAtIndex:j];
+            avr += load.total;
+        }
+        avr /= data.count;
+        
+        [graphData addObject:[NSArray arrayWithObject:[NSNumber numberWithFloat:avr]]];
+    }
+    
+    [self.glGraph resetDataArray:graphData];
     app.cpuInfoCtrl.delegate = self;
 }
 

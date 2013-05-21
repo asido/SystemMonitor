@@ -32,5 +32,5 @@
              delegate:(id)aDelegate;
 
 - (void)addDataValue:(NSArray*)data;
-- (void)addDataArray:(NSArray*)dataArray;
+- (void)resetDataArray:(NSArray*)dataArray;
 @end

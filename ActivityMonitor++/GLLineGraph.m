@@ -27,6 +27,7 @@
 
 /* Data line */
 @property (strong, nonatomic) NSArray       *dataLines;
+@property (strong, nonatomic) NSArray       *queuedDataLineData;
 @property (assign, nonatomic) GLuint        blurFbo;
 @property (assign, nonatomic) GLuint        blurTexture;
 @property (assign, nonatomic) GLuint        glVertexArrayBlur;
@@ -76,6 +77,7 @@
 @synthesize glView=_glView;
 
 @synthesize dataLines=_dataLines;
+@synthesize queuedDataLineData=_queuedDataLineData;
 @synthesize blurFbo=_blurFbo;
 @synthesize blurTexture=_blurTexture;
 @synthesize glVertexArrayBlur=_glVertexArrayBlur;
@@ -171,9 +173,25 @@ static VertexData_t dataBlur[] = {
     }
 }
 
-- (void)addDataArray:(NSArray*)dataArray
+- (void)resetDataArray:(NSArray*)dataArray
 {
-    
+    if (self.dataLines)
+    {
+        for (DataLine *line in self.dataLines)
+        {
+            [line resetLineData];
+        }
+        
+        for (NSUInteger i = 0; i < dataArray.count; ++i)
+        {
+            NSArray *data = [dataArray objectAtIndex:i];
+            [self addDataValue:data];
+        }
+    }
+    else
+    {
+        self.queuedDataLineData = [NSArray arrayWithArray:dataArray];
+    }
 }
 
 #pragma mark - private
@@ -211,6 +229,12 @@ static VertexData_t dataBlur[] = {
         [lines addObject:dataLine];
     }
     self.dataLines = [[NSArray alloc] initWithArray:lines];
+    
+    if (self.queuedDataLineData)
+    {
+        [self resetDataArray:self.queuedDataLineData];
+        self.queuedDataLineData = nil;
+    }
     
     /* Data line blur framebuffer */
     glGenFramebuffers(1, &_blurFbo);

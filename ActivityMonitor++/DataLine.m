@@ -57,9 +57,7 @@ static const GLfloat kDataLineShiftSize     = 0.05f;
         self.dataLineDataValidSize = 0;
         self.dataLineDataCurrIdx = 0;
         
-        GLfloat xTranslate = self.graph.graphRight * self.graph.aspectRatio;
-        self.dataLinePosition1 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
-        self.dataLinePosition2 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
+        [self resetLineData];
         
         [self setupVBO];
     }
@@ -141,6 +139,17 @@ static const GLfloat kDataLineShiftSize     = 0.05f;
 - (void)addLineDataArray:(NSArray*)dataArray
 {
     
+}
+
+- (void)resetLineData
+{
+    GLfloat xTranslate = self.graph.graphRight * self.graph.aspectRatio;
+    self.dataLinePosition1 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
+    self.dataLinePosition2 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
+    
+    self.dataLineDataValidSize = 0;
+    self.dataLineDataCurrIdx = 0;
+    self.dataLineDataNextX = 0;
 }
 
 - (void)render

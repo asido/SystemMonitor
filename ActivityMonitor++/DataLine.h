@@ -17,5 +17,6 @@
 - (id)initWithColor:(UIColor*)aColor forGraph:(GLLineGraph*)aGraph;
 - (void)addLineDataValue:(float)value;
 - (void)addLineDataArray:(NSArray*)dataArray;
+- (void)resetLineData;
 - (void)render;
 @end
