@@ -17,7 +17,6 @@
 @property (assign, nonatomic) id<GLLineGraphDelegate> delegate;
 
 @property (strong, nonatomic) GLKBaseEffect *effect;
-@property (assign, nonatomic) GLfloat       aspectRatio;
 /* Graph boundaries determined based on projection and viewport. */
 @property (assign, nonatomic) GLfloat       graphBottom;
 @property (assign, nonatomic) GLfloat       graphTop;

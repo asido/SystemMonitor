@@ -24,6 +24,9 @@
 @property (strong, nonatomic) NSArray       *legendStrings; // NSString* array
 
 @property (strong, nonatomic) GLKView       *glView;
+@property (assign, nonatomic) GLfloat       aspectRatio;
+@property (assign, nonatomic) GLfloat       drawableWidth;
+@property (assign, nonatomic) GLfloat       drawableHeight;
 
 /* Data line */
 @property (strong, nonatomic) NSArray       *dataLines;
@@ -61,7 +64,6 @@
 @implementation GLLineGraph
 @synthesize delegate;
 @synthesize effect;
-@synthesize aspectRatio;
 @synthesize graphBottom;
 @synthesize graphTop;
 @synthesize graphRight;
@@ -75,6 +77,9 @@
 @synthesize legendStrings=_legendStrings;
 
 @synthesize glView=_glView;
+@synthesize aspectRatio;
+@synthesize drawableWidth;
+@synthesize drawableHeight;
 
 @synthesize dataLines=_dataLines;
 @synthesize queuedDataLineData=_queuedDataLineData;
@@ -146,11 +151,15 @@ static VertexData_t dataBlur[] = {
                 
         self.glView = aGLView;
         self.view = self.glView;
+        
+        self.drawableWidth = self.glView.contentScaleFactor * self.glView.bounds.size.width;
+        self.drawableHeight = self.glView.contentScaleFactor * self.glView.bounds.size.height;
+        self.aspectRatio = fabsf(drawableWidth / drawableHeight);
                                 
         self.graphTop = [AMUtils percentageValueFromMax:kProjectionTop min:kProjectionBottom percent:100-kGraphGapPercentTop];
         self.graphBottom = [AMUtils percentageValueFromMax:kProjectionTop min:kProjectionBottom percent:kGraphGapPercentBottom];
-        self.graphLeft = [AMUtils percentageValueFromMax:kProjectionRight min:kProjectionLeft percent:kGraphGapPercentLeft];
-        self.graphRight = [AMUtils percentageValueFromMax:kProjectionRight min:kProjectionLeft percent:100-kGraphGapPercentRight];
+        self.graphLeft = [AMUtils percentageValueFromMax:kProjectionRight min:kProjectionLeft percent:kGraphGapPercentLeft] * self.aspectRatio;
+        self.graphRight = [AMUtils percentageValueFromMax:kProjectionRight min:kProjectionLeft percent:100-kGraphGapPercentRight] * self.aspectRatio;
         
         [self setupGL];
     }
@@ -208,10 +217,6 @@ static VertexData_t dataBlur[] = {
     
     self.initialized = YES;
     
-    GLfloat drawableWidth = self.glView.contentScaleFactor * self.glView.bounds.size.width;
-    GLfloat drawableHeight = self.glView.contentScaleFactor * self.glView.bounds.size.height;
-    self.aspectRatio = fabsf(drawableWidth / drawableHeight);
-    
     self.effect.transform.projectionMatrix = GLKMatrix4MakeOrtho(kProjectionLeft * self.aspectRatio,
                                                                  kProjectionRight * self.aspectRatio,
                                                                  kProjectionBottom,
@@ -246,7 +251,7 @@ static VertexData_t dataBlur[] = {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, drawableWidth, drawableHeight,
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, self.drawableWidth, self.drawableHeight,
                  0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, self.blurTexture, 0);
     
@@ -428,8 +433,8 @@ static VertexData_t dataBlur[] = {
 
 - (void)renderReferenceLines
 {
-    GLfloat x = self.graphLeft * self.aspectRatio;
-    GLfloat xScale = (self.graphRight - self.graphLeft) * self.aspectRatio;
+    GLfloat x = self.graphLeft;
+    GLfloat xScale = self.graphRight - self.graphLeft;
     GLfloat yScale = self.graphTop - self.graphBottom;
     
     /*
@@ -510,7 +515,7 @@ static VertexData_t dataBlur[] = {
     {
         glBindVertexArrayOES(self.glVertexArrayReferenceLine);
         
-        GLfloat xVertical = self.graphRight * self.aspectRatio;
+        GLfloat xVertical = self.graphRight;
         GLKVector3 position = GLKVector3Make(xVertical, self.graphBottom, kModelZ);
         GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, GLKMathDegreesToRadians(90.0f));
         GLKMatrix4 scale = GLKMatrix4MakeScale(1.0f, yScale, 1.0f);
@@ -534,7 +539,7 @@ static VertexData_t dataBlur[] = {
     {
         glBindVertexArrayOES(self.glVertexArrayReferenceLine);
         
-        GLfloat xVertical = self.graphLeft * self.aspectRatio;
+        GLfloat xVertical = self.graphLeft;
         GLKVector3 position = GLKVector3Make(xVertical, self.graphBottom, kModelZ);
         GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, GLKMathDegreesToRadians(90.0f));
         GLKMatrix4 scale = GLKMatrix4MakeScale(1.0f, yScale, 1.0f);

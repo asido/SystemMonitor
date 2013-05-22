@@ -16,6 +16,8 @@
 
 @property (assign, nonatomic) GLuint        glVertexArrayDataLine;
 @property (assign, nonatomic) GLuint        glBufferDataLine;
+@property (assign, nonatomic) VertexData_t  *dataLineData;
+@property (assign, nonatomic) NSUInteger    dataLineDataSize;
 @property (assign, nonatomic) GLuint        dataLineDataValidSize;  /* Valid buffer index count */
 @property (assign, nonatomic) GLuint        dataLineDataCurrIdx;    /* Current index to be written new values to */
 @property (assign, nonatomic) GLfloat       dataLineDataNextX;      /* Each added data element gets it's own unique X position */
@@ -36,14 +38,14 @@
 
 @synthesize glVertexArrayDataLine=_glVertexArrayDataLine;
 @synthesize glBufferDataLine=_glBufferDataLine;
+@synthesize dataLineData=_dataLineData;
+@synthesize dataLineDataSize=_dataLineDataSize;
 @synthesize dataLineDataValidSize=_dataLineDataValidSize;
 @synthesize dataLineDataCurrIdx=_dataLineDataCurrIdx;
 @synthesize dataLineDataNextX=_dataLineDataNextX;
 @synthesize dataLinePosition1=_dataLinePosition1;
 @synthesize dataLinePosition2=_dataLinePosition2;
 
-static const GLuint kMaxDataLineData        = 1500; // Should be dynamic
-static VertexData_t dataLineData[kMaxDataLineData];
 static const GLfloat kDataLineShiftSize     = 0.25f;
 
 #pragma mark - public
@@ -57,11 +59,19 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
         self.dataLineDataValidSize = 0;
         self.dataLineDataCurrIdx = 0;
         
+        self.dataLineDataSize = (self.graph.graphRight - self.graph.graphLeft) / kDataLineShiftSize;
+        _dataLineData = malloc(self.dataLineDataSize * sizeof(VertexData_t));
+        
         [self resetLineData];
         
         [self setupVBO];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    free(_dataLineData);
 }
 
 - (void)addLineDataValue:(float)value
@@ -72,9 +82,9 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
     
     if (self.dataLineDataValidSize == 0)
     {
-        dataLineData[0].positionCoords.x = vX;
-        dataLineData[0].positionCoords.y = vY;
-        dataLineData[0].positionCoords.z = kModelZ;
+        self.dataLineData[0].positionCoords.x = vX;
+        self.dataLineData[0].positionCoords.y = vY;
+        self.dataLineData[0].positionCoords.z = kModelZ;
         
         self.dataLineDataCurrIdx++;
         self.dataLineDataValidSize++;
@@ -82,13 +92,13 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
     }
     else
     {
-        dataLineData[self.dataLineDataCurrIdx].positionCoords.x = vX;
-        dataLineData[self.dataLineDataCurrIdx].positionCoords.y = vY;
-        dataLineData[self.dataLineDataCurrIdx].positionCoords.z = kModelZ;
+        self.dataLineData[self.dataLineDataCurrIdx].positionCoords.x = vX;
+        self.dataLineData[self.dataLineDataCurrIdx].positionCoords.y = vY;
+        self.dataLineData[self.dataLineDataCurrIdx].positionCoords.z = kModelZ;
         
         self.dataLineDataCurrIdx++;
         
-        if (self.dataLineDataValidSize < kMaxDataLineData)
+        if (self.dataLineDataValidSize < self.dataLineDataSize)
         {
             self.dataLineDataValidSize++;
             bufferSizeIncreased = YES;
@@ -96,7 +106,7 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
     }
     
     // Check if we need to wrap the circular data line buffer.
-    if (self.dataLineDataCurrIdx >= kMaxDataLineData)
+    if (self.dataLineDataCurrIdx >= self.dataLineDataSize)
     {
         // First we move the first data position vector to the second in order to keep the old values moving.
         // It is assumed that the old values which dataLinePosition2 was moving before this assignment
@@ -104,7 +114,7 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
         self.dataLinePosition2 = self.dataLinePosition1;
         
         // Then re-init the first data position vector to starting position.
-        GLfloat xTranslate = self.graph.graphRight * self.graph.aspectRatio;
+        GLfloat xTranslate = self.graph.graphRight;
         self.dataLinePosition1 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
         
         self.dataLineDataNextX = 0;
@@ -124,13 +134,13 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
     {
         glBufferData(GL_ARRAY_BUFFER,
                      self.dataLineDataValidSize * sizeof(VertexData_t),
-                     dataLineData, GL_DYNAMIC_DRAW);
+                     _dataLineData, GL_DYNAMIC_DRAW);
     }
     else
     {
         glBufferSubData(GL_ARRAY_BUFFER, 0,
                         self.dataLineDataValidSize * sizeof(VertexData_t),
-                        dataLineData);
+                        _dataLineData);
     }
     
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -143,7 +153,7 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
 
 - (void)resetLineData
 {
-    GLfloat xTranslate = self.graph.graphRight * self.graph.aspectRatio;
+    GLfloat xTranslate = self.graph.graphRight;
     self.dataLinePosition1 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
     self.dataLinePosition2 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
     
@@ -178,7 +188,7 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
         const CGFloat *components = CGColorGetComponents(self.color.CGColor);
         self.graph.effect.constantColor = GLKVector4Make(components[0], components[1], components[2], CGColorGetAlpha(self.color.CGColor));
         [self.graph.effect prepareToDraw];
-        glLineWidth(3.0f);
+        glLineWidth(2.0f);
         glDrawArrays(GL_LINE_STRIP, 0, self.dataLineDataCurrIdx);
         /*
          self.effect.constantColor = GLKVector4Make(1.0f, 1.0f, 1.0f, 1.0f);
@@ -208,7 +218,7 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
         self.graph.effect.texture2d0.enabled = NO;
         
         [self.graph.effect prepareToDraw];
-        glLineWidth(3.0f);
+        glLineWidth(2.0f);
         
         glDrawArrays(GL_LINE_STRIP, self.dataLineDataCurrIdx, self.dataLineDataValidSize - self.dataLineDataCurrIdx);
         /*
@@ -231,7 +241,7 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
     
     glGenBuffers(1, &_glBufferDataLine);
     glBindBuffer(GL_ARRAY_BUFFER, self.glBufferDataLine);
-    glBufferData(GL_ARRAY_BUFFER, self.dataLineDataValidSize * sizeof(VertexData_t), dataLineData, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, self.dataLineDataValidSize * sizeof(VertexData_t), _dataLineData, GL_DYNAMIC_DRAW);
     
     glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(VertexData_t),
                           NULL + offsetof(VertexData_t, positionCoords));
