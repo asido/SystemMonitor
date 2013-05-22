@@ -66,6 +66,8 @@
                                               fromValue:0.0f toValue:100.0f
                                                 legends:[NSArray arrayWithObjects:@"0%", @"50%", @"100%", nil]
                                                delegate:self];
+    
+    [app.cpuInfoCtrl setCPULoadHistorySize:[self.glGraph requiredElementToFillGraph]];
 }
 
 - (void)viewWillAppear:(BOOL)animated

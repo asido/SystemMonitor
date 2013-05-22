@@ -19,4 +19,5 @@
 - (void)addLineDataArray:(NSArray*)dataArray;
 - (void)resetLineData;
 - (void)render;
+- (NSUInteger)maxDataLineElements;
 @end

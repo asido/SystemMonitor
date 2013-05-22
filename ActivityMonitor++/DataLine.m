@@ -232,6 +232,11 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
 
 }
 
+- (NSUInteger)maxDataLineElements
+{
+    return self.dataLineDataSize;
+}
+
 #pragma mark - private
 
 - (void)setupVBO

@@ -32,4 +32,5 @@
 
 - (void)addDataValue:(NSArray*)data;
 - (void)resetDataArray:(NSArray*)dataArray;
+- (NSUInteger)requiredElementToFillGraph;
 @end

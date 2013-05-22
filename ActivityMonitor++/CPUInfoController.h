@@ -21,4 +21,5 @@
 - (CPUInfo*)getCPUInfo;
 - (void)startCPULoadUpdatesWithFrequency:(NSUInteger)frequency;
 - (void)stopCPULoadUpdates;
+- (void)setCPULoadHistorySize:(NSUInteger)size;
 @end

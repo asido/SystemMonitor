@@ -22,8 +22,9 @@
 #import "CPUInfoController.h"
 
 @interface CPUInfoController()
-@property (strong, nonatomic) CPUInfo *cpuInfo;
+@property (strong, nonatomic) CPUInfo       *cpuInfo;
 @property (strong, nonatomic) CPULoadFilter *cpuLoadFilter;
+@property (assign, nonatomic) NSUInteger    cpuLoadHistorySize;
 
 - (NSString*)getCPUName;
 - (NSUInteger)getActiveCPUCount;
@@ -62,6 +63,7 @@
 
 @synthesize cpuInfo;
 @synthesize cpuLoadFilter;
+@synthesize cpuLoadHistorySize;
 
 @synthesize cpuLoadUpdateTimer;
 
@@ -73,6 +75,8 @@
     {
         self.cpuLoadHistory = [[NSMutableArray alloc] init];
         self.cpuLoadFilter = [[CPULoadFilter alloc] init];
+        
+        self.cpuLoadHistorySize = 1000;
         
         // Set up mach host and default processor set for later calls.
         host = mach_host_self();
@@ -155,6 +159,11 @@
 {
     [self.cpuLoadUpdateTimer invalidate];
     self.cpuLoadUpdateTimer = nil;
+}
+
+- (void)setCPULoadHistorySize:(NSUInteger)size
+{
+    self.cpuLoadHistorySize = size;
 }
 
 #pragma mark - private
@@ -317,8 +326,7 @@
 {
     [self.cpuLoadHistory addObject:cpuLoads];
     
-    // TODO: make history size dynamic based on how much the graph can store.
-    while (self.cpuLoadHistory.count > 1000)
+    while (self.cpuLoadHistory.count > self.cpuLoadHistorySize)
     {
         [self.cpuLoadHistory removeObjectAtIndex:0];
     }

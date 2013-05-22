@@ -162,6 +162,18 @@ static VertexData_t dataBlur[] = {
         self.graphRight = [AMUtils percentageValueFromMax:kProjectionRight min:kProjectionLeft percent:100-kGraphGapPercentRight] * self.aspectRatio;
         
         [self setupGL];
+        
+        // Init data lines.
+        NSArray *lineColors = [NSArray arrayWithObjects:[UIColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1.0f],
+                               [UIColor colorWithRed:127.0f/255.0f green:149.0f/255.0f blue:183.0f/255.0f alpha:1.0f],
+                               nil];
+        NSMutableArray *lines = [[NSMutableArray alloc] initWithCapacity:self.dataLineCount];
+        for (NSUInteger i = 0; i < self.dataLineCount; ++i)
+        {
+            DataLine *dataLine = [[DataLine alloc] initWithColor:[lineColors objectAtIndex:i] forGraph:self];
+            [lines addObject:dataLine];
+        }
+        self.dataLines = [[NSArray alloc] initWithArray:lines];
     }
     return self;
 }
@@ -203,6 +215,18 @@ static VertexData_t dataBlur[] = {
     }
 }
 
+- (NSUInteger)requiredElementToFillGraph
+{
+    NSUInteger cnt = 0;
+    
+    for (DataLine *line in self.dataLines)
+    {
+        cnt = MAX([line maxDataLineElements], cnt);
+    }
+    
+    return cnt;
+}
+
 #pragma mark - private
 
 - (void)lateInit
@@ -223,17 +247,6 @@ static VertexData_t dataBlur[] = {
                                                                  kProjectionTop,
                                                                  kProjectionNear,
                                                                  kProjectionFar);
-    
-    NSArray *lineColors = [NSArray arrayWithObjects:[UIColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1.0f],
-                                                    [UIColor colorWithRed:127.0f/255.0f green:149.0f/255.0f blue:183.0f/255.0f alpha:1.0f],
-                                                    nil];
-    NSMutableArray *lines = [[NSMutableArray alloc] initWithCapacity:self.dataLineCount];
-    for (NSUInteger i = 0; i < self.dataLineCount; ++i)
-    {
-        DataLine *dataLine = [[DataLine alloc] initWithColor:[lineColors objectAtIndex:i] forGraph:self];
-        [lines addObject:dataLine];
-    }
-    self.dataLines = [[NSArray alloc] initWithArray:lines];
     
     if (self.queuedDataLineData)
     {
