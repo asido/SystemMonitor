@@ -19,14 +19,12 @@ typedef enum {
 } ViewCtrl_t;
 
 @interface RootTableViewController ()
-@property (assign, nonatomic) BOOL initialized;
 @property (assign, nonatomic) ViewCtrl_t currentCtrl;
 
 - (void)switchView:(ViewCtrl_t)viewCtrl;
 @end
 
 @implementation RootTableViewController
-@synthesize initialized;
 @synthesize currentCtrl;
 
 static const NSString *ViewCtrlIdentifiers[] = {
