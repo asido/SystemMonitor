@@ -146,6 +146,9 @@
                                                              selector:@selector(cpuLoadUpdateTimerCB:)
                                                              userInfo:nil
                                                               repeats:YES];
+    NSRunLoop *runloop = [NSRunLoop currentRunLoop];
+    [runloop addTimer:self.cpuLoadUpdateTimer forMode:NSRunLoopCommonModes];
+    [runloop addTimer:self.cpuLoadUpdateTimer forMode:UITrackingRunLoopMode];
 }
 
 - (void)stopCPULoadUpdates
@@ -324,16 +327,9 @@
 - (void)cpuLoadUpdateTimerCB:(NSNotification*)notification
 {
     NSArray *rawLoadArray = [self calculateCPUUsage];
-    NSMutableArray *cpuLoadArray = [[NSMutableArray alloc] init];
     
-    for (CPULoad *load in rawLoadArray)
-    {
-        CPULoad *filteredLoad = [self.cpuLoadFilter filterLoad:[rawLoadArray objectAtIndex:0]];
-        [cpuLoadArray addObject:filteredLoad];
-    }
-    
-    [self pushCPUHistory:cpuLoadArray];
-    [self.delegate cpuLoadUpdated:cpuLoadArray];
+    [self pushCPUHistory:rawLoadArray];
+    [self.delegate cpuLoadUpdated:rawLoadArray];
 }
 
 - (NSArray*)calculateCPUUsage

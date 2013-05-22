@@ -41,7 +41,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-748.png"]]];
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]]];
     
     AppDelegate *app = [AppDelegate sharedDelegate];
     
@@ -57,7 +57,7 @@
     [self.l3CacheLabel setText:(app.iDevice.cpuInfo.l3Cache == 0 ? @"-" : [NSString stringWithFormat:@"%d KB", app.iDevice.cpuInfo.l3Cache])];
     [self.endianessLabel setText:app.iDevice.cpuInfo.endianess];
     
-    self.cpuUsageGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 703.0f, 200.0f)];
+    self.cpuUsageGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, 703.0f, 200.0f)];
     self.cpuUsageGLView.opaque = NO;
     self.cpuUsageGLView.backgroundColor = [UIColor clearColor];
     
@@ -104,12 +104,15 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 200.0f;
+    return 280.0f;
 }
 
 - (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CpuGraphBackground-250.png"]];
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CpuGraphBackground-464.png"]];
+    CGRect frame = backgroundView.frame;
+    frame.origin.y = 20;
+    backgroundView.frame = frame;
     UIView *view = [[UIView alloc] initWithFrame:self.cpuUsageGLView.frame];
     [view addSubview:backgroundView];
     [view sendSubviewToBack:backgroundView];

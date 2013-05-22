@@ -61,4 +61,12 @@
     return _processes;
 }
 
+#pragma mark - public
+
+- (void)refreshProcesses
+{
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    _processes = [app.processInfoCtrl getProcesses];
+}
+
 @end

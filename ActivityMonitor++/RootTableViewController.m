@@ -19,10 +19,15 @@ typedef enum {
 } ViewCtrl_t;
 
 @interface RootTableViewController ()
+@property (assign, nonatomic) BOOL initialized;
+@property (assign, nonatomic) ViewCtrl_t currentCtrl;
+
 - (void)switchView:(ViewCtrl_t)viewCtrl;
 @end
 
 @implementation RootTableViewController
+@synthesize initialized;
+@synthesize currentCtrl;
 
 static const NSString *ViewCtrlIdentifiers[] = {
     [VIEW_CTRL_GENERAL]     = @"GeneralViewController",
@@ -45,13 +50,12 @@ static const NSString *ViewCtrlIdentifiers[] = {
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-Left-748.png"]]];
-    
-    NSLog(@"%f | %f", self.tableView.bounds.size.width, self.tableView.bounds.size.height);
-    
-    [self switchView:VIEW_CTRL_GENERAL];
+        
+    self.currentCtrl = -1;
+    [self tableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:VIEW_CTRL_GENERAL inSection:0]];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
@@ -71,6 +75,12 @@ static const NSString *ViewCtrlIdentifiers[] = {
 - (void)switchView:(ViewCtrl_t)viewCtrl
 {
     NSParameterAssert(viewCtrl < VIEW_CTRL_MAX);
+    
+    if (viewCtrl == self.currentCtrl)
+    {
+        return;
+    }
+    self.currentCtrl = viewCtrl;
     
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:(NSInteger)viewCtrl inSection:0]
                                 animated:NO
@@ -96,11 +106,11 @@ static const NSString *ViewCtrlIdentifiers[] = {
     NSString *cellBg = nil;
     if (indexPath.row == 0)
     {
-        cellBg = @"TopRootCell-dark-88.png";
+        cellBg = @"RootCellTop-dark-88.png";
     }
     else
     {
-        cellBg = @"FollowingRootCell-dark-88";
+        cellBg = @"RootCellFollowing-dark-88.png";
     }
     [cell setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:cellBg]]];
     

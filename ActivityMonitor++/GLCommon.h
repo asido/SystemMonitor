@@ -21,7 +21,7 @@
         }                                       \
     } while (0)
 #else
-#define CHECK_GL_ERROR()
+#define GL_CHECK_ERROR()
 #endif
 
 #define kModelZ     (-2.0f)

@@ -18,7 +18,7 @@
 @implementation CPULoadFilter
 @synthesize rawCpuLoadHistory;
 
-static const NSUInteger kCpuLoadHistoryMax = 3;
+static const NSUInteger kCpuLoadHistoryMax = 0;
 
 #pragma mark - override
 

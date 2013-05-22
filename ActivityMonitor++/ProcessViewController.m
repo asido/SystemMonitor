@@ -9,27 +9,24 @@
 #import "AppDelegate.h"
 #import "AMLog.h"
 #import "ProcessInfo.h"
+#import "ProcessTopView.h"
 #import "ProcessViewController.h"
 
-@interface ProcessViewController ()
+@interface ProcessViewController() <ProcessTopViewDelegate>
+@property (strong, nonatomic) ProcessTopView    *topView;
+@property (strong, nonatomic) NSArray           *filteredProcesses;
+
 - (NSString*)formatStartTime:(time_t)unixTime;
 @end
 
 @implementation ProcessViewController
+@synthesize topView;
+@synthesize filteredProcesses;
 
 #pragma mark - override
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
-{
+{    
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -37,12 +34,45 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // Set background.
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]]];
+    
+    // Refresh process list.
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    [app.iDevice refreshProcesses];
+    
+    // Load top view.
+    NSArray *bundle = [[NSBundle mainBundle] loadNibNamed:@"ProcessTopView" owner:self options:nil];
+    for (id obj in bundle)
+    {
+        if ([obj isKindOfClass:[ProcessTopView class]])
+        {
+            self.topView = (ProcessTopView*) obj;
+            self.topView.delegate = self;
+        }
+    }
+    [self.view addSubview:self.topView];
+    
+    
+    self.filteredProcesses = [NSArray arrayWithArray:app.iDevice.processes];
+    
+    [self.topView setProcessCount:self.filteredProcesses.count];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    // We don't want top view to scroll.
+    CGRect newFrame = self.topView.frame;
+    newFrame.origin.x = 0;
+    newFrame.origin.y = self.tableView.contentOffset.y;
+    self.topView.frame = newFrame;
 }
 
 #pragma mark - private
@@ -60,6 +90,21 @@
 
 #pragma mark - Table view data source
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return self.topView.frame.size.height;
+}
+
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *dummyView = [[UIView alloc] init];
+    dummyView.backgroundColor = [UIColor clearColor];
+    // During reloadData the header goes on top of the top view block UI interaction.
+    // Disabling interactions on the header will make it go through to topView.
+    dummyView.userInteractionEnabled = NO;
+    return dummyView;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -67,8 +112,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    AppDelegate *app = [AppDelegate sharedDelegate];
-    return app.iDevice.processes.count;
+    return self.filteredProcesses.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,7 +142,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    UIImageView *iconView = (UIImageView*) [cell viewWithTag:TAG_ICON_VIEW];
+    //UIImageView *iconView = (UIImageView*) [cell viewWithTag:TAG_ICON_VIEW];
     UILabel *nameLabel = (UILabel*) [cell viewWithTag:TAG_NAME_LABEL];
     UILabel *statusLabel = (UILabel*) [cell viewWithTag:TAG_STATUS_LABEL];
     UILabel *startTimeLabel = (UILabel*) [cell viewWithTag:TAG_START_TIME_LABEL];
@@ -106,10 +150,9 @@
     UILabel *priorityLabel = (UILabel*) [cell viewWithTag:TAG_PRIORITY_LABEL];
     UILabel *commandLineLabel = (UILabel*) [cell viewWithTag:TAG_COMMAND_LINE_LABEL];
     
-    AppDelegate *app = [AppDelegate sharedDelegate];
-    ProcessInfo *process = [app.iDevice.processes objectAtIndex:indexPath.row];
+    ProcessInfo *process = [self.filteredProcesses objectAtIndex:indexPath.row];
     
-    [iconView setImage:process.icon];
+    //[iconView setImage:process.icon];
     [nameLabel setText:process.name];
     [statusLabel setText:[process getStatusString]];
     [startTimeLabel setText:[self formatStartTime:process.startTime]];
@@ -120,56 +163,69 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+#pragma mark - ProcessTopView delegate
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)processTopViewSortFilterChanged:(SortFilter_t)newFilter
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    
+    switch (newFilter) {
+        case SORT_BY_ID:
+            self.filteredProcesses = [app.iDevice.processes sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+                ProcessInfo *p1 = (ProcessInfo*) a;
+                ProcessInfo *p2 = (ProcessInfo*) b;
+                                
+                if (p1.pid > p2.pid) {
+                    return NSOrderedDescending;
+                } else if (p1.pid < p2.pid) {
+                    return NSOrderedAscending;
+                } else {
+                    return NSOrderedSame;
+                }
+            }];
+            break;
+        case SORT_BY_NAME:
+            self.filteredProcesses = [app.iDevice.processes sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+                ProcessInfo *p1 = (ProcessInfo*) a;
+                ProcessInfo *p2 = (ProcessInfo*) b;
+                
+                return [p1.name compare:p2.name];
+            }];
+            break;
+        case SORT_BY_PRIORITY:
+            self.filteredProcesses = [app.iDevice.processes sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+                ProcessInfo *p1 = (ProcessInfo*) a;
+                ProcessInfo *p2 = (ProcessInfo*) b;
+                
+                if (p1.priority > p2.priority) {
+                    return NSOrderedDescending;
+                } else if (p1.priority < p2.priority) {
+                    return NSOrderedAscending;
+                } else {
+                    return NSOrderedSame;
+                }
+            }];
+            break;
+        case SORT_BY_START_TIME:
+            self.filteredProcesses = [app.iDevice.processes sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+                ProcessInfo *p1 = (ProcessInfo*) a;
+                ProcessInfo *p2 = (ProcessInfo*) b;
+                
+                if (p1.startTime > p2.startTime) {
+                    return NSOrderedDescending;
+                } else if (p1.startTime < p2.startTime) {
+                    return NSOrderedAscending;
+                } else {
+                    return NSOrderedSame;
+                }
+            }];
+            break;
+        default:
+            AMWarn(@"%s: unknown filter: %d", __PRETTY_FUNCTION__, newFilter);
+            break;
+    }
+    
+    [self.tableView reloadData];
 }
 
 @end

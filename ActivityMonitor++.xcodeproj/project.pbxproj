@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		701190D4174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 701190D2174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png */; };
+		701190D5174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 701190D3174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png */; };
+		701190D8174D063300B5D8B1 /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 701190D7174D063300B5D8B1 /* DefaultCell.m */; };
+		701190DA174D09A900B5D8B1 /* CellNoJoins@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 701190D9174D09A900B5D8B1 /* CellNoJoins@2x.png */; };
+		701190DF174D0F6200B5D8B1 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 701190DE174D0F6100B5D8B1 /* ProcessCell.m */; };
+		701190E5174D12C100B5D8B1 /* ProcessCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 701190E4174D12C100B5D8B1 /* ProcessCell@2x.png */; };
+		701190EA174D194400B5D8B1 /* ProcessTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 701190E9174D194400B5D8B1 /* ProcessTopView.m */; };
+		701190F2174D1C5200B5D8B1 /* SettingsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 701190F1174D1C5100B5D8B1 /* SettingsIcon@2x.png */; };
+		701190F6174D21DB00B5D8B1 /* FilterButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 701190F5174D21DB00B5D8B1 /* FilterButton@2x.png */; };
+		701190F8174D246800B5D8B1 /* ProcessTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 701190F7174D246800B5D8B1 /* ProcessTopView.xib */; };
+		701190FB174D2F2000B5D8B1 /* ProcessSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701190FA174D2F2000B5D8B1 /* ProcessSortViewController.m */; };
+		70119102174D7DA600B5D8B1 /* RootCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70119101174D7DA600B5D8B1 /* RootCell.m */; };
 		703D22DC173818EC0001E3B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DB173818EC0001E3B3 /* UIKit.framework */; };
 		703D22DE173818EC0001E3B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DD173818EC0001E3B3 /* Foundation.framework */; };
 		703D22E0173818EC0001E3B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DF173818EC0001E3B3 /* CoreGraphics.framework */; };
@@ -23,7 +35,7 @@
 		703D2310173818EC0001E3B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DD173818EC0001E3B3 /* Foundation.framework */; };
 		703D2318173818EC0001E3B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 703D2316173818EC0001E3B3 /* InfoPlist.strings */; };
 		703D232A17382AE10001E3B3 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232917382AE10001E3B3 /* background@2x.png */; };
-		703D232C17382F0C0001E3B3 /* CellNoJoins@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232B17382F0C0001E3B3 /* CellNoJoins@2x.png */; };
+		703D232C17382F0C0001E3B3 /* CellNoJoins@2x_.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232B17382F0C0001E3B3 /* CellNoJoins@2x_.png */; };
 		70A627EF17494C49008B39C1 /* AMGLBlurEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A627EE17494C49008B39C1 /* AMGLBlurEffect.m */; };
 		70A627F217494F40008B39C1 /* AMGLBlurEffect.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 70A627F117494F40008B39C1 /* AMGLBlurEffect.vsh */; };
 		70A627F417494F49008B39C1 /* AMGLBlurEffect.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 70A627F317494F49008B39C1 /* AMGLBlurEffect.fsh */; };
@@ -35,6 +47,10 @@
 		70C2E9261739C7B7008CB1B1 /* OSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9251739C7B6008CB1B1 /* OSViewController.m */; };
 		70C2E9291739C8D2008CB1B1 /* AMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9281739C8D2008CB1B1 /* AMDevice.m */; };
 		70CD01BC1739AB870047E72F /* HardcodedDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */; };
+		70D8F451174CE2C9003824E2 /* CpuGraphBackground-800@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D8F450174CE2C9003824E2 /* CpuGraphBackground-800@2x.png */; };
+		70D8F455174CE755003824E2 /* CpuGraphBackground-500@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D8F454174CE755003824E2 /* CpuGraphBackground-500@2x.png */; };
+		70D8F457174CEAE6003824E2 /* CpuGraphBackground-464@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D8F456174CEAE6003824E2 /* CpuGraphBackground-464@2x.png */; };
+		70D8F45D174CF1E9003824E2 /* Background-1496@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D8F45C174CF1E9003824E2 /* Background-1496@2x.png */; };
 		70D92D5B173AA91300C57DEA /* CPULoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D5A173AA91300C57DEA /* CPULoad.m */; };
 		70D92D61173B299B00C57DEA /* GPUInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D60173B299B00C57DEA /* GPUInfoController.m */; };
 		70D92D64173B29AE00C57DEA /* GPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D63173B29AE00C57DEA /* GPUViewController.m */; };
@@ -47,16 +63,11 @@
 		70E19A4D174BBBB600A411C8 /* ProcessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A4C174BBBB600A411C8 /* ProcessInfo.m */; };
 		70E19A53174C0FA500A411C8 /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A52174C0FA400A411C8 /* ProcessViewController.m */; };
 		70E19A55174C21CF00A411C8 /* Background-2008@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A54174C21CF00A411C8 /* Background-2008@2x.png */; };
-		70E19A57174C22BF00A411C8 /* Background-1496@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A56174C22BF00A411C8 /* Background-1496@2x.png */; };
 		70E19A59174C260300A411C8 /* Background-748@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A58174C260300A411C8 /* Background-748@2x.png */; };
 		70E19A5D174C289A00A411C8 /* Background-Left-748@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */; };
-		70E19A5F174C2CB000A411C8 /* FollowingRootCell-dark-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A5E174C2CB000A411C8 /* FollowingRootCell-dark-88@2x.png */; };
-		70E19A61174C2E2800A411C8 /* TopRootCell-dark-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A60174C2E2800A411C8 /* TopRootCell-dark-88@2x.png */; };
 		70E19A63174C35A600A411C8 /* CpuGraphBackground-250.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A62174C35A600A411C8 /* CpuGraphBackground-250.png */; };
 		70EE6080174A9F3400CB847D /* AMGLBlurEffect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 70A627F117494F40008B39C1 /* AMGLBlurEffect.vsh */; };
 		70EE6081174A9F3400CB847D /* AMGLBlurEffect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 70A627F317494F49008B39C1 /* AMGLBlurEffect.fsh */; };
-		70F1F1661739676F007224AD /* FollowingRootCell-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F1F1641739676F007224AD /* FollowingRootCell-88@2x.png */; };
-		70F1F1671739676F007224AD /* TopRootCell-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F1F1651739676F007224AD /* TopRootCell-88@2x.png */; };
 		70F1F16D1739712D007224AD /* CPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F16C1739712C007224AD /* CPUViewController.m */; };
 		70F1F17117397CEC007224AD /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17017397CEC007224AD /* DeviceInfo.m */; };
 		70F1F17417397CFE007224AD /* DeviceInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17317397CFE007224AD /* DeviceInfoController.m */; };
@@ -83,6 +94,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		701190D2174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RootCellFollowing-dark-88@2x.png"; sourceTree = "<group>"; };
+		701190D3174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RootCellTop-dark-88@2x.png"; sourceTree = "<group>"; };
+		701190D6174D063300B5D8B1 /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCell.h; sourceTree = "<group>"; };
+		701190D7174D063300B5D8B1 /* DefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCell.m; sourceTree = "<group>"; };
+		701190D9174D09A900B5D8B1 /* CellNoJoins@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CellNoJoins@2x.png"; sourceTree = "<group>"; };
+		701190DD174D0F6100B5D8B1 /* ProcessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessCell.h; sourceTree = "<group>"; };
+		701190DE174D0F6100B5D8B1 /* ProcessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessCell.m; sourceTree = "<group>"; };
+		701190E4174D12C100B5D8B1 /* ProcessCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ProcessCell@2x.png"; sourceTree = "<group>"; };
+		701190E8174D194400B5D8B1 /* ProcessTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessTopView.h; sourceTree = "<group>"; };
+		701190E9174D194400B5D8B1 /* ProcessTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessTopView.m; sourceTree = "<group>"; };
+		701190F1174D1C5100B5D8B1 /* SettingsIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SettingsIcon@2x.png"; sourceTree = "<group>"; };
+		701190F5174D21DB00B5D8B1 /* FilterButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FilterButton@2x.png"; sourceTree = "<group>"; };
+		701190F7174D246800B5D8B1 /* ProcessTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessTopView.xib; sourceTree = "<group>"; };
+		701190F9174D2F1F00B5D8B1 /* ProcessSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessSortViewController.h; sourceTree = "<group>"; };
+		701190FA174D2F2000B5D8B1 /* ProcessSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessSortViewController.m; sourceTree = "<group>"; };
+		70119100174D7DA500B5D8B1 /* RootCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootCell.h; sourceTree = "<group>"; };
+		70119101174D7DA600B5D8B1 /* RootCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootCell.m; sourceTree = "<group>"; };
 		703D22D8173818EC0001E3B3 /* ActivityMonitor++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ActivityMonitor++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		703D22DB173818EC0001E3B3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		703D22DD173818EC0001E3B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -103,7 +131,7 @@
 		703D2315173818EC0001E3B3 /* ActivityMonitor++Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ActivityMonitor++Tests-Info.plist"; sourceTree = "<group>"; };
 		703D2317173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		703D232917382AE10001E3B3 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
-		703D232B17382F0C0001E3B3 /* CellNoJoins@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CellNoJoins@2x.png"; sourceTree = "<group>"; };
+		703D232B17382F0C0001E3B3 /* CellNoJoins@2x_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CellNoJoins@2x_.png"; sourceTree = "<group>"; };
 		70A627ED17494C49008B39C1 /* AMGLBlurEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGLBlurEffect.h; sourceTree = "<group>"; };
 		70A627EE17494C49008B39C1 /* AMGLBlurEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGLBlurEffect.m; sourceTree = "<group>"; };
 		70A627F117494F40008B39C1 /* AMGLBlurEffect.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AMGLBlurEffect.vsh; sourceTree = "<group>"; };
@@ -124,6 +152,10 @@
 		70C2E9281739C8D2008CB1B1 /* AMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDevice.m; sourceTree = "<group>"; };
 		70CD01BA1739AB870047E72F /* HardcodedDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardcodedDeviceData.h; sourceTree = "<group>"; };
 		70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HardcodedDeviceData.m; sourceTree = "<group>"; };
+		70D8F450174CE2C9003824E2 /* CpuGraphBackground-800@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CpuGraphBackground-800@2x.png"; sourceTree = "<group>"; };
+		70D8F454174CE755003824E2 /* CpuGraphBackground-500@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CpuGraphBackground-500@2x.png"; sourceTree = "<group>"; };
+		70D8F456174CEAE6003824E2 /* CpuGraphBackground-464@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CpuGraphBackground-464@2x.png"; sourceTree = "<group>"; };
+		70D8F45C174CF1E9003824E2 /* Background-1496@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-1496@2x.png"; sourceTree = "<group>"; };
 		70D92D59173AA91300C57DEA /* CPULoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoad.h; sourceTree = "<group>"; };
 		70D92D5A173AA91300C57DEA /* CPULoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPULoad.m; sourceTree = "<group>"; };
 		70D92D5F173B299B00C57DEA /* GPUInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUInfoController.h; sourceTree = "<group>"; };
@@ -145,14 +177,9 @@
 		70E19A51174C0FA400A411C8 /* ProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessViewController.h; sourceTree = "<group>"; };
 		70E19A52174C0FA400A411C8 /* ProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessViewController.m; sourceTree = "<group>"; };
 		70E19A54174C21CF00A411C8 /* Background-2008@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-2008@2x.png"; sourceTree = "<group>"; };
-		70E19A56174C22BF00A411C8 /* Background-1496@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-1496@2x.png"; sourceTree = "<group>"; };
 		70E19A58174C260300A411C8 /* Background-748@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-748@2x.png"; sourceTree = "<group>"; };
 		70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-Left-748@2x.png"; sourceTree = "<group>"; };
-		70E19A5E174C2CB000A411C8 /* FollowingRootCell-dark-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FollowingRootCell-dark-88@2x.png"; sourceTree = "<group>"; };
-		70E19A60174C2E2800A411C8 /* TopRootCell-dark-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TopRootCell-dark-88@2x.png"; sourceTree = "<group>"; };
 		70E19A62174C35A600A411C8 /* CpuGraphBackground-250.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CpuGraphBackground-250.png"; sourceTree = "<group>"; };
-		70F1F1641739676F007224AD /* FollowingRootCell-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FollowingRootCell-88@2x.png"; sourceTree = "<group>"; };
-		70F1F1651739676F007224AD /* TopRootCell-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TopRootCell-88@2x.png"; sourceTree = "<group>"; };
 		70F1F16B1739712C007224AD /* CPUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUViewController.h; sourceTree = "<group>"; };
 		70F1F16C1739712C007224AD /* CPUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUViewController.m; sourceTree = "<group>"; };
 		70F1F16F17397CEC007224AD /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
@@ -207,6 +234,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		701190FC174D37A100B5D8B1 /* Process */ = {
+			isa = PBXGroup;
+			children = (
+				701190F7174D246800B5D8B1 /* ProcessTopView.xib */,
+				701190F9174D2F1F00B5D8B1 /* ProcessSortViewController.h */,
+				701190FA174D2F2000B5D8B1 /* ProcessSortViewController.m */,
+				701190DD174D0F6100B5D8B1 /* ProcessCell.h */,
+				701190DE174D0F6100B5D8B1 /* ProcessCell.m */,
+				701190E8174D194400B5D8B1 /* ProcessTopView.h */,
+				701190E9174D194400B5D8B1 /* ProcessTopView.m */,
+				70E19A51174C0FA400A411C8 /* ProcessViewController.h */,
+				70E19A52174C0FA400A411C8 /* ProcessViewController.m */,
+			);
+			name = Process;
+			sourceTree = "<group>";
+		};
+		701190FD174D37BD00B5D8B1 /* GPU */ = {
+			isa = PBXGroup;
+			children = (
+				70D92D62173B29AE00C57DEA /* GPUViewController.h */,
+				70D92D63173B29AE00C57DEA /* GPUViewController.m */,
+			);
+			name = GPU;
+			sourceTree = "<group>";
+		};
+		701190FE174D37C500B5D8B1 /* CPU */ = {
+			isa = PBXGroup;
+			children = (
+				70F1F16B1739712C007224AD /* CPUViewController.h */,
+				70F1F16C1739712C007224AD /* CPUViewController.m */,
+			);
+			name = CPU;
+			sourceTree = "<group>";
+		};
+		701190FF174D37CD00B5D8B1 /* OS */ = {
+			isa = PBXGroup;
+			children = (
+				70C2E9241739C7B6008CB1B1 /* OSViewController.h */,
+				70C2E9251739C7B6008CB1B1 /* OSViewController.m */,
+			);
+			name = OS;
+			sourceTree = "<group>";
+		};
 		703D22CF173818EB0001E3B3 = {
 			isa = PBXGroup;
 			children = (
@@ -303,16 +373,21 @@
 			isa = PBXGroup;
 			children = (
 				70E19A54174C21CF00A411C8 /* Background-2008@2x.png */,
-				70E19A56174C22BF00A411C8 /* Background-1496@2x.png */,
 				70E19A58174C260300A411C8 /* Background-748@2x.png */,
+				70D8F45C174CF1E9003824E2 /* Background-1496@2x.png */,
 				70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */,
 				703D232917382AE10001E3B3 /* background@2x.png */,
-				703D232B17382F0C0001E3B3 /* CellNoJoins@2x.png */,
-				70F1F1641739676F007224AD /* FollowingRootCell-88@2x.png */,
-				70E19A5E174C2CB000A411C8 /* FollowingRootCell-dark-88@2x.png */,
-				70E19A60174C2E2800A411C8 /* TopRootCell-dark-88@2x.png */,
-				70F1F1651739676F007224AD /* TopRootCell-88@2x.png */,
+				703D232B17382F0C0001E3B3 /* CellNoJoins@2x_.png */,
+				701190D9174D09A900B5D8B1 /* CellNoJoins@2x.png */,
+				701190E4174D12C100B5D8B1 /* ProcessCell@2x.png */,
+				701190D2174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png */,
+				701190D3174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png */,
 				70E19A62174C35A600A411C8 /* CpuGraphBackground-250.png */,
+				70D8F450174CE2C9003824E2 /* CpuGraphBackground-800@2x.png */,
+				70D8F454174CE755003824E2 /* CpuGraphBackground-500@2x.png */,
+				70D8F456174CEAE6003824E2 /* CpuGraphBackground-464@2x.png */,
+				701190F1174D1C5100B5D8B1 /* SettingsIcon@2x.png */,
+				701190F5174D21DB00B5D8B1 /* FilterButton@2x.png */,
 			);
 			name = Media;
 			sourceTree = "<group>";
@@ -331,18 +406,18 @@
 		70AF612E173924B100EF49E9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				701190FF174D37CD00B5D8B1 /* OS */,
+				701190FE174D37C500B5D8B1 /* CPU */,
+				701190FD174D37BD00B5D8B1 /* GPU */,
+				701190FC174D37A100B5D8B1 /* Process */,
 				703D22F3173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard */,
 				703D22F6173818EC0001E3B3 /* MainStoryboard_iPad.storyboard */,
+				701190D6174D063300B5D8B1 /* DefaultCell.h */,
+				701190D7174D063300B5D8B1 /* DefaultCell.m */,
+				70119100174D7DA500B5D8B1 /* RootCell.h */,
+				70119101174D7DA600B5D8B1 /* RootCell.m */,
 				70AF613B173965D400EF49E9 /* RootTableViewController.h */,
 				70AF613C173965D500EF49E9 /* RootTableViewController.m */,
-				70C2E9241739C7B6008CB1B1 /* OSViewController.h */,
-				70C2E9251739C7B6008CB1B1 /* OSViewController.m */,
-				70F1F16B1739712C007224AD /* CPUViewController.h */,
-				70F1F16C1739712C007224AD /* CPUViewController.m */,
-				70D92D62173B29AE00C57DEA /* GPUViewController.h */,
-				70D92D63173B29AE00C57DEA /* GPUViewController.m */,
-				70E19A51174C0FA400A411C8 /* ProcessViewController.h */,
-				70E19A52174C0FA400A411C8 /* ProcessViewController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -529,17 +604,23 @@
 				703D22F5173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard in Resources */,
 				703D22F8173818EC0001E3B3 /* MainStoryboard_iPad.storyboard in Resources */,
 				703D232A17382AE10001E3B3 /* background@2x.png in Resources */,
-				703D232C17382F0C0001E3B3 /* CellNoJoins@2x.png in Resources */,
-				70F1F1661739676F007224AD /* FollowingRootCell-88@2x.png in Resources */,
-				70F1F1671739676F007224AD /* TopRootCell-88@2x.png in Resources */,
+				703D232C17382F0C0001E3B3 /* CellNoJoins@2x_.png in Resources */,
 				70F1F18D17398B6D007224AD /* README.txt in Resources */,
 				70E19A55174C21CF00A411C8 /* Background-2008@2x.png in Resources */,
-				70E19A57174C22BF00A411C8 /* Background-1496@2x.png in Resources */,
 				70E19A59174C260300A411C8 /* Background-748@2x.png in Resources */,
 				70E19A5D174C289A00A411C8 /* Background-Left-748@2x.png in Resources */,
-				70E19A5F174C2CB000A411C8 /* FollowingRootCell-dark-88@2x.png in Resources */,
-				70E19A61174C2E2800A411C8 /* TopRootCell-dark-88@2x.png in Resources */,
 				70E19A63174C35A600A411C8 /* CpuGraphBackground-250.png in Resources */,
+				70D8F451174CE2C9003824E2 /* CpuGraphBackground-800@2x.png in Resources */,
+				70D8F455174CE755003824E2 /* CpuGraphBackground-500@2x.png in Resources */,
+				70D8F457174CEAE6003824E2 /* CpuGraphBackground-464@2x.png in Resources */,
+				70D8F45D174CF1E9003824E2 /* Background-1496@2x.png in Resources */,
+				701190D4174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png in Resources */,
+				701190D5174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png in Resources */,
+				701190DA174D09A900B5D8B1 /* CellNoJoins@2x.png in Resources */,
+				701190E5174D12C100B5D8B1 /* ProcessCell@2x.png in Resources */,
+				701190F2174D1C5200B5D8B1 /* SettingsIcon@2x.png in Resources */,
+				701190F6174D21DB00B5D8B1 /* FilterButton@2x.png in Resources */,
+				701190F8174D246800B5D8B1 /* ProcessTopView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +688,11 @@
 				70E19A4A174BBBA400A411C8 /* ProcessInfoController.m in Sources */,
 				70E19A4D174BBBB600A411C8 /* ProcessInfo.m in Sources */,
 				70E19A53174C0FA500A411C8 /* ProcessViewController.m in Sources */,
+				701190D8174D063300B5D8B1 /* DefaultCell.m in Sources */,
+				701190DF174D0F6200B5D8B1 /* ProcessCell.m in Sources */,
+				701190EA174D194400B5D8B1 /* ProcessTopView.m in Sources */,
+				701190FB174D2F2000B5D8B1 /* ProcessSortViewController.m in Sources */,
+				70119102174D7DA600B5D8B1 /* RootCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

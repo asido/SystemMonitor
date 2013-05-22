@@ -16,4 +16,6 @@
 @property (readonly) CPUInfo        *cpuInfo;
 @property (readonly) GPUInfo        *gpuInfo;
 @property (readonly) NSArray        *processes;
+
+- (void)refreshProcesses;
 @end

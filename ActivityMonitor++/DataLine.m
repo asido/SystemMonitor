@@ -44,7 +44,7 @@
 
 static const GLuint kMaxDataLineData        = 1500; // Should be dynamic
 static VertexData_t dataLineData[kMaxDataLineData];
-static const GLfloat kDataLineShiftSize     = 0.05f;
+static const GLfloat kDataLineShiftSize     = 0.25f;
 
 #pragma mark - public
 
