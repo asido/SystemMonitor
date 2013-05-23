@@ -16,6 +16,7 @@
 #import "HardcodedDeviceData.h"
 #import "AMLog.h"
 #import "AMUtils.h"
+#import "AMDevice.h"
 #import "CPUInfo.h"
 #import "CPULoad.h"
 #import "CPULoadFilter.h"
@@ -76,7 +77,7 @@
         self.cpuLoadHistory = [[NSMutableArray alloc] init];
         self.cpuLoadFilter = [[CPULoadFilter alloc] init];
         
-        self.cpuLoadHistorySize = 100;
+        self.cpuLoadHistorySize = kDefaultDataHistorySize;
         
         // Set up mach host and default processor set for later calls.
         host = mach_host_self();

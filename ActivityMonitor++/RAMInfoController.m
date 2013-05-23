@@ -10,6 +10,7 @@
 #import <mach/mach_host.h>
 #import "AMLog.h"
 #import "AMUtils.h"
+#import "AMDevice.h"
 #import "HardcodedDeviceData.h"
 #import "RAMUsage.h"
 #import "RAMInfoController.h"
@@ -44,7 +45,7 @@
     {
         self.ramInfo = [[RAMInfo alloc] init];
         self.ramUsageHistory = [[NSMutableArray alloc] init];
-        self.ramUsageHistorySize = 100;
+        self.ramUsageHistorySize = kDefaultDataHistorySize;
     }
     return self;
 }
@@ -61,7 +62,11 @@
 - (void)startRAMUsageUpdatesWithFrequency:(NSUInteger)frequency
 {
     [self stopRAMUsageUpdates];
-    self.ramUsageTimer = [NSTimer scheduledTimerWithTimeInterval:frequency target:self selector:@selector(ramUsageTimerCB:) userInfo:nil repeats:YES];
+    self.ramUsageTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f / frequency
+                                                          target:self
+                                                        selector:@selector(ramUsageTimerCB:)
+                                                        userInfo:nil
+                                                         repeats:YES];
     [self.ramUsageTimer fire];
 }
 

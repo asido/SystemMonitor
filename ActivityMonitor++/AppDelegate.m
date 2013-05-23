@@ -19,6 +19,7 @@
 @synthesize gpuInfoCtrl;
 @synthesize processInfoCtrl;
 @synthesize ramInfoCtrl;
+@synthesize networkInfoCtrl;
 
 + (AppDelegate*)sharedDelegate
 {
@@ -37,11 +38,13 @@
     self.gpuInfoCtrl = [[GPUInfoController alloc] init];
     self.processInfoCtrl = [[ProcessInfoController alloc] init];
     self.ramInfoCtrl = [[RAMInfoController alloc] init];
+    self.networkInfoCtrl = [[NetworkInfoController alloc] init];
     // AMDevice uses all the controllers above therefore should be initialized last.
     self.iDevice = [[AMDevice alloc] init];
     
     [self.cpuInfoCtrl startCPULoadUpdatesWithFrequency:kCpuLoadUpdateFrequency];
     [self.ramInfoCtrl startRAMUsageUpdatesWithFrequency:kRamUsageUpdateFrequency];
+    [self.networkInfoCtrl startNetworkBandwidthUpdatesWithFrequency:kNetworkUpdateFrequency];
     
     return YES;
 }

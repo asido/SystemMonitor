@@ -10,6 +10,16 @@
 
 @implementation GLCommon
 
++ (EAGLContext*)context
+{
+    static EAGLContext *instance = nil;
+    if (!instance)
+    {
+        instance = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    }
+    return instance;
+}
+
 + (GLKMatrix4)modelMatrixWithPosition:(GLKVector3)position rotation:(GLKVector3)rotation scale:(GLKMatrix4)scale
 {
     GLKMatrix4 xRotationMatrix = GLKMatrix4MakeXRotation(rotation.x);

@@ -32,5 +32,6 @@ typedef struct {
 } VertexData_t;
 
 @interface GLCommon : NSObject
++ (EAGLContext*)context;
 + (GLKMatrix4)modelMatrixWithPosition:(GLKVector3)position rotation:(GLKVector3)rotation scale:(GLKMatrix4)scale;
 @end

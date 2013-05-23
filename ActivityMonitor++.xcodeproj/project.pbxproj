@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		700FDC05174E1C8D000D6848 /* RAMUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC04174E1C8D000D6848 /* RAMUsage.m */; };
+		700FDC09174E3E54000D6848 /* NetworkInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC08174E3E54000D6848 /* NetworkInfoController.m */; };
+		700FDC0C174E3E61000D6848 /* NetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC0B174E3E61000D6848 /* NetworkInfo.m */; };
+		700FDC10174E5D94000D6848 /* NetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC0F174E5D94000D6848 /* NetworkViewController.m */; };
+		700FDC1B174E7250000D6848 /* NetworkBandwidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC1A174E7250000D6848 /* NetworkBandwidth.m */; };
 		701190D4174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 701190D2174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png */; };
 		701190D5174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 701190D3174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png */; };
 		701190D8174D063300B5D8B1 /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 701190D7174D063300B5D8B1 /* DefaultCell.m */; };
@@ -95,6 +99,14 @@
 /* Begin PBXFileReference section */
 		700FDC03174E1C8D000D6848 /* RAMUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMUsage.h; sourceTree = "<group>"; };
 		700FDC04174E1C8D000D6848 /* RAMUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMUsage.m; sourceTree = "<group>"; };
+		700FDC07174E3E54000D6848 /* NetworkInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInfoController.h; sourceTree = "<group>"; };
+		700FDC08174E3E54000D6848 /* NetworkInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInfoController.m; sourceTree = "<group>"; };
+		700FDC0A174E3E61000D6848 /* NetworkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInfo.h; sourceTree = "<group>"; };
+		700FDC0B174E3E61000D6848 /* NetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInfo.m; sourceTree = "<group>"; };
+		700FDC0E174E5D94000D6848 /* NetworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkViewController.h; sourceTree = "<group>"; };
+		700FDC0F174E5D94000D6848 /* NetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkViewController.m; sourceTree = "<group>"; };
+		700FDC19174E7250000D6848 /* NetworkBandwidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkBandwidth.h; sourceTree = "<group>"; };
+		700FDC1A174E7250000D6848 /* NetworkBandwidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkBandwidth.m; sourceTree = "<group>"; };
 		701190D2174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RootCellFollowing-dark-88@2x.png"; sourceTree = "<group>"; };
 		701190D3174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RootCellTop-dark-88@2x.png"; sourceTree = "<group>"; };
 		701190D6174D063300B5D8B1 /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCell.h; sourceTree = "<group>"; };
@@ -239,6 +251,21 @@
 		700FDC06174E3187000D6848 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				700FDC19174E7250000D6848 /* NetworkBandwidth.h */,
+				700FDC1A174E7250000D6848 /* NetworkBandwidth.m */,
+				700FDC0A174E3E61000D6848 /* NetworkInfo.h */,
+				700FDC0B174E3E61000D6848 /* NetworkInfo.m */,
+				700FDC07174E3E54000D6848 /* NetworkInfoController.h */,
+				700FDC08174E3E54000D6848 /* NetworkInfoController.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		700FDC0D174E5D78000D6848 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				700FDC0E174E5D94000D6848 /* NetworkViewController.h */,
+				700FDC0F174E5D94000D6848 /* NetworkViewController.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -246,11 +273,11 @@
 		701190FC174D37A100B5D8B1 /* Process */ = {
 			isa = PBXGroup;
 			children = (
-				701190F7174D246800B5D8B1 /* ProcessTopView.xib */,
 				701190F9174D2F1F00B5D8B1 /* ProcessSortViewController.h */,
 				701190FA174D2F2000B5D8B1 /* ProcessSortViewController.m */,
 				701190DD174D0F6100B5D8B1 /* ProcessCell.h */,
 				701190DE174D0F6100B5D8B1 /* ProcessCell.m */,
+				701190F7174D246800B5D8B1 /* ProcessTopView.xib */,
 				701190E8174D194400B5D8B1 /* ProcessTopView.h */,
 				701190E9174D194400B5D8B1 /* ProcessTopView.m */,
 				70E19A51174C0FA400A411C8 /* ProcessViewController.h */,
@@ -434,6 +461,7 @@
 		70AF612E173924B100EF49E9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				700FDC0D174E5D78000D6848 /* Network */,
 				706F717A174D8C3E00E5842C /* RAM */,
 				701190FF174D37CD00B5D8B1 /* OS */,
 				701190FE174D37C500B5D8B1 /* CPU */,
@@ -721,6 +749,10 @@
 				706F7181174D8C7700E5842C /* RAMInfo.m in Sources */,
 				706F7184174D96E000E5842C /* RAMViewController.m in Sources */,
 				700FDC05174E1C8D000D6848 /* RAMUsage.m in Sources */,
+				700FDC09174E3E54000D6848 /* NetworkInfoController.m in Sources */,
+				700FDC0C174E3E61000D6848 /* NetworkInfo.m in Sources */,
+				700FDC10174E5D94000D6848 /* NetworkViewController.m in Sources */,
+				700FDC1B174E7250000D6848 /* NetworkBandwidth.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

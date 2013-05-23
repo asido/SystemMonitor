@@ -13,6 +13,7 @@
 #import "GPUInfoController.h"
 #import "RAMInfoController.h"
 #import "ProcessInfoController.h"
+#import "NetworkInfoController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow  *window;
@@ -23,6 +24,7 @@
 @property (strong, nonatomic) GPUInfoController     *gpuInfoCtrl;
 @property (strong, nonatomic) ProcessInfoController *processInfoCtrl;
 @property (strong, nonatomic) RAMInfoController     *ramInfoCtrl;
+@property (strong, nonatomic) NetworkInfoController *networkInfoCtrl;
 
 + (AppDelegate*)sharedDelegate;
 @end

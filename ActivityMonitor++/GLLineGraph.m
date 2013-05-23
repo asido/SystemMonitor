@@ -161,9 +161,9 @@ static VertexData_t dataBlur[] = {
         [self setupGL];
         
         // Init data lines.
-        NSArray *lineColors = [NSArray arrayWithObjects://[UIColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1.0f],
-                               [UIColor colorWithRed:167.0f/255.0f green:190.0f/255.0f blue:231.0f/255.0f alpha:1.0f],
-                               nil];
+        NSArray *lineColors = [NSArray arrayWithObjects:[UIColor colorWithRed:167.0f/255.0f green:190.0f/255.0f blue:231.0f/255.0f alpha:1.0f],
+                                                        [UIColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1.0f],
+                                                        nil];
         NSMutableArray *lines = [[NSMutableArray alloc] initWithCapacity:self.dataLineCount];
         for (NSUInteger i = 0; i < self.dataLineCount; ++i)
         {
@@ -182,6 +182,8 @@ static VertexData_t dataBlur[] = {
 
 - (void)addDataValue:(NSArray*)data
 {
+    assert(data.count == self.dataLines.count);
+    
     for (NSUInteger i = 0; i < data.count; ++i)
     {
         NSNumber *number = [data objectAtIndex:i];
@@ -279,7 +281,8 @@ static VertexData_t dataBlur[] = {
 
 - (void)setupGL
 {
-    EAGLContext *glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    //EAGLContext *glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    EAGLContext *glContext = [GLCommon context];
     if (!glContext)
     {
         AMWarn(@"%s: EAGLContext == nil", __PRETTY_FUNCTION__);
