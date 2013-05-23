@@ -10,6 +10,11 @@
 #import "GLLineGraph.h"
 #import "RAMViewController.h"
 
+enum {
+    SECTION_MEMORY_INFO=0,
+    SECTION_MEMORY_USAGE
+};
+
 @interface RAMViewController() <RAMInfoControllerDelegate>
 @property (strong, nonatomic) GLLineGraph   *glGraph;
 @property (strong, nonatomic) GLKView       *ramUsageGLView;
@@ -20,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *activeRamLabel;
 @property (weak, nonatomic) IBOutlet UILabel *inactiveRamLabel;
 @property (weak, nonatomic) IBOutlet UILabel *freeRamLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pageInsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pageOutsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pageFaultsLabel;
 
 - (void)updateUsageLabels:(RAMUsage*)usage;
 @end
@@ -103,26 +111,43 @@
     [self.activeRamLabel setText:[NSString stringWithFormat:@"%d MB", usage.activeRam]];
     [self.inactiveRamLabel setText:[NSString stringWithFormat:@"%d MB", usage.inactiveRam]];
     [self.freeRamLabel setText:[NSString stringWithFormat:@"%d MB", usage.freeRam]];
+    [self.pageInsLabel setText:[NSString stringWithFormat:@"%d", usage.pageIns]];
+    [self.pageOutsLabel setText:[NSString stringWithFormat:@"%d", usage.pageOuts]];
+    [self.pageFaultsLabel setText:[NSString stringWithFormat:@"%d", usage.pageFaults]];
 }
 
 #pragma mark - Table view data source
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 280.0f;
+    if (section == SECTION_MEMORY_USAGE)
+    {
+        return 280.0f;
+    }
+    else
+    {
+        return 0.0f;
+    }
 }
 
 - (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CpuGraphBackground-464.png"]];
-    CGRect frame = backgroundView.frame;
-    frame.origin.y = 20;
-    backgroundView.frame = frame;
-    UIView *view = [[UIView alloc] initWithFrame:self.ramUsageGLView.frame];
-    [view addSubview:backgroundView];
-    [view sendSubviewToBack:backgroundView];
-    [view addSubview:self.ramUsageGLView];
-    return view;
+    if (section == SECTION_MEMORY_USAGE)
+    {
+        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CpuGraphBackground-464.png"]];
+        CGRect frame = backgroundView.frame;
+        frame.origin.y = 20;
+        backgroundView.frame = frame;
+        UIView *view = [[UIView alloc] initWithFrame:self.ramUsageGLView.frame];
+        [view addSubview:backgroundView];
+        [view sendSubviewToBack:backgroundView];
+        [view addSubview:self.ramUsageGLView];
+        return view;
+    }
+    else
+    {
+        return nil;
+    }
 }
 
 #pragma mark - RAMInfoController delegate

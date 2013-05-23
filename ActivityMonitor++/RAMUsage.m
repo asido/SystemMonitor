@@ -14,4 +14,7 @@
 @synthesize inactiveRam;
 @synthesize wiredRam;
 @synthesize freeRam;
+@synthesize pageIns;
+@synthesize pageOuts;
+@synthesize pageFaults;
 @end

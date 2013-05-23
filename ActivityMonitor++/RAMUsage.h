@@ -15,4 +15,7 @@
 @property (assign, nonatomic) NSUInteger inactiveRam;
 @property (assign, nonatomic) NSUInteger wiredRam;
 @property (assign, nonatomic) NSUInteger freeRam;
+@property (assign, nonatomic) NSUInteger pageIns;
+@property (assign, nonatomic) NSUInteger pageOuts;
+@property (assign, nonatomic) NSUInteger pageFaults;
 @end

@@ -131,6 +131,9 @@
     usage.inactiveRam = B_TO_MB(vm_stat.inactive_count * pageSize);
     usage.wiredRam = B_TO_MB(vm_stat.wire_count * pageSize);
     usage.freeRam = self.ramInfo.totalRam - usage.usedRam;
+    usage.pageIns = vm_stat.pageins;
+    usage.pageOuts = vm_stat.pageouts;
+    usage.pageFaults = vm_stat.faults;
     return usage;
 }
 
