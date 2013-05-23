@@ -12,6 +12,10 @@
 #import "DDFileLogger.h"
 #import "AppDelegate.h"
 
+@interface AppDelegate()
+- (void)customizeAppearance;
+@end
+
 @implementation AppDelegate
 @synthesize iDevice;
 @synthesize cpuInfoCtrl;
@@ -21,10 +25,23 @@
 @synthesize ramInfoCtrl;
 @synthesize networkInfoCtrl;
 
+#pragma mark - static
+
 + (AppDelegate*)sharedDelegate
 {
     return (AppDelegate*)[[UIApplication sharedApplication] delegate];
 }
+
+#pragma mark - private
+
+- (void)customizeAppearance
+{
+    // Make table header text match the colorscheme.
+    [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setColor:[UIColor lightTextColor]];
+    [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setShadowColor:[UIColor blackColor]];
+}
+
+#pragma mark - override
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -32,6 +49,8 @@
     [DDLog addLogger:[DDASLLogger sharedInstance]];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     [DDLog addLogger:[[DDFileLogger alloc] init]];
+    
+    [self customizeAppearance];
     
     self.cpuInfoCtrl = [[CPUInfoController alloc] init];
     self.deviceInfoCtrl = [[DeviceInfoController alloc] init];
