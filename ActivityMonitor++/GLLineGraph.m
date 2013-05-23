@@ -164,8 +164,8 @@ static VertexData_t dataBlur[] = {
         [self setupGL];
         
         // Init data lines.
-        NSArray *lineColors = [NSArray arrayWithObjects:[UIColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1.0f],
-                               [UIColor colorWithRed:127.0f/255.0f green:149.0f/255.0f blue:183.0f/255.0f alpha:1.0f],
+        NSArray *lineColors = [NSArray arrayWithObjects://[UIColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1.0f],
+                               [UIColor colorWithRed:167.0f/255.0f green:190.0f/255.0f blue:231.0f/255.0f alpha:1.0f],
                                nil];
         NSMutableArray *lines = [[NSMutableArray alloc] initWithCapacity:self.dataLineCount];
         for (NSUInteger i = 0; i < self.dataLineCount; ++i)

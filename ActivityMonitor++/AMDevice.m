@@ -25,6 +25,7 @@
     CPUInfo     *_cpuInfo;
     GPUInfo     *_gpuInfo;
     NSArray     *_processes;
+    RAMInfo     *_ramInfo;
 }
 
 - (id)init
@@ -42,6 +43,7 @@
         _cpuInfo = [app.cpuInfoCtrl getCPUInfo];
         _gpuInfo = [app.gpuInfoCtrl getGPUInfo];
         _processes = [app.processInfoCtrl getProcesses];
+        _ramInfo = [app.ramInfoCtrl getRAMInfo];
     }
     return self;
 }

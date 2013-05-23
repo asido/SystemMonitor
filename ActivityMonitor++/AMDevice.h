@@ -10,12 +10,14 @@
 #import "DeviceInfo.h"
 #import "CPUInfo.h"
 #import "GPUInfo.h"
+#import "RAMInfo.h"
 
 @interface AMDevice : NSObject
 @property (readonly) DeviceInfo     *deviceInfo;
 @property (readonly) CPUInfo        *cpuInfo;
 @property (readonly) GPUInfo        *gpuInfo;
 @property (readonly) NSArray        *processes;
+@property (readonly) RAMInfo        *ramInfo;
 
 - (void)refreshProcesses;
 @end

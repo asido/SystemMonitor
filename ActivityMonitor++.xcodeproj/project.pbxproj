@@ -36,6 +36,9 @@
 		703D2318173818EC0001E3B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 703D2316173818EC0001E3B3 /* InfoPlist.strings */; };
 		703D232A17382AE10001E3B3 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232917382AE10001E3B3 /* background@2x.png */; };
 		703D232C17382F0C0001E3B3 /* CellNoJoins@2x_.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232B17382F0C0001E3B3 /* CellNoJoins@2x_.png */; };
+		706F717E174D8C6100E5842C /* RAMInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F717D174D8C6100E5842C /* RAMInfoController.m */; };
+		706F7181174D8C7700E5842C /* RAMInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F7180174D8C7700E5842C /* RAMInfo.m */; };
+		706F7184174D96E000E5842C /* RAMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F7183174D96E000E5842C /* RAMViewController.m */; };
 		70A627EF17494C49008B39C1 /* AMGLBlurEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A627EE17494C49008B39C1 /* AMGLBlurEffect.m */; };
 		70A627F217494F40008B39C1 /* AMGLBlurEffect.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 70A627F117494F40008B39C1 /* AMGLBlurEffect.vsh */; };
 		70A627F417494F49008B39C1 /* AMGLBlurEffect.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 70A627F317494F49008B39C1 /* AMGLBlurEffect.fsh */; };
@@ -132,6 +135,12 @@
 		703D2317173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		703D232917382AE10001E3B3 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		703D232B17382F0C0001E3B3 /* CellNoJoins@2x_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CellNoJoins@2x_.png"; sourceTree = "<group>"; };
+		706F717C174D8C6100E5842C /* RAMInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfoController.h; sourceTree = "<group>"; };
+		706F717D174D8C6100E5842C /* RAMInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMInfoController.m; sourceTree = "<group>"; };
+		706F717F174D8C7700E5842C /* RAMInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfo.h; sourceTree = "<group>"; };
+		706F7180174D8C7700E5842C /* RAMInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMInfo.m; sourceTree = "<group>"; };
+		706F7182174D96E000E5842C /* RAMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMViewController.h; sourceTree = "<group>"; };
+		706F7183174D96E000E5842C /* RAMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMViewController.m; sourceTree = "<group>"; };
 		70A627ED17494C49008B39C1 /* AMGLBlurEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGLBlurEffect.h; sourceTree = "<group>"; };
 		70A627EE17494C49008B39C1 /* AMGLBlurEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGLBlurEffect.m; sourceTree = "<group>"; };
 		70A627F117494F40008B39C1 /* AMGLBlurEffect.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AMGLBlurEffect.vsh; sourceTree = "<group>"; };
@@ -321,6 +330,7 @@
 				70D92D5C173B21D800C57DEA /* GPU */,
 				70F1F16E17397CB7007224AD /* Device */,
 				70E19A47174BBB8600A411C8 /* Process */,
+				706F717B174D8C4A00E5842C /* RAM */,
 				70AF613817392CE600EF49E9 /* AMUtils.h */,
 				70AF613917392CE600EF49E9 /* AMUtils.m */,
 				70F1F18F17398C37007224AD /* AMLog.h */,
@@ -392,6 +402,26 @@
 			name = Media;
 			sourceTree = "<group>";
 		};
+		706F717A174D8C3E00E5842C /* RAM */ = {
+			isa = PBXGroup;
+			children = (
+				706F7182174D96E000E5842C /* RAMViewController.h */,
+				706F7183174D96E000E5842C /* RAMViewController.m */,
+			);
+			name = RAM;
+			sourceTree = "<group>";
+		};
+		706F717B174D8C4A00E5842C /* RAM */ = {
+			isa = PBXGroup;
+			children = (
+				706F717F174D8C7700E5842C /* RAMInfo.h */,
+				706F7180174D8C7700E5842C /* RAMInfo.m */,
+				706F717C174D8C6100E5842C /* RAMInfoController.h */,
+				706F717D174D8C6100E5842C /* RAMInfoController.m */,
+			);
+			name = RAM;
+			sourceTree = "<group>";
+		};
 		70A627F017494F1F008B39C1 /* BlurEffect */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +436,7 @@
 		70AF612E173924B100EF49E9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				706F717A174D8C3E00E5842C /* RAM */,
 				701190FF174D37CD00B5D8B1 /* OS */,
 				701190FE174D37C500B5D8B1 /* CPU */,
 				701190FD174D37BD00B5D8B1 /* GPU */,
@@ -693,6 +724,9 @@
 				701190EA174D194400B5D8B1 /* ProcessTopView.m in Sources */,
 				701190FB174D2F2000B5D8B1 /* ProcessSortViewController.m in Sources */,
 				70119102174D7DA600B5D8B1 /* RootCell.m in Sources */,
+				706F717E174D8C6100E5842C /* RAMInfoController.m in Sources */,
+				706F7181174D8C7700E5842C /* RAMInfo.m in Sources */,
+				706F7184174D96E000E5842C /* RAMViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
