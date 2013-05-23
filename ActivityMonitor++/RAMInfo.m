@@ -10,8 +10,5 @@
 
 @implementation RAMInfo
 @synthesize totalRam;
-@synthesize usedRam;
-@synthesize activeRam;
-@synthesize inactiveRam;
-@synthesize wiredRam;
+@synthesize ramType;
 @end

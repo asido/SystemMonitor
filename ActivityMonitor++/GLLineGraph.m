@@ -138,12 +138,9 @@ static VertexData_t dataBlur[] = {
             fromValue:(float)from
               toValue:(float)to
               legends:(NSArray*)legends
-             delegate:(id)aDelegate
 {
     if (self = [super init])
     {
-        self.delegate = aDelegate;
-        
         self.dataLineCount = count;
         self.fromValue = from;
         self.toValue = to;
@@ -189,8 +186,9 @@ static VertexData_t dataBlur[] = {
     {
         NSNumber *number = [data objectAtIndex:i];
         GLfloat value = [number floatValue];
+        GLfloat percent = [AMUtils valuePercentFrom:self.fromValue to:self.toValue value:value];
         DataLine *dataLine = [self.dataLines objectAtIndex:i];
-        [dataLine addLineDataValue:value];
+        [dataLine addLineDataValue:percent];
     }
 }
 
@@ -277,8 +275,6 @@ static VertexData_t dataBlur[] = {
     [self.glView bindDrawable];
     
     GL_CHECK_ERROR();
-    
-    [self.delegate graphFinishedInitializing];
 }
 
 - (void)setupGL

@@ -162,4 +162,13 @@
     return min + ((max - min) / 100 * percent);
 }
 
++ (float)valuePercentFrom:(float)from to:(float)to value:(float)value
+{
+    assert(from < to);
+    
+    float phase = from;
+    float zeroBasedValue = value - phase;
+    return 100 / (to - from) * zeroBasedValue;
+}
+
 @end

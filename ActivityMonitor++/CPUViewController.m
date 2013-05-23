@@ -12,7 +12,7 @@
 #import "CPUInfoController.h"
 #import "CPUViewController.h"
 
-@interface CPUViewController() <CPUInfoControllerDelegate, GLLineGraphDelegate>
+@interface CPUViewController() <CPUInfoControllerDelegate>
 @property (strong, nonatomic) GLKView       *cpuUsageGLView;
 @property (strong, nonatomic) GLLineGraph   *glGraph;
 
@@ -64,8 +64,7 @@
     self.glGraph = [[GLLineGraph alloc] initWithGLKView:self.cpuUsageGLView
                                           dataLineCount:1
                                               fromValue:0.0f toValue:100.0f
-                                                legends:[NSArray arrayWithObjects:@"0%", @"50%", @"100%", nil]
-                                               delegate:self];
+                                                legends:[NSArray arrayWithObjects:@"0%", @"50%", @"100%", nil]];
     self.glGraph.preferredFramesPerSecond = kCpuLoadUpdateFrequency;
     
     [app.cpuInfoCtrl setCPULoadHistorySize:[self.glGraph requiredElementToFillGraph]];
@@ -176,14 +175,6 @@
     
     NSNumber *number = [NSNumber numberWithFloat:avr];
     [self.glGraph addDataValue:[NSArray arrayWithObject:number]];
-}
-
-#pragma mark - GLLineGraph delegate
-
-- (void)graphFinishedInitializing
-{
-  //  AppDelegate *app = [AppDelegate sharedDelegate];
-  //  [app.cpuInfoCtrl setDelegate:self];
 }
 
 @end

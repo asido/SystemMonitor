@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		700FDC05174E1C8D000D6848 /* RAMUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC04174E1C8D000D6848 /* RAMUsage.m */; };
 		701190D4174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 701190D2174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png */; };
 		701190D5174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 701190D3174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png */; };
 		701190D8174D063300B5D8B1 /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 701190D7174D063300B5D8B1 /* DefaultCell.m */; };
@@ -35,7 +36,6 @@
 		703D2310173818EC0001E3B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DD173818EC0001E3B3 /* Foundation.framework */; };
 		703D2318173818EC0001E3B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 703D2316173818EC0001E3B3 /* InfoPlist.strings */; };
 		703D232A17382AE10001E3B3 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232917382AE10001E3B3 /* background@2x.png */; };
-		703D232C17382F0C0001E3B3 /* CellNoJoins@2x_.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D232B17382F0C0001E3B3 /* CellNoJoins@2x_.png */; };
 		706F717E174D8C6100E5842C /* RAMInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F717D174D8C6100E5842C /* RAMInfoController.m */; };
 		706F7181174D8C7700E5842C /* RAMInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F7180174D8C7700E5842C /* RAMInfo.m */; };
 		706F7184174D96E000E5842C /* RAMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F7183174D96E000E5842C /* RAMViewController.m */; };
@@ -50,8 +50,6 @@
 		70C2E9261739C7B7008CB1B1 /* OSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9251739C7B6008CB1B1 /* OSViewController.m */; };
 		70C2E9291739C8D2008CB1B1 /* AMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9281739C8D2008CB1B1 /* AMDevice.m */; };
 		70CD01BC1739AB870047E72F /* HardcodedDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */; };
-		70D8F451174CE2C9003824E2 /* CpuGraphBackground-800@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D8F450174CE2C9003824E2 /* CpuGraphBackground-800@2x.png */; };
-		70D8F455174CE755003824E2 /* CpuGraphBackground-500@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D8F454174CE755003824E2 /* CpuGraphBackground-500@2x.png */; };
 		70D8F457174CEAE6003824E2 /* CpuGraphBackground-464@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D8F456174CEAE6003824E2 /* CpuGraphBackground-464@2x.png */; };
 		70D8F45D174CF1E9003824E2 /* Background-1496@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D8F45C174CF1E9003824E2 /* Background-1496@2x.png */; };
 		70D92D5B173AA91300C57DEA /* CPULoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D5A173AA91300C57DEA /* CPULoad.m */; };
@@ -65,10 +63,8 @@
 		70E19A4A174BBBA400A411C8 /* ProcessInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A49174BBBA400A411C8 /* ProcessInfoController.m */; };
 		70E19A4D174BBBB600A411C8 /* ProcessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A4C174BBBB600A411C8 /* ProcessInfo.m */; };
 		70E19A53174C0FA500A411C8 /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A52174C0FA400A411C8 /* ProcessViewController.m */; };
-		70E19A55174C21CF00A411C8 /* Background-2008@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A54174C21CF00A411C8 /* Background-2008@2x.png */; };
 		70E19A59174C260300A411C8 /* Background-748@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A58174C260300A411C8 /* Background-748@2x.png */; };
 		70E19A5D174C289A00A411C8 /* Background-Left-748@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */; };
-		70E19A63174C35A600A411C8 /* CpuGraphBackground-250.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A62174C35A600A411C8 /* CpuGraphBackground-250.png */; };
 		70EE6080174A9F3400CB847D /* AMGLBlurEffect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 70A627F117494F40008B39C1 /* AMGLBlurEffect.vsh */; };
 		70EE6081174A9F3400CB847D /* AMGLBlurEffect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 70A627F317494F49008B39C1 /* AMGLBlurEffect.fsh */; };
 		70F1F16D1739712D007224AD /* CPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F16C1739712C007224AD /* CPUViewController.m */; };
@@ -97,6 +93,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		700FDC03174E1C8D000D6848 /* RAMUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMUsage.h; sourceTree = "<group>"; };
+		700FDC04174E1C8D000D6848 /* RAMUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMUsage.m; sourceTree = "<group>"; };
 		701190D2174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RootCellFollowing-dark-88@2x.png"; sourceTree = "<group>"; };
 		701190D3174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RootCellTop-dark-88@2x.png"; sourceTree = "<group>"; };
 		701190D6174D063300B5D8B1 /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCell.h; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 		703D2315173818EC0001E3B3 /* ActivityMonitor++Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ActivityMonitor++Tests-Info.plist"; sourceTree = "<group>"; };
 		703D2317173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		703D232917382AE10001E3B3 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
-		703D232B17382F0C0001E3B3 /* CellNoJoins@2x_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CellNoJoins@2x_.png"; sourceTree = "<group>"; };
 		706F717C174D8C6100E5842C /* RAMInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfoController.h; sourceTree = "<group>"; };
 		706F717D174D8C6100E5842C /* RAMInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMInfoController.m; sourceTree = "<group>"; };
 		706F717F174D8C7700E5842C /* RAMInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfo.h; sourceTree = "<group>"; };
@@ -161,8 +158,6 @@
 		70C2E9281739C8D2008CB1B1 /* AMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDevice.m; sourceTree = "<group>"; };
 		70CD01BA1739AB870047E72F /* HardcodedDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardcodedDeviceData.h; sourceTree = "<group>"; };
 		70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HardcodedDeviceData.m; sourceTree = "<group>"; };
-		70D8F450174CE2C9003824E2 /* CpuGraphBackground-800@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CpuGraphBackground-800@2x.png"; sourceTree = "<group>"; };
-		70D8F454174CE755003824E2 /* CpuGraphBackground-500@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CpuGraphBackground-500@2x.png"; sourceTree = "<group>"; };
 		70D8F456174CEAE6003824E2 /* CpuGraphBackground-464@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CpuGraphBackground-464@2x.png"; sourceTree = "<group>"; };
 		70D8F45C174CF1E9003824E2 /* Background-1496@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-1496@2x.png"; sourceTree = "<group>"; };
 		70D92D59173AA91300C57DEA /* CPULoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoad.h; sourceTree = "<group>"; };
@@ -185,10 +180,8 @@
 		70E19A4C174BBBB600A411C8 /* ProcessInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessInfo.m; sourceTree = "<group>"; };
 		70E19A51174C0FA400A411C8 /* ProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessViewController.h; sourceTree = "<group>"; };
 		70E19A52174C0FA400A411C8 /* ProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessViewController.m; sourceTree = "<group>"; };
-		70E19A54174C21CF00A411C8 /* Background-2008@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-2008@2x.png"; sourceTree = "<group>"; };
 		70E19A58174C260300A411C8 /* Background-748@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-748@2x.png"; sourceTree = "<group>"; };
 		70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-Left-748@2x.png"; sourceTree = "<group>"; };
-		70E19A62174C35A600A411C8 /* CpuGraphBackground-250.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CpuGraphBackground-250.png"; sourceTree = "<group>"; };
 		70F1F16B1739712C007224AD /* CPUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUViewController.h; sourceTree = "<group>"; };
 		70F1F16C1739712C007224AD /* CPUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUViewController.m; sourceTree = "<group>"; };
 		70F1F16F17397CEC007224AD /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
@@ -243,6 +236,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		700FDC06174E3187000D6848 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		701190FC174D37A100B5D8B1 /* Process */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +331,7 @@
 				70F1F16E17397CB7007224AD /* Device */,
 				70E19A47174BBB8600A411C8 /* Process */,
 				706F717B174D8C4A00E5842C /* RAM */,
+				700FDC06174E3187000D6848 /* Network */,
 				70AF613817392CE600EF49E9 /* AMUtils.h */,
 				70AF613917392CE600EF49E9 /* AMUtils.m */,
 				70F1F18F17398C37007224AD /* AMLog.h */,
@@ -382,19 +383,14 @@
 		703D232417381ED80001E3B3 /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				70E19A54174C21CF00A411C8 /* Background-2008@2x.png */,
 				70E19A58174C260300A411C8 /* Background-748@2x.png */,
 				70D8F45C174CF1E9003824E2 /* Background-1496@2x.png */,
 				70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */,
 				703D232917382AE10001E3B3 /* background@2x.png */,
-				703D232B17382F0C0001E3B3 /* CellNoJoins@2x_.png */,
 				701190D9174D09A900B5D8B1 /* CellNoJoins@2x.png */,
 				701190E4174D12C100B5D8B1 /* ProcessCell@2x.png */,
 				701190D2174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png */,
 				701190D3174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png */,
-				70E19A62174C35A600A411C8 /* CpuGraphBackground-250.png */,
-				70D8F450174CE2C9003824E2 /* CpuGraphBackground-800@2x.png */,
-				70D8F454174CE755003824E2 /* CpuGraphBackground-500@2x.png */,
 				70D8F456174CEAE6003824E2 /* CpuGraphBackground-464@2x.png */,
 				701190F1174D1C5100B5D8B1 /* SettingsIcon@2x.png */,
 				701190F5174D21DB00B5D8B1 /* FilterButton@2x.png */,
@@ -414,6 +410,8 @@
 		706F717B174D8C4A00E5842C /* RAM */ = {
 			isa = PBXGroup;
 			children = (
+				700FDC03174E1C8D000D6848 /* RAMUsage.h */,
+				700FDC04174E1C8D000D6848 /* RAMUsage.m */,
 				706F717F174D8C7700E5842C /* RAMInfo.h */,
 				706F7180174D8C7700E5842C /* RAMInfo.m */,
 				706F717C174D8C6100E5842C /* RAMInfoController.h */,
@@ -635,14 +633,9 @@
 				703D22F5173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard in Resources */,
 				703D22F8173818EC0001E3B3 /* MainStoryboard_iPad.storyboard in Resources */,
 				703D232A17382AE10001E3B3 /* background@2x.png in Resources */,
-				703D232C17382F0C0001E3B3 /* CellNoJoins@2x_.png in Resources */,
 				70F1F18D17398B6D007224AD /* README.txt in Resources */,
-				70E19A55174C21CF00A411C8 /* Background-2008@2x.png in Resources */,
 				70E19A59174C260300A411C8 /* Background-748@2x.png in Resources */,
 				70E19A5D174C289A00A411C8 /* Background-Left-748@2x.png in Resources */,
-				70E19A63174C35A600A411C8 /* CpuGraphBackground-250.png in Resources */,
-				70D8F451174CE2C9003824E2 /* CpuGraphBackground-800@2x.png in Resources */,
-				70D8F455174CE755003824E2 /* CpuGraphBackground-500@2x.png in Resources */,
 				70D8F457174CEAE6003824E2 /* CpuGraphBackground-464@2x.png in Resources */,
 				70D8F45D174CF1E9003824E2 /* Background-1496@2x.png in Resources */,
 				701190D4174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png in Resources */,
@@ -727,6 +720,7 @@
 				706F717E174D8C6100E5842C /* RAMInfoController.m in Sources */,
 				706F7181174D8C7700E5842C /* RAMInfo.m in Sources */,
 				706F7184174D96E000E5842C /* RAMViewController.m in Sources */,
+				700FDC05174E1C8D000D6848 /* RAMUsage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,35 +10,103 @@
 #import <mach/mach_host.h>
 #import "AMLog.h"
 #import "AMUtils.h"
+#import "HardcodedDeviceData.h"
+#import "RAMUsage.h"
 #import "RAMInfoController.h"
 
 @interface RAMInfoController()
+@property (strong, nonatomic) RAMInfo           *ramInfo;
+
+@property (assign, nonatomic) NSUInteger        ramUsageHistorySize;
+- (void)pushRAMUsage:(RAMUsage*)ramUsage;
+
+@property (strong, nonatomic) NSTimer           *ramUsageTimer;
+- (void)ramUsageTimerCB:(NSNotification*)notification;
+
 - (NSUInteger)getRAMTotalMB;
-- (void)getRAMUsage:(RAMInfo*)ramInfo;
+- (NSString*)getRAMType;
+- (RAMUsage*)getRAMUsage;
 @end
 
 @implementation RAMInfoController
+@synthesize delegate;
+@synthesize ramUsageHistory;
+
+@synthesize ramInfo;
+@synthesize ramUsageHistorySize;
+@synthesize ramUsageTimer;
+
+#pragma mark - override
+
+- (id)init
+{
+    if (self = [super init])
+    {
+        self.ramInfo = [[RAMInfo alloc] init];
+        self.ramUsageHistory = [[NSMutableArray alloc] init];
+        self.ramUsageHistorySize = 100;
+    }
+    return self;
+}
 
 #pragma mark - public
 
 - (RAMInfo*)getRAMInfo
-{
-    RAMInfo *ramInfo = [[RAMInfo alloc] init];
-    
-    ramInfo.totalRam = [self getRAMTotalMB];
-    [self getRAMUsage:ramInfo];
-        
+{    
+    self.ramInfo.totalRam = [self getRAMTotalMB];
+    self.ramInfo.ramType = [self getRAMType];
     return ramInfo;
 }
 
+- (void)startRAMUsageUpdatesWithFrequency:(NSUInteger)frequency
+{
+    [self stopRAMUsageUpdates];
+    self.ramUsageTimer = [NSTimer scheduledTimerWithTimeInterval:frequency target:self selector:@selector(ramUsageTimerCB:) userInfo:nil repeats:YES];
+    [self.ramUsageTimer fire];
+}
+
+- (void)stopRAMUsageUpdates
+{
+    [self.ramUsageTimer invalidate];
+    self.ramUsageTimer = nil;
+}
+
+- (void)setRAMUsageHistorySize:(NSUInteger)size
+{
+    self.ramUsageHistorySize = size;
+}
+
 #pragma mark - private
+
+- (void)ramUsageTimerCB:(NSNotification*)notification
+{
+    RAMUsage *usage = [self getRAMUsage];
+    [self pushRAMUsage:usage];
+    [self.delegate ramUsageUpdated:usage];
+}
+
+- (void)pushRAMUsage:(RAMUsage*)ramUsage
+{
+    [self.ramUsageHistory addObject:ramUsage];
+    
+    while (self.ramUsageHistory.count > self.ramUsageHistorySize)
+    {
+        [self.ramUsageHistory removeObjectAtIndex:0];
+    }
+}
 
 - (NSUInteger)getRAMTotalMB
 {
     return B_TO_MB([NSProcessInfo processInfo].physicalMemory);
 }
 
-- (void)getRAMUsage:(RAMInfo*)ramInfo
+- (NSString*)getRAMType
+{
+    HardcodedDeviceData *hardcodedData = [HardcodedDeviceData sharedDeviceData];
+    return (NSString*) [hardcodedData getRAMType];
+}
+
+- (RAMUsage*)getRAMUsage
 {
     mach_port_t             host_port = mach_host_self();
     mach_msg_type_number_t  host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -49,13 +117,16 @@
     if (host_statistics(host_port, HOST_VM_INFO, (host_info_t)&vm_stat, &host_size) != KERN_SUCCESS)
     {
         AMWarn(@"%s: host_statistics() has failed.", __PRETTY_FUNCTION__);
-        return;
+        return nil;
     }
     
-    ramInfo.usedRam = B_TO_MB((vm_stat.active_count + vm_stat.inactive_count + vm_stat.wire_count) * pageSize);
-    ramInfo.activeRam = B_TO_MB(vm_stat.active_count * pageSize);
-    ramInfo.inactiveRam = B_TO_MB(vm_stat.inactive_count * pageSize);
-    ramInfo.wiredRam = B_TO_MB(vm_stat.wire_count * pageSize);    
+    RAMUsage *usage = [[RAMUsage alloc] init];
+    usage.usedRam = B_TO_MB((vm_stat.active_count + vm_stat.inactive_count + vm_stat.wire_count) * pageSize);
+    usage.activeRam = B_TO_MB(vm_stat.active_count * pageSize);
+    usage.inactiveRam = B_TO_MB(vm_stat.inactive_count * pageSize);
+    usage.wiredRam = B_TO_MB(vm_stat.wire_count * pageSize);
+    usage.freeRam = self.ramInfo.totalRam - usage.usedRam;
+    return usage;
 }
 
 @end

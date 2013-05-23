@@ -9,13 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
-@protocol GLLineGraphDelegate
-- (void)graphFinishedInitializing;
-@end
-
 @interface GLLineGraph : GLKViewController
-@property (assign, nonatomic) id<GLLineGraphDelegate> delegate;
-
 @property (strong, nonatomic) GLKBaseEffect *effect;
 /* Graph boundaries determined based on projection and viewport. */
 @property (assign, nonatomic) GLfloat       graphBottom;
@@ -27,8 +21,7 @@
         dataLineCount:(NSUInteger)count
             fromValue:(float)from
               toValue:(float)to
-              legends:(NSArray*)legends
-             delegate:(id)aDelegate;
+              legends:(NSArray*)legends;
 
 - (void)addDataValue:(NSArray*)data;
 - (void)resetDataArray:(NSArray*)dataArray;

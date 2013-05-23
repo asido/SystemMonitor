@@ -77,6 +77,16 @@
     STAssertTrue([AMUtils percentageValueFromMax:max min:min percent:percent] == expected, @"AMUtils::percentageValueFromMax is dodgy (1)");
 }
 
+- (void)test_valuePercent
+{
+    float from = 50.0f;
+    float to = 100.0f;
+    float value = 60.0f;
+    float expected = 20.0f;
+    
+    STAssertTrue([AMUtils valuePercentFrom:from to:to value:value] == expected, @"AMUtils::valuePercentFrom is dodgy");
+}
+
 #pragma mark - private
 
 - (void)_doTestSysCtl64WithSpecifier:(char*)specifier forSuccess:(BOOL)success

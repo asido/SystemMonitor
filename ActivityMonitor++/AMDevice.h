@@ -12,7 +12,8 @@
 #import "GPUInfo.h"
 #import "RAMInfo.h"
 
-#define kCpuLoadUpdateFrequency 2
+#define kCpuLoadUpdateFrequency     2
+#define kRamUsageUpdateFrequency    1
 
 @interface AMDevice : NSObject
 @property (readonly) DeviceInfo     *deviceInfo;

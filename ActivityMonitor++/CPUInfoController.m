@@ -76,7 +76,7 @@
         self.cpuLoadHistory = [[NSMutableArray alloc] init];
         self.cpuLoadFilter = [[CPULoadFilter alloc] init];
         
-        self.cpuLoadHistorySize = 1000;
+        self.cpuLoadHistorySize = 100;
         
         // Set up mach host and default processor set for later calls.
         host = mach_host_self();

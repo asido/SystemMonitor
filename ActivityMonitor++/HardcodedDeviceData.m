@@ -137,33 +137,33 @@ static const NSString *CPUNameTable[] = {
     [iUnknown]          = @"Unknown"
 };
 
-static const NSString *GPUNameTable[] = {
-    [iPhone_1G]         = @"PowerVR MBX Lite 3D",
-    [iPhone_3G]         = @"PowerVR MBX Lite 3D",
-    [iPhone_3GS]        = @"PowerVR SGX535",
-    [iPhone_4]          = @"PowerVR SGX535",
-    [iPhone_4_Verizon]  = @"PowerVR SGX535",
-    [iPhone_4S]         = @"PowerVR SGX543MP2",
-    [iPhone_5_GSM]      = @"PowerVR SGX543MP3",
-    [iPhone_5_CDMA]     = @"PowerVR SGX543MP3",
-    [iPod_Touch_1G]     = @"PowerVR MBX Lite",
-    [iPod_Touch_2G]     = @"PowerVR MBX Lite",
-    [iPod_Touch_3G]     = @"PowerVR SGX535",
-    [iPod_Touch_4G]     = @"PowerVR SGX535",
-    [iPod_Touch_5]      = @"PowerVR SGX543MP2",
-    [iPad_1]            = @"ARM Cortex-A8",
-    [iPad_2_CDMA]       = @"ARM Cortex-A9",
-    [iPad_2_GSM]        = @"ARM Cortex-A9",
-    [iPad_2_WiFi]       = @"ARM Cortex-A9",
-    [iPad_3_WiFi]       = @"ARM Cortex-A9",
-    [iPad_3_GSM]        = @"ARM Cortex-A9",
-    [iPad_3_CDMA]       = @"ARM Cortex-A9",
-    [iPad_4_WiFi]       = @"Apple Swift",
-    [iPad_4_GSM]        = @"Apple Swift",
-    [iPad_4_CDMA]       = @"Apple Swift",
-    [iPad_Mini_WiFi]    = @"ARM Cortex-A9",
-    [iPad_Mini_GSM]     = @"ARM Cortex-A9",
-    [iPad_Mini_CDMA]    = @"ARM Cortex-A9",
+static const NSString *RAMTypeTable[] = {
+    [iPhone_1G]         = @"LPDDR DRAM",
+    [iPhone_3G]         = @"LPDDR DRAM",
+    [iPhone_3GS]        = @"LPDDR DRAM",
+    [iPhone_4]          = @"LPDDR2 DRAM",
+    [iPhone_4_Verizon]  = @"LPDDR2 DRAM",
+    [iPhone_4S]         = @"LPDDR2 DRAM",
+    [iPhone_5_GSM]      = @"LPDDR2 DRAM",
+    [iPhone_5_CDMA]     = @"LPDDR2 DRAM",
+    [iPod_Touch_1G]     = @"LPDDR DRAM",
+    [iPod_Touch_2G]     = @"LPDDR DRAM",
+    [iPod_Touch_3G]     = @"LPDDR DRAM",
+    [iPod_Touch_4G]     = @"LPDDR2 DRAM",
+    [iPod_Touch_5]      = @"LPDDR2 DRAM",
+    [iPad_1]            = @"LPDDR DRAM",
+    [iPad_2_CDMA]       = @"LPDDR2 DRAM",
+    [iPad_2_GSM]        = @"LPDDR2 DRAM",
+    [iPad_2_WiFi]       = @"LPDDR2 DRAM",
+    [iPad_3_WiFi]       = @"LPDDR2 DRAM",
+    [iPad_3_GSM]        = @"LPDDR2 DRAM",
+    [iPad_3_CDMA]       = @"LPDDR2 DRAM",
+    [iPad_4_WiFi]       = @"LPDDR2 DRAM",
+    [iPad_4_GSM]        = @"LPDDR2 DRAM",
+    [iPad_4_CDMA]       = @"LPDDR2 DRAM",
+    [iPad_Mini_WiFi]    = @"LPDDR2 DRAM",
+    [iPad_Mini_GSM]     = @"LPDDR2 DRAM",
+    [iPad_Mini_CDMA]    = @"LPDDR2 DRAM",
     [iUnknown]          = @"Unknown"
 };
    
@@ -199,9 +199,9 @@ static const NSString *GPUNameTable[] = {
     return CPUFrequencyTable[self.iDevice];
 }
 
-- (const NSString*)getGPUName
+- (const NSString*)getRAMType
 {
-    return GPUNameTable[self.iDevice];
+    return RAMTypeTable[self.iDevice];
 }
 
 #pragma mark - private

@@ -41,6 +41,7 @@
     self.iDevice = [[AMDevice alloc] init];
     
     [self.cpuInfoCtrl startCPULoadUpdatesWithFrequency:kCpuLoadUpdateFrequency];
+    [self.ramInfoCtrl startRAMUsageUpdatesWithFrequency:kRamUsageUpdateFrequency];
     
     return YES;
 }

@@ -15,5 +15,5 @@
 - (const NSString*)getiDeviceName;
 - (const NSString*)getCPUName;
 - (NSUInteger)getCPUFrequency;
-- (const NSString*)getGPUName;
+- (const NSString*)getRAMType;
 @end
