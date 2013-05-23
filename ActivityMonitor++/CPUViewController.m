@@ -66,6 +66,7 @@
                                               fromValue:0.0f toValue:100.0f
                                                 legends:[NSArray arrayWithObjects:@"0%", @"50%", @"100%", nil]
                                                delegate:self];
+    self.glGraph.preferredFramesPerSecond = kCpuLoadUpdateFrequency;
     
     [app.cpuInfoCtrl setCPULoadHistorySize:[self.glGraph requiredElementToFillGraph]];
 }
