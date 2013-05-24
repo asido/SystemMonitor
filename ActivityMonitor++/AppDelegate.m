@@ -25,6 +25,7 @@
 @synthesize ramInfoCtrl;
 @synthesize networkInfoCtrl;
 @synthesize storageInfoCtrl;
+@synthesize batteryInfoCtrl;
 
 #pragma mark - static
 
@@ -60,12 +61,14 @@
     self.ramInfoCtrl = [[RAMInfoController alloc] init];
     self.networkInfoCtrl = [[NetworkInfoController alloc] init];
     self.storageInfoCtrl = [[StorageInfoController alloc] init];
+    self.batteryInfoCtrl = [[BatteryInfoController alloc] init];
     // AMDevice uses all the controllers above therefore should be initialized last.
     self.iDevice = [[AMDevice alloc] init];
     
     [self.cpuInfoCtrl startCPULoadUpdatesWithFrequency:kCpuLoadUpdateFrequency];
     [self.ramInfoCtrl startRAMUsageUpdatesWithFrequency:kRamUsageUpdateFrequency];
     [self.networkInfoCtrl startNetworkBandwidthUpdatesWithFrequency:kNetworkUpdateFrequency];
+    [self.batteryInfoCtrl startBatteryMonitoring];
     
     return YES;
 }

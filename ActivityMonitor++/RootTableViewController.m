@@ -18,6 +18,7 @@ typedef enum {
     VIEW_CTRL_NETWORK,
     VIEW_CTRL_CONNECTIONS,
     VIEW_CTRL_STORAGE,
+    VIEW_CTRL_BATTERY,
     VIEW_CTRL_MAX
 } ViewCtrl_t;
 
@@ -38,7 +39,8 @@ static const NSString *ViewCtrlIdentifiers[] = {
     [VIEW_CTRL_GPU]         = @"GPUViewController",
     [VIEW_CTRL_NETWORK]     = @"NetworkViewController",
     [VIEW_CTRL_CONNECTIONS] = @"TODO",
-    [VIEW_CTRL_STORAGE]     = @"StorageViewController"
+    [VIEW_CTRL_STORAGE]     = @"StorageViewController",
+    [VIEW_CTRL_BATTERY]     = @"BatteryViewController"
 };
 
 #pragma mark - override

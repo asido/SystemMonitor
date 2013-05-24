@@ -16,4 +16,6 @@
 - (const NSString*)getCPUName;
 - (NSUInteger)getCPUFrequency;
 - (const NSString*)getRAMType;
+- (NSUInteger)getBatteryCapacity;
+- (CGFloat)getBatteryVoltage;
 @end

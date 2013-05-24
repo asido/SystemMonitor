@@ -166,6 +166,66 @@ static const NSString *RAMTypeTable[] = {
     [iPad_Mini_CDMA]    = @"LPDDR2 DRAM",
     [iUnknown]          = @"Unknown"
 };
+
+static const NSUInteger BatteryCapacityTable[] = {
+    [iPhone_1G]         = 1400,
+    [iPhone_3G]         = 1150,
+    [iPhone_3GS]        = 1219,
+    [iPhone_4]          = 1420,
+    [iPhone_4_Verizon]  = 1420,
+    [iPhone_4S]         = 1430,
+    [iPhone_5_GSM]      = 1440,
+    [iPhone_5_CDMA]     = 1440,
+    [iPod_Touch_1G]     = 789,
+    [iPod_Touch_2G]     = 789,
+    [iPod_Touch_3G]     = 930,
+    [iPod_Touch_4G]     = 930,
+    [iPod_Touch_5]      = 1030,
+    [iPad_1]            = 6613,
+    [iPad_2_CDMA]       = 6930,
+    [iPad_2_GSM]        = 6930,
+    [iPad_2_WiFi]       = 6930,
+    [iPad_3_WiFi]       = 11560,
+    [iPad_3_GSM]        = 11560,
+    [iPad_3_CDMA]       = 11560,
+    [iPad_4_WiFi]       = 11560,
+    [iPad_4_GSM]        = 11560,
+    [iPad_4_CDMA]       = 11560,
+    [iPad_Mini_WiFi]    = 4440,
+    [iPad_Mini_GSM]     = 4440,
+    [iPad_Mini_CDMA]    = 4440,
+    [iUnknown]          = 0
+};
+
+static const CGFloat BatteryVoltageTable[] = {
+    [iPhone_1G]         = 3.7,
+    [iPhone_3G]         = 3.7,
+    [iPhone_3GS]        = 3.7,
+    [iPhone_4]          = 3.7,
+    [iPhone_4_Verizon]  = 3.7,
+    [iPhone_4S]         = 3.7,
+    [iPhone_5_GSM]      = 3.8,
+    [iPhone_5_CDMA]     = 3.8,
+    [iPod_Touch_1G]     = 3.7,
+    [iPod_Touch_2G]     = 3.7,
+    [iPod_Touch_3G]     = 3.7,
+    [iPod_Touch_4G]     = 3.7,
+    [iPod_Touch_5]      = 3.8,
+    [iPad_1]            = 3.75,
+    [iPad_2_CDMA]       = 3.8,
+    [iPad_2_GSM]        = 3.8,
+    [iPad_2_WiFi]       = 3.8,
+    [iPad_3_WiFi]       = 3.7,
+    [iPad_3_GSM]        = 3.7,
+    [iPad_3_CDMA]       = 3.7,
+    [iPad_4_WiFi]       = 3.7,
+    [iPad_4_GSM]        = 3.7,
+    [iPad_4_CDMA]       = 3.7,
+    [iPad_Mini_WiFi]    = 3.72,
+    [iPad_Mini_GSM]     = 3.72,
+    [iPad_Mini_CDMA]    = 3.72,
+    [iUnknown]          = 0
+};
    
 #pragma mark - public
 
@@ -202,6 +262,16 @@ static const NSString *RAMTypeTable[] = {
 - (const NSString*)getRAMType
 {
     return RAMTypeTable[self.iDevice];
+}
+
+- (NSUInteger)getBatteryCapacity
+{
+    return BatteryCapacityTable[self.iDevice];
+}
+
+- (CGFloat)getBatteryVoltage
+{
+    return BatteryVoltageTable[self.iDevice];
 }
 
 #pragma mark - private

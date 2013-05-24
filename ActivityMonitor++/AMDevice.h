@@ -13,6 +13,7 @@
 #import "RAMInfo.h"
 #import "NetworkInfo.h"
 #import "StorageInfo.h"
+#import "BatteryInfo.h"
 
 #define kDefaultDataHistorySize     300
 
@@ -28,6 +29,7 @@
 @property (readonly) RAMInfo        *ramInfo;
 @property (readonly) NetworkInfo    *networkInfo;
 @property (readonly) StorageInfo    *storageInfo;
+@property (readonly) BatteryInfo    *batteryInfo;
 
 - (void)refreshProcesses;
 @end

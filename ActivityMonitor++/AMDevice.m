@@ -28,6 +28,7 @@
     RAMInfo     *_ramInfo;
     NetworkInfo *_networkInfo;
     StorageInfo *_storageInfo;
+    BatteryInfo *_batteryInfo;
 }
 
 - (id)init
@@ -48,6 +49,7 @@
         _ramInfo = [app.ramInfoCtrl getRAMInfo];
         _networkInfo = [app.networkInfoCtrl getNetworkInfo];
         _storageInfo = [app.storageInfoCtrl getStorageInfo];
+        _batteryInfo = [app.batteryInfoCtrl getBatteryInfo];
     }
     return self;
 }

@@ -92,6 +92,9 @@
 		70FC38EB174F51870085EBC3 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FC38EA174F51870085EBC3 /* AssetsLibrary.framework */; };
 		70FC38ED174F73F80085EBC3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FC38EC174F73F80085EBC3 /* CoreMedia.framework */; };
 		70FC38EF174F74410085EBC3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FC38EE174F74400085EBC3 /* AVFoundation.framework */; };
+		70FC38F3174F79E00085EBC3 /* BatteryInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FC38F2174F79E00085EBC3 /* BatteryInfoController.m */; };
+		70FC38F6174F79F00085EBC3 /* BatteryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FC38F5174F79F00085EBC3 /* BatteryInfo.m */; };
+		70FC38FA174F83530085EBC3 /* BatteryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FC38F9174F83530085EBC3 /* BatteryViewController.m */; };
 		70FE9F11173BC5830056B891 /* GLLineGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FE9F10173BC5830056B891 /* GLLineGraph.m */; };
 /* End PBXBuildFile section */
 
@@ -240,6 +243,12 @@
 		70FC38EA174F51870085EBC3 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		70FC38EC174F73F80085EBC3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		70FC38EE174F74400085EBC3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		70FC38F1174F79E00085EBC3 /* BatteryInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatteryInfoController.h; sourceTree = "<group>"; };
+		70FC38F2174F79E00085EBC3 /* BatteryInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatteryInfoController.m; sourceTree = "<group>"; };
+		70FC38F4174F79F00085EBC3 /* BatteryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatteryInfo.h; sourceTree = "<group>"; };
+		70FC38F5174F79F00085EBC3 /* BatteryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatteryInfo.m; sourceTree = "<group>"; };
+		70FC38F8174F83530085EBC3 /* BatteryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatteryViewController.h; sourceTree = "<group>"; };
+		70FC38F9174F83530085EBC3 /* BatteryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatteryViewController.m; sourceTree = "<group>"; };
 		70FE9F0F173BC5830056B891 /* GLLineGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLLineGraph.h; sourceTree = "<group>"; };
 		70FE9F10173BC5830056B891 /* GLLineGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLLineGraph.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -391,6 +400,7 @@
 				706F717B174D8C4A00E5842C /* RAM */,
 				700FDC06174E3187000D6848 /* Network */,
 				70FC38E1174F48450085EBC3 /* Storage */,
+				70FC38F0174F79CE0085EBC3 /* Battery */,
 				70AF613817392CE600EF49E9 /* AMUtils.h */,
 				70AF613917392CE600EF49E9 /* AMUtils.m */,
 				70F1F18F17398C37007224AD /* AMLog.h */,
@@ -529,6 +539,7 @@
 				701190FE174D37C500B5D8B1 /* CPU */,
 				701190FD174D37BD00B5D8B1 /* GPU */,
 				701190FC174D37A100B5D8B1 /* Process */,
+				70FC38F7174F833D0085EBC3 /* Battery */,
 				703D22F3173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard */,
 				703D22F6173818EC0001E3B3 /* MainStoryboard_iPad.storyboard */,
 				701190D6174D063300B5D8B1 /* DefaultCell.h */,
@@ -638,6 +649,26 @@
 				70FC38E3174F48590085EBC3 /* StorageInfoController.m */,
 			);
 			name = Storage;
+			sourceTree = "<group>";
+		};
+		70FC38F0174F79CE0085EBC3 /* Battery */ = {
+			isa = PBXGroup;
+			children = (
+				70FC38F4174F79F00085EBC3 /* BatteryInfo.h */,
+				70FC38F5174F79F00085EBC3 /* BatteryInfo.m */,
+				70FC38F1174F79E00085EBC3 /* BatteryInfoController.h */,
+				70FC38F2174F79E00085EBC3 /* BatteryInfoController.m */,
+			);
+			name = Battery;
+			sourceTree = "<group>";
+		};
+		70FC38F7174F833D0085EBC3 /* Battery */ = {
+			isa = PBXGroup;
+			children = (
+				70FC38F8174F83530085EBC3 /* BatteryViewController.h */,
+				70FC38F9174F83530085EBC3 /* BatteryViewController.m */,
+			);
+			name = Battery;
 			sourceTree = "<group>";
 		};
 		70FE9F0E173BC49E0056B891 /* GLGraph */ = {
@@ -829,6 +860,9 @@
 				704528BB174ED3A7003DD424 /* StorageViewController.m in Sources */,
 				70FC38E4174F48590085EBC3 /* StorageInfoController.m in Sources */,
 				70FC38E7174F48680085EBC3 /* StorageInfo.m in Sources */,
+				70FC38F3174F79E00085EBC3 /* BatteryInfoController.m in Sources */,
+				70FC38F6174F79F00085EBC3 /* BatteryInfo.m in Sources */,
+				70FC38FA174F83530085EBC3 /* BatteryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

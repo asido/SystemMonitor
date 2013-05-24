@@ -15,6 +15,7 @@
 #import "ProcessInfoController.h"
 #import "NetworkInfoController.h"
 #import "StorageInfoController.h"
+#import "BatteryInfoController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow  *window;
@@ -27,6 +28,7 @@
 @property (strong, nonatomic) RAMInfoController     *ramInfoCtrl;
 @property (strong, nonatomic) NetworkInfoController *networkInfoCtrl;
 @property (strong, nonatomic) StorageInfoController *storageInfoCtrl;
+@property (strong, nonatomic) BatteryInfoController *batteryInfoCtrl;
 
 + (AppDelegate*)sharedDelegate;
 @end
