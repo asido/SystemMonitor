@@ -6,17 +6,30 @@
 //  Copyright (c) 2013 st. All rights reserved.
 //
 
+#import "AppDelegate.h"
+#import "AMUtils.h"
 #import "GLTube.h"
 #import "StorageViewController.h"
 
-@interface StorageViewController ()
+@interface StorageViewController() <StorageInfoControllerDelegate>
 @property (strong, nonatomic) GLTube    *glTube;
 @property (strong, nonatomic) GLKView   *glTubeView;
+
+- (void)updateInfoLabels;
+
+@property (weak, nonatomic) IBOutlet UILabel *totalStorageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *freeStorageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *usedStorageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfSongsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfPicturesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfVideosLabel;
 @end
 
 @implementation StorageViewController
 @synthesize glTube;
 @synthesize glTubeView;
+
+#pragma mark - override
 
 - (void)viewDidLoad
 {
@@ -30,36 +43,63 @@
     
     [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]]];
     
-    self.glTubeView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 10.0f, 703.0f, 100.0f)];
+    [self updateInfoLabels];
+    
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    
+    self.glTubeView = [[GLKView alloc] initWithFrame:CGRectMake(5.0f, 10.0f, 693.0f, 100.0f)];
     self.glTubeView.opaque = NO;
     self.glTubeView.backgroundColor = [UIColor clearColor];
-    self.glTube = [[GLTube alloc] initWithGLKView:self.glTubeView fromValue:0 toValue:100];
+    self.glTube = [[GLTube alloc] initWithGLKView:self.glTubeView fromValue:0 toValue:app.iDevice.storageInfo.totalSapce];
+    
+    [self.glTube setValue:app.iDevice.storageInfo.usedSpace];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - private
+
+- (void)updateInfoLabels
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    [self.totalStorageLabel setText:[NSString stringWithFormat:@"%0.2f GB", KB_TO_GB(app.iDevice.storageInfo.totalSapce)]];
+    [self.freeStorageLabel setText:[NSString stringWithFormat:@"%0.2f GB", KB_TO_GB(app.iDevice.storageInfo.freeSpace)]];
+    [self.usedStorageLabel setText:[NSString stringWithFormat:@"%0.2f GB", KB_TO_GB(app.iDevice.storageInfo.usedSpace)]];
+    [self.numberOfSongsLabel setText:[NSString stringWithFormat:@"%d", app.iDevice.storageInfo.songCount]];
+    [self.numberOfPicturesLabel setText:[NSString stringWithFormat:@"%d (%0.1f MB)", app.iDevice.storageInfo.pictureCount, KB_TO_MB(app.iDevice.storageInfo.totalPictureSize)]];
+    [self.numberOfVideosLabel setText:[NSString stringWithFormat:@"%d (%0.1f MB)", app.iDevice.storageInfo.videoCount, KB_TO_MB(app.iDevice.storageInfo.totalVideoSize)]];
 }
 
 #pragma mark - Table view data source
 
 - (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LineGraphBackground-464.png"]];
-    CGRect frame = backgroundView.frame;
-    frame.origin.y = 20;
-    backgroundView.frame = frame;
-    UIView *view = [[UIView alloc] initWithFrame:self.glTubeView.frame];
-    [view addSubview:backgroundView];
-    [view sendSubviewToBack:backgroundView];
-    [view addSubview:self.glTubeView];
-    return view;
+    if (section == 0)
+    {
+        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TubeBackground-180.png"]];
+        CGRect frame = backgroundView.frame;
+        frame.origin.y = 20;
+        backgroundView.frame = frame;
+        UIView *view = [[UIView alloc] initWithFrame:self.glTubeView.frame];
+        [view addSubview:backgroundView];
+        [view sendSubviewToBack:backgroundView];
+        [view addSubview:self.glTubeView];
+        return view;
+    }
+    else
+    {
+        return nil;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 180.0f;
+    return 120.0f;
+}
+
+#pragma mark - StorageInfoController delegate
+
+- (void)storageInfoUpdated
+{
+    [self updateInfoLabels];
 }
 
 @end

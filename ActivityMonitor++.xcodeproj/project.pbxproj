@@ -85,6 +85,13 @@
 		70F1F18C17398B6D007224AD /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F18417398B6D007224AD /* DispatchQueueLogFormatter.m */; };
 		70F1F18D17398B6D007224AD /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 70F1F18517398B6D007224AD /* README.txt */; };
 		70F4D7D8173D147F007E58E2 /* CPULoadFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F4D7D7173D147F007E58E2 /* CPULoadFilter.m */; };
+		70FC38E0174F47840085EBC3 /* TubeBackground-180@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70FC38DF174F47840085EBC3 /* TubeBackground-180@2x.png */; };
+		70FC38E4174F48590085EBC3 /* StorageInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FC38E3174F48590085EBC3 /* StorageInfoController.m */; };
+		70FC38E7174F48680085EBC3 /* StorageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FC38E6174F48680085EBC3 /* StorageInfo.m */; };
+		70FC38E9174F4F380085EBC3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FC38E8174F4F380085EBC3 /* MediaPlayer.framework */; };
+		70FC38EB174F51870085EBC3 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FC38EA174F51870085EBC3 /* AssetsLibrary.framework */; };
+		70FC38ED174F73F80085EBC3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FC38EC174F73F80085EBC3 /* CoreMedia.framework */; };
+		70FC38EF174F74410085EBC3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FC38EE174F74400085EBC3 /* AVFoundation.framework */; };
 		70FE9F11173BC5830056B891 /* GLLineGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FE9F10173BC5830056B891 /* GLLineGraph.m */; };
 /* End PBXBuildFile section */
 
@@ -224,6 +231,15 @@
 		70F1F18F17398C37007224AD /* AMLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMLog.h; sourceTree = "<group>"; };
 		70F4D7D6173D147F007E58E2 /* CPULoadFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoadFilter.h; sourceTree = "<group>"; };
 		70F4D7D7173D147F007E58E2 /* CPULoadFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPULoadFilter.m; sourceTree = "<group>"; };
+		70FC38DF174F47840085EBC3 /* TubeBackground-180@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TubeBackground-180@2x.png"; sourceTree = "<group>"; };
+		70FC38E2174F48590085EBC3 /* StorageInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageInfoController.h; sourceTree = "<group>"; };
+		70FC38E3174F48590085EBC3 /* StorageInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageInfoController.m; sourceTree = "<group>"; };
+		70FC38E5174F48680085EBC3 /* StorageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageInfo.h; sourceTree = "<group>"; };
+		70FC38E6174F48680085EBC3 /* StorageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageInfo.m; sourceTree = "<group>"; };
+		70FC38E8174F4F380085EBC3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		70FC38EA174F51870085EBC3 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		70FC38EC174F73F80085EBC3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		70FC38EE174F74400085EBC3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		70FE9F0F173BC5830056B891 /* GLLineGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLLineGraph.h; sourceTree = "<group>"; };
 		70FE9F10173BC5830056B891 /* GLLineGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLLineGraph.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -233,6 +249,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70FC38EF174F74410085EBC3 /* AVFoundation.framework in Frameworks */,
+				70FC38ED174F73F80085EBC3 /* CoreMedia.framework in Frameworks */,
+				70FC38EB174F51870085EBC3 /* AssetsLibrary.framework in Frameworks */,
+				70FC38E9174F4F380085EBC3 /* MediaPlayer.framework in Frameworks */,
 				70D92D6B173B308200C57DEA /* OpenGLES.framework in Frameworks */,
 				70D92D69173B302600C57DEA /* GLKit.framework in Frameworks */,
 				703D22DC173818EC0001E3B3 /* UIKit.framework in Frameworks */,
@@ -261,6 +281,7 @@
 				700FDC1A174E7250000D6848 /* NetworkBandwidth.m */,
 				700FDC0A174E3E61000D6848 /* NetworkInfo.h */,
 				700FDC0B174E3E61000D6848 /* NetworkInfo.m */,
+				706F7180174D8C7700E5842C /* RAMInfo.m */,
 				700FDC07174E3E54000D6848 /* NetworkInfoController.h */,
 				700FDC08174E3E54000D6848 /* NetworkInfoController.m */,
 			);
@@ -344,6 +365,10 @@
 		703D22DA173818EC0001E3B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				70FC38EE174F74400085EBC3 /* AVFoundation.framework */,
+				70FC38EC174F73F80085EBC3 /* CoreMedia.framework */,
+				70FC38EA174F51870085EBC3 /* AssetsLibrary.framework */,
+				70FC38E8174F4F380085EBC3 /* MediaPlayer.framework */,
 				70D92D6A173B308100C57DEA /* OpenGLES.framework */,
 				70D92D68173B302600C57DEA /* GLKit.framework */,
 				703D22DB173818EC0001E3B3 /* UIKit.framework */,
@@ -365,6 +390,7 @@
 				70E19A47174BBB8600A411C8 /* Process */,
 				706F717B174D8C4A00E5842C /* RAM */,
 				700FDC06174E3187000D6848 /* Network */,
+				70FC38E1174F48450085EBC3 /* Storage */,
 				70AF613817392CE600EF49E9 /* AMUtils.h */,
 				70AF613917392CE600EF49E9 /* AMUtils.m */,
 				70F1F18F17398C37007224AD /* AMLog.h */,
@@ -425,6 +451,7 @@
 				701190D2174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png */,
 				701190D3174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png */,
 				70D8F456174CEAE6003824E2 /* LineGraphBackground-464@2x.png */,
+				70FC38DF174F47840085EBC3 /* TubeBackground-180@2x.png */,
 				701190F1174D1C5100B5D8B1 /* SettingsIcon@2x.png */,
 				701190F5174D21DB00B5D8B1 /* FilterButton@2x.png */,
 			);
@@ -475,7 +502,6 @@
 				700FDC03174E1C8D000D6848 /* RAMUsage.h */,
 				700FDC04174E1C8D000D6848 /* RAMUsage.m */,
 				706F717F174D8C7700E5842C /* RAMInfo.h */,
-				706F7180174D8C7700E5842C /* RAMInfo.m */,
 				706F717C174D8C6100E5842C /* RAMInfoController.h */,
 				706F717D174D8C6100E5842C /* RAMInfoController.m */,
 			);
@@ -603,6 +629,17 @@
 			path = "ActivityMonitor++";
 			sourceTree = "<group>";
 		};
+		70FC38E1174F48450085EBC3 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				70FC38E5174F48680085EBC3 /* StorageInfo.h */,
+				70FC38E6174F48680085EBC3 /* StorageInfo.m */,
+				70FC38E2174F48590085EBC3 /* StorageInfoController.h */,
+				70FC38E3174F48590085EBC3 /* StorageInfoController.m */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
 		70FE9F0E173BC49E0056B891 /* GLGraph */ = {
 			isa = PBXGroup;
 			children = (
@@ -707,6 +744,7 @@
 				701190F6174D21DB00B5D8B1 /* FilterButton@2x.png in Resources */,
 				701190F8174D246800B5D8B1 /* ProcessTopView.xib in Resources */,
 				70CF2930174F05FF00EE21BE /* TubeTexture.png in Resources */,
+				70FC38E0174F47840085EBC3 /* TubeBackground-180@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,6 +827,8 @@
 				700FDC1B174E7250000D6848 /* NetworkBandwidth.m in Sources */,
 				704528AC174EAD44003DD424 /* GLTube.m in Sources */,
 				704528BB174ED3A7003DD424 /* StorageViewController.m in Sources */,
+				70FC38E4174F48590085EBC3 /* StorageInfoController.m in Sources */,
+				70FC38E7174F48680085EBC3 /* StorageInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

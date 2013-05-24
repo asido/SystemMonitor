@@ -24,7 +24,7 @@
 @property (strong, nonatomic) NSTimer           *ramUsageTimer;
 - (void)ramUsageTimerCB:(NSNotification*)notification;
 
-- (NSUInteger)getRAMTotalMB;
+- (NSUInteger)getRAMTotal;
 - (NSString*)getRAMType;
 - (RAMUsage*)getRAMUsage;
 @end
@@ -54,7 +54,7 @@
 
 - (RAMInfo*)getRAMInfo
 {    
-    self.ramInfo.totalRam = [self getRAMTotalMB];
+    self.ramInfo.totalRam = [self getRAMTotal];
     self.ramInfo.ramType = [self getRAMType];
     return ramInfo;
 }
@@ -100,9 +100,9 @@
     }
 }
 
-- (NSUInteger)getRAMTotalMB
+- (NSUInteger)getRAMTotal
 {
-    return B_TO_MB([NSProcessInfo processInfo].physicalMemory);
+    return B_TO_KB([NSProcessInfo processInfo].physicalMemory);
 }
 
 - (NSString*)getRAMType
@@ -126,10 +126,10 @@
     }
     
     RAMUsage *usage = [[RAMUsage alloc] init];
-    usage.usedRam = B_TO_MB((vm_stat.active_count + vm_stat.inactive_count + vm_stat.wire_count) * pageSize);
-    usage.activeRam = B_TO_MB(vm_stat.active_count * pageSize);
-    usage.inactiveRam = B_TO_MB(vm_stat.inactive_count * pageSize);
-    usage.wiredRam = B_TO_MB(vm_stat.wire_count * pageSize);
+    usage.usedRam = B_TO_KB((vm_stat.active_count + vm_stat.inactive_count + vm_stat.wire_count) * pageSize);
+    usage.activeRam = B_TO_KB(vm_stat.active_count * pageSize);
+    usage.inactiveRam = B_TO_KB(vm_stat.inactive_count * pageSize);
+    usage.wiredRam = B_TO_KB(vm_stat.wire_count * pageSize);
     usage.freeRam = self.ramInfo.totalRam - usage.usedRam;
     usage.pageIns = vm_stat.pageins;
     usage.pageOuts = vm_stat.pageouts;

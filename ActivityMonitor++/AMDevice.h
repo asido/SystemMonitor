@@ -12,6 +12,7 @@
 #import "GPUInfo.h"
 #import "RAMInfo.h"
 #import "NetworkInfo.h"
+#import "StorageInfo.h"
 
 #define kDefaultDataHistorySize     300
 
@@ -26,6 +27,7 @@
 @property (readonly) NSArray        *processes;
 @property (readonly) RAMInfo        *ramInfo;
 @property (readonly) NetworkInfo    *networkInfo;
+@property (readonly) StorageInfo    *storageInfo;
 
 - (void)refreshProcesses;
 @end

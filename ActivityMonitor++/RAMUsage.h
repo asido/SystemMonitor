@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface RAMUsage : NSObject
-// Everything is in MB
 @property (assign, nonatomic) NSUInteger usedRam;
 @property (assign, nonatomic) NSUInteger activeRam;
 @property (assign, nonatomic) NSUInteger inactiveRam;

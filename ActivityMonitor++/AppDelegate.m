@@ -24,6 +24,7 @@
 @synthesize processInfoCtrl;
 @synthesize ramInfoCtrl;
 @synthesize networkInfoCtrl;
+@synthesize storageInfoCtrl;
 
 #pragma mark - static
 
@@ -58,6 +59,7 @@
     self.processInfoCtrl = [[ProcessInfoController alloc] init];
     self.ramInfoCtrl = [[RAMInfoController alloc] init];
     self.networkInfoCtrl = [[NetworkInfoController alloc] init];
+    self.storageInfoCtrl = [[StorageInfoController alloc] init];
     // AMDevice uses all the controllers above therefore should be initialized last.
     self.iDevice = [[AMDevice alloc] init];
     

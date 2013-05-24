@@ -9,6 +9,7 @@
 #import "GLLineGraph.h"
 #import "AppDelegate.h"
 #import "AMLog.h"
+#import "AMUtils.h"
 #import "NetworkInfoController.h"
 #import "NetworkViewController.h"
 
@@ -147,10 +148,10 @@ enum {
 
 - (void)updateBandwidthLabels:(NetworkBandwidth*)bandwidth
 {
-    [self.wifiTotalUpLabel setText:[NSString stringWithFormat:@"%0.1f MB", bandwidth.wifiTotalSent]];
-    [self.wifiTotalDownLabel setText:[NSString stringWithFormat:@"%0.1f MB", bandwidth.wifiTotalReceived]];
-    [self.wwanTotalUpLabel setText:[NSString stringWithFormat:@"%0.1f MB", bandwidth.wwanTotalSent]];
-    [self.wwanTotalDownLabel setText:[NSString stringWithFormat:@"%0.1f MB", bandwidth.wwanTotalReceived]];
+    [self.wifiTotalUpLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(bandwidth.wifiTotalSent)]];
+    [self.wifiTotalDownLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(bandwidth.wifiTotalReceived)]];
+    [self.wwanTotalUpLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(bandwidth.wwanTotalSent)]];
+    [self.wwanTotalDownLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(bandwidth.wwanTotalReceived)]];
 }
 
 #pragma mark - Table view data source

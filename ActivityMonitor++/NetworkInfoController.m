@@ -266,15 +266,15 @@ static NSString *kWWANInterface = @"pdp_ip0";
             if ([name isEqualToString:kWiFiInterface])
             {
                 networkStatistics = (const struct if_data*) cursor->ifa_data;
-                bandwidth.wifiTotalSent += B_TO_MB(networkStatistics->ifi_obytes);
-                bandwidth.wifiTotalReceived += B_TO_MB(networkStatistics->ifi_ibytes);
+                bandwidth.wifiTotalSent += B_TO_KB(networkStatistics->ifi_obytes);
+                bandwidth.wifiTotalReceived += B_TO_KB(networkStatistics->ifi_ibytes);
             }
             
             if ([name isEqualToString:kWWANInterface])
             {
                 networkStatistics = (const struct if_data*) cursor->ifa_data;
-                bandwidth.wwanTotalSent += B_TO_MB(networkStatistics->ifi_obytes);
-                bandwidth.wwanTotalReceived += B_TO_MB(networkStatistics->ifi_ibytes);
+                bandwidth.wwanTotalSent += B_TO_KB(networkStatistics->ifi_obytes);
+                bandwidth.wwanTotalReceived += B_TO_KB(networkStatistics->ifi_ibytes);
             }
         }
         

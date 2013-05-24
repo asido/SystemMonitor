@@ -10,9 +10,11 @@
 
 #define AM_UNUSED(var)  (void)(var)
 
-#define B_TO_KB(a)      ((a) / 1024)
-#define B_TO_MB(a)      (B_TO_KB(a) / 1024)
-#define KB_TO_MB(a)     ((a) / 1024)
+#define B_TO_KB(a)      ((a) / 1024.0f)
+#define B_TO_MB(a)      (B_TO_KB(a) / 1024.0f)
+#define B_TO_GB(a)      (B_TO_MB(a) / 1024.0f)
+#define KB_TO_MB(a)     ((a) / 1024.0f)
+#define KB_TO_GB(a)     (KB_TO_MB(a) / 1024.0f)
 
 @interface AMUtils : NSObject
 /* SysCtl */

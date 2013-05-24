@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 st. All rights reserved.
 //
 
+#import "AMUtils.h"
 #import "AppDelegate.h"
 #import "GLLineGraph.h"
 #import "RAMViewController.h"
@@ -51,7 +52,7 @@ enum {
     [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]]];
     
     AppDelegate *app = [AppDelegate sharedDelegate];
-    [self.totalRamLabel setText:[NSString stringWithFormat:@"%d MB", app.iDevice.ramInfo.totalRam]];
+    [self.totalRamLabel setText:[NSString stringWithFormat:@"%0.0f MB", KB_TO_MB(app.iDevice.ramInfo.totalRam)]];
     [self.ramTypeLabel setText:app.iDevice.ramInfo.ramType];
     
     self.ramUsageGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, 703.0f, 200.0f)];
@@ -107,10 +108,10 @@ enum {
 
 - (void)updateUsageLabels:(RAMUsage*)usage
 {
-    [self.wiredRamLabel setText:[NSString stringWithFormat:@"%d MB", usage.wiredRam]];
-    [self.activeRamLabel setText:[NSString stringWithFormat:@"%d MB", usage.activeRam]];
-    [self.inactiveRamLabel setText:[NSString stringWithFormat:@"%d MB", usage.inactiveRam]];
-    [self.freeRamLabel setText:[NSString stringWithFormat:@"%d MB", usage.freeRam]];
+    [self.wiredRamLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(usage.wiredRam)]];
+    [self.activeRamLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(usage.activeRam)]];
+    [self.inactiveRamLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(usage.inactiveRam)]];
+    [self.freeRamLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(usage.freeRam)]];
     [self.pageInsLabel setText:[NSString stringWithFormat:@"%d", usage.pageIns]];
     [self.pageOutsLabel setText:[NSString stringWithFormat:@"%d", usage.pageOuts]];
     [self.pageFaultsLabel setText:[NSString stringWithFormat:@"%d", usage.pageFaults]];

@@ -27,6 +27,7 @@
     NSArray     *_processes;
     RAMInfo     *_ramInfo;
     NetworkInfo *_networkInfo;
+    StorageInfo *_storageInfo;
 }
 
 - (id)init
@@ -46,6 +47,7 @@
         _processes = [app.processInfoCtrl getProcesses];
         _ramInfo = [app.ramInfoCtrl getRAMInfo];
         _networkInfo = [app.networkInfoCtrl getNetworkInfo];
+        _storageInfo = [app.storageInfoCtrl getStorageInfo];
     }
     return self;
 }
