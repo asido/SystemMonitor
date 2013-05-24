@@ -14,8 +14,7 @@
 {
     if (self = [super initWithCoder:aDecoder])
     {
-        self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CellNoJoins.png"]];
-        //self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CellNoJoins.png"]];
+        self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DefaultCell.png"]];
     }
     return self;
 }

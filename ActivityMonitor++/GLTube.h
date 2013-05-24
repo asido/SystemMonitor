@@ -9,5 +9,6 @@
 #import <GLKit/GLKit.h>
 
 @interface GLTube : GLKViewController
-
+- (id)initWithGLKView:(GLKView*)aGLView fromValue:(float)from toValue:(float)to;
+- (void)setValue:(CGFloat)value;
 @end

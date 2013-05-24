@@ -36,4 +36,29 @@
     return modelMatrix;
 }
 
++ (UIImage*)imageWithText:(NSString*)text font:(UIFont*)font color:(UIColor*)color
+{
+    UIImage *texture;
+    CGSize textureSize = [text sizeWithFont:font];
+    
+    CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef imageContext = CGBitmapContextCreate(NULL, textureSize.width, textureSize.height, 8,
+                                                      textureSize.width * 4, // 4 elements per pixel (RGBA)
+                                                      rgbColorSpace,
+                                                      kCGBitmapByteOrderDefault|kCGImageAlphaPremultipliedFirst);
+    UIGraphicsPushContext(imageContext);
+    
+    CGContextSetFillColorWithColor(imageContext, color.CGColor);
+    [text drawAtPoint:CGPointMake(0.0f, 0.0f) withFont:font];
+    CGImageRef cgTexture = CGBitmapContextCreateImage(imageContext);
+    texture = [UIImage imageWithCGImage:cgTexture];
+    
+    UIGraphicsPopContext();
+    CGImageRelease(cgTexture);
+    CGContextRelease(imageContext);
+    CGColorSpaceRelease(rgbColorSpace);
+    
+    return texture;
+}
+
 @end

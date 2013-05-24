@@ -9,9 +9,9 @@
 #import "AMUtils.h"
 #import "GLCommon.h"
 #import "GLLineGraph.h"
-#import "DataLine.h"
+#import "GLDataLine.h"
 
-@interface DataLine()
+@interface GLDataLine()
 @property (strong, nonatomic) GLLineGraph   *graph;
 
 @property (assign, nonatomic) GLuint        glVertexArrayDataLine;
@@ -31,7 +31,7 @@
 - (void)setupVBO;
 @end
 
-@implementation DataLine
+@implementation GLDataLine
 @synthesize color;
 
 @synthesize graph;

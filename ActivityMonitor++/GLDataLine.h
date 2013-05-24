@@ -11,7 +11,7 @@
 
 @class GLLineGraph;
 
-@interface DataLine : NSObject
+@interface GLDataLine : NSObject
 @property (strong, nonatomic) UIColor *color;
 
 - (id)initWithColor:(UIColor*)aColor forGraph:(GLLineGraph*)aGraph;

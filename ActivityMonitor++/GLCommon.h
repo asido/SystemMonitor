@@ -34,4 +34,5 @@ typedef struct {
 @interface GLCommon : NSObject
 + (EAGLContext*)context;
 + (GLKMatrix4)modelMatrixWithPosition:(GLKVector3)position rotation:(GLKVector3)rotation scale:(GLKMatrix4)scale;
++ (UIImage*)imageWithText:(NSString*)text font:(UIFont*)font color:(UIColor*)color;
 @end

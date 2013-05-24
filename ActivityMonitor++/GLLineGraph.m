@@ -11,7 +11,7 @@
 #import "AMUtils.h"
 #import "AMGLBlurEffect.h"
 #import "CPULoad.h"
-#import "DataLine.h"
+#import "GLDataLine.h"
 #import "GLCommon.h"
 #import "GLLineGraph.h"
 
@@ -57,8 +57,6 @@
 - (void)renderDataCurveTexture;
 - (void)renderReferenceLines;
 - (void)renderLegends;
-
-- (UIImage*)imageWithText:(NSString*)text font:(UIFont*)font color:(UIColor*)color;
 @end
 
 @implementation GLLineGraph
@@ -151,7 +149,7 @@ static VertexData_t dataBlur[] = {
         
         self.drawableWidth = self.glView.contentScaleFactor * self.glView.bounds.size.width;
         self.drawableHeight = self.glView.contentScaleFactor * self.glView.bounds.size.height;
-        self.aspectRatio = fabsf(drawableWidth / drawableHeight);
+        self.aspectRatio = fabsf(self.drawableWidth / self.drawableHeight);
                                 
         self.graphTop = [AMUtils percentageValueFromMax:kProjectionTop min:kProjectionBottom percent:100-kGraphGapPercentTop];
         self.graphBottom = [AMUtils percentageValueFromMax:kProjectionTop min:kProjectionBottom percent:kGraphGapPercentBottom];
@@ -167,7 +165,7 @@ static VertexData_t dataBlur[] = {
         NSMutableArray *lines = [[NSMutableArray alloc] initWithCapacity:self.dataLineCount];
         for (NSUInteger i = 0; i < self.dataLineCount; ++i)
         {
-            DataLine *dataLine = [[DataLine alloc] initWithColor:[lineColors objectAtIndex:i] forGraph:self];
+            GLDataLine *dataLine = [[GLDataLine alloc] initWithColor:[lineColors objectAtIndex:i] forGraph:self];
             [lines addObject:dataLine];
         }
         self.dataLines = [[NSArray alloc] initWithArray:lines];
@@ -189,7 +187,7 @@ static VertexData_t dataBlur[] = {
         NSNumber *number = [data objectAtIndex:i];
         GLfloat value = [number floatValue];
         GLfloat percent = [AMUtils valuePercentFrom:self.fromValue to:self.toValue value:value];
-        DataLine *dataLine = [self.dataLines objectAtIndex:i];
+        GLDataLine *dataLine = [self.dataLines objectAtIndex:i];
         [dataLine addLineDataValue:percent];
     }
 }
@@ -198,7 +196,7 @@ static VertexData_t dataBlur[] = {
 {
     if (self.dataLines)
     {
-        for (DataLine *line in self.dataLines)
+        for (GLDataLine *line in self.dataLines)
         {
             [line resetLineData];
         }
@@ -219,7 +217,7 @@ static VertexData_t dataBlur[] = {
 {
     NSUInteger cnt = 0;
     
-    for (DataLine *line in self.dataLines)
+    for (GLDataLine *line in self.dataLines)
     {
         cnt = MAX([line maxDataLineElements], cnt);
     }
@@ -281,31 +279,23 @@ static VertexData_t dataBlur[] = {
 
 - (void)setupGL
 {
-    //EAGLContext *glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     EAGLContext *glContext = [GLCommon context];
     if (!glContext)
     {
         AMWarn(@"%s: EAGLContext == nil", __PRETTY_FUNCTION__);
         return;
     }
-    
     [self.glView setContext:glContext];
     [EAGLContext setCurrentContext:self.glView.context];
     
-    self.glView.drawableMultisample = GLKViewDrawableMultisample4X;
-    
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    // Enable for performance reasons as it removes many of the triangles to draw.
-    glEnable(GL_CULL_FACE);
-    // Enabled by default.
-    glDisable(GL_DITHER);
     
     self.effect = [[GLKBaseEffect alloc] init];
     self.effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -5.0f);
     
     /* Textures */
-    UIImage *img = [self imageWithText:@"Test" font:[UIFont fontWithName:@"Helvetica" size:84.0f] color:[UIColor redColor]];
+    UIImage *img = [GLCommon imageWithText:@"Test" font:[UIFont fontWithName:@"Helvetica" size:84.0f] color:[UIColor redColor]];
     self.legendsTexture = [GLKTextureLoader textureWithCGImage:img.CGImage options:nil error:NULL];
     self.effect.texture2d0.name = self.legendsTexture.name;
     self.effect.texture2d0.target = self.legendsTexture.target;
@@ -410,7 +400,7 @@ static VertexData_t dataBlur[] = {
     glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    for (DataLine *line in self.dataLines)
+    for (GLDataLine *line in self.dataLines)
     {
         [line render];
     }
@@ -596,30 +586,7 @@ static VertexData_t dataBlur[] = {
     GL_CHECK_ERROR();
 }
 
-- (UIImage*)imageWithText:(NSString*)text font:(UIFont*)font color:(UIColor*)color
-{
-    UIImage *texture;
-    CGSize textureSize = [text sizeWithFont:font];
-    
-    CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef imageContext = CGBitmapContextCreate(NULL, textureSize.width, textureSize.height, 8,
-                                                      textureSize.width * 4, // 4 elements per pixel (RGBA)
-                                                      rgbColorSpace,
-                                                      kCGBitmapByteOrderDefault|kCGImageAlphaPremultipliedFirst);
-    UIGraphicsPushContext(imageContext);
-    
-    CGContextSetFillColorWithColor(imageContext, color.CGColor);
-    [text drawAtPoint:CGPointMake(0.0f, 0.0f) withFont:font];
-    CGImageRef cgTexture = CGBitmapContextCreateImage(imageContext);
-    texture = [UIImage imageWithCGImage:cgTexture];
-    
-    UIGraphicsPopContext();
-    CGImageRelease(cgTexture);
-    CGContextRelease(imageContext);
-    CGColorSpaceRelease(rgbColorSpace);    
-    
-    return texture;
-}
+
 
 #pragma mark - private override
 
