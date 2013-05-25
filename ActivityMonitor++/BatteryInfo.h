@@ -12,6 +12,7 @@
 @property (assign, nonatomic) NSUInteger    capacity;
 @property (assign, nonatomic) CGFloat       voltage;
 
-@property (assign, nonatomic) NSUInteger    level;
+@property (assign, nonatomic) NSUInteger    levelPercent;
+@property (assign, nonatomic) NSUInteger    levelMAH;
 @property (assign, nonatomic) NSString      *status;
 @end

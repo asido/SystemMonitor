@@ -101,11 +101,23 @@
 
 - (void)doUpdateBatteryStatus
 {
-    self.batteryInfo.level = [[UIDevice currentDevice] batteryLevel] * 100;
+    float batteryMultiplier = [[UIDevice currentDevice] batteryLevel];
+    self.batteryInfo.levelPercent = batteryMultiplier * 100;
+    self.batteryInfo.levelMAH =  self.batteryInfo.capacity * batteryMultiplier;
     
     switch ([[UIDevice currentDevice] batteryState]) {
         case UIDeviceBatteryStateCharging:
-            self.batteryInfo.status = @"Charging";
+            // UIDeviceBatteryStateFull seems to be overwritten by UIDeviceBatteryStateCharging
+            // when charging therefore it's more reliable if we check the battery level here
+            // explicitly.
+            if (self.batteryInfo.levelPercent == 100)
+            {
+                self.batteryInfo.status = @"Fully charged";
+            }
+            else
+            {
+                self.batteryInfo.status = @"Charging";
+            }
             break;
         case UIDeviceBatteryStateFull:
             self.batteryInfo.status = @"Fully charged";

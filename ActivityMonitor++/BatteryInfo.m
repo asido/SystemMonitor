@@ -12,6 +12,7 @@
 @synthesize capacity;
 @synthesize voltage;
 
-@synthesize level;
+@synthesize levelPercent;
+@synthesize levelMAH;
 @synthesize status;
 @end

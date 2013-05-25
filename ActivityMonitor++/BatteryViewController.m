@@ -75,9 +75,9 @@ enum {
     [self.batteryCapacityLabel setText:[NSString stringWithFormat:@"%d mAh", app.iDevice.batteryInfo.capacity]];
     [self.batteryVoltageLabel setText:[NSString stringWithFormat:@"%0.1f V", app.iDevice.batteryInfo.voltage]];
     [self.batteryStatusLabel setText:app.iDevice.batteryInfo.status];
-    [self.batteryLevelLabel setText:[NSString stringWithFormat:@"%d %%", app.iDevice.batteryInfo.level]];
+    [self.batteryLevelLabel setText:[NSString stringWithFormat:@"%d %% (%d mAh)", app.iDevice.batteryInfo.levelPercent, app.iDevice.batteryInfo.levelMAH]];
     
-    [self.glBatteryTube setValue:app.iDevice.batteryInfo.level];
+    [self.glBatteryTube setValue:app.iDevice.batteryInfo.levelPercent];
 }
 
 #pragma mark - table delegate
