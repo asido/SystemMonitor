@@ -14,41 +14,31 @@
 #import "NetworkViewController.h"
 
 enum {
-    SECTION_WiFi=0,
-    SECTION_WWAN
+    SECTION_NETWORK_INFORMATION=0
 };
 
 @interface NetworkViewController() <NetworkInfoControllerDelegate>
-@property (strong, nonatomic) GLLineGraph   *wifiGraph;
-@property (strong, nonatomic) GLKView       *wifiGLView;
-
-@property (weak, nonatomic) IBOutlet UILabel *wifiIPAddressLabel;
-@property (weak, nonatomic) IBOutlet UILabel *wifiNetmaskLabel;
-@property (weak, nonatomic) IBOutlet UILabel *wifiBroadcastAdressLabel;
-@property (weak, nonatomic) IBOutlet UILabel *wifiMacAddressLabel;
-@property (weak, nonatomic) IBOutlet UILabel *wifiTotalUpLabel;
-@property (weak, nonatomic) IBOutlet UILabel *wifiTotalDownLabel;
-
-
-@property (strong, nonatomic) GLLineGraph   *wwanGraph;
-@property (strong, nonatomic) GLKView       *wwanGLView;
-
-@property (weak, nonatomic) IBOutlet UILabel *wwanIPAddressLabel;
-@property (weak, nonatomic) IBOutlet UILabel *wwanNetmaskLabel;
-@property (weak, nonatomic) IBOutlet UILabel *wwanBroadcastAddressLabe;
-@property (weak, nonatomic) IBOutlet UILabel *wwanMacAddressLabel;
-@property (weak, nonatomic) IBOutlet UILabel *wwanTotalUpLabel;
-@property (weak, nonatomic) IBOutlet UILabel *wwanTotalDownLabel;
+@property (strong, nonatomic) GLLineGraph   *networkGraph;
+@property (strong, nonatomic) GLKView       *networkGLView;
 
 - (void)updateBandwidthLabels:(NetworkBandwidth*)bandwidth;
+
+@property (weak, nonatomic) IBOutlet UILabel *networkTypeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *externalIPLabel;
+@property (weak, nonatomic) IBOutlet UILabel *internalIPLabel;
+@property (weak, nonatomic) IBOutlet UILabel *netmaskLabel;
+@property (weak, nonatomic) IBOutlet UILabel *broadcastAddressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *macAddressLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *totalWiFiDownloadsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalWiFiUploadsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalWWANDownloadsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalWWANUploadsLabel;
 @end
 
 @implementation NetworkViewController
-@synthesize wifiGraph;
-@synthesize wifiGLView;
-
-@synthesize wwanGraph;
-@synthesize wwanGLView;
+@synthesize networkGraph;
+@synthesize networkGLView;
 
 #pragma mark - override
 
@@ -65,29 +55,20 @@ enum {
     [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]]];
 
     AppDelegate *app = [AppDelegate sharedDelegate];
-    [self.wifiIPAddressLabel setText:app.iDevice.networkInfo.wifiIPAddress];
-    [self.wifiNetmaskLabel setText:app.iDevice.networkInfo.wifiNetmask];
-    [self.wifiBroadcastAdressLabel setText:app.iDevice.networkInfo.wifiBroadcastAddress];
-    [self.wifiMacAddressLabel setText:app.iDevice.networkInfo.wifiMacAddress];
+    [self.networkTypeLabel setText:app.iDevice.networkInfo.readableInterface];
+    [self.externalIPLabel setText:app.iDevice.networkInfo.externalIPAddress];
+    [self.internalIPLabel setText:app.iDevice.networkInfo.internalIPAddress];
+    [self.netmaskLabel setText:app.iDevice.networkInfo.netmask];
+    [self.broadcastAddressLabel setText:app.iDevice.networkInfo.broadcastAddress];
+    [self.macAddressLabel setText:app.iDevice.networkInfo.macAddress];
     
-    [self.wwanIPAddressLabel setText:app.iDevice.networkInfo.wwanIPAddress];
-    [self.wwanNetmaskLabel setText:app.iDevice.networkInfo.wwanNetmask];
-    [self.wwanBroadcastAddressLabe setText:app.iDevice.networkInfo.wwanBroadcastAddress];
-    [self.wwanMacAddressLabel setText:app.iDevice.networkInfo.wwanMacAddress];
-    
-    self.wifiGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, 703.0f, 200.0f)];
-    self.wifiGLView.opaque = NO;
-    self.wifiGLView.backgroundColor = [UIColor clearColor];
-    self.wifiGraph = [[GLLineGraph alloc] initWithGLKView:self.wifiGLView dataLineCount:2 fromValue:0.0f toValue:100.0f legends:[NSArray arrayWithObject:@"WiFi"]];
-    self.wifiGraph.preferredFramesPerSecond = kNetworkUpdateFrequency;
-    
-    self.wwanGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, 703.0f, 200.0f)];
-    self.wwanGLView.opaque = NO;
-    self.wwanGLView.backgroundColor = [UIColor clearColor];
-    self.wwanGraph = [[GLLineGraph alloc] initWithGLKView:self.wwanGLView dataLineCount:2 fromValue:0.0f toValue:100.0f legends:[NSArray arrayWithObject:@"WWAN"]];
-    self.wwanGraph.preferredFramesPerSecond = kNetworkUpdateFrequency;
+    self.networkGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, 703.0f, 200.0f)];
+    self.networkGLView.opaque = NO;
+    self.networkGLView.backgroundColor = [UIColor clearColor];
+    self.networkGraph = [[GLLineGraph alloc] initWithGLKView:self.networkGLView dataLineCount:2 fromValue:0.0f toValue:100.0f legends:[NSArray arrayWithObject:@"WiFi"]];
+    self.networkGraph.preferredFramesPerSecond = kNetworkUpdateFrequency;
 
-    [app.networkInfoCtrl setNetworkBandwidthHistorySize:[self.wifiGraph requiredElementToFillGraph]];
+    [app.networkInfoCtrl setNetworkBandwidthHistorySize:[self.networkGraph requiredElementToFillGraph]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -102,36 +83,18 @@ enum {
     {
         [self updateBandwidthLabels:bandwidth];
     }
+
+    NSMutableArray *bandwidthArray = [[NSMutableArray alloc] initWithCapacity:app.networkInfoCtrl.networkBandwidthHistory.count];
+    NSArray *bandwidthHistory = [NSArray arrayWithArray:app.networkInfoCtrl.networkBandwidthHistory];
     
-    // Reset WiFi graph.
+    for (NSUInteger i = 0; i < bandwidthHistory.count; ++i)
     {
-        NSMutableArray *bandwidthArray = [[NSMutableArray alloc] initWithCapacity:app.networkInfoCtrl.networkBandwidthHistory.count];
-        NSArray *bandwidthHistory = [NSArray arrayWithArray:app.networkInfoCtrl.networkBandwidthHistory];
-        
-        for (NSUInteger i = 0; i < bandwidthHistory.count; ++i)
-        {
-            NetworkBandwidth *bandwidth = [bandwidthHistory objectAtIndex:i];
-            NSNumber *upValue = [NSNumber numberWithFloat:bandwidth.wifiSent];
-            NSNumber *downValue = [NSNumber numberWithFloat:bandwidth.wifiReceived];
-            [bandwidthArray addObject:[NSArray arrayWithObjects:upValue, downValue, nil]];
-        }
-        [self.wifiGraph resetDataArray:bandwidthArray];
+        NetworkBandwidth *bandwidth = [bandwidthHistory objectAtIndex:i];
+        NSNumber *upValue = [NSNumber numberWithFloat:bandwidth.sent];
+        NSNumber *downValue = [NSNumber numberWithFloat:bandwidth.received];
+        [bandwidthArray addObject:[NSArray arrayWithObjects:upValue, downValue, nil]];
     }
-    
-    // Reset WWAN graph.
-    {
-        NSMutableArray *bandwidthArray = [[NSMutableArray alloc] initWithCapacity:app.networkInfoCtrl.networkBandwidthHistory.count];
-        NSArray *bandwidthHistory = [NSArray arrayWithArray:app.networkInfoCtrl.networkBandwidthHistory];
-        
-        for (NSUInteger i = 0; i < bandwidthHistory.count; ++i)
-        {
-            NetworkBandwidth *bandwidth = [bandwidthHistory objectAtIndex:i];
-            NSNumber *upValue = [NSNumber numberWithFloat:bandwidth.wwanSent];
-            NSNumber *downValue = [NSNumber numberWithFloat:bandwidth.wwanReceived];
-            [bandwidthArray addObject:[NSArray arrayWithObjects:upValue, downValue, nil]];
-        }
-        [self.wwanGraph resetDataArray:bandwidthArray];
-    }
+    [self.networkGraph resetDataArray:bandwidthArray];
     
     app.networkInfoCtrl.delegate = self;
 }
@@ -148,59 +111,44 @@ enum {
 
 - (void)updateBandwidthLabels:(NetworkBandwidth*)bandwidth
 {
-    [self.wifiTotalUpLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(bandwidth.wifiTotalSent)]];
-    [self.wifiTotalDownLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(bandwidth.wifiTotalReceived)]];
-    [self.wwanTotalUpLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(bandwidth.wwanTotalSent)]];
-    [self.wwanTotalDownLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(bandwidth.wwanTotalReceived)]];
+    [self.totalWiFiDownloadsLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(bandwidth.totalWiFiReceived)]];
+    [self.totalWiFiUploadsLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(bandwidth.totalWiFiSent)]];
+    [self.totalWWANDownloadsLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(bandwidth.totalWWANReceived)]];
+    [self.totalWWANUploadsLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(bandwidth.totalWWANSent)]];
 }
 
 #pragma mark - Table view data source
 
 - (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LineGraphBackground-464.png"]];
-    CGRect frame = backgroundView.frame;
-    frame.origin.y = 20;
-    backgroundView.frame = frame;
-    
-    UIView *view;
-    
-    if (section == SECTION_WiFi)
+    if (section == SECTION_NETWORK_INFORMATION)
     {
-        view = [[UIView alloc] initWithFrame:self.wifiGLView.frame];
+        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LineGraphBackground-464.png"]];
+        CGRect frame = backgroundView.frame;
+        frame.origin.y = 20;
+        backgroundView.frame = frame;
+        
+        UIView *view;
+        view = [[UIView alloc] initWithFrame:self.networkGLView.frame];
         [view addSubview:backgroundView];
         [view sendSubviewToBack:backgroundView];
-        [view addSubview:self.wifiGLView];
-    }
-    else if (section == SECTION_WWAN)
-    {
-        view = [[UIView alloc] initWithFrame:self.wwanGLView.frame];
-        [view addSubview:backgroundView];
-        [view sendSubviewToBack:backgroundView];
-        [view addSubview:self.wwanGLView];
+        [view addSubview:self.networkGLView];
+        return view;
     }
     else
     {
-        AMWarn(@"%s: unknown section: %d", __PRETTY_FUNCTION__, section);
-        view = [[UIView alloc] initWithFrame:CGRectZero];
+        return nil;
     }
-    
-    return view;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if (section == SECTION_WiFi)
-    {
-        return 280.0f;
-    }
-    else if (section == SECTION_WWAN)
+    if (section == SECTION_NETWORK_INFORMATION)
     {
         return 280.0f;
     }
     else
     {
-        AMWarn(@"%s: unknown section: %d", __PRETTY_FUNCTION__, section);
         return 0.0f;
     }
 }
@@ -211,13 +159,9 @@ enum {
 {
     [self updateBandwidthLabels:bandwidth];
     
-    NSNumber *upValue = [NSNumber numberWithFloat:bandwidth.wifiSent];
-    NSNumber *downValue = [NSNumber numberWithFloat:bandwidth.wifiReceived];
-    [self.wifiGraph addDataValue:[NSArray arrayWithObjects:upValue, downValue, nil]];
-    
-    upValue = [NSNumber numberWithFloat:bandwidth.wwanSent];
-    downValue = [NSNumber numberWithFloat:bandwidth.wwanReceived];
-    [self.wwanGraph addDataValue:[NSArray arrayWithObjects:upValue, downValue, nil]];
+    NSNumber *upValue = [NSNumber numberWithFloat:bandwidth.sent];
+    NSNumber *downValue = [NSNumber numberWithFloat:bandwidth.received];
+    [self.networkGraph addDataValue:[NSArray arrayWithObjects:upValue, downValue, nil]];
 }
 
 @end

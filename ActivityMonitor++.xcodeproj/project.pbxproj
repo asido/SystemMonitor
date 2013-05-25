@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7003E7E9175115EF00214D6A /* RAMInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ECE2731750558100B1402A /* RAMInfo.m */; };
+		7003E7EB1751178700214D6A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7003E7EA1751178700214D6A /* SystemConfiguration.framework */; };
 		700FDC05174E1C8D000D6848 /* RAMUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC04174E1C8D000D6848 /* RAMUsage.m */; };
 		700FDC09174E3E54000D6848 /* NetworkInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC08174E3E54000D6848 /* NetworkInfoController.m */; };
 		700FDC0C174E3E61000D6848 /* NetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC0B174E3E61000D6848 /* NetworkInfo.m */; };
@@ -113,6 +114,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7003E7EA1751178700214D6A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		700FDC03174E1C8D000D6848 /* RAMUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMUsage.h; sourceTree = "<group>"; };
 		700FDC04174E1C8D000D6848 /* RAMUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMUsage.m; sourceTree = "<group>"; };
 		700FDC07174E3E54000D6848 /* NetworkInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInfoController.h; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7003E7EB1751178700214D6A /* SystemConfiguration.framework in Frameworks */,
 				70FC38EF174F74410085EBC3 /* AVFoundation.framework in Frameworks */,
 				70FC38ED174F73F80085EBC3 /* CoreMedia.framework in Frameworks */,
 				70FC38EB174F51870085EBC3 /* AssetsLibrary.framework in Frameworks */,
@@ -385,6 +388,7 @@
 		703D22DA173818EC0001E3B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7003E7EA1751178700214D6A /* SystemConfiguration.framework */,
 				70FC38EE174F74400085EBC3 /* AVFoundation.framework */,
 				70FC38EC174F73F80085EBC3 /* CoreMedia.framework */,
 				70FC38EA174F51870085EBC3 /* AssetsLibrary.framework */,

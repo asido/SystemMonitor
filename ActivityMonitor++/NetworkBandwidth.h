@@ -9,14 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface NetworkBandwidth : NSObject
-// In MB
-@property (assign, nonatomic) float wifiTotalSent;
-@property (assign, nonatomic) float wifiTotalReceived;
-@property (assign, nonatomic) float wwanTotalSent;
-@property (assign, nonatomic) float wwanTotalReceived;
-// In KB
-@property (assign, nonatomic) float wifiSent;
-@property (assign, nonatomic) float wifiReceived;
-@property (assign, nonatomic) float wwanSent;
-@property (assign, nonatomic) float wwanReceived;
+@property (strong, nonatomic) NSString  *interface;
+
+@property (assign, nonatomic) float     sent;
+@property (assign, nonatomic) uint64_t  totalWiFiSent;
+@property (assign, nonatomic) uint64_t  totalWWANSent;
+@property (assign, nonatomic) float     received;
+@property (assign, nonatomic) uint64_t  totalWiFiReceived;
+@property (assign, nonatomic) uint64_t  totalWWANReceived;
 @end

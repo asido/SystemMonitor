@@ -994,22 +994,68 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <sections>
-                            <tableViewSection headerTitle="WiFi" id="fOV-lb-vce">
+                            <tableViewSection headerTitle="Network Information" id="fOV-lb-vce">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Jht-rV-Frz" customClass="DefaultCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="YKV-O3-pPc" customClass="DefaultCell">
                                         <rect key="frame" x="0.0" y="54" width="703" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="43" y="1" width="617" height="43"/>
+                                            <rect key="frame" x="43" y="0.0" width="617" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="IP Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9FY-hu-PIW">
-                                                    <rect key="frame" x="20" y="11" width="89" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Network Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0RT-iE-lEm">
+                                                    <rect key="frame" x="20" y="11" width="112" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="65.47.452.101" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xL9-0W-LWs">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="WiFi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k19-aj-xSC">
+                                                    <rect key="frame" x="293" y="11" width="304" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cE6-61-PB7" customClass="DefaultCell">
+                                        <rect key="frame" x="0.0" y="99" width="703" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="43" y="0.0" width="617" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="External IP Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pi3-9E-YTa">
+                                                    <rect key="frame" x="20" y="11" width="161" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="00.000.000." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rVp-yb-fCj">
+                                                    <rect key="frame" x="293" y="11" width="304" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Jht-rV-Frz" customClass="DefaultCell">
+                                        <rect key="frame" x="0.0" y="143" width="703" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="43" y="0.0" width="617" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Internal IP Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9FY-hu-PIW">
+                                                    <rect key="frame" x="20" y="11" width="155" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="000.000.000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xL9-0W-LWs">
                                                     <rect key="frame" x="293" y="11" width="304" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
@@ -1020,7 +1066,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="doT-KY-XnA" customClass="DefaultCell">
-                                        <rect key="frame" x="0.0" y="99" width="703" height="44"/>
+                                        <rect key="frame" x="0.0" y="187" width="703" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="43" y="0.0" width="617" height="43"/>
@@ -1032,7 +1078,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="255.255.255.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DqF-u1-1Iz">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="000.000.000.000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DqF-u1-1Iz">
                                                     <rect key="frame" x="293" y="11" width="304" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
@@ -1043,7 +1089,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="A7i-sZ-uYR" customClass="DefaultCell">
-                                        <rect key="frame" x="0.0" y="143" width="703" height="44"/>
+                                        <rect key="frame" x="0.0" y="231" width="703" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="43" y="0.0" width="617" height="43"/>
@@ -1055,7 +1101,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="127.0.0.1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Qa-Eu-QtW">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="000.000.000.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Qa-Eu-QtW">
                                                     <rect key="frame" x="293" y="11" width="304" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
@@ -1066,7 +1112,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HZr-C1-9ts" customClass="DefaultCell">
-                                        <rect key="frame" x="0.0" y="187" width="703" height="44"/>
+                                        <rect key="frame" x="0.0" y="275" width="703" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="43" y="0.0" width="617" height="43"/>
@@ -1078,53 +1124,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="6C:B9:07:AA:1C:D3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BCt-3p-ml0">
-                                                    <rect key="frame" x="293" y="11" width="304" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="o35-SF-yTA" customClass="DefaultCell">
-                                        <rect key="frame" x="0.0" y="231" width="703" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="43" y="0.0" width="617" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Total Up Traffic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UT1-cr-yDw">
-                                                    <rect key="frame" x="20" y="11" width="125" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="1224 MB" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yyI-uu-uQM">
-                                                    <rect key="frame" x="293" y="11" width="304" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="q3H-Wd-O2L" customClass="DefaultCell">
-                                        <rect key="frame" x="0.0" y="275" width="703" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="43" y="0.0" width="617" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Total Down Traffic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hTe-gY-9G9">
-                                                    <rect key="frame" x="20" y="11" width="149" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="47 MB" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3bu-b0-dIF">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="00:00:00:00:00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BCt-3p-ml0">
                                                     <rect key="frame" x="293" y="11" width="304" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
@@ -1136,22 +1136,22 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="WWAN" id="IWA-Mw-vnX">
+                            <tableViewSection headerTitle="Network Total Usage" id="TLG-Lf-bVS">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="9fK-GA-LZS" customClass="DefaultCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="5le-Sy-PGb" customClass="DefaultCell">
                                         <rect key="frame" x="0.0" y="364" width="703" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="43" y="1" width="617" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="IP Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hk1-UE-lKD">
-                                                    <rect key="frame" x="20" y="11" width="89" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="WiFi Download" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="feI-eN-mV4">
+                                                    <rect key="frame" x="20" y="11" width="122" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="65.47.452.101" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0I8-Hh-xCG">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="-1 MB" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XZh-k8-x3T">
                                                     <rect key="frame" x="293" y="11" width="304" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
@@ -1161,20 +1161,20 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="8Ce-46-al7" customClass="DefaultCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Qvg-2M-yia" customClass="DefaultCell">
                                         <rect key="frame" x="0.0" y="409" width="703" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="43" y="0.0" width="617" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Netmask" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bDl-lH-T0a">
-                                                    <rect key="frame" x="20" y="11" width="71" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="WiFi Upload" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="COa-wl-0Mf">
+                                                    <rect key="frame" x="20" y="11" width="99" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="255.255.255.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eNq-IW-3xV">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="-1 MB" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dxc-Li-Btu">
                                                     <rect key="frame" x="293" y="11" width="304" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
@@ -1184,89 +1184,43 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jf9-yl-iJQ" customClass="DefaultCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="VZO-TN-Hvb" customClass="DefaultCell">
                                         <rect key="frame" x="0.0" y="453" width="703" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="43" y="0.0" width="617" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Broadcast Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6g4-Ce-R54">
-                                                    <rect key="frame" x="20" y="11" width="156" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="127.0.0.1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aNO-nP-58g">
-                                                    <rect key="frame" x="293" y="11" width="304" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="OfH-yV-yYS" customClass="DefaultCell">
-                                        <rect key="frame" x="0.0" y="497" width="703" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="43" y="0.0" width="617" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="MAC Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wwU-JI-w7t">
-                                                    <rect key="frame" x="20" y="11" width="112" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="6C:B9:07:AA:1C:D3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X75-Tq-mex">
-                                                    <rect key="frame" x="293" y="11" width="304" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="PKB-W1-JqV" customClass="DefaultCell">
-                                        <rect key="frame" x="0.0" y="541" width="703" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="43" y="0.0" width="617" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Total Up Traffic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lEc-cF-n7n">
-                                                    <rect key="frame" x="20" y="11" width="125" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="45 MB" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NFj-2r-gqN">
-                                                    <rect key="frame" x="293" y="11" width="304" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="UkX-uY-t4d" customClass="DefaultCell">
-                                        <rect key="frame" x="0.0" y="585" width="703" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="43" y="0.0" width="617" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Total Down Traffic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BDj-kG-V8N">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Cellular Download" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ha1-bz-l5M">
                                                     <rect key="frame" x="20" y="11" width="149" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="1 MB" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fVJ-DT-ppN">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="-1 MB" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Nt-JN-ycS">
+                                                    <rect key="frame" x="293" y="11" width="304" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="hwH-OT-PFR" customClass="DefaultCell">
+                                        <rect key="frame" x="0.0" y="497" width="703" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="43" y="0.0" width="617" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Cellular Upload" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WKa-3l-Zsb">
+                                                    <rect key="frame" x="20" y="11" width="125" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="-1 MB" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aDp-Rk-wO8">
                                                     <rect key="frame" x="293" y="11" width="304" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
@@ -1287,18 +1241,16 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="wifiBroadcastAdressLabel" destination="1Qa-Eu-QtW" id="aYQ-mr-WCO"/>
-                        <outlet property="wifiIPAddressLabel" destination="xL9-0W-LWs" id="LVd-Pb-AE3"/>
-                        <outlet property="wifiMacAddressLabel" destination="BCt-3p-ml0" id="ph1-mU-4Kq"/>
-                        <outlet property="wifiNetmaskLabel" destination="DqF-u1-1Iz" id="V4U-0P-KFf"/>
-                        <outlet property="wifiTotalDownLabel" destination="3bu-b0-dIF" id="eKI-y5-V2H"/>
-                        <outlet property="wifiTotalUpLabel" destination="yyI-uu-uQM" id="cA9-XR-tHK"/>
-                        <outlet property="wwanBroadcastAddressLabe" destination="aNO-nP-58g" id="GuX-sw-d7g"/>
-                        <outlet property="wwanIPAddressLabel" destination="0I8-Hh-xCG" id="cnx-EL-qrX"/>
-                        <outlet property="wwanMacAddressLabel" destination="X75-Tq-mex" id="417-T8-Ity"/>
-                        <outlet property="wwanNetmaskLabel" destination="eNq-IW-3xV" id="sCs-vX-0d1"/>
-                        <outlet property="wwanTotalDownLabel" destination="fVJ-DT-ppN" id="Vbc-t9-mRv"/>
-                        <outlet property="wwanTotalUpLabel" destination="NFj-2r-gqN" id="aot-gD-Gg7"/>
+                        <outlet property="broadcastAddressLabel" destination="1Qa-Eu-QtW" id="0cI-eX-k7D"/>
+                        <outlet property="externalIPLabel" destination="rVp-yb-fCj" id="i8G-Pj-79P"/>
+                        <outlet property="internalIPLabel" destination="xL9-0W-LWs" id="ONa-nd-Pgu"/>
+                        <outlet property="macAddressLabel" destination="BCt-3p-ml0" id="XOg-C3-rvP"/>
+                        <outlet property="netmaskLabel" destination="DqF-u1-1Iz" id="Ydd-bE-OX2"/>
+                        <outlet property="networkTypeLabel" destination="k19-aj-xSC" id="RIF-ku-Ma8"/>
+                        <outlet property="totalWWANDownloadsLabel" destination="7Nt-JN-ycS" id="wLI-NF-Ebk"/>
+                        <outlet property="totalWWANUploadsLabel" destination="aDp-Rk-wO8" id="iDO-A1-NhQ"/>
+                        <outlet property="totalWiFiDownloadsLabel" destination="XZh-k8-x3T" id="rUz-C5-d4p"/>
+                        <outlet property="totalWiFiUploadsLabel" destination="Dxc-Li-Btu" id="jfo-2R-jpv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4g-hn-Ud3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2111,18 +2063,16 @@
         <class className="NetworkViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NetworkViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="wifiBroadcastAdressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wifiIPAddressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wifiMacAddressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wifiNetmaskLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wifiTotalDownLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wifiTotalUpLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wwanBroadcastAddressLabe" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wwanIPAddressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wwanMacAddressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wwanNetmaskLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wwanTotalDownLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wwanTotalUpLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="broadcastAddressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="externalIPLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="internalIPLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="macAddressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="netmaskLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="networkTypeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalWWANDownloadsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalWWANUploadsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalWiFiDownloadsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalWiFiUploadsLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="OSViewController" superclassName="UITableViewController">

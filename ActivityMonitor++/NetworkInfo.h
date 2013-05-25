@@ -9,13 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface NetworkInfo : NSObject
-@property (strong, nonatomic) NSString  *wifiIPAddress;
-@property (strong, nonatomic) NSString  *wifiNetmask;
-@property (strong, nonatomic) NSString  *wifiBroadcastAddress;
-@property (strong, nonatomic) NSString  *wifiMacAddress;
-
-@property (strong, nonatomic) NSString  *wwanIPAddress;
-@property (strong, nonatomic) NSString  *wwanNetmask;
-@property (strong, nonatomic) NSString  *wwanBroadcastAddress;
-@property (strong, nonatomic) NSString  *wwanMacAddress;
+@property (strong, nonatomic) NSString  *readableInterface;
+@property (strong, nonatomic) NSString  *externalIPAddress;
+@property (strong, nonatomic) NSString  *internalIPAddress;
+@property (strong, nonatomic) NSString  *netmask;
+@property (strong, nonatomic) NSString  *broadcastAddress;
+@property (strong, nonatomic) NSString  *macAddress;
 @end

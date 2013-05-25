@@ -9,12 +9,12 @@
 #import "NetworkBandwidth.h"
 
 @implementation NetworkBandwidth
-@synthesize wifiTotalSent;
-@synthesize wifiTotalReceived;
-@synthesize wwanTotalSent;
-@synthesize wwanTotalReceived;
-@synthesize wifiSent;
-@synthesize wifiReceived;
-@synthesize wwanSent;
-@synthesize wwanReceived;
+@synthesize interface;
+
+@synthesize sent;
+@synthesize totalWiFiSent;
+@synthesize totalWWANSent;
+@synthesize received;
+@synthesize totalWiFiReceived;
+@synthesize totalWWANReceived;
 @end

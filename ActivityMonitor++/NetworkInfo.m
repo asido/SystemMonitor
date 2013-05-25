@@ -9,13 +9,10 @@
 #import "NetworkInfo.h"
 
 @implementation NetworkInfo
-@synthesize wifiIPAddress;
-@synthesize wifiNetmask;
-@synthesize wifiBroadcastAddress;
-@synthesize wifiMacAddress;
-
-@synthesize wwanIPAddress;
-@synthesize wwanNetmask;
-@synthesize wwanBroadcastAddress;
-@synthesize wwanMacAddress;
+@synthesize readableInterface;
+@synthesize externalIPAddress;
+@synthesize internalIPAddress;
+@synthesize netmask;
+@synthesize broadcastAddress;
+@synthesize macAddress;
 @end

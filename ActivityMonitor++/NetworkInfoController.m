@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 st. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+#import <SystemConfiguration/SystemConfiguration.h>
 #import <ifaddrs.h>
 #import <arpa/inet.h>
 #import <sys/socket.h>
@@ -21,12 +23,22 @@
 
 @interface NetworkInfoController()
 @property (strong, nonatomic) NetworkInfo   *networkInfo;
+@property (strong, nonatomic) NSString      *currentInterface;
 @property (assign, nonatomic) NSUInteger    bandwidthHistorySize;
 
 @property (strong, nonatomic) NSTimer       *networkBandwidthUpdateTimer;
 - (void)networkBandwidthUpdateCB:(NSNotification*)notification;
 
-- (NSString*)getIPAddressOfInterface:(NSString*)interface;
+@property (assign, nonatomic) SCNetworkReachabilityRef reachability;
+
+- (void)initReachability;
+- (BOOL)internetConnected;
+- (NSString*)internetInterface;
+- (NSString*)readableCurrentInterface;
+- (void)reachabilityStatusChangedCB;
+
+- (NSString*)getExternalIPAddress;
+- (NSString*)getInternalIPAddressOfInterface:(NSString*)interface;
 - (NSString*)getNetmaskOfInterface:(NSString*)interface;
 - (NSString*)getBroadcastAddressOfInterface:(NSString*)interface;
 - (NSString*)getMacAddressOfInterface:(NSString*)interface;
@@ -40,10 +52,14 @@
 @synthesize networkBandwidthHistory;
 
 @synthesize networkInfo;
+@synthesize currentInterface;
 @synthesize networkBandwidthUpdateTimer;
 
-static NSString *kWiFiInterface = @"en0";
-static NSString *kWWANInterface = @"pdp_ip0";
+@synthesize reachability;
+
+static NSString *kInterfaceWiFi = @"en0";
+static NSString *kInterfaceWWAN = @"pdp_ip0";
+static NSString *kInterfaceNone = @"";
 
 #pragma mark - override
 
@@ -57,22 +73,27 @@ static NSString *kWWANInterface = @"pdp_ip0";
     return self;
 }
 
+- (void)dealloc
+{
+    if (self.reachability)
+    {
+        CFRelease(self.reachability);
+    }
+}
+
 #pragma mark - public
 
 - (NetworkInfo*)getNetworkInfo
 {
+    self.currentInterface = [self internetInterface];
+    
     self.networkInfo = [[NetworkInfo alloc] init];
-    
-    self.networkInfo.wifiIPAddress = [self getIPAddressOfInterface:kWiFiInterface];
-    self.networkInfo.wifiNetmask = [self getNetmaskOfInterface:kWiFiInterface];
-    self.networkInfo.wifiBroadcastAddress = [self getBroadcastAddressOfInterface:kWiFiInterface];
-    self.networkInfo.wifiMacAddress = [self getMacAddressOfInterface:kWiFiInterface];
-    
-    self.networkInfo.wwanIPAddress = [self getIPAddressOfInterface:kWWANInterface];
-    self.networkInfo.wwanNetmask = [self getNetmaskOfInterface:kWWANInterface];
-    self.networkInfo.wwanBroadcastAddress = [self getBroadcastAddressOfInterface:kWWANInterface];
-    self.networkInfo.wwanMacAddress = [self getMacAddressOfInterface:kWWANInterface];
-    
+    self.networkInfo.readableInterface = [self readableCurrentInterface];
+    self.networkInfo.externalIPAddress = [self getExternalIPAddress];
+    self.networkInfo.internalIPAddress = [self getInternalIPAddressOfInterface:self.currentInterface];
+    self.networkInfo.netmask = [self getNetmaskOfInterface:self.currentInterface];
+    self.networkInfo.broadcastAddress = [self getBroadcastAddressOfInterface:self.currentInterface];
+    self.networkInfo.macAddress = [self getMacAddressOfInterface:self.currentInterface];
     return self.networkInfo;
 }
 
@@ -107,11 +128,203 @@ static NSString *kWWANInterface = @"pdp_ip0";
     [self.delegate networkBandwidthUpdated:bandwidth];
 }
 
-- (NSString*)getIPAddressOfInterface:(NSString*)interface
+static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info)
 {
+    assert(info != NULL);
+    assert([(NSObject*)CFBridgingRelease(info) isKindOfClass:[NetworkInfoController class]]);
+    
+    NetworkInfoController *networkCtrl = (NetworkInfoController*)CFBridgingRelease(info);
+    [networkCtrl reachabilityStatusChangedCB];
+}
+
+- (void)initReachability
+{
+    if (!self.reachability)
+    {
+        struct sockaddr_in hostAddress;
+        bzero(&hostAddress, sizeof(hostAddress));
+        hostAddress.sin_len = sizeof(hostAddress);
+        hostAddress.sin_family = AF_INET;
+        
+        self.reachability = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, (const struct sockaddr*)&hostAddress);
+    
+        if (!self.reachability)
+        {
+            AMWarn(@"%s: reachability create has failed.", __PRETTY_FUNCTION__);
+            return;
+        }
+        
+        BOOL result;
+        SCNetworkReachabilityContext context = { 0, (__bridge void *)(self), NULL, NULL, NULL };
+        
+        result = SCNetworkReachabilitySetCallback(self.reachability, reachabilityCallback, &context);
+        if (!result)
+        {
+            AMWarn(@"%s: error setting reachability callback.", __PRETTY_FUNCTION__);
+            return;
+        }
+        
+        result = SCNetworkReachabilityScheduleWithRunLoop(self.reachability, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
+        if (!result)
+        {
+            AMWarn(@"%s: error setting runloop mode.", __PRETTY_FUNCTION__);
+            return;
+        }
+    }
+}
+
+- (BOOL)internetConnected
+{
+    if (!self.reachability)
+    {
+        [self initReachability];
+    }
+    
+    if (!self.reachability)
+    {
+        AMWarn(@"%s: cannot initialize reachability.", __PRETTY_FUNCTION__);
+        return NO;
+    }
+    
+    SCNetworkReachabilityFlags flags;
+    if (!SCNetworkReachabilityGetFlags(self.reachability, &flags))
+    {
+        AMWarn(@"%s: failed to retrieve reachability flags.", __PRETTY_FUNCTION__);
+        return NO;
+    }
+
+    BOOL isReachable = (flags & kSCNetworkReachabilityFlagsReachable);
+    BOOL noConnectionRequired = !(flags & kSCNetworkReachabilityFlagsConnectionRequired);
+    
+    if (flags & kSCNetworkReachabilityFlagsIsWWAN)
+    {
+        noConnectionRequired = YES;
+    }
+    
+    return ((isReachable && noConnectionRequired) ? YES : NO);
+}
+
+- (NSString*)internetInterface
+{
+    if (!self.reachability)
+    {
+        [self initReachability];
+    }
+    
+    if (!self.reachability)
+    {
+        AMWarn(@"%s: cannot initialize reachability.", __PRETTY_FUNCTION__);
+        return kInterfaceNone;
+    }
+    
+    SCNetworkReachabilityFlags flags;
+    if (!SCNetworkReachabilityGetFlags(self.reachability, &flags))
+    {
+        AMWarn(@"%s: failed to retrieve reachability flags.", __PRETTY_FUNCTION__);
+        return kInterfaceNone;
+    }
+    
+    if (!(flags & kSCNetworkReachabilityFlagsReachable))
+    {
+        return kInterfaceNone;
+    }
+    
+    if (flags & kSCNetworkReachabilityFlagsConnectionRequired)
+    {
+        return kInterfaceWiFi;
+    }
+    
+    if ((flags & kSCNetworkReachabilityFlagsConnectionOnDemand) ||
+        (flags & kSCNetworkReachabilityFlagsConnectionOnTraffic))
+    {
+        if (!(flags & kSCNetworkReachabilityFlagsInterventionRequired))
+        {
+            return kInterfaceWiFi;
+        }
+    }
+    
+    if (flags & kSCNetworkReachabilityFlagsIsWWAN)
+    {
+        return kInterfaceWWAN;
+    }
+    
+    return kInterfaceNone;
+}
+
+- (NSString*)readableCurrentInterface
+{
+    if ([self.currentInterface isEqualToString:kInterfaceWiFi])
+    {
+        return @"WiFi";
+    }
+    else if ([self.currentInterface isEqualToString:kInterfaceWWAN])
+    {
+        return @"Cellular";
+    }
+    else
+    {
+        return @"Not Connected";
+    }
+}
+
+- (void)reachabilityStatusChangedCB
+{
+    self.currentInterface = [self internetInterface];
+    
+    // TODO: I guess update network info and notify view controllers with delegate. 
+}
+
+- (NSString*)getExternalIPAddress
+{
+    NSString *ip = @"-";
+    
+    if (![self internetConnected])
+    {
+        return ip;
+    }
+    
+    NSURL *url = [NSURL URLWithString:@"http://www.dyndns.org/cgi-bin/check_ip.cgi"];
+    if (!url)
+    {
+        AMWarn(@"%s: failed to create NSURL.", __PRETTY_FUNCTION__);
+        return ip;
+    }
+
+    NSError *error = nil;
+    NSString *ipHtml = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+    if (error)
+    {
+        AMWarn(@"%s: failed to fetch IP content: %@", __PRETTY_FUNCTION__, error.description);
+        return ip;
+    }
+
+    NSScanner *scanner = [NSScanner scannerWithString:ipHtml];
+    while (![scanner isAtEnd])
+    {
+        NSString *text = nil;
+    
+        [scanner scanUpToString:@"<" intoString:NULL];
+        [scanner scanUpToString:@">" intoString:&text];
+    
+        ipHtml = [ipHtml stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@>", text] withString:text];
+        NSArray *ipArray = [ipHtml componentsSeparatedByString:@" "];
+        NSUInteger ipIndex = [ipArray indexOfObject:@"Address:"];
+        ip = [ipArray objectAtIndex:++ipIndex];
+    }
+
+    return ip;
+}
+
+- (NSString*)getInternalIPAddressOfInterface:(NSString*)interface
+{    
     NSString *address = @"-";
     struct ifaddrs *interfaces = NULL;
     struct ifaddrs *temp_addr = NULL;
+    
+    if (!interface || interface.length == 0)
+    {
+        return address;
+    }
     
     if (getifaddrs(&interfaces) == 0)
     {
@@ -140,6 +353,11 @@ static NSString *kWWANInterface = @"pdp_ip0";
     struct ifaddrs *interfaces = NULL;
     struct ifaddrs *temp_addr = NULL;
     
+    if (!interface || interface.length == 0)
+    {
+        return netmask;
+    }
+    
     if (getifaddrs(&interfaces) == 0)
     {
         temp_addr = interfaces;
@@ -166,6 +384,11 @@ static NSString *kWWANInterface = @"pdp_ip0";
     NSString *address = @"-";
     struct ifaddrs *interfaces = NULL;
     struct ifaddrs *temp_addr = NULL;
+    
+    if (!interface || interface.length == 0)
+    {
+        return address;
+    }
     
     if (getifaddrs(&interfaces) == 0)
     {
@@ -197,6 +420,11 @@ static NSString *kWWANInterface = @"pdp_ip0";
     unsigned char       macAddress[6];
     struct if_msghdr    *interfaceMsgStruct;
     struct sockaddr_dl  *socketStruct;
+    
+    if (!interface || interface.length == 0)
+    {
+        return mac;
+    }
     
     mib[0] = CTL_NET;       // Network subsystem.
     mib[1] = AF_ROUTE;      // Routing table info
@@ -248,7 +476,9 @@ static NSString *kWWANInterface = @"pdp_ip0";
     struct ifaddrs          *addrs;
     const struct ifaddrs    *cursor;
     const struct if_data    *networkStatistics;
+    
     NetworkBandwidth        *bandwidth = [[NetworkBandwidth alloc] init];
+    bandwidth.interface = self.currentInterface;
     
     if (getifaddrs(&addrs) != 0)
     {
@@ -263,18 +493,18 @@ static NSString *kWWANInterface = @"pdp_ip0";
         
         if (cursor->ifa_addr->sa_family == AF_LINK)
         {
-            if ([name isEqualToString:kWiFiInterface])
+            if ([name isEqualToString:kInterfaceWiFi])
             {
                 networkStatistics = (const struct if_data*) cursor->ifa_data;
-                bandwidth.wifiTotalSent += B_TO_KB(networkStatistics->ifi_obytes);
-                bandwidth.wifiTotalReceived += B_TO_KB(networkStatistics->ifi_ibytes);
+                bandwidth.totalWiFiSent += B_TO_KB(networkStatistics->ifi_obytes);
+                bandwidth.totalWiFiReceived += B_TO_KB(networkStatistics->ifi_ibytes);
             }
             
-            if ([name isEqualToString:kWWANInterface])
+            if ([name isEqualToString:kInterfaceWWAN])
             {
                 networkStatistics = (const struct if_data*) cursor->ifa_data;
-                bandwidth.wwanTotalSent += B_TO_KB(networkStatistics->ifi_obytes);
-                bandwidth.wwanTotalReceived += B_TO_KB(networkStatistics->ifi_ibytes);
+                bandwidth.totalWWANSent += B_TO_KB(networkStatistics->ifi_obytes);
+                bandwidth.totalWWANReceived += B_TO_KB(networkStatistics->ifi_ibytes);
             }
         }
         
@@ -286,10 +516,19 @@ static NSString *kWWANInterface = @"pdp_ip0";
     if (self.networkBandwidthHistory.count > 0)
     {
         NetworkBandwidth *prevBandwidth = [self.networkBandwidthHistory lastObject];
-        bandwidth.wifiSent = B_TO_KB(bandwidth.wifiTotalSent - prevBandwidth.wifiTotalSent);
-        bandwidth.wifiReceived = B_TO_KB(bandwidth.wifiTotalReceived - prevBandwidth.wifiTotalReceived);
-        bandwidth.wwanSent = B_TO_KB(bandwidth.wwanTotalSent - prevBandwidth.wwanTotalSent);
-        bandwidth.wwanReceived = B_TO_KB(bandwidth.wwanTotalReceived - prevBandwidth.wwanTotalReceived);
+        if ([prevBandwidth.interface isEqualToString:self.currentInterface])
+        {
+            if ([self.currentInterface isEqualToString:kInterfaceWiFi])
+            {
+                bandwidth.sent = B_TO_KB(bandwidth.totalWiFiSent - prevBandwidth.totalWiFiSent);
+                bandwidth.received = B_TO_KB(bandwidth.totalWiFiReceived - prevBandwidth.totalWiFiReceived);
+            }
+            else if ([self.currentInterface isEqualToString:kInterfaceWWAN])
+            {
+                bandwidth.sent = B_TO_KB(bandwidth.totalWWANSent - prevBandwidth.totalWWANSent);
+                bandwidth.received = B_TO_KB(bandwidth.totalWWANReceived - prevBandwidth.totalWWANReceived);
+            }
+        }
     }
     
     return bandwidth;
