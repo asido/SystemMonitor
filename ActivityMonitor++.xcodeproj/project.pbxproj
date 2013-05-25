@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7003E7E9175115EF00214D6A /* RAMInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ECE2731750558100B1402A /* RAMInfo.m */; };
 		7003E7EB1751178700214D6A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7003E7EA1751178700214D6A /* SystemConfiguration.framework */; };
+		7003E82717513CFA00214D6A /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7003E82617513CFA00214D6A /* libLumberjack.a */; };
+		7003E82817513D0800214D6A /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7003E82617513CFA00214D6A /* libLumberjack.a */; };
 		700FDC05174E1C8D000D6848 /* RAMUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC04174E1C8D000D6848 /* RAMUsage.m */; };
 		700FDC09174E3E54000D6848 /* NetworkInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC08174E3E54000D6848 /* NetworkInfoController.m */; };
 		700FDC0C174E3E61000D6848 /* NetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC0B174E3E61000D6848 /* NetworkInfo.m */; };
@@ -81,14 +83,6 @@
 		70F1F16D1739712D007224AD /* CPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F16C1739712C007224AD /* CPUViewController.m */; };
 		70F1F17117397CEC007224AD /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17017397CEC007224AD /* DeviceInfo.m */; };
 		70F1F17417397CFE007224AD /* DeviceInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17317397CFE007224AD /* DeviceInfoController.m */; };
-		70F1F18617398B6D007224AD /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17717398B6D007224AD /* DDAbstractDatabaseLogger.m */; };
-		70F1F18717398B6D007224AD /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17917398B6D007224AD /* DDASLLogger.m */; };
-		70F1F18817398B6D007224AD /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17B17398B6D007224AD /* DDFileLogger.m */; };
-		70F1F18917398B6D007224AD /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17D17398B6D007224AD /* DDLog.m */; };
-		70F1F18A17398B6D007224AD /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17F17398B6D007224AD /* DDTTYLogger.m */; };
-		70F1F18B17398B6D007224AD /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F18217398B6D007224AD /* ContextFilterLogFormatter.m */; };
-		70F1F18C17398B6D007224AD /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F18417398B6D007224AD /* DispatchQueueLogFormatter.m */; };
-		70F1F18D17398B6D007224AD /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 70F1F18517398B6D007224AD /* README.txt */; };
 		70F4D7D8173D147F007E58E2 /* CPULoadFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F4D7D7173D147F007E58E2 /* CPULoadFilter.m */; };
 		70FC38E0174F47840085EBC3 /* TubeBackground-180@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70FC38DF174F47840085EBC3 /* TubeBackground-180@2x.png */; };
 		70FC38E4174F48590085EBC3 /* StorageInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FC38E3174F48590085EBC3 /* StorageInfoController.m */; };
@@ -115,6 +109,11 @@
 
 /* Begin PBXFileReference section */
 		7003E7EA1751178700214D6A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7003E81F17513C2000214D6A /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		7003E82217513C9500214D6A /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		7003E82317513C9500214D6A /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		7003E82417513C9500214D6A /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		7003E82617513CFA00214D6A /* libLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLumberjack.a; sourceTree = "<group>"; };
 		700FDC03174E1C8D000D6848 /* RAMUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMUsage.h; sourceTree = "<group>"; };
 		700FDC04174E1C8D000D6848 /* RAMUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMUsage.m; sourceTree = "<group>"; };
 		700FDC07174E3E54000D6848 /* NetworkInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInfoController.h; sourceTree = "<group>"; };
@@ -230,21 +229,6 @@
 		70F1F17017397CEC007224AD /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
 		70F1F17217397CFE007224AD /* DeviceInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfoController.h; sourceTree = "<group>"; };
 		70F1F17317397CFE007224AD /* DeviceInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoController.m; sourceTree = "<group>"; };
-		70F1F17617398B6D007224AD /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
-		70F1F17717398B6D007224AD /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
-		70F1F17817398B6D007224AD /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
-		70F1F17917398B6D007224AD /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
-		70F1F17A17398B6D007224AD /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
-		70F1F17B17398B6D007224AD /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
-		70F1F17C17398B6D007224AD /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
-		70F1F17D17398B6D007224AD /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
-		70F1F17E17398B6D007224AD /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
-		70F1F17F17398B6D007224AD /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
-		70F1F18117398B6D007224AD /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
-		70F1F18217398B6D007224AD /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
-		70F1F18317398B6D007224AD /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
-		70F1F18417398B6D007224AD /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
-		70F1F18517398B6D007224AD /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		70F1F18F17398C37007224AD /* AMLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMLog.h; sourceTree = "<group>"; };
 		70F4D7D6173D147F007E58E2 /* CPULoadFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoadFilter.h; sourceTree = "<group>"; };
 		70F4D7D7173D147F007E58E2 /* CPULoadFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPULoadFilter.m; sourceTree = "<group>"; };
@@ -282,6 +266,7 @@
 				703D22DC173818EC0001E3B3 /* UIKit.framework in Frameworks */,
 				703D22DE173818EC0001E3B3 /* Foundation.framework in Frameworks */,
 				703D22E0173818EC0001E3B3 /* CoreGraphics.framework in Frameworks */,
+				7003E82817513D0800214D6A /* libLumberjack.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,12 +277,32 @@
 				703D230E173818EC0001E3B3 /* SenTestingKit.framework in Frameworks */,
 				703D230F173818EC0001E3B3 /* UIKit.framework in Frameworks */,
 				703D2310173818EC0001E3B3 /* Foundation.framework in Frameworks */,
+				7003E82717513CFA00214D6A /* libLumberjack.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7003E81D17513C0300214D6A /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				7003E81E17513C0900214D6A /* Lumberjack */,
+			);
+			name = Include;
+			sourceTree = "<group>";
+		};
+		7003E81E17513C0900214D6A /* Lumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				7003E81F17513C2000214D6A /* DDLog.h */,
+				7003E82217513C9500214D6A /* DDASLLogger.h */,
+				7003E82317513C9500214D6A /* DDFileLogger.h */,
+				7003E82417513C9500214D6A /* DDTTYLogger.h */,
+			);
+			name = Lumberjack;
+			sourceTree = "<group>";
+		};
 		700FDC06174E3187000D6848 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -632,41 +637,11 @@
 			name = Device;
 			sourceTree = "<group>";
 		};
-		70F1F17517398B6D007224AD /* Lumberjack */ = {
-			isa = PBXGroup;
-			children = (
-				70F1F17617398B6D007224AD /* DDAbstractDatabaseLogger.h */,
-				70F1F17717398B6D007224AD /* DDAbstractDatabaseLogger.m */,
-				70F1F17817398B6D007224AD /* DDASLLogger.h */,
-				70F1F17917398B6D007224AD /* DDASLLogger.m */,
-				70F1F17A17398B6D007224AD /* DDFileLogger.h */,
-				70F1F17B17398B6D007224AD /* DDFileLogger.m */,
-				70F1F17C17398B6D007224AD /* DDLog.h */,
-				70F1F17D17398B6D007224AD /* DDLog.m */,
-				70F1F17E17398B6D007224AD /* DDTTYLogger.h */,
-				70F1F17F17398B6D007224AD /* DDTTYLogger.m */,
-				70F1F18017398B6D007224AD /* Extensions */,
-			);
-			name = Lumberjack;
-			path = ../Lumberjack;
-			sourceTree = "<group>";
-		};
-		70F1F18017398B6D007224AD /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				70F1F18117398B6D007224AD /* ContextFilterLogFormatter.h */,
-				70F1F18217398B6D007224AD /* ContextFilterLogFormatter.m */,
-				70F1F18317398B6D007224AD /* DispatchQueueLogFormatter.h */,
-				70F1F18417398B6D007224AD /* DispatchQueueLogFormatter.m */,
-				70F1F18517398B6D007224AD /* README.txt */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		70F1F18E17398B71007224AD /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				70F1F17517398B6D007224AD /* Lumberjack */,
+				7003E82617513CFA00214D6A /* libLumberjack.a */,
+				7003E81D17513C0300214D6A /* Include */,
 			);
 			name = Lib;
 			path = "ActivityMonitor++";
@@ -796,7 +771,6 @@
 				703D22F2173818EC0001E3B3 /* Default-568h@2x.png in Resources */,
 				703D22F5173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard in Resources */,
 				703D22F8173818EC0001E3B3 /* MainStoryboard_iPad.storyboard in Resources */,
-				70F1F18D17398B6D007224AD /* README.txt in Resources */,
 				70E19A59174C260300A411C8 /* Background-748@2x.png in Resources */,
 				70E19A5D174C289A00A411C8 /* Background-Left-748@2x.png in Resources */,
 				70D8F457174CEAE6003824E2 /* LineGraphBackground-464@2x.png in Resources */,
@@ -856,13 +830,6 @@
 				70F1F16D1739712D007224AD /* CPUViewController.m in Sources */,
 				70F1F17117397CEC007224AD /* DeviceInfo.m in Sources */,
 				70F1F17417397CFE007224AD /* DeviceInfoController.m in Sources */,
-				70F1F18617398B6D007224AD /* DDAbstractDatabaseLogger.m in Sources */,
-				70F1F18717398B6D007224AD /* DDASLLogger.m in Sources */,
-				70F1F18817398B6D007224AD /* DDFileLogger.m in Sources */,
-				70F1F18917398B6D007224AD /* DDLog.m in Sources */,
-				70F1F18A17398B6D007224AD /* DDTTYLogger.m in Sources */,
-				70F1F18B17398B6D007224AD /* ContextFilterLogFormatter.m in Sources */,
-				70F1F18C17398B6D007224AD /* DispatchQueueLogFormatter.m in Sources */,
 				70CD01BC1739AB870047E72F /* HardcodedDeviceData.m in Sources */,
 				70C2E9261739C7B7008CB1B1 /* OSViewController.m in Sources */,
 				70C2E9291739C8D2008CB1B1 /* AMDevice.m in Sources */,
@@ -1024,6 +991,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActivityMonitor++/ActivityMonitor++-Prefix.pch";
 				INFOPLIST_FILE = "ActivityMonitor++/ActivityMonitor++-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ActivityMonitor++\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1035,6 +1006,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActivityMonitor++/ActivityMonitor++-Prefix.pch";
 				INFOPLIST_FILE = "ActivityMonitor++/ActivityMonitor++-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ActivityMonitor++\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1051,6 +1026,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActivityMonitor++/ActivityMonitor++-Prefix.pch";
 				INFOPLIST_FILE = "ActivityMonitor++Tests/ActivityMonitor++Tests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ActivityMonitor++\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -1068,6 +1047,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActivityMonitor++/ActivityMonitor++-Prefix.pch";
 				INFOPLIST_FILE = "ActivityMonitor++Tests/ActivityMonitor++Tests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ActivityMonitor++\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
