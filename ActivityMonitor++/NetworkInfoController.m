@@ -206,7 +206,7 @@ static NSString *kWWANInterface = @"pdp_ip0";
     
     if ((mib[5] = if_nametoindex([interface cStringUsingEncoding:NSASCIIStringEncoding])) == 0)
     {
-        AMWarn(@"%s: if_nametoindex() has failed.", __PRETTY_FUNCTION__);
+        AMWarn(@"%s: if_nametoindex() has failed for interface %@.", __PRETTY_FUNCTION__, interface);
         return mac;
     }
     else

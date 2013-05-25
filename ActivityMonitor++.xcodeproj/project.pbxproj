@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7003E7E9175115EF00214D6A /* RAMInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ECE2731750558100B1402A /* RAMInfo.m */; };
 		700FDC05174E1C8D000D6848 /* RAMUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC04174E1C8D000D6848 /* RAMUsage.m */; };
 		700FDC09174E3E54000D6848 /* NetworkInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC08174E3E54000D6848 /* NetworkInfoController.m */; };
 		700FDC0C174E3E61000D6848 /* NetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC0B174E3E61000D6848 /* NetworkInfo.m */; };
@@ -44,7 +45,6 @@
 		70681B881750E70C0095547F /* BubbleTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 70681B871750E70C0095547F /* BubbleTexture.png */; };
 		70681BA41750FD720095547F /* TubeTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 70681BA31750FD720095547F /* TubeTexture.png */; };
 		706F717E174D8C6100E5842C /* RAMInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F717D174D8C6100E5842C /* RAMInfoController.m */; };
-		706F7181174D8C7700E5842C /* RAMInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F7180174D8C7700E5842C /* RAMInfo.m */; };
 		706F7184174D96E000E5842C /* RAMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F7183174D96E000E5842C /* RAMViewController.m */; };
 		70A627EF17494C49008B39C1 /* GLBlurEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A627EE17494C49008B39C1 /* GLBlurEffect.m */; };
 		70AF61321739250800EF49E9 /* CPUInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF61311739250800EF49E9 /* CPUInfo.m */; };
@@ -71,8 +71,6 @@
 		70E19A53174C0FA500A411C8 /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A52174C0FA400A411C8 /* ProcessViewController.m */; };
 		70E19A59174C260300A411C8 /* Background-748@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A58174C260300A411C8 /* Background-748@2x.png */; };
 		70E19A5D174C289A00A411C8 /* Background-Left-748@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */; };
-		70ECE2701750424100B1402A /* libIOKit.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ECE26F1750424100B1402A /* libIOKit.A.dylib */; };
-		70ECE2721750428C00B1402A /* libIOKit.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ECE2711750428C00B1402A /* libIOKit.dylib */; };
 		70ECE27C175058C300B1402A /* GLBubbleEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ECE27B175058C300B1402A /* GLBubbleEffect.m */; };
 		70ECE27F1750596C00B1402A /* GLEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ECE27E1750596C00B1402A /* GLEffect.m */; };
 		70ECE28217508E4900B1402A /* GLBubbleEffect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 70ECE276175058A500B1402A /* GLBubbleEffect.vsh */; };
@@ -170,7 +168,6 @@
 		706F717C174D8C6100E5842C /* RAMInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfoController.h; sourceTree = "<group>"; };
 		706F717D174D8C6100E5842C /* RAMInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMInfoController.m; sourceTree = "<group>"; };
 		706F717F174D8C7700E5842C /* RAMInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfo.h; sourceTree = "<group>"; };
-		706F7180174D8C7700E5842C /* RAMInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMInfo.m; sourceTree = "<group>"; };
 		706F7182174D96E000E5842C /* RAMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMViewController.h; sourceTree = "<group>"; };
 		706F7183174D96E000E5842C /* RAMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMViewController.m; sourceTree = "<group>"; };
 		70A627ED17494C49008B39C1 /* GLBlurEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBlurEffect.h; sourceTree = "<group>"; };
@@ -218,8 +215,6 @@
 		70E19A52174C0FA400A411C8 /* ProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessViewController.m; sourceTree = "<group>"; };
 		70E19A58174C260300A411C8 /* Background-748@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-748@2x.png"; sourceTree = "<group>"; };
 		70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-Left-748@2x.png"; sourceTree = "<group>"; };
-		70ECE26F1750424100B1402A /* libIOKit.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIOKit.A.dylib; path = usr/lib/libIOKit.A.dylib; sourceTree = SDKROOT; };
-		70ECE2711750428C00B1402A /* libIOKit.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIOKit.dylib; path = usr/lib/libIOKit.dylib; sourceTree = SDKROOT; };
 		70ECE2731750558100B1402A /* RAMInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMInfo.m; sourceTree = "<group>"; };
 		70ECE276175058A500B1402A /* GLBubbleEffect.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLBubbleEffect.vsh; sourceTree = "<group>"; };
 		70ECE278175058B200B1402A /* GLBubbleEffect.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLBubbleEffect.fsh; sourceTree = "<group>"; };
@@ -275,8 +270,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70ECE2721750428C00B1402A /* libIOKit.dylib in Frameworks */,
-				70ECE2701750424100B1402A /* libIOKit.A.dylib in Frameworks */,
 				70FC38EF174F74410085EBC3 /* AVFoundation.framework in Frameworks */,
 				70FC38ED174F73F80085EBC3 /* CoreMedia.framework in Frameworks */,
 				70FC38EB174F51870085EBC3 /* AssetsLibrary.framework in Frameworks */,
@@ -309,7 +302,6 @@
 				700FDC1A174E7250000D6848 /* NetworkBandwidth.m */,
 				700FDC0A174E3E61000D6848 /* NetworkInfo.h */,
 				700FDC0B174E3E61000D6848 /* NetworkInfo.m */,
-				706F7180174D8C7700E5842C /* RAMInfo.m */,
 				700FDC07174E3E54000D6848 /* NetworkInfoController.h */,
 				700FDC08174E3E54000D6848 /* NetworkInfoController.m */,
 			);
@@ -393,8 +385,6 @@
 		703D22DA173818EC0001E3B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				70ECE2711750428C00B1402A /* libIOKit.dylib */,
-				70ECE26F1750424100B1402A /* libIOKit.A.dylib */,
 				70FC38EE174F74400085EBC3 /* AVFoundation.framework */,
 				70FC38EC174F73F80085EBC3 /* CoreMedia.framework */,
 				70FC38EA174F51870085EBC3 /* AssetsLibrary.framework */,
@@ -852,6 +842,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7003E7E9175115EF00214D6A /* RAMInfo.m in Sources */,
 				703D22E8173818EC0001E3B3 /* main.m in Sources */,
 				703D22EC173818EC0001E3B3 /* AppDelegate.m in Sources */,
 				70AF61321739250800EF49E9 /* CPUInfo.m in Sources */,
@@ -889,7 +880,6 @@
 				701190FB174D2F2000B5D8B1 /* ProcessSortViewController.m in Sources */,
 				70119102174D7DA600B5D8B1 /* RootCell.m in Sources */,
 				706F717E174D8C6100E5842C /* RAMInfoController.m in Sources */,
-				706F7181174D8C7700E5842C /* RAMInfo.m in Sources */,
 				706F7184174D96E000E5842C /* RAMViewController.m in Sources */,
 				700FDC05174E1C8D000D6848 /* RAMUsage.m in Sources */,
 				700FDC09174E3E54000D6848 /* NetworkInfoController.m in Sources */,
