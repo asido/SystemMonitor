@@ -45,7 +45,7 @@ enum GLBlurEffectUniforms {
 {
     if (!program)
     {
-        AMWarn(@"%s: shader program is not loaded.", __PRETTY_FUNCTION__);
+        AMWarn(@"shader program is not loaded.");
         return;
     }
     
@@ -68,21 +68,21 @@ enum GLBlurEffectUniforms {
     vertexShaderFilename = [[NSBundle mainBundle] pathForResource:@"GLBlurEffect" ofType:@"vsh"];
     if (![self compileShader:&vertexShader filename:vertexShaderFilename type:GL_VERTEX_SHADER])
     {
-        AMWarn(@"%s: vertex shader compilation has failed.", __PRETTY_FUNCTION__);
+        AMWarn(@"vertex shader compilation has failed.");
         return NO;
     }
     
     fragmentShaderFilename = [[NSBundle mainBundle] pathForResource:@"GLBlurEffect" ofType:@"fsh"];
     if (![self compileShader:&fragmentShader filename:fragmentShaderFilename type:GL_FRAGMENT_SHADER])
     {
-        AMWarn(@"%s: fragment shader compilation has failed.", __PRETTY_FUNCTION__);
+        AMWarn(@"fragment shader compilation has failed.");
         return NO;
     }
     
     program = glCreateProgram();
     if (!program)
     {
-        AMWarn(@"%s: program creation has failed.", __PRETTY_FUNCTION__);
+        AMWarn(@"program creation has failed.");
         return NO;
     }
     
@@ -95,7 +95,7 @@ enum GLBlurEffectUniforms {
     
     if (![self linkProgram:program])
     {
-        AMWarn(@"%s: shader linking has failed.", __PRETTY_FUNCTION__);
+        AMWarn(@"shader linking has failed.");
         
         if (vertexShader)
         {

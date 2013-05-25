@@ -188,7 +188,7 @@ static const VertexData_t tubeGlassVertexData[] = {
     EAGLContext *glContext = [GLCommon context];
     if (!glContext)
     {
-        AMWarn(@"%s: EAGLContext == nil", __PRETTY_FUNCTION__);
+        AMWarn(@"EAGLContext == nil");
         return;
     }
     self.glView.context = glContext;
@@ -244,7 +244,7 @@ static const VertexData_t tubeGlassVertexData[] = {
     CGImageRef texImage = [UIImage imageNamed:filename].CGImage;
     if (!texImage)
     {
-        AMWarn(@"%s: loading texture has failed: %@.", __PRETTY_FUNCTION__, filename);
+        AMWarn(@"loading texture has failed: %@.", filename);
         return -1;
     }
     

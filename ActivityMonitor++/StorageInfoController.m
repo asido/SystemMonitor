@@ -66,7 +66,7 @@
     }
     else
     {
-        AMWarn(@"%s: attributesOfFileSystemForPat() has failed: %@", __PRETTY_FUNCTION__, error.description);
+        AMWarn(@"attributesOfFileSystemForPat() has failed: %@", error.description);
         return 0.0f;
     }
 }
@@ -86,7 +86,7 @@
     }
     else
     {
-        AMWarn(@"%s: attributesOfFileSystemForPat() has failed: %@", __PRETTY_FUNCTION__, error.description);
+        AMWarn(@"attributesOfFileSystemForPat() has failed: %@", error.description);
         return 0.0f;
     }
 }
@@ -104,7 +104,7 @@
     }
     else
     {
-        AMWarn(@"%s: attributesOfFileSystemForPat() has failed: %@", __PRETTY_FUNCTION__, error.description);
+        AMWarn(@"attributesOfFileSystemForPat() has failed: %@", error.description);
         return 0.0f;
     }
 }
@@ -163,7 +163,7 @@
             }
         }];
     } failureBlock:^(NSError *error) {
-        AMWarn(@"%s: Failed to enumerate asset groups: %@", __PRETTY_FUNCTION__, error.description);
+        AMWarn(@"Failed to enumerate asset groups: %@", error.description);
     }];
     
     return 0;
@@ -196,7 +196,7 @@
             }
         }];
     } failureBlock:^(NSError *error) {
-        AMWarn(@"%s: Failed to enumerate asset groups: %@", __PRETTY_FUNCTION__, error.description);
+        AMWarn(@"Failed to enumerate asset groups: %@", error.description);
     }];
     
     return 0;

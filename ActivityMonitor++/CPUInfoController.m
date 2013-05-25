@@ -103,8 +103,7 @@
         }
         else
         {
-            AMWarn(@"%s: failure retreiving host_processor_info. kStatus == %d",
-                   __PRETTY_FUNCTION__, kStatus);
+            AMWarn(@"failure retreiving host_processor_info. kStatus == %d", kStatus);
         }
         
     }

@@ -269,7 +269,7 @@ static VertexData_t dataBlur[] = {
     GLuint status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if (status != GL_FRAMEBUFFER_COMPLETE)
     {
-        AMWarn(@"%s: blur framebuffer init has failed: 0x%X", __PRETTY_FUNCTION__, status);
+        AMWarn(@"blur framebuffer init has failed: 0x%X", status);
     }
     
     [self.glView bindDrawable];
@@ -282,7 +282,7 @@ static VertexData_t dataBlur[] = {
     EAGLContext *glContext = [GLCommon context];
     if (!glContext)
     {
-        AMWarn(@"%s: EAGLContext == nil", __PRETTY_FUNCTION__);
+        AMWarn(@"EAGLContext == nil");
         return;
     }
     [self.glView setContext:glContext];

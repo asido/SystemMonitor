@@ -24,34 +24,31 @@
     
     if (!specifier)
     {
-        AMWarn(@"%s: specifier == NULL", __PRETTY_FUNCTION__);
+        AMWarn(@"specifier == NULL");
         return -1;
     }
     if (strlen(specifier) == 0)
     {
-        AMWarn(@"%s: strlen(specifier) == 0", __PRETTY_FUNCTION__);
+        AMWarn(@"strlen(specifier) == 0");
         return -1;
     }
     
     if (sysctlbyname(specifier, NULL, &size, NULL, 0) == -1)
     {
-        AMWarn(@"%s: sysctlbyname size with specifier '%s' has failed: %s",
-               __PRETTY_FUNCTION__, specifier, strerror(errno));
+        AMWarn(@"sysctlbyname size with specifier '%s' has failed: %s", specifier, strerror(errno));
         return -1;
     }
     
     if (size == -1)
     {
-        AMWarn(@"%s: sysctlbyname with specifier '%s' returned invalid size",
-               __PRETTY_FUNCTION__, specifier);
+        AMWarn(@"sysctlbyname with specifier '%s' returned invalid size", specifier);
         return -1;
     }
     
     
     if (sysctlbyname(specifier, &val, &size, NULL, 0) == -1)
     {
-        AMWarn(@"%s: sysctlbyname value with specifier '%s' has failed: %s",
-               __PRETTY_FUNCTION__, specifier, strerror(errno));
+        AMWarn(@"sysctlbyname value with specifier '%s' has failed: %s", specifier, strerror(errno));
         return -1;
     }
     
@@ -66,26 +63,24 @@
     
     if (!specifier)
     {
-        AMWarn(@"%s: specifier == NULL", __PRETTY_FUNCTION__);
+        AMWarn(@"specifier == NULL");
         return result;
     }
     if (strlen(specifier) == 0)
     {
-        AMWarn(@"%s: strlen(specifier) == 0", __PRETTY_FUNCTION__);
+        AMWarn(@"strlen(specifier) == 0");
         return result;
     }
     
     if (sysctlbyname(specifier, NULL, &size, NULL, 0) == -1)
     {
-        AMWarn(@"%s: sysctlbyname size with specifier '%s' has failed: %s",
-               __PRETTY_FUNCTION__, specifier, strerror(errno));
+        AMWarn(@"sysctlbyname size with specifier '%s' has failed: %s", specifier, strerror(errno));
         return result;
     }
     
     if (size == -1)
     {
-        AMWarn(@"%s: sysctlbyname with specifier '%s' returned invalid size",
-               __PRETTY_FUNCTION__, specifier);
+        AMWarn(@"sysctlbyname with specifier '%s' returned invalid size", specifier);
         return result;
     }
     
@@ -93,8 +88,7 @@
     
     if (sysctlbyname(specifier, val, &size, NULL, 0) == -1)
     {
-        AMWarn(@"%s: sysctlbyname value with specifier '%s' has failed: %s",
-               __PRETTY_FUNCTION__, specifier, strerror(errno));
+        AMWarn(@"sysctlbyname value with specifier '%s' has failed: %s", specifier, strerror(errno));
         free(val);
         return result;
     }
@@ -108,19 +102,18 @@
 {    
     if (!specifier)
     {
-        AMWarn(@"%s: specifier == NULL", __PRETTY_FUNCTION__);
+        AMWarn(@"specifier == NULL");
         return nil;
     }
     if (strlen(specifier) == 0)
     {
-        AMWarn(@"%s: strlen(specifier) == 0", __PRETTY_FUNCTION__);
+        AMWarn(@"strlen(specifier) == 0");
         return nil;
     }
     
     if (sysctlbyname(specifier, ptr, &size, NULL, 0) == -1)
     {
-        AMWarn(@"%s: sysctlbyname value with specifier '%s' has failed: %s",
-               __PRETTY_FUNCTION__, specifier, strerror(errno));
+        AMWarn(@"sysctlbyname value with specifier '%s' has failed: %s", specifier, strerror(errno));
         return nil;
     }
     
@@ -135,21 +128,18 @@
     
     if (sysctl(mib, 2, NULL, &size, NULL, 0) == -1)
     {
-        AMWarn(@"%s: sysctlbyname size with specifier %u has failed: %s",
-               __PRETTY_FUNCTION__, hwSpecifier, strerror(errno));
+        AMWarn(@"sysctlbyname size with specifier %u has failed: %s", hwSpecifier, strerror(errno));
         return -1;
     }
     
     if (size > sizeof(uint64_t))
     {
-        AMWarn(@"%s: sysctlbyname with specifier %u size > sizeof(uint64_t). Expect corrupted data.",
-               __PRETTY_FUNCTION__, hwSpecifier);
+        AMWarn(@"sysctlbyname with specifier %u size > sizeof(uint64_t). Expect corrupted data.", hwSpecifier);
     }
     
     if (sysctl(mib, 2, &val, &size, NULL, 0) == -1)
     {
-        AMWarn(@"%s: sysctlbyname size with specifier %u has failed: %s",
-               __PRETTY_FUNCTION__, hwSpecifier, strerror(errno));
+        AMWarn(@"sysctlbyname size with specifier %u has failed: %s", hwSpecifier, strerror(errno));
         return -1;
     }
     

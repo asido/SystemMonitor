@@ -150,7 +150,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
         if (!self.reachability)
         {
-            AMWarn(@"%s: reachability create has failed.", __PRETTY_FUNCTION__);
+            AMWarn(@"reachability create has failed.");
             return;
         }
         
@@ -160,14 +160,14 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         result = SCNetworkReachabilitySetCallback(self.reachability, reachabilityCallback, &context);
         if (!result)
         {
-            AMWarn(@"%s: error setting reachability callback.", __PRETTY_FUNCTION__);
+            AMWarn(@"error setting reachability callback.");
             return;
         }
         
         result = SCNetworkReachabilityScheduleWithRunLoop(self.reachability, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
         if (!result)
         {
-            AMWarn(@"%s: error setting runloop mode.", __PRETTY_FUNCTION__);
+            AMWarn(@"error setting runloop mode.");
             return;
         }
     }
@@ -182,14 +182,14 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
     if (!self.reachability)
     {
-        AMWarn(@"%s: cannot initialize reachability.", __PRETTY_FUNCTION__);
+        AMWarn(@"cannot initialize reachability.");
         return NO;
     }
     
     SCNetworkReachabilityFlags flags;
     if (!SCNetworkReachabilityGetFlags(self.reachability, &flags))
     {
-        AMWarn(@"%s: failed to retrieve reachability flags.", __PRETTY_FUNCTION__);
+        AMWarn(@"failed to retrieve reachability flags.");
         return NO;
     }
 
@@ -213,14 +213,14 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
     if (!self.reachability)
     {
-        AMWarn(@"%s: cannot initialize reachability.", __PRETTY_FUNCTION__);
+        AMWarn(@"cannot initialize reachability.");
         return kInterfaceNone;
     }
     
     SCNetworkReachabilityFlags flags;
     if (!SCNetworkReachabilityGetFlags(self.reachability, &flags))
     {
-        AMWarn(@"%s: failed to retrieve reachability flags.", __PRETTY_FUNCTION__);
+        AMWarn(@"failed to retrieve reachability flags.");
         return kInterfaceNone;
     }
     
@@ -286,7 +286,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     NSURL *url = [NSURL URLWithString:@"http://www.dyndns.org/cgi-bin/check_ip.cgi"];
     if (!url)
     {
-        AMWarn(@"%s: failed to create NSURL.", __PRETTY_FUNCTION__);
+        AMWarn(@"failed to create NSURL.");
         return ip;
     }
 
@@ -294,7 +294,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     NSString *ipHtml = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
     if (error)
     {
-        AMWarn(@"%s: failed to fetch IP content: %@", __PRETTY_FUNCTION__, error.description);
+        AMWarn(@"failed to fetch IP content: %@", error.description);
         return ip;
     }
 
@@ -434,14 +434,14 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
     if ((mib[5] = if_nametoindex([interface cStringUsingEncoding:NSASCIIStringEncoding])) == 0)
     {
-        AMWarn(@"%s: if_nametoindex() has failed for interface %@.", __PRETTY_FUNCTION__, interface);
+        AMWarn(@"if_nametoindex() has failed for interface %@.", interface);
         return mac;
     }
     else
     {
         if (sysctl(mib, 6, NULL, &length, NULL, 0) < 0)
         {
-            AMWarn(@"%s: sysctl() has failed. (1)", __PRETTY_FUNCTION__);
+            AMWarn(@"sysctl() has failed. (1)");
             return mac;
         }
         else
@@ -449,13 +449,13 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
             msgBuffer = malloc(length);
             if (!msgBuffer)
             {
-                AMWarn(@"%s: malloc() has failed.", __PRETTY_FUNCTION__);
+                AMWarn(@"malloc() has failed.");
                 return mac;
             }
             
             if (sysctl(mib, 6, msgBuffer, &length, NULL, 0) < 0)
             {
-                AMWarn(@"%s: sysctl() has failed. (2)", __PRETTY_FUNCTION__);
+                AMWarn(@"sysctl() has failed. (2)");
                 return mac;
             }
         }
@@ -482,7 +482,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
     if (getifaddrs(&addrs) != 0)
     {
-        AMWarn(@"%s: getifaddrs() has failed.", __PRETTY_FUNCTION__);
+        AMWarn(@"getifaddrs() has failed.");
         return bandwidth;
     }
     

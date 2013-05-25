@@ -16,8 +16,7 @@
         GLenum error = glGetError();            \
         if (error != GL_NO_ERROR)               \
         {                                       \
-            AMWarn("%s: GL Error: 0x%x",        \
-                   __PRETTY_FUNCTION__, error); \
+            AMWarn("GL Error: 0x%x",  error);   \
         }                                       \
     } while (0)
 #else

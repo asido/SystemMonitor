@@ -17,6 +17,6 @@
 #define AMLog(str, ...)
 #endif
 
-#define AMWarn(str, ...)    DDLogInfo(@"Warning: " #str, ##__VA_ARGS__)
+#define AMWarn(str, ...)    DDLogInfo(@"<%s> Warning: " #str, __PRETTY_FUNCTION__, ##__VA_ARGS__)
 
 #endif

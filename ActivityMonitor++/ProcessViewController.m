@@ -137,7 +137,7 @@
     
     if (!cell)
     {
-        AMWarn(@"%s: attempt to dequeue reusable cell has failed.", __PRETTY_FUNCTION__);
+        AMWarn(@"attempt to dequeue reusable cell has failed.");
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
@@ -221,7 +221,7 @@
             }];
             break;
         default:
-            AMWarn(@"%s: unknown filter: %d", __PRETTY_FUNCTION__, newFilter);
+            AMWarn(@"unknown filter: %d", newFilter);
             break;
     }
     

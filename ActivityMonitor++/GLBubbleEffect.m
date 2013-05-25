@@ -126,7 +126,6 @@ static NSString *kBubbleTextureFilename = @"BubbleTexture.png";
         glBufferData(GL_ARRAY_BUFFER, [self.bubbleAttributeData length], [self.bubbleAttributeData bytes], GL_DYNAMIC_DRAW);
     }
     
-    NSLog(@"Number of bubbles: %d", [self numberOfBubbles]);
     GL_CHECK_ERROR();
 }
 
@@ -134,7 +133,7 @@ static NSString *kBubbleTextureFilename = @"BubbleTexture.png";
 {
     if (!program)
     {
-        AMWarn(@"%s: shader program is not loaded.", __PRETTY_FUNCTION__);
+        AMWarn(@"shader program is not loaded.");
         return;
     }
  
@@ -171,21 +170,21 @@ static NSString *kBubbleTextureFilename = @"BubbleTexture.png";
     vertexShaderFilename = [[NSBundle mainBundle] pathForResource:@"GLBubbleEffect" ofType:@"vsh"];
     if (![self compileShader:&vertexShader filename:vertexShaderFilename type:GL_VERTEX_SHADER])
     {
-        AMWarn(@"%s: vertex shader compilation has failed.", __PRETTY_FUNCTION__);
+        AMWarn(@"vertex shader compilation has failed.");
         return NO;
     }
     
     fragmentShaderFilename = [[NSBundle mainBundle] pathForResource:@"GLBubbleEffect" ofType:@"fsh"];
     if (![self compileShader:&fragmentShader filename:fragmentShaderFilename type:GL_FRAGMENT_SHADER])
     {
-        AMWarn(@"%s: fragment shader compilation has failed.", __PRETTY_FUNCTION__);
+        AMWarn(@"fragment shader compilation has failed.");
         return NO;
     }
     
     program = glCreateProgram();
     if (!program)
     {
-        AMWarn(@"%s: program creation has failed.", __PRETTY_FUNCTION__);
+        AMWarn(@"program creation has failed.");
         return NO;
     }
     
@@ -200,7 +199,7 @@ static NSString *kBubbleTextureFilename = @"BubbleTexture.png";
     
     if (![self linkProgram:program])
     {
-        AMWarn(@"%s: shader linking has failed.", __PRETTY_FUNCTION__);
+        AMWarn(@"shader linking has failed.");
         
         if (vertexShader)
         {
@@ -267,7 +266,7 @@ static NSString *kBubbleTextureFilename = @"BubbleTexture.png";
     CGImageRef texImage = [UIImage imageNamed:kBubbleTextureFilename].CGImage;
     if (!texImage)
     {
-        AMWarn(@"%s: loading texture has failed: %@.", __PRETTY_FUNCTION__, kBubbleTextureFilename);
+        AMWarn(@"loading texture has failed: %@.", kBubbleTextureFilename);
         return;
     }
     

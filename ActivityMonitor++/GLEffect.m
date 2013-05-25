@@ -16,7 +16,7 @@
 {
     if (!filename || filename.length == 0)
     {
-        AMWarn(@"%s: filename is empty.", __PRETTY_FUNCTION__);
+        AMWarn(@"filename is empty.");
         return NO;
     }
     
@@ -26,7 +26,7 @@
     
     if (!s)
     {
-        AMWarn(@"%s: shader creation has failed.", __PRETTY_FUNCTION__);
+        AMWarn(@"shader creation has failed.");
         return NO;
     }
     
@@ -43,7 +43,7 @@
         {
             char *infoLog = malloc(sizeof(char) * infoLen);
             glGetShaderInfoLog(s, infoLen, NULL, infoLog);
-            AMWarn(@"%s: shader compilation has failed: %s", __PRETTY_FUNCTION__, infoLog);
+            AMWarn(@"shader compilation has failed: %s", infoLog);
             free(infoLog);
         }
         
@@ -71,7 +71,7 @@
         {
             char *infoLog = malloc(sizeof(char) * infoLen);
             glGetProgramInfoLog(program, infoLen, NULL, infoLog);
-            AMWarn(@"%s: program linking has failed: %s", __PRETTY_FUNCTION__, infoLog);
+            AMWarn(@"program linking has failed: %s", infoLog);
             free(infoLog);
         }
         
@@ -96,7 +96,7 @@
         {
             char *infoLog = malloc(sizeof(char) * infoLen);
             glGetProgramInfoLog(program, infoLen, NULL, infoLog);
-            AMWarn(@"%s: program validation has failed: %s", __PRETTY_FUNCTION__, infoLog);
+            AMWarn(@"program validation has failed: %s", infoLog);
             free(infoLog);
         }
     }

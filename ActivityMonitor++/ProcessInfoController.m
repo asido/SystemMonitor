@@ -57,7 +57,7 @@
     
     if (sysctl(mib, 4, NULL, &size, NULL, 0) == -1)
     {
-        AMWarn(@"%s: sysctl to retrieve size has failed", __PRETTY_FUNCTION__);
+        AMWarn(@"sysctl to retrieve size has failed");
         return result;
     }
     
@@ -65,7 +65,7 @@
 
     if (sysctl(mib, 4, procs, &size, NULL, 0) == -1)
     {
-        AMWarn(@"%s: sysctl to retrieve processes has failed", __PRETTY_FUNCTION__);
+        AMWarn(@"sysctl to retrieve processes has failed");
         return result;
     }
     
@@ -97,14 +97,14 @@
     size = sizeof(argmax);
     if (sysctl(mib, 2, &argmax, &size, NULL, 0) == -1)
     {
-        AMWarn(@"%s: sysctl() of KERN_ARGMAX has failed.", __PRETTY_FUNCTION__);
+        AMWarn(@"sysctl() of KERN_ARGMAX has failed.");
         return;
     }
     
     procargs = malloc(argmax);
     if (procargs == NULL)
     {
-        AMWarn(@"%s: malloc() has failed", __PRETTY_FUNCTION__);
+        AMWarn(@"malloc() has failed");
         return;
     }
     

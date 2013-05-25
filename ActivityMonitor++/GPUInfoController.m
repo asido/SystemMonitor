@@ -49,7 +49,7 @@
         GLenum glError = glGetError();
         if (glError != GL_NO_ERROR)
         {
-            AMWarn(@"%s: glGetError() == %d", __PRETTY_FUNCTION__, glError);
+            AMWarn(@"glGetError() == %d", glError);
         }
     }
     

@@ -122,7 +122,7 @@
     host_page_size(host_port, &pageSize);
     if (host_statistics(host_port, HOST_VM_INFO, (host_info_t)&vm_stat, &host_size) != KERN_SUCCESS)
     {
-        AMWarn(@"%s: host_statistics() has failed.", __PRETTY_FUNCTION__);
+        AMWarn(@"host_statistics() has failed.");
         return nil;
     }
     
