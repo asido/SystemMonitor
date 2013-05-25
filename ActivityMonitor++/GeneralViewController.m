@@ -7,9 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "OSViewController.h"
+#import "GeneralViewController.h"
 
-@interface OSViewController ()
+@interface GeneralViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *deviceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hostnameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *osNameLabel;
@@ -35,7 +35,7 @@
 - (NSString*)formatUptime:(time_t)bootTime;
 @end
 
-@implementation OSViewController
+@implementation GeneralViewController
 
 #pragma mark - override
 

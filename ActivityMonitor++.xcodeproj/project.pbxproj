@@ -55,7 +55,7 @@
 		70AF613A17392CE600EF49E9 /* AMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF613917392CE600EF49E9 /* AMUtils.m */; };
 		70AF613D173965D500EF49E9 /* RootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF613C173965D500EF49E9 /* RootTableViewController.m */; };
 		70C2E9231739BAA8008CB1B1 /* AMUtils_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9221739BAA8008CB1B1 /* AMUtils_Tests.m */; };
-		70C2E9261739C7B7008CB1B1 /* OSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9251739C7B6008CB1B1 /* OSViewController.m */; };
+		70C2E9261739C7B7008CB1B1 /* GeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */; };
 		70C2E9291739C8D2008CB1B1 /* AMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9281739C8D2008CB1B1 /* AMDevice.m */; };
 		70CD01BC1739AB870047E72F /* HardcodedDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */; };
 		70CF2930174F05FF00EE21BE /* TubeTexture_.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CF292F174F05FF00EE21BE /* TubeTexture_.png */; };
@@ -185,8 +185,8 @@
 		70AF613C173965D500EF49E9 /* RootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTableViewController.m; sourceTree = "<group>"; };
 		70C2E9211739BAA8008CB1B1 /* AMUtils_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMUtils_Tests.h; sourceTree = "<group>"; };
 		70C2E9221739BAA8008CB1B1 /* AMUtils_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtils_Tests.m; sourceTree = "<group>"; };
-		70C2E9241739C7B6008CB1B1 /* OSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSViewController.h; sourceTree = "<group>"; };
-		70C2E9251739C7B6008CB1B1 /* OSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSViewController.m; sourceTree = "<group>"; };
+		70C2E9241739C7B6008CB1B1 /* GeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralViewController.h; sourceTree = "<group>"; };
+		70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralViewController.m; sourceTree = "<group>"; };
 		70C2E9271739C8D1008CB1B1 /* AMDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDevice.h; sourceTree = "<group>"; };
 		70C2E9281739C8D2008CB1B1 /* AMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDevice.m; sourceTree = "<group>"; };
 		70CD01BA1739AB870047E72F /* HardcodedDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardcodedDeviceData.h; sourceTree = "<group>"; };
@@ -359,13 +359,13 @@
 			name = CpuUI;
 			sourceTree = "<group>";
 		};
-		701190FF174D37CD00B5D8B1 /* OsUI */ = {
+		701190FF174D37CD00B5D8B1 /* GeneralUI */ = {
 			isa = PBXGroup;
 			children = (
-				70C2E9241739C7B6008CB1B1 /* OSViewController.h */,
-				70C2E9251739C7B6008CB1B1 /* OSViewController.m */,
+				70C2E9241739C7B6008CB1B1 /* GeneralViewController.h */,
+				70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */,
 			);
-			name = OsUI;
+			name = GeneralUI;
 			sourceTree = "<group>";
 		};
 		703D22CF173818EB0001E3B3 = {
@@ -561,7 +561,7 @@
 				704528B8174ED395003DD424 /* StorageUI */,
 				700FDC0D174E5D78000D6848 /* NetworkUI */,
 				706F717A174D8C3E00E5842C /* RamUI */,
-				701190FF174D37CD00B5D8B1 /* OsUI */,
+				701190FF174D37CD00B5D8B1 /* GeneralUI */,
 				701190FE174D37C500B5D8B1 /* CpuUI */,
 				701190FD174D37BD00B5D8B1 /* GpuUI */,
 				701190FC174D37A100B5D8B1 /* ProcessUI */,
@@ -831,7 +831,7 @@
 				70F1F17117397CEC007224AD /* DeviceInfo.m in Sources */,
 				70F1F17417397CFE007224AD /* DeviceInfoController.m in Sources */,
 				70CD01BC1739AB870047E72F /* HardcodedDeviceData.m in Sources */,
-				70C2E9261739C7B7008CB1B1 /* OSViewController.m in Sources */,
+				70C2E9261739C7B7008CB1B1 /* GeneralViewController.m in Sources */,
 				70C2E9291739C8D2008CB1B1 /* AMDevice.m in Sources */,
 				70D92D5B173AA91300C57DEA /* CPULoad.m in Sources */,
 				70D92D61173B299B00C57DEA /* GPUInfoController.m in Sources */,

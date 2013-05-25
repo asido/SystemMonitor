@@ -1626,10 +1626,10 @@
             </objects>
             <point key="canvasLocation" x="2627" y="918"/>
         </scene>
-        <!--View Controller-->
+        <!--General View Controller-->
         <scene sceneID="Sof-Bz-UFG">
             <objects>
-                <tableViewController storyboardIdentifier="GeneralViewController" id="rEd-SN-t0u" customClass="OSViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="GeneralViewController" id="rEd-SN-t0u" customClass="GeneralViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="HNO-BG-e1i">
                         <rect key="frame" x="0.0" y="20" width="703" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1994,6 +1994,102 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Operating System Capabilities" id="fqS-Te-3IO">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="K5K-vG-yRb" customClass="DefaultCell">
+                                        <rect key="frame" x="0.0" y="852" width="703" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="43" y="1" width="617" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Max Index Nodes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uAl-rQ-Utj">
+                                                    <rect key="frame" x="20" y="11" width="139" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="123" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fMl-gy-ESo">
+                                                    <rect key="frame" x="230" y="11" width="367" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="PP8-SQ-8kh" customClass="DefaultCell">
+                                        <rect key="frame" x="0.0" y="897" width="703" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="43" y="0.0" width="617" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Max Processes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="weW-0p-ycV">
+                                                    <rect key="frame" x="20" y="11" width="123" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="123" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tk2-KZ-6aP">
+                                                    <rect key="frame" x="230" y="11" width="367" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="DgA-RN-y75" customClass="DefaultCell">
+                                        <rect key="frame" x="0.0" y="941" width="703" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="43" y="0.0" width="617" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Max Files" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vL9-HZ-0Ad">
+                                                    <rect key="frame" x="20" y="11" width="77" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="123" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q6i-VK-WjT">
+                                                    <rect key="frame" x="230" y="11" width="367" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="EAM-Bq-Ix3" customClass="DefaultCell">
+                                        <rect key="frame" x="0.0" y="985" width="703" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="43" y="0.0" width="617" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tick Frequency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xnx-7Y-xzo">
+                                                    <rect key="frame" x="20" y="11" width="125" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X80-LX-xaJ">
+                                                    <rect key="frame" x="230" y="11" width="367" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="rEd-SN-t0u" id="BtE-dz-UHs"/>
@@ -2028,111 +2124,6 @@
     <resources>
         <image name="SettingsIcon.png" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="BatteryViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BatteryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="batteryCapacityLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="batteryLevelLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="batteryStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="batteryVoltageLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CPUViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CPUViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="architectureLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cpuNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="endianessLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="frequencyLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="l1dCacheLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="l1iCacheLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="l2CacheLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="l3CacheLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="logicalCoresLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="maxLogicalCoresLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="physicalCoresLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="DefaultCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DefaultCell.h"/>
-        </class>
-        <class className="GPUViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPUViewController.h"/>
-        </class>
-        <class className="NetworkViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NetworkViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="broadcastAddressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="externalIPLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="internalIPLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="macAddressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="netmaskLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="networkTypeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="totalWWANDownloadsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="totalWWANUploadsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="totalWiFiDownloadsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="totalWiFiUploadsLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="OSViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OSViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bootTimeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="deviceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="hostnameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="kernelInfoLabel" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="maxFilesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="maxProcessesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="maxVNodesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="osBuildLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="osNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="osRevisionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="osTypeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="osVersionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="safeBootLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tickFrequencyLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="uptimeLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ProcessCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProcessCell.h"/>
-        </class>
-        <class className="ProcessViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProcessViewController.h"/>
-        </class>
-        <class className="RAMViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RAMViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activeRamLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="freeRamLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="inactiveRamLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pageFaultsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pageInsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pageOutsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ramTypeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="totalRamLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wiredRamLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="RootCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootCell.h"/>
-        </class>
-        <class className="RootTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootTableViewController.h"/>
-        </class>
-        <class className="StorageViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StorageViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="freeStorageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numberOfPicturesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numberOfSongsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numberOfVideosLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="totalStorageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="usedStorageLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
