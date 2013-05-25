@@ -9,7 +9,7 @@
 #import <OpenGLES/EAGLDrawable.h>
 #import "AMLog.h"
 #import "AMUtils.h"
-#import "AMGLBlurEffect.h"
+#import "GLBlurEffect.h"
 #import "CPULoad.h"
 #import "GLDataLine.h"
 #import "GLCommon.h"
@@ -35,7 +35,7 @@
 @property (assign, nonatomic) GLuint        blurTexture;
 @property (assign, nonatomic) GLuint        glVertexArrayBlur;
 @property (assign, nonatomic) GLuint        glBufferBlur;
-@property (strong, nonatomic) AMGLBlurEffect *blurEffect;
+@property (strong, nonatomic) GLBlurEffect *blurEffect;
 
 /* Reference lines */
 @property (assign, nonatomic) GLuint        glVertexArrayReferenceLine;
@@ -300,7 +300,7 @@ static VertexData_t dataBlur[] = {
     self.effect.texture2d0.name = self.legendsTexture.name;
     self.effect.texture2d0.target = self.legendsTexture.target;
     
-    self.blurEffect = [[AMGLBlurEffect alloc] init];
+    self.blurEffect = [[GLBlurEffect alloc] init];
     
     [self setupVBOs];
 }

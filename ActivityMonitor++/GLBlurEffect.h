@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
+#import "GLEffect.h"
 
-@interface AMGLBlurEffect : NSObject
+@interface GLBlurEffect : GLEffect
 @property (assign, nonatomic) GLKMatrix4    mvpMatrix;
 @property (assign, nonatomic) GLuint        texture0;
 

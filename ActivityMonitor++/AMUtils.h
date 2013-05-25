@@ -27,4 +27,6 @@
 // i.e. 20 percent in the range of 0-10 is 2.
 + (float)percentageValueFromMax:(float)max min:(float)min percent:(float)percent;
 + (float)valuePercentFrom:(float)from to:(float)to value:(float)value;
+
++ (CGFloat)random;
 @end

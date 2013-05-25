@@ -8,11 +8,13 @@
 
 #import "GLCommon.h"
 #import "AMUtils.h"
+#import "GLBubbleEffect.h"
 #import "GLTube.h"
 
 @interface GLTube()
 @property (strong, nonatomic) GLKView           *glView;
 @property (strong, nonatomic) GLKBaseEffect     *effect;
+@property (strong, nonatomic) GLBubbleEffect    *bubbleEffect;
 @property (assign, nonatomic) GLfloat           aspectRatio;
 @property (assign, nonatomic) GLfloat           drawableWidth;
 @property (assign, nonatomic) GLfloat           drawableHeight;
@@ -59,6 +61,7 @@
 @implementation GLTube
 @synthesize glView;
 @synthesize effect;
+@synthesize bubbleEffect;
 @synthesize aspectRatio;
 @synthesize drawableWidth;
 @synthesize drawableHeight;
@@ -78,6 +81,7 @@
 
 @synthesize tubeTexture;
 
+static const GLfloat kBubblesPerSecondAvrg = 1.0f;
 
 /*
  * Vertex coordinates are 1-to-1 to the actual texture dimensions.
@@ -91,7 +95,7 @@ static const GLfloat kTexSheetTubeY = 92.0f;
 static const GLfloat kTexSheetTubeH = 92.0f;
 
 static const GLfloat kTexSheetTubeLeftX = 0.0f;
-static const GLfloat kTexSheetTubeLeftW = 26.0f;
+static const GLfloat kTexSheetTubeLeftW = 21.0f;
 static const VertexData_t tubeLeftVertexData[] = {
     {{               0.0f,           0.0f, kModelZ }, {                        kTexSheetTubeLeftX / kTexSheetW,                    kTexSheetTubeY / kTexSheetH }},
     {{ kTexSheetTubeLeftW,           0.0f, kModelZ }, { (kTexSheetTubeLeftX + kTexSheetTubeLeftW) / kTexSheetW,                    kTexSheetTubeY / kTexSheetH }},
@@ -99,8 +103,8 @@ static const VertexData_t tubeLeftVertexData[] = {
     {{ kTexSheetTubeLeftW, kTexSheetTubeH, kModelZ }, { (kTexSheetTubeLeftX + kTexSheetTubeLeftW) / kTexSheetW, (kTexSheetTubeY - kTexSheetTubeH) / kTexSheetH }}
 };
 
-static const GLfloat kTexSheetTubeRightX = 26;
-static const GLfloat kTexSheetTubeRightW = 26;
+static const GLfloat kTexSheetTubeRightX = 21;
+static const GLfloat kTexSheetTubeRightW = 20;
 static const VertexData_t tubeRightVertexData[] = {
     {{                0.0f,           0.0f, kModelZ }, {                         kTexSheetTubeRightX / kTexSheetW,                    kTexSheetTubeY / kTexSheetH }},
     {{ kTexSheetTubeRightW,           0.0f, kModelZ }, { (kTexSheetTubeRightX + kTexSheetTubeRightW) / kTexSheetW,                    kTexSheetTubeY / kTexSheetH }},
@@ -108,7 +112,7 @@ static const VertexData_t tubeRightVertexData[] = {
     {{ kTexSheetTubeRightW, kTexSheetTubeH, kModelZ }, { (kTexSheetTubeRightX + kTexSheetTubeRightW) / kTexSheetW, (kTexSheetTubeY - kTexSheetTubeH) / kTexSheetH }}
 };
 
-static const GLfloat kTexSheetTubeLiquidX = 53;
+static const GLfloat kTexSheetTubeLiquidX = 43;
 static const GLfloat kTexSheetTubeLiquidW = 1;
 static const VertexData_t tubeLiquidVertexData[] = {
     {{                 0.0f,           0.0f, kModelZ }, {                          kTexSheetTubeLiquidX / kTexSheetW, kTexSheetTubeY / kTexSheetH }},
@@ -117,7 +121,7 @@ static const VertexData_t tubeLiquidVertexData[] = {
     {{ kTexSheetTubeLiquidW, kTexSheetTubeH, kModelZ }, { (kTexSheetTubeLiquidX + kTexSheetTubeLiquidW) / kTexSheetW, (kTexSheetTubeY - kTexSheetTubeH) / kTexSheetH }}
 };
 
-static const GLfloat kTexSheetTubeLiquidTopX = 54;
+static const GLfloat kTexSheetTubeLiquidTopX = 44;
 static const GLfloat kTexSheetTubeLiquidTopW = 38;
 static const VertexData_t tubeLiquidTopVertexData[] = {
     {{                    0.0f,           0.0f, kModelZ }, {                             kTexSheetTubeLiquidTopX / kTexSheetW, kTexSheetTubeY / kTexSheetH }},
@@ -126,7 +130,7 @@ static const VertexData_t tubeLiquidTopVertexData[] = {
     {{ kTexSheetTubeLiquidTopW, kTexSheetTubeH, kModelZ }, { (kTexSheetTubeLiquidTopX + kTexSheetTubeLiquidTopW) / kTexSheetW, (kTexSheetTubeY - kTexSheetTubeH) / kTexSheetH }}
 };
 
-static const GLfloat kTexSheetTubeGlassX = 52;
+static const GLfloat kTexSheetTubeGlassX = 42;
 static const GLfloat kTexSheetTubeGlassW = 1;
 static const VertexData_t tubeGlassVertexData[] = {
     {{                0.0f,           0.0f, kModelZ }, {                         kTexSheetTubeGlassX / kTexSheetW, kTexSheetTubeY / kTexSheetH }},
@@ -151,8 +155,8 @@ static const VertexData_t tubeGlassVertexData[] = {
         self.projectionLeft = 0;
         self.projectionRight = self.drawableWidth;
         
-        self.drawableLiquidMinX = kTexSheetTubeLeftW;
-        self.drawableLiquidMaxX = self.projectionRight - (kTexSheetTubeRightW + kTexSheetTubeLiquidTopW);
+        self.drawableLiquidMinX = kTexSheetTubeLeftX + kTexSheetTubeLeftW;
+        self.drawableLiquidMaxX = self.projectionRight - kTexSheetTubeRightW - kTexSheetTubeLiquidTopW;
         self.drawableLiquidWidth = self.drawableLiquidMaxX - self.drawableLiquidMinX;
         
         self.drawableGlassX = kTexSheetTubeLeftW;
@@ -160,7 +164,6 @@ static const VertexData_t tubeGlassVertexData[] = {
         
         self.fromValue = from;
         self.toValue = to;
-        self.currentPercentage = 50.0f;
         
         [self setupGL];
     }
@@ -171,6 +174,11 @@ static const VertexData_t tubeGlassVertexData[] = {
 {
     assert(value >= self.fromValue && value <= self.toValue);
     self.currentPercentage = [AMUtils valuePercentFrom:self.fromValue to:self.toValue value:value];
+    
+    GLBubbleBounds_t bounds = self.bubbleEffect.bounds;
+    bounds.maxRightPosition = [AMUtils percentageValueFromMax:self.drawableLiquidMaxX min:self.drawableLiquidMinX percent:self.currentPercentage];
+    bounds.maxRightPosition += kTexSheetTubeLiquidTopW;
+    self.bubbleEffect.bounds = bounds;
 }
 
 #pragma mark - private
@@ -189,11 +197,19 @@ static const VertexData_t tubeGlassVertexData[] = {
     glViewport(0, 0, self.drawableWidth, self.drawableHeight);
     
     glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE);
     
     self.effect = [[GLKBaseEffect alloc] init];
     self.effect.transform.projectionMatrix = GLKMatrix4MakeOrtho(0.0f, self.drawableWidth, 0.0f, self.drawableHeight, 1.0f, 10.0f);
     self.effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -5.0f);
+    
+    GLBubbleBounds_t bubbleBounds = {
+        .maxLeftPosition = self.drawableLiquidMinX - 5, // Subtract in order to start rendering behind the tube side
+        .maxRightPosition = self.drawableLiquidMaxX + kTexSheetTubeLiquidTopW,
+        .maxTopPosition = kTexSheetTubeH - 23,  // Subtracted tube glow area from top
+        .maxBottomPosition = 0 + 22             // Added tube glow area to bottom
+    };
+    self.bubbleEffect = [[GLBubbleEffect alloc] initWithBounds:bubbleBounds];
     
     self.tubeTexture = [self setupTexture:@"TubeTexture.png"];
     
@@ -442,6 +458,20 @@ static const VertexData_t tubeGlassVertexData[] = {
 
 - (void)update
 {
+    /*
+     * This is *so* ugly, but damn self.timeSinceLastResume remains always zero #%$@ !
+     */
+    static NSTimeInterval lastResume = 0;
+    lastResume += self.timeSinceLastUpdate;
+    self.bubbleEffect.elapsedSeconds = lastResume;
+    
+    GLfloat roll = self.timeSinceLastUpdate * [AMUtils random];
+    GLfloat chance = self.timeSinceLastUpdate / self.framesPerSecond * kBubblesPerSecondAvrg;
+    
+    if (roll < chance)
+    {
+        [self.bubbleEffect spawnBubbleEffect];
+    }
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
@@ -449,9 +479,14 @@ static const VertexData_t tubeGlassVertexData[] = {
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     
-    [self renderTubeSides];
     [self renderLiquid];
+    
+    self.bubbleEffect.mvpMatrix = GLKMatrix4Multiply(self.effect.transform.projectionMatrix, self.effect.transform.modelviewMatrix);
+    [self.bubbleEffect render];
+
+    [self renderTubeSides];
     [self renderGlass];
 }
 
 @end
+

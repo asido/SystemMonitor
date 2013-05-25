@@ -56,6 +56,7 @@
 {    
     self.ramInfo.totalRam = [self getRAMTotal];
     self.ramInfo.ramType = [self getRAMType];
+
     return ramInfo;
 }
 

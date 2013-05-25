@@ -52,7 +52,8 @@
     self.glTubeView.backgroundColor = [UIColor clearColor];
     self.glTube = [[GLTube alloc] initWithGLKView:self.glTubeView fromValue:0 toValue:app.iDevice.storageInfo.totalSapce];
     
-    [self.glTube setValue:app.iDevice.storageInfo.usedSpace];
+    //[self.glTube setValue:app.iDevice.storageInfo.usedSpace];
+    [self.glTube setValue:100.0];
 }
 
 #pragma mark - private
