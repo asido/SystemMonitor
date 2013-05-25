@@ -24,4 +24,10 @@
 @property (assign, nonatomic) NSUInteger        numberOfGroups;
 @property (assign, nonatomic) time_t            bootTime;
 @property (assign, nonatomic) BOOL              safeBoot;
+
+@property (strong, nonatomic) NSString          *screenResolution;
+@property (assign, nonatomic) CGFloat           screenSize;
+@property (assign, nonatomic) BOOL              retina;
+@property (assign, nonatomic) NSUInteger        ppi;
+@property (strong, nonatomic) NSString          *aspectRatio;
 @end

@@ -226,6 +226,96 @@ static const CGFloat BatteryVoltageTable[] = {
     [iPad_Mini_CDMA]    = 3.72,
     [iUnknown]          = 0
 };
+
+static const CGFloat ScreenSizeTable[] = {
+    [iPhone_1G]         = 3.5,
+    [iPhone_3G]         = 3.5,
+    [iPhone_3GS]        = 3.5,
+    [iPhone_4]          = 3.5,
+    [iPhone_4_Verizon]  = 3.5,
+    [iPhone_4S]         = 3.5,
+    [iPhone_5_GSM]      = 4.0,
+    [iPhone_5_CDMA]     = 4.0,
+    [iPod_Touch_1G]     = 3.5,
+    [iPod_Touch_2G]     = 3.5,
+    [iPod_Touch_3G]     = 3.5,
+    [iPod_Touch_4G]     = 3.5,
+    [iPod_Touch_5]      = 4.0,
+    [iPad_1]            = 9.7,
+    [iPad_2_CDMA]       = 9.7,
+    [iPad_2_GSM]        = 9.7,
+    [iPad_2_WiFi]       = 9.7,
+    [iPad_3_WiFi]       = 9.7,
+    [iPad_3_GSM]        = 9.7,
+    [iPad_3_CDMA]       = 9.7,
+    [iPad_4_WiFi]       = 9.7,
+    [iPad_4_GSM]        = 9.7,
+    [iPad_4_CDMA]       = 9.7,
+    [iPad_Mini_WiFi]    = 7.9,
+    [iPad_Mini_GSM]     = 9.7,
+    [iPad_Mini_CDMA]    = 9.7,
+    [iUnknown]          = 0.0
+};
+
+static const NSUInteger ScreenPPITable[] = {
+    [iPhone_1G]         = 163,
+    [iPhone_3G]         = 163,
+    [iPhone_3GS]        = 163,
+    [iPhone_4]          = 326,
+    [iPhone_4_Verizon]  = 326,
+    [iPhone_4S]         = 326,
+    [iPhone_5_GSM]      = 326,
+    [iPhone_5_CDMA]     = 326,
+    [iPod_Touch_1G]     = 163,
+    [iPod_Touch_2G]     = 163,
+    [iPod_Touch_3G]     = 163,
+    [iPod_Touch_4G]     = 326,
+    [iPod_Touch_5]      = 326,
+    [iPad_1]            = 132,
+    [iPad_2_CDMA]       = 132,
+    [iPad_2_GSM]        = 132,
+    [iPad_2_WiFi]       = 132,
+    [iPad_3_WiFi]       = 264,
+    [iPad_3_GSM]        = 264,
+    [iPad_3_CDMA]       = 264,
+    [iPad_4_WiFi]       = 264,
+    [iPad_4_GSM]        = 264,
+    [iPad_4_CDMA]       = 264,
+    [iPad_Mini_WiFi]    = 163,
+    [iPad_Mini_GSM]     = 163,
+    [iPad_Mini_CDMA]    = 163,
+    [iUnknown]          = 0.0
+};
+
+static const NSString *AspectRatioTable[] = {
+    [iPhone_1G]         = @"3:2",
+    [iPhone_3G]         = @"3:2",
+    [iPhone_3GS]        = @"3:2",
+    [iPhone_4]          = @"3:2",
+    [iPhone_4_Verizon]  = @"3:2",
+    [iPhone_4S]         = @"3:2",
+    [iPhone_5_GSM]      = @"16:9",
+    [iPhone_5_CDMA]     = @"16:9",
+    [iPod_Touch_1G]     = @"3:2",
+    [iPod_Touch_2G]     = @"3:2",
+    [iPod_Touch_3G]     = @"3:2",
+    [iPod_Touch_4G]     = @"3:2",
+    [iPod_Touch_5]      = @"16:9",
+    [iPad_1]            = @"4:3",
+    [iPad_2_CDMA]       = @"4:3",
+    [iPad_2_GSM]        = @"4:3",
+    [iPad_2_WiFi]       = @"4:3",
+    [iPad_3_WiFi]       = @"4:3",
+    [iPad_3_GSM]        = @"4:3",
+    [iPad_3_CDMA]       = @"4:3",
+    [iPad_4_WiFi]       = @"4:3",
+    [iPad_4_GSM]        = @"4:3",
+    [iPad_4_CDMA]       = @"4:3",
+    [iPad_Mini_WiFi]    = @"4:3",
+    [iPad_Mini_GSM]     = @"4:3",
+    [iPad_Mini_CDMA]    = @"4:3",
+    [iUnknown]          = @"0:0"
+};
    
 #pragma mark - public
 
@@ -272,6 +362,21 @@ static const CGFloat BatteryVoltageTable[] = {
 - (CGFloat)getBatteryVoltage
 {
     return BatteryVoltageTable[self.iDevice];
+}
+
+- (CGFloat)getScreenSize
+{
+    return ScreenSizeTable[self.iDevice];
+}
+
+- (NSUInteger)getPPI
+{
+    return ScreenPPITable[self.iDevice];
+}
+
+- (NSString*)getAspectRatio
+{
+    return (NSString*) AspectRatioTable[self.iDevice];
 }
 
 #pragma mark - private

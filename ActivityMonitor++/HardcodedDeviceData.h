@@ -18,4 +18,7 @@
 - (const NSString*)getRAMType;
 - (NSUInteger)getBatteryCapacity;
 - (CGFloat)getBatteryVoltage;
+- (CGFloat)getScreenSize;
+- (NSUInteger)getPPI;
+- (NSString*)getAspectRatio;
 @end

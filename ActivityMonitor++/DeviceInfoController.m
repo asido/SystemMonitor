@@ -26,6 +26,12 @@
 - (NSUInteger)getNumberOfGroups;
 - (time_t)getBootTime;
 - (BOOL)getSafeBoot;
+
+- (NSString*)getScreenResolution;
+- (CGFloat)getScreenSize;
+- (BOOL)isRetina;
+- (NSUInteger)getPPI;
+- (NSString*)getAspectRatio;
 @end
 
 @implementation DeviceInfoController
@@ -51,6 +57,11 @@
     deviceInfo.numberOfGroups = [self getNumberOfGroups];
     deviceInfo.bootTime = [self getBootTime];
     deviceInfo.safeBoot = [self getSafeBoot];
+    deviceInfo.screenResolution = [self getScreenResolution];
+    deviceInfo.screenSize = [self getScreenSize];
+    deviceInfo.retina = [self isRetina];
+    deviceInfo.ppi = [self getPPI];
+    deviceInfo.aspectRatio = [self getAspectRatio];
     
     return deviceInfo;
 }
@@ -132,6 +143,37 @@
 - (BOOL)getSafeBoot
 {
     return [AMUtils getSysCtl64WithSpecifier:"kern.safeboot"] > 0;
+}
+
+- (NSString*)getScreenResolution
+{
+    CGRect dimension = [UIScreen mainScreen].bounds;                    // Dimensions are flipped over.
+    NSString *resolution = [NSString stringWithFormat:@"%0.0fx%0.0f", dimension.size.height, dimension.size.width];
+    return resolution;
+}
+
+- (CGFloat)getScreenSize
+{
+    HardcodedDeviceData *hardcode = [HardcodedDeviceData sharedDeviceData];
+    return [hardcode getScreenSize];
+}
+
+- (BOOL)isRetina
+{
+    return ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] &&
+            [UIScreen mainScreen].scale == 2.0);
+}
+
+- (NSUInteger)getPPI
+{
+    HardcodedDeviceData *hardcode = [HardcodedDeviceData sharedDeviceData];
+    return [hardcode getPPI];
+}
+
+- (NSString*)getAspectRatio
+{
+    HardcodedDeviceData *hardcode = [HardcodedDeviceData sharedDeviceData];
+    return [hardcode getAspectRatio];
 }
 
 @end

@@ -12,6 +12,11 @@
 @interface GeneralViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *deviceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hostnameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *screenRezolutionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *retinaLabel;
+@property (weak, nonatomic) IBOutlet UILabel *screenSizeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ppiLabel;
+@property (weak, nonatomic) IBOutlet UILabel *aspectRatioLabel;
 @property (weak, nonatomic) IBOutlet UILabel *osNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *osTypeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *osVersionLabel;
@@ -55,6 +60,11 @@
     NSString *deviceName = [NSString stringWithFormat:@"Apple %@", app.iDevice.deviceInfo.deviceName];
     [self.deviceLabel setText:deviceName];
     [self.hostnameLabel setText:app.iDevice.deviceInfo.hostName];
+    [self.screenRezolutionLabel setText:app.iDevice.deviceInfo.screenResolution];
+    [self.screenSizeLabel setText:[NSString stringWithFormat:@"%0.1f\"", app.iDevice.deviceInfo.screenSize]];
+    [self.retinaLabel setText:(app.iDevice.deviceInfo.retina ? @"Yes" : @"No")];
+    [self.ppiLabel setText:[NSString stringWithFormat:@"%d ppi", app.iDevice.deviceInfo.ppi]];
+    [self.aspectRatioLabel setText:app.iDevice.deviceInfo.aspectRatio];
     [self.osNameLabel setText:app.iDevice.deviceInfo.osName];
     [self.osTypeLabel setText:app.iDevice.deviceInfo.osType];
     [self.osVersionLabel setText:app.iDevice.deviceInfo.osVersion];

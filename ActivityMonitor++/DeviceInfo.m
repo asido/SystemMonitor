@@ -24,4 +24,10 @@
 @synthesize numberOfGroups;
 @synthesize bootTime;
 @synthesize safeBoot;
+
+@synthesize screenResolution;
+@synthesize screenSize;
+@synthesize retina;
+@synthesize ppi;
+@synthesize aspectRatio;
 @end
