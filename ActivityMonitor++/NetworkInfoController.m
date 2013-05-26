@@ -525,13 +525,13 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
             
             if ([ifname isEqualToString:kInterfaceWiFi])
             {
-                bandwidth.totalWiFiSent += B_TO_KB(if2m->ifm_data.ifi_ibytes);
-                bandwidth.totalWiFiReceived += B_TO_KB(if2m->ifm_data.ifi_obytes);
+                bandwidth.totalWiFiSent += B_TO_KB(if2m->ifm_data.ifi_obytes);
+                bandwidth.totalWiFiReceived += B_TO_KB(if2m->ifm_data.ifi_ibytes);
             }
             else if ([ifname isEqualToString:kInterfaceWWAN])
             {
-                bandwidth.totalWWANSent += B_TO_KB(if2m->ifm_data.ifi_ibytes);
-                bandwidth.totalWWANReceived += B_TO_KB(if2m->ifm_data.ifi_obytes);
+                bandwidth.totalWWANSent += B_TO_KB(if2m->ifm_data.ifi_obytes);
+                bandwidth.totalWWANReceived += B_TO_KB(if2m->ifm_data.ifi_ibytes);
             }
         }
     }
