@@ -10,6 +10,7 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <ifaddrs.h>
 #import <arpa/inet.h>
+#import <sys/types.h>
 #import <sys/socket.h>
 #import <sys/sysctl.h>
 #import <netinet/in.h>
@@ -470,45 +471,64 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
 - (NetworkBandwidth*)getNetworkBandwidth
 {
-    struct ifaddrs          *addrs;
-    const struct ifaddrs    *cursor;
-    const struct if_data    *networkStatistics;
-    
-    NetworkBandwidth        *bandwidth = [[NetworkBandwidth alloc] init];
+    NetworkBandwidth *bandwidth = [[NetworkBandwidth alloc] init];
     bandwidth.interface = self.currentInterface;
     
-    if (getifaddrs(&addrs) != 0)
+    int mib[] = {
+        CTL_NET,
+        PF_ROUTE,
+        0,
+        0,
+        NET_RT_IFLIST2,
+        0
+    };
+    
+    size_t len;
+    if (sysctl(mib, 6, NULL, &len, NULL, 0) < 0)
     {
-        AMWarn(@"getifaddrs() has failed.");
+        AMWarn(@"sysctl failed (1)");
         return bandwidth;
     }
-    
-    cursor = addrs;
-    while (cursor != NULL)
+    char *buf = malloc(len);
+    if (sysctl(mib, 6, buf, &len, NULL, 0) < 0)
     {
-        NSString *name = [NSString stringWithFormat:@"%s", cursor->ifa_name];
+        AMWarn(@"sysctl failed (2)");
+        return bandwidth;
+    }
+    char *lim = buf + len;
+    char *next = NULL;
+    for (next = buf; next < lim; )
+    {
+        struct if_msghdr *ifm = (struct if_msghdr *)next;
+        next += ifm->ifm_msglen;
         
-        if (cursor->ifa_addr->sa_family == AF_LINK)
+/* iOS does't include <net/route.h>, so we define our own macros. */
+#define RTM_IFINFO2 0x12
+        if (ifm->ifm_type == RTM_IFINFO2)
+#undef RTM_IFINFO2
         {
-            if ([name isEqualToString:kInterfaceWiFi])
-            {
-                networkStatistics = (const struct if_data*) cursor->ifa_data;
-                bandwidth.totalWiFiSent += B_TO_KB(networkStatistics->ifi_obytes);
-                bandwidth.totalWiFiReceived += B_TO_KB(networkStatistics->ifi_ibytes);
-            }
+            struct if_msghdr2 *if2m = (struct if_msghdr2 *)ifm;
             
-            if ([name isEqualToString:kInterfaceWWAN])
+            char ifnameBuf[IF_NAMESIZE];
+            if (!if_indextoname(ifm->ifm_index, ifnameBuf))
             {
-                networkStatistics = (const struct if_data*) cursor->ifa_data;
-                bandwidth.totalWWANSent += B_TO_KB(networkStatistics->ifi_obytes);
-                bandwidth.totalWWANReceived += B_TO_KB(networkStatistics->ifi_ibytes);
+                AMWarn(@"if_indextoname() has failed.");
+                continue;
+            }
+            NSString *ifname = [NSString stringWithCString:ifnameBuf encoding:NSASCIIStringEncoding];
+            
+            if ([ifname isEqualToString:kInterfaceWiFi])
+            {
+                bandwidth.totalWiFiSent += B_TO_KB(if2m->ifm_data.ifi_ibytes);
+                bandwidth.totalWiFiReceived += B_TO_KB(if2m->ifm_data.ifi_obytes);
+            }
+            else if ([ifname isEqualToString:kInterfaceWWAN])
+            {
+                bandwidth.totalWWANSent += B_TO_KB(if2m->ifm_data.ifi_ibytes);
+                bandwidth.totalWWANReceived += B_TO_KB(if2m->ifm_data.ifi_obytes);
             }
         }
-        
-        cursor = cursor->ifa_next;
     }
-    
-    freeifaddrs(addrs);
     
     if (self.networkBandwidthHistory.count > 0)
     {
