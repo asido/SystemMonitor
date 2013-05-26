@@ -27,6 +27,8 @@
 @synthesize storageInfoCtrl;
 @synthesize batteryInfoCtrl;
 
+@synthesize deviceSpecificUI;
+
 #pragma mark - static
 
 + (AppDelegate*)sharedDelegate
@@ -69,6 +71,8 @@
     [self.ramInfoCtrl startRAMUsageUpdatesWithFrequency:kRamUsageUpdateFrequency];
     [self.networkInfoCtrl startNetworkBandwidthUpdatesWithFrequency:kNetworkUpdateFrequency];
     [self.batteryInfoCtrl startBatteryMonitoring];
+    
+    self.deviceSpecificUI = [[DeviceSpecificUI alloc] init];
     
     return YES;
 }

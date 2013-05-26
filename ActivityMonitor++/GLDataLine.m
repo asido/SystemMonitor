@@ -46,7 +46,8 @@
 @synthesize dataLinePosition1=_dataLinePosition1;
 @synthesize dataLinePosition2=_dataLinePosition2;
 
-static const GLfloat kDataLineShiftSize     = 0.25f;
+static const GLfloat kDataLineShiftSize     = 0.15f;
+static const GLfloat kLineWidth             = 3.0f;
 
 #pragma mark - public
 
@@ -188,7 +189,7 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
         const CGFloat *components = CGColorGetComponents(self.color.CGColor);
         self.graph.effect.constantColor = GLKVector4Make(components[0], components[1], components[2], CGColorGetAlpha(self.color.CGColor));
         [self.graph.effect prepareToDraw];
-        glLineWidth(2.0f);
+        glLineWidth(kLineWidth);
         glDrawArrays(GL_LINE_STRIP, 0, self.dataLineDataCurrIdx);
         /*
          self.effect.constantColor = GLKVector4Make(1.0f, 1.0f, 1.0f, 1.0f);
@@ -218,7 +219,7 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
         self.graph.effect.texture2d0.enabled = NO;
         
         [self.graph.effect prepareToDraw];
-        glLineWidth(2.0f);
+        glLineWidth(kLineWidth);
         
         glDrawArrays(GL_LINE_STRIP, self.dataLineDataCurrIdx, self.dataLineDataValidSize - self.dataLineDataCurrIdx);
         /*

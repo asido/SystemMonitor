@@ -16,6 +16,7 @@
 #import "NetworkInfoController.h"
 #import "StorageInfoController.h"
 #import "BatteryInfoController.h"
+#import "DeviceSpecificUI.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow  *window;
@@ -29,6 +30,8 @@
 @property (strong, nonatomic) NetworkInfoController *networkInfoCtrl;
 @property (strong, nonatomic) StorageInfoController *storageInfoCtrl;
 @property (strong, nonatomic) BatteryInfoController *batteryInfoCtrl;
+
+@property (strong, nonatomic) DeviceSpecificUI      *deviceSpecificUI;
 
 + (AppDelegate*)sharedDelegate;
 @end

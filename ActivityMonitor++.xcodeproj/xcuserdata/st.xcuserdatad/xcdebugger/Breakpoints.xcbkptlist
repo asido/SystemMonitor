@@ -4,16 +4,16 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "ActivityMonitor++/NetworkInfoController.m"
-         timestampString = "391254576.720909"
+         filePath = "ActivityMonitor++/GLTube.m"
+         timestampString = "391279127.79374"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "81"
-         endingLineNumber = "81"
-         landmarkName = "-dealloc"
+         startingLineNumber = "180"
+         endingLineNumber = "180"
+         landmarkName = "-setupGL"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

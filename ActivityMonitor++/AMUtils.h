@@ -29,4 +29,8 @@
 + (float)valuePercentFrom:(float)from to:(float)to value:(float)value;
 
 + (CGFloat)random;
+
++ (BOOL)isIPad;
++ (BOOL)isIPhone;
++ (BOOL)isIPhone5;
 @end

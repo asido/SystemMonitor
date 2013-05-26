@@ -168,4 +168,23 @@
 #undef ARC4RANDOM_MAX
 }
 
++ (BOOL)isIPad
+{
+    return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+}
+
++ (BOOL)isIPhone
+{
+    return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone;
+}
+
++ (BOOL)isIPhone5
+{
+    UIScreen *mainScreen = [UIScreen mainScreen];
+    CGFloat scale = ([mainScreen respondsToSelector:@selector(scale)] ? mainScreen.scale : 1.0f);
+    CGFloat pixelHeight = (CGRectGetHeight(mainScreen.bounds) * scale);
+    
+    return pixelHeight == 1136.0f;
+}
+
 @end

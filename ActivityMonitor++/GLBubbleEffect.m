@@ -8,6 +8,7 @@
 
 #import "AMLog.h"
 #import "AMUtils.h"
+#import "AppDelegate.h"
 #import "GLCommon.h"
 #import "GLBubbleEffect.h"
 
@@ -64,8 +65,6 @@ enum GLBubbleEffectUniforms {
 @synthesize glBufferBubble=_glBufferBubble;
 @synthesize bubbleTexture=_bubbleTexture;
 @synthesize bubbleSize;
-
-static NSString *kBubbleTextureFilename = @"BubbleTexture.png";
 
 #pragma mark - public
 
@@ -263,10 +262,11 @@ static NSString *kBubbleTextureFilename = @"BubbleTexture.png";
 
 - (void)setupTexture
 {
-    CGImageRef texImage = [UIImage imageNamed:kBubbleTextureFilename].CGImage;
+    DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
+    CGImageRef texImage = [UIImage imageNamed:ui.GLtubeBubbleTextureFilename].CGImage;
     if (!texImage)
     {
-        AMWarn(@"loading texture has failed: %@.", kBubbleTextureFilename);
+        AMWarn(@"loading texture has failed: %@.", ui.GLtubeBubbleTextureFilename);
         return;
     }
     

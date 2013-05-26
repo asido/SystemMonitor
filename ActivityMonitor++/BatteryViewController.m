@@ -42,7 +42,8 @@ enum {
     
     [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]]];
     
-    self.glView = [[GLKView alloc] initWithFrame:CGRectMake(5.0f, 10.0f, 693.0f, 100.0f)];
+    DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
+    self.glView = [[GLKView alloc] initWithFrame:ui.GLtubeGLKViewFrame];
     self.glView.opaque = NO;
     self.glView.backgroundColor = [UIColor clearColor];
     self.glBatteryTube = [[GLTube alloc] initWithGLKView:self.glView fromValue:0.0f toValue:100.0f];
@@ -86,7 +87,8 @@ enum {
 {
     if (section == SECTION_BATTERY_TUBE)
     {
-        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TubeBackground-180.png"]];
+        DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
+        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:ui.GLtubeBackgroundFilename]];
         CGRect frame = backgroundView.frame;
         frame.origin.y = 20;
         backgroundView.frame = frame;
@@ -96,22 +98,19 @@ enum {
         [view addSubview:self.glView];
         return view;
     }
-    else
-    {
-        return nil;
-    }
+
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (section == SECTION_BATTERY_TUBE)
     {
-        return 120.0f;
+        DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
+        return ui.GLtubeGLKViewFrame.size.height + 20;
     }
-    else
-    {
-        return 0.0f;
-    }
+    
+    return 0.0f;
 }
 
 #pragma mark - BatteryInfoController delegate

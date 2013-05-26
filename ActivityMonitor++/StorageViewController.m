@@ -11,6 +11,10 @@
 #import "GLTube.h"
 #import "StorageViewController.h"
 
+enum {
+    SECTION_STORAGE_TUBE=0
+};
+
 @interface StorageViewController() <StorageInfoControllerDelegate>
 @property (strong, nonatomic) GLTube    *glTube;
 @property (strong, nonatomic) GLKView   *glTubeView;
@@ -45,15 +49,15 @@
     
     [self updateInfoLabels];
     
-    AppDelegate *app = [AppDelegate sharedDelegate];
+    AppDelegate      *app = [AppDelegate sharedDelegate];
+    DeviceSpecificUI *ui = app.deviceSpecificUI;
     
-    self.glTubeView = [[GLKView alloc] initWithFrame:CGRectMake(5.0f, 10.0f, 693.0f, 100.0f)];
+    self.glTubeView = [[GLKView alloc] initWithFrame:ui.GLtubeGLKViewFrame];
     self.glTubeView.opaque = NO;
     self.glTubeView.backgroundColor = [UIColor clearColor];
     self.glTube = [[GLTube alloc] initWithGLKView:self.glTubeView fromValue:0 toValue:app.iDevice.storageInfo.totalSapce];
     
-    //[self.glTube setValue:app.iDevice.storageInfo.usedSpace];
-    [self.glTube setValue:100.0];
+    [self.glTube setValue:app.iDevice.storageInfo.usedSpace];
 }
 
 #pragma mark - private
@@ -75,7 +79,8 @@
 {
     if (section == 0)
     {
-        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TubeBackground-180.png"]];
+        DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
+        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:ui.GLtubeBackgroundFilename]];
         CGRect frame = backgroundView.frame;
         frame.origin.y = 20;
         backgroundView.frame = frame;
@@ -93,7 +98,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 120.0f;
+    if (section == SECTION_STORAGE_TUBE)
+    {
+        DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
+        return ui.GLtubeGLKViewFrame.size.height + 20;
+    }
+
+    return 0.0f;
 }
 
 #pragma mark - StorageInfoController delegate

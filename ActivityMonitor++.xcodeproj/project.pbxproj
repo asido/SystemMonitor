@@ -28,6 +28,9 @@
 		701190F8174D246800B5D8B1 /* ProcessTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 701190F7174D246800B5D8B1 /* ProcessTopView.xib */; };
 		701190FB174D2F2000B5D8B1 /* ProcessSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701190FA174D2F2000B5D8B1 /* ProcessSortViewController.m */; };
 		70119102174D7DA600B5D8B1 /* RootCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70119101174D7DA600B5D8B1 /* RootCell.m */; };
+		70340CA51752758F001C1F1A /* TubeTexture-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 70340CA41752758F001C1F1A /* TubeTexture-retina.png */; };
+		70340CAD17527DB1001C1F1A /* TubeBackground-nonretina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70340CAC17527DB1001C1F1A /* TubeBackground-nonretina@2x.png */; };
+		70340CB517527FB7001C1F1A /* TubeBackground-retina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70340CB417527FB6001C1F1A /* TubeBackground-retina@2x.png */; };
 		703D22DC173818EC0001E3B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DB173818EC0001E3B3 /* UIKit.framework */; };
 		703D22DE173818EC0001E3B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DD173818EC0001E3B3 /* Foundation.framework */; };
 		703D22E0173818EC0001E3B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DF173818EC0001E3B3 /* CoreGraphics.framework */; };
@@ -45,8 +48,7 @@
 		703D2318173818EC0001E3B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 703D2316173818EC0001E3B3 /* InfoPlist.strings */; };
 		704528AC174EAD44003DD424 /* GLTube.m in Sources */ = {isa = PBXBuildFile; fileRef = 704528AB174EAD44003DD424 /* GLTube.m */; };
 		704528BB174ED3A7003DD424 /* StorageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704528BA174ED3A7003DD424 /* StorageViewController.m */; };
-		70681B881750E70C0095547F /* BubbleTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 70681B871750E70C0095547F /* BubbleTexture.png */; };
-		70681BA41750FD720095547F /* TubeTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 70681BA31750FD720095547F /* TubeTexture.png */; };
+		70681B881750E70C0095547F /* BubbleTexture-nonretina.png in Resources */ = {isa = PBXBuildFile; fileRef = 70681B871750E70C0095547F /* BubbleTexture-nonretina.png */; };
 		706F717E174D8C6100E5842C /* RAMInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F717D174D8C6100E5842C /* RAMInfoController.m */; };
 		706F7184174D96E000E5842C /* RAMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F7183174D96E000E5842C /* RAMViewController.m */; };
 		70A627EF17494C49008B39C1 /* GLBlurEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A627EE17494C49008B39C1 /* GLBlurEffect.m */; };
@@ -58,7 +60,6 @@
 		70C2E9261739C7B7008CB1B1 /* GeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */; };
 		70C2E9291739C8D2008CB1B1 /* AMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9281739C8D2008CB1B1 /* AMDevice.m */; };
 		70CD01BC1739AB870047E72F /* HardcodedDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */; };
-		70CF2930174F05FF00EE21BE /* TubeTexture_.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CF292F174F05FF00EE21BE /* TubeTexture_.png */; };
 		70D8F457174CEAE6003824E2 /* LineGraphBackground-464@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D8F456174CEAE6003824E2 /* LineGraphBackground-464@2x.png */; };
 		70D8F45D174CF1E9003824E2 /* Background-1496@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D8F45C174CF1E9003824E2 /* Background-1496@2x.png */; };
 		70D92D5B173AA91300C57DEA /* CPULoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D5A173AA91300C57DEA /* CPULoad.m */; };
@@ -74,6 +75,9 @@
 		70E19A53174C0FA500A411C8 /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A52174C0FA400A411C8 /* ProcessViewController.m */; };
 		70E19A59174C260300A411C8 /* Background-748@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A58174C260300A411C8 /* Background-748@2x.png */; };
 		70E19A5D174C289A00A411C8 /* Background-Left-748@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */; };
+		70E437101752526F00ED3876 /* DeviceSpecificUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4370F1752526F00ED3876 /* DeviceSpecificUI.m */; };
+		70E4371417526E0200ED3876 /* TubeTexture-nonretina.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E4371317526E0200ED3876 /* TubeTexture-nonretina.png */; };
+		70E4371C175270F100ED3876 /* BubbleTexture-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E4371B175270F100ED3876 /* BubbleTexture-retina.png */; };
 		70ECE27C175058C300B1402A /* GLBubbleEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ECE27B175058C300B1402A /* GLBubbleEffect.m */; };
 		70ECE27F1750596C00B1402A /* GLEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ECE27E1750596C00B1402A /* GLEffect.m */; };
 		70ECE28217508E4900B1402A /* GLBubbleEffect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 70ECE276175058A500B1402A /* GLBubbleEffect.vsh */; };
@@ -84,7 +88,6 @@
 		70F1F17117397CEC007224AD /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17017397CEC007224AD /* DeviceInfo.m */; };
 		70F1F17417397CFE007224AD /* DeviceInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17317397CFE007224AD /* DeviceInfoController.m */; };
 		70F4D7D8173D147F007E58E2 /* CPULoadFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F4D7D7173D147F007E58E2 /* CPULoadFilter.m */; };
-		70FC38E0174F47840085EBC3 /* TubeBackground-180@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70FC38DF174F47840085EBC3 /* TubeBackground-180@2x.png */; };
 		70FC38E4174F48590085EBC3 /* StorageInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FC38E3174F48590085EBC3 /* StorageInfoController.m */; };
 		70FC38E7174F48680085EBC3 /* StorageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FC38E6174F48680085EBC3 /* StorageInfo.m */; };
 		70FC38E9174F4F380085EBC3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FC38E8174F4F380085EBC3 /* MediaPlayer.framework */; };
@@ -141,6 +144,9 @@
 		701190FA174D2F2000B5D8B1 /* ProcessSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessSortViewController.m; sourceTree = "<group>"; };
 		70119100174D7DA500B5D8B1 /* RootCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootCell.h; sourceTree = "<group>"; };
 		70119101174D7DA600B5D8B1 /* RootCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootCell.m; sourceTree = "<group>"; };
+		70340CA41752758F001C1F1A /* TubeTexture-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TubeTexture-retina.png"; sourceTree = "<group>"; };
+		70340CAC17527DB1001C1F1A /* TubeBackground-nonretina@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TubeBackground-nonretina@2x.png"; sourceTree = "<group>"; };
+		70340CB417527FB6001C1F1A /* TubeBackground-retina@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TubeBackground-retina@2x.png"; sourceTree = "<group>"; };
 		703D22D8173818EC0001E3B3 /* ActivityMonitor++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ActivityMonitor++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		703D22DB173818EC0001E3B3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		703D22DD173818EC0001E3B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -164,8 +170,7 @@
 		704528AB174EAD44003DD424 /* GLTube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLTube.m; sourceTree = "<group>"; };
 		704528B9174ED3A7003DD424 /* StorageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageViewController.h; sourceTree = "<group>"; };
 		704528BA174ED3A7003DD424 /* StorageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageViewController.m; sourceTree = "<group>"; };
-		70681B871750E70C0095547F /* BubbleTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BubbleTexture.png; sourceTree = "<group>"; };
-		70681BA31750FD720095547F /* TubeTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TubeTexture.png; sourceTree = "<group>"; };
+		70681B871750E70C0095547F /* BubbleTexture-nonretina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleTexture-nonretina.png"; sourceTree = "<group>"; };
 		706F717C174D8C6100E5842C /* RAMInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfoController.h; sourceTree = "<group>"; };
 		706F717D174D8C6100E5842C /* RAMInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMInfoController.m; sourceTree = "<group>"; };
 		706F717F174D8C7700E5842C /* RAMInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfo.h; sourceTree = "<group>"; };
@@ -191,7 +196,6 @@
 		70C2E9281739C8D2008CB1B1 /* AMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDevice.m; sourceTree = "<group>"; };
 		70CD01BA1739AB870047E72F /* HardcodedDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardcodedDeviceData.h; sourceTree = "<group>"; };
 		70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HardcodedDeviceData.m; sourceTree = "<group>"; };
-		70CF292F174F05FF00EE21BE /* TubeTexture_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TubeTexture_.png; sourceTree = "<group>"; };
 		70D8F456174CEAE6003824E2 /* LineGraphBackground-464@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LineGraphBackground-464@2x.png"; sourceTree = "<group>"; };
 		70D8F45C174CF1E9003824E2 /* Background-1496@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-1496@2x.png"; sourceTree = "<group>"; };
 		70D92D59173AA91300C57DEA /* CPULoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoad.h; sourceTree = "<group>"; };
@@ -216,6 +220,10 @@
 		70E19A52174C0FA400A411C8 /* ProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessViewController.m; sourceTree = "<group>"; };
 		70E19A58174C260300A411C8 /* Background-748@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-748@2x.png"; sourceTree = "<group>"; };
 		70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-Left-748@2x.png"; sourceTree = "<group>"; };
+		70E437061752514500ED3876 /* DeviceSpecificUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSpecificUI.h; sourceTree = "<group>"; };
+		70E4370F1752526F00ED3876 /* DeviceSpecificUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSpecificUI.m; sourceTree = "<group>"; };
+		70E4371317526E0200ED3876 /* TubeTexture-nonretina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TubeTexture-nonretina.png"; sourceTree = "<group>"; };
+		70E4371B175270F100ED3876 /* BubbleTexture-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleTexture-retina.png"; sourceTree = "<group>"; };
 		70ECE2731750558100B1402A /* RAMInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMInfo.m; sourceTree = "<group>"; };
 		70ECE276175058A500B1402A /* GLBubbleEffect.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLBubbleEffect.vsh; sourceTree = "<group>"; };
 		70ECE278175058B200B1402A /* GLBubbleEffect.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLBubbleEffect.fsh; sourceTree = "<group>"; };
@@ -232,7 +240,6 @@
 		70F1F18F17398C37007224AD /* AMLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMLog.h; sourceTree = "<group>"; };
 		70F4D7D6173D147F007E58E2 /* CPULoadFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoadFilter.h; sourceTree = "<group>"; };
 		70F4D7D7173D147F007E58E2 /* CPULoadFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPULoadFilter.m; sourceTree = "<group>"; };
-		70FC38DF174F47840085EBC3 /* TubeBackground-180@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TubeBackground-180@2x.png"; sourceTree = "<group>"; };
 		70FC38E2174F48590085EBC3 /* StorageInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageInfoController.h; sourceTree = "<group>"; };
 		70FC38E3174F48590085EBC3 /* StorageInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageInfoController.m; sourceTree = "<group>"; };
 		70FC38E5174F48680085EBC3 /* StorageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageInfo.h; sourceTree = "<group>"; };
@@ -472,9 +479,10 @@
 		703D232417381ED80001E3B3 /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				70681BA31750FD720095547F /* TubeTexture.png */,
-				70681B871750E70C0095547F /* BubbleTexture.png */,
-				70CF292F174F05FF00EE21BE /* TubeTexture_.png */,
+				70340CA41752758F001C1F1A /* TubeTexture-retina.png */,
+				70E4371317526E0200ED3876 /* TubeTexture-nonretina.png */,
+				70E4371B175270F100ED3876 /* BubbleTexture-retina.png */,
+				70681B871750E70C0095547F /* BubbleTexture-nonretina.png */,
 				70E19A58174C260300A411C8 /* Background-748@2x.png */,
 				70D8F45C174CF1E9003824E2 /* Background-1496@2x.png */,
 				70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */,
@@ -483,7 +491,8 @@
 				701190D2174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png */,
 				701190D3174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png */,
 				70D8F456174CEAE6003824E2 /* LineGraphBackground-464@2x.png */,
-				70FC38DF174F47840085EBC3 /* TubeBackground-180@2x.png */,
+				70340CB417527FB6001C1F1A /* TubeBackground-retina@2x.png */,
+				70340CAC17527DB1001C1F1A /* TubeBackground-nonretina@2x.png */,
 				701190F1174D1C5100B5D8B1 /* SettingsIcon@2x.png */,
 				701190F5174D21DB00B5D8B1 /* FilterButton@2x.png */,
 			);
@@ -558,6 +567,7 @@
 		70AF612E173924B100EF49E9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				70E437051752502900ED3876 /* DeviceSpecificUI */,
 				704528B8174ED395003DD424 /* StorageUI */,
 				700FDC0D174E5D78000D6848 /* NetworkUI */,
 				706F717A174D8C3E00E5842C /* RamUI */,
@@ -613,6 +623,15 @@
 				70E19A49174BBBA400A411C8 /* ProcessInfoController.m */,
 			);
 			name = Process;
+			sourceTree = "<group>";
+		};
+		70E437051752502900ED3876 /* DeviceSpecificUI */ = {
+			isa = PBXGroup;
+			children = (
+				70E437061752514500ED3876 /* DeviceSpecificUI.h */,
+				70E4370F1752526F00ED3876 /* DeviceSpecificUI.m */,
+			);
+			name = DeviceSpecificUI;
 			sourceTree = "<group>";
 		};
 		70ECE2751750588400B1402A /* BubbleEffect */ = {
@@ -782,10 +801,12 @@
 				701190F2174D1C5200B5D8B1 /* SettingsIcon@2x.png in Resources */,
 				701190F6174D21DB00B5D8B1 /* FilterButton@2x.png in Resources */,
 				701190F8174D246800B5D8B1 /* ProcessTopView.xib in Resources */,
-				70CF2930174F05FF00EE21BE /* TubeTexture_.png in Resources */,
-				70FC38E0174F47840085EBC3 /* TubeBackground-180@2x.png in Resources */,
-				70681B881750E70C0095547F /* BubbleTexture.png in Resources */,
-				70681BA41750FD720095547F /* TubeTexture.png in Resources */,
+				70681B881750E70C0095547F /* BubbleTexture-nonretina.png in Resources */,
+				70E4371417526E0200ED3876 /* TubeTexture-nonretina.png in Resources */,
+				70E4371C175270F100ED3876 /* BubbleTexture-retina.png in Resources */,
+				70340CA51752758F001C1F1A /* TubeTexture-retina.png in Resources */,
+				70340CAD17527DB1001C1F1A /* TubeBackground-nonretina@2x.png in Resources */,
+				70340CB517527FB7001C1F1A /* TubeBackground-retina@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -866,6 +887,7 @@
 				70FC38FA174F83530085EBC3 /* BatteryViewController.m in Sources */,
 				70ECE27C175058C300B1402A /* GLBubbleEffect.m in Sources */,
 				70ECE27F1750596C00B1402A /* GLEffect.m in Sources */,
+				70E437101752526F00ED3876 /* DeviceSpecificUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
