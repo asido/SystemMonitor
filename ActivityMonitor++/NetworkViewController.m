@@ -21,6 +21,7 @@ enum {
 @property (strong, nonatomic) GLLineGraph   *networkGraph;
 @property (strong, nonatomic) GLKView       *networkGLView;
 
+- (void)updateStatusLabels;
 - (void)updateBandwidthLabels:(NetworkBandwidth*)bandwidth;
 
 @property (weak, nonatomic) IBOutlet UILabel *networkTypeLabel;
@@ -54,13 +55,7 @@ enum {
     
     [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]]];
 
-    AppDelegate *app = [AppDelegate sharedDelegate];
-    [self.networkTypeLabel setText:app.iDevice.networkInfo.readableInterface];
-    [self.externalIPLabel setText:app.iDevice.networkInfo.externalIPAddress];
-    [self.internalIPLabel setText:app.iDevice.networkInfo.internalIPAddress];
-    [self.netmaskLabel setText:app.iDevice.networkInfo.netmask];
-    [self.broadcastAddressLabel setText:app.iDevice.networkInfo.broadcastAddress];
-    [self.macAddressLabel setText:app.iDevice.networkInfo.macAddress];
+    [self updateStatusLabels];
     
     self.networkGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, 703.0f, 200.0f)];
     self.networkGLView.opaque = NO;
@@ -68,6 +63,7 @@ enum {
     self.networkGraph = [[GLLineGraph alloc] initWithGLKView:self.networkGLView dataLineCount:2 fromValue:0.0f toValue:100.0f legends:[NSArray arrayWithObject:@"WiFi"]];
     self.networkGraph.preferredFramesPerSecond = kNetworkUpdateFrequency;
 
+    AppDelegate *app = [AppDelegate sharedDelegate];
     [app.networkInfoCtrl setNetworkBandwidthHistorySize:[self.networkGraph requiredElementToFillGraph]];
 }
 
@@ -108,6 +104,17 @@ enum {
 }
 
 #pragma mark - private
+
+- (void)updateStatusLabels
+{
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    [self.networkTypeLabel setText:app.iDevice.networkInfo.readableInterface];
+    [self.externalIPLabel setText:app.iDevice.networkInfo.externalIPAddress];
+    [self.internalIPLabel setText:app.iDevice.networkInfo.internalIPAddress];
+    [self.netmaskLabel setText:app.iDevice.networkInfo.netmask];
+    [self.broadcastAddressLabel setText:app.iDevice.networkInfo.broadcastAddress];
+    [self.macAddressLabel setText:app.iDevice.networkInfo.macAddress];
+}
 
 - (void)updateBandwidthLabels:(NetworkBandwidth*)bandwidth
 {
@@ -162,6 +169,11 @@ enum {
     NSNumber *upValue = [NSNumber numberWithFloat:bandwidth.sent];
     NSNumber *downValue = [NSNumber numberWithFloat:bandwidth.received];
     [self.networkGraph addDataValue:[NSArray arrayWithObjects:upValue, downValue, nil]];
+}
+
+- (void)networkStatusUpdated
+{
+    [self updateStatusLabels];
 }
 
 @end

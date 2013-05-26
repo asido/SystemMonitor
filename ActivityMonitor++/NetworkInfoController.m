@@ -37,6 +37,8 @@
 - (NSString*)readableCurrentInterface;
 - (void)reachabilityStatusChangedCB;
 
+- (NetworkInfo*)populateNetworkInfo;
+
 - (NSString*)getExternalIPAddress;
 - (NSString*)getInternalIPAddressOfInterface:(NSString*)interface;
 - (NSString*)getNetmaskOfInterface:(NSString*)interface;
@@ -67,6 +69,7 @@ static NSString *kInterfaceNone = @"";
 {
     if (self = [super init])
     {
+        self.networkInfo = [[NetworkInfo alloc] init];
         self.networkBandwidthHistory = [[NSMutableArray alloc] init];
         self.networkBandwidthHistorySize = kDefaultDataHistorySize;
     }
@@ -85,16 +88,7 @@ static NSString *kInterfaceNone = @"";
 
 - (NetworkInfo*)getNetworkInfo
 {
-    self.currentInterface = [self internetInterface];
-    
-    self.networkInfo = [[NetworkInfo alloc] init];
-    self.networkInfo.readableInterface = [self readableCurrentInterface];
-    self.networkInfo.externalIPAddress = [self getExternalIPAddress];
-    self.networkInfo.internalIPAddress = [self getInternalIPAddressOfInterface:self.currentInterface];
-    self.networkInfo.netmask = [self getNetmaskOfInterface:self.currentInterface];
-    self.networkInfo.broadcastAddress = [self getBroadcastAddressOfInterface:self.currentInterface];
-    self.networkInfo.macAddress = [self getMacAddressOfInterface:self.currentInterface];
-    return self.networkInfo;
+    return [self populateNetworkInfo];
 }
 
 - (void)startNetworkBandwidthUpdatesWithFrequency:(NSUInteger)frequency
@@ -131,9 +125,9 @@ static NSString *kInterfaceNone = @"";
 static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info)
 {
     assert(info != NULL);
-    assert([(NSObject*)CFBridgingRelease(info) isKindOfClass:[NetworkInfoController class]]);
+    assert([(__bridge NSObject*)(info) isKindOfClass:[NetworkInfoController class]]);
     
-    NetworkInfoController *networkCtrl = (NetworkInfoController*)CFBridgingRelease(info);
+    NetworkInfoController *networkCtrl = (__bridge NetworkInfoController*)(info);
     [networkCtrl reachabilityStatusChangedCB];
 }
 
@@ -155,7 +149,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         }
         
         BOOL result;
-        SCNetworkReachabilityContext context = { 0, (__bridge void *)(self), NULL, NULL, NULL };
+        SCNetworkReachabilityContext context = { 0, (__bridge void *)self, NULL, NULL, NULL };
         
         result = SCNetworkReachabilitySetCallback(self.reachability, reachabilityCallback, &context);
         if (!result)
@@ -223,27 +217,15 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         AMWarn(@"failed to retrieve reachability flags.");
         return kInterfaceNone;
     }
-    
-    if (!(flags & kSCNetworkReachabilityFlagsReachable))
-    {
-        return kInterfaceNone;
-    }
-    
-    if (flags & kSCNetworkReachabilityFlagsConnectionRequired)
+
+    if ((flags & kSCNetworkFlagsReachable) &&
+        (!(flags & kSCNetworkReachabilityFlagsIsWWAN)))
     {
         return kInterfaceWiFi;
     }
     
-    if ((flags & kSCNetworkReachabilityFlagsConnectionOnDemand) ||
-        (flags & kSCNetworkReachabilityFlagsConnectionOnTraffic))
-    {
-        if (!(flags & kSCNetworkReachabilityFlagsInterventionRequired))
-        {
-            return kInterfaceWiFi;
-        }
-    }
-    
-    if (flags & kSCNetworkReachabilityFlagsIsWWAN)
+    if ((flags & kSCNetworkReachabilityFlagsReachable) &&
+        (flags & kSCNetworkReachabilityFlagsIsWWAN))
     {
         return kInterfaceWWAN;
     }
@@ -269,9 +251,22 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
 - (void)reachabilityStatusChangedCB
 {
+    NSLog(@"REACHABILITY CALLBACK");
+    [self populateNetworkInfo];
+    [self.delegate networkStatusUpdated];
+}
+
+- (NetworkInfo*)populateNetworkInfo
+{
     self.currentInterface = [self internetInterface];
     
-    // TODO: I guess update network info and notify view controllers with delegate. 
+    self.networkInfo.readableInterface = [self readableCurrentInterface];
+    self.networkInfo.externalIPAddress = [self getExternalIPAddress];
+    self.networkInfo.internalIPAddress = [self getInternalIPAddressOfInterface:self.currentInterface];
+    self.networkInfo.netmask = [self getNetmaskOfInterface:self.currentInterface];
+    self.networkInfo.broadcastAddress = [self getBroadcastAddressOfInterface:self.currentInterface];
+    self.networkInfo.macAddress = [self getMacAddressOfInterface:self.currentInterface];
+    return self.networkInfo;
 }
 
 - (NSString*)getExternalIPAddress
@@ -298,20 +293,22 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         return ip;
     }
 
-    NSScanner *scanner = [NSScanner scannerWithString:ipHtml];
-    while (![scanner isAtEnd])
+    NSRegularExpression *regexp = [NSRegularExpression regularExpressionWithPattern:@"([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})"
+                                                                            options:NSRegularExpressionCaseInsensitive
+                                                                              error:&error];
+    if (error)
     {
-        NSString *text = nil;
-    
-        [scanner scanUpToString:@"<" intoString:NULL];
-        [scanner scanUpToString:@">" intoString:&text];
-    
-        ipHtml = [ipHtml stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@>", text] withString:text];
-        NSArray *ipArray = [ipHtml componentsSeparatedByString:@" "];
-        NSUInteger ipIndex = [ipArray indexOfObject:@"Address:"];
-        ip = [ipArray objectAtIndex:++ipIndex];
+        AMWarn(@"failed to create regexp: %@", error.description);
+        return ip;
     }
-
+    NSRange regexpRange = [regexp rangeOfFirstMatchInString:ipHtml options:NSMatchingReportCompletion range:NSMakeRange(0, ipHtml.length)];
+    NSString *match = [ipHtml substringWithRange:regexpRange];
+    
+    if (match && match.length > 0)
+    {
+        ip = [NSString stringWithString:match];
+    }
+    
     return ip;
 }
 

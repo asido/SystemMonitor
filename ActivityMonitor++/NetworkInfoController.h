@@ -12,6 +12,7 @@
 
 @protocol NetworkInfoControllerDelegate
 - (void)networkBandwidthUpdated:(NetworkBandwidth*)bandwidth;
+- (void)networkStatusUpdated;
 @end
 
 @interface NetworkInfoController : NSObject
