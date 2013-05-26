@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface RAMUsage : NSObject
-@property (assign, nonatomic) NSUInteger usedRam;
-@property (assign, nonatomic) NSUInteger activeRam;
-@property (assign, nonatomic) NSUInteger inactiveRam;
-@property (assign, nonatomic) NSUInteger wiredRam;
-@property (assign, nonatomic) NSUInteger freeRam;
-@property (assign, nonatomic) NSUInteger pageIns;
-@property (assign, nonatomic) NSUInteger pageOuts;
-@property (assign, nonatomic) NSUInteger pageFaults;
+@property (assign, nonatomic) uint64_t usedRam;
+@property (assign, nonatomic) uint64_t activeRam;
+@property (assign, nonatomic) uint64_t inactiveRam;
+@property (assign, nonatomic) uint64_t wiredRam;
+@property (assign, nonatomic) uint64_t freeRam;
+@property (assign, nonatomic) uint64_t pageIns;
+@property (assign, nonatomic) uint64_t pageOuts;
+@property (assign, nonatomic) uint64_t pageFaults;
 @end

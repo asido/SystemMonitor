@@ -15,6 +15,8 @@
 
 @implementation DeviceSpecificUI
 
+@synthesize GLdataLineWidth;
+
 @synthesize GLtubeBackgroundFilename;
 @synthesize GLtubeTextureFilename;
 @synthesize GLtubeBubbleTextureFilename;
@@ -44,6 +46,8 @@
     {
         AppDelegate *app = [AppDelegate sharedDelegate];
         assert(app.iDevice.deviceInfo != nil);
+        
+        self.GLdataLineWidth = (app.iDevice.deviceInfo.retina ? 3.0f : 2.0f);
         
         self.GLtubeBackgroundFilename = (app.iDevice.deviceInfo.retina ? @"TubeBackground-retina.png" : @"TubeBackground-nonretina.png");
         self.GLtubeTextureFilename = (app.iDevice.deviceInfo.retina ? @"TubeTexture-retina.png" : @"TubeTexture-nonretina.png");

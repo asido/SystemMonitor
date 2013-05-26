@@ -115,12 +115,17 @@
 - (RAMUsage*)getRAMUsage
 {
     mach_port_t             host_port = mach_host_self();
-    mach_msg_type_number_t  host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
+    mach_msg_type_number_t  host_size = HOST_VM_INFO64_COUNT;
     vm_size_t               pageSize;
-    vm_statistics_data_t    vm_stat;
+    vm_statistics64_data_t  vm_stat;
     
-    host_page_size(host_port, &pageSize);
-    if (host_statistics(host_port, HOST_VM_INFO, (host_info_t)&vm_stat, &host_size) != KERN_SUCCESS)
+    if (host_page_size(host_port, &pageSize) != KERN_SUCCESS)
+    {
+        AMWarn(@"host_page_size() has failed - defaulting to 4K");
+        pageSize = 4096;
+    }
+    
+    if (host_statistics64(host_port, HOST_VM_INFO64, (host_info64_t)&vm_stat, &host_size) != KERN_SUCCESS)
     {
         AMWarn(@"host_statistics() has failed.");
         return nil;

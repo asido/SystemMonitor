@@ -7,6 +7,7 @@
 //
 
 #import "AMUtils.h"
+#import "AppDelegate.h"
 #import "GLCommon.h"
 #import "GLLineGraph.h"
 #import "GLDataLine.h"
@@ -47,7 +48,6 @@
 @synthesize dataLinePosition2=_dataLinePosition2;
 
 static const GLfloat kDataLineShiftSize     = 0.15f;
-static const GLfloat kLineWidth             = 3.0f;
 
 #pragma mark - public
 
@@ -189,14 +189,11 @@ static const GLfloat kLineWidth             = 3.0f;
         const CGFloat *components = CGColorGetComponents(self.color.CGColor);
         self.graph.effect.constantColor = GLKVector4Make(components[0], components[1], components[2], CGColorGetAlpha(self.color.CGColor));
         [self.graph.effect prepareToDraw];
-        glLineWidth(kLineWidth);
+        
+        DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
+        glLineWidth(ui.GLdataLineWidth);
         glDrawArrays(GL_LINE_STRIP, 0, self.dataLineDataCurrIdx);
-        /*
-         self.effect.constantColor = GLKVector4Make(1.0f, 1.0f, 1.0f, 1.0f);
-         [self.effect prepareToDraw];
-         glLineWidth(1.0f);
-         glDrawArrays(GL_LINE_STRIP, 0, self.dataLineDataCurrIdx);
-         */
+
         GL_CHECK_ERROR();
     }
     
@@ -217,17 +214,12 @@ static const GLfloat kLineWidth             = 3.0f;
         const CGFloat *components = CGColorGetComponents(self.color.CGColor);
         self.graph.effect.constantColor = GLKVector4Make(components[0], components[1], components[2], CGColorGetAlpha(self.color.CGColor));
         self.graph.effect.texture2d0.enabled = NO;
-        
         [self.graph.effect prepareToDraw];
-        glLineWidth(kLineWidth);
         
+        DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
+        glLineWidth(ui.GLdataLineWidth);
         glDrawArrays(GL_LINE_STRIP, self.dataLineDataCurrIdx, self.dataLineDataValidSize - self.dataLineDataCurrIdx);
-        /*
-         self.effect.constantColor = GLKVector4Make(230.0f/255.0f, 230.0f/255.0f, 0.0f, 1.0f);
-         glLineWidth(1.0f);
-         [self.effect prepareToDraw];
-         glDrawArrays(GL_LINE_STRIP, self.dataLineDataCurrIdx, self.dataLineDataValidSize - self.dataLineDataCurrIdx);
-         */
+
         GL_CHECK_ERROR();
     }
 

@@ -252,7 +252,6 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
 - (void)reachabilityStatusChangedCB
 {
-    NSLog(@"REACHABILITY CALLBACK");
     [self populateNetworkInfo];
     [self.delegate networkStatusUpdated];
 }
@@ -261,8 +260,15 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 {
     self.currentInterface = [self internetInterface];
     
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        self.networkInfo.externalIPAddress = @"-"; // Placeholder while fetching.
+        self.networkInfo.externalIPAddress = [self getExternalIPAddress];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate networkExternalIPAddressUpdated];
+        });
+    });
+    
     self.networkInfo.readableInterface = [self readableCurrentInterface];
-    self.networkInfo.externalIPAddress = [self getExternalIPAddress];
     self.networkInfo.internalIPAddress = [self getInternalIPAddressOfInterface:self.currentInterface];
     self.networkInfo.netmask = [self getNetmaskOfInterface:self.currentInterface];
     self.networkInfo.broadcastAddress = [self getBroadcastAddressOfInterface:self.currentInterface];

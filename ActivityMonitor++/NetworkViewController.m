@@ -176,4 +176,10 @@ enum {
     [self updateStatusLabels];
 }
 
+- (void)networkExternalIPAddressUpdated
+{
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    [self.externalIPLabel setText:app.iDevice.networkInfo.externalIPAddress];
+}
+
 @end

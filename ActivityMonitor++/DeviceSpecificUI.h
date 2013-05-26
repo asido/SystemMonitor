@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface DeviceSpecificUI : NSObject
+@property (assign, nonatomic) GLfloat   GLdataLineWidth;
+
 @property (strong, nonatomic) NSString  *GLtubeBackgroundFilename;
 @property (strong, nonatomic) NSString  *GLtubeTextureFilename;
 @property (strong, nonatomic) NSString  *GLtubeBubbleTextureFilename;
