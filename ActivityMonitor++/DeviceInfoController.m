@@ -12,6 +12,8 @@
 #import "DeviceInfoController.h"
 
 @interface DeviceInfoController()
+@property (strong, nonatomic) DeviceInfo    *deviceInfo;
+
 - (const NSString*)getDeviceName;
 - (NSString*)getHostName;
 - (NSString*)getOSType;
@@ -35,35 +37,45 @@
 @end
 
 @implementation DeviceInfoController
+@synthesize deviceInfo;
+
+#pragma mark - override
+
+- (id)init
+{
+    if (self = [super init])
+    {
+        self.deviceInfo = [[DeviceInfo alloc] init];
+    }
+    return self;
+}
 
 #pragma mark - public
 
 - (DeviceInfo*)getDeviceInfo
 {
-    DeviceInfo *deviceInfo = [[DeviceInfo alloc] init];
+    self.deviceInfo.deviceName = [self getDeviceName];
+    self.deviceInfo.hostName = [self getHostName];
+    self.deviceInfo.osName = @"iOS";
+    self.deviceInfo.osType = [self getOSType];
+    self.deviceInfo.osVersion = [self getOSVersion];
+    self.deviceInfo.osBuild = [self getOSBuild];
+    self.deviceInfo.osRevision = [self getOSRevision];
+    self.deviceInfo.kernelInfo = [self getKernelInfo];
+    self.deviceInfo.maxVNodes = [self getMaxVNodes];
+    self.deviceInfo.maxProcesses = [self getMaxProcesses];
+    self.deviceInfo.maxFiles = [self getMaxFiles];
+    self.deviceInfo.tickFrequency = [self getTickFrequency];
+    self.deviceInfo.numberOfGroups = [self getNumberOfGroups];
+    self.deviceInfo.bootTime = [self getBootTime];
+    self.deviceInfo.safeBoot = [self getSafeBoot];
+    self.deviceInfo.screenResolution = [self getScreenResolution];
+    self.deviceInfo.screenSize = [self getScreenSize];
+    self.deviceInfo.retina = [self isRetina];
+    self.deviceInfo.ppi = [self getPPI];
+    self.deviceInfo.aspectRatio = [self getAspectRatio];
     
-    deviceInfo.deviceName = [self getDeviceName];
-    deviceInfo.hostName = [self getHostName];
-    deviceInfo.osName = @"iOS";
-    deviceInfo.osType = [self getOSType];
-    deviceInfo.osVersion = [self getOSVersion];
-    deviceInfo.osBuild = [self getOSBuild];
-    deviceInfo.osRevision = [self getOSRevision];
-    deviceInfo.kernelInfo = [self getKernelInfo];
-    deviceInfo.maxVNodes = [self getMaxVNodes];
-    deviceInfo.maxProcesses = [self getMaxProcesses];
-    deviceInfo.maxFiles = [self getMaxFiles];
-    deviceInfo.tickFrequency = [self getTickFrequency];
-    deviceInfo.numberOfGroups = [self getNumberOfGroups];
-    deviceInfo.bootTime = [self getBootTime];
-    deviceInfo.safeBoot = [self getSafeBoot];
-    deviceInfo.screenResolution = [self getScreenResolution];
-    deviceInfo.screenSize = [self getScreenSize];
-    deviceInfo.retina = [self isRetina];
-    deviceInfo.ppi = [self getPPI];
-    deviceInfo.aspectRatio = [self getAspectRatio];
-    
-    return deviceInfo;
+    return self.deviceInfo;
 }
 
 #pragma mark - private
