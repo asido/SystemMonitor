@@ -213,7 +213,7 @@
         val = 0;
     }
     {
-        val = B_TO_KB(val);
+        val = val;
     }
     return val;
 }
@@ -226,7 +226,7 @@
         val = 0;
     }
     {
-        val = B_TO_KB(val);
+        val = val;
     }
     return val;
 }
@@ -240,7 +240,7 @@
     }
     else
     {
-        val = B_TO_KB(val);
+        val = val;
     }
     return val;
 }
@@ -254,7 +254,7 @@
     }
     else
     {
-        val = B_TO_KB(val);
+        val = val;
     }
     return val;
 }

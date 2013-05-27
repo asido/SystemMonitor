@@ -7,6 +7,7 @@
 //
 
 #import "AMLog.h"
+#import "AMUtils.h"
 #import "AppDelegate.h"
 #import "ActiveConnection.h"
 #import "ConnectionSectionView.h"
@@ -172,8 +173,8 @@
             break;
     }
     [statusLabel setText:connection.statusString];
-    [txLabel setText:[NSString stringWithFormat:@"%0.1f KB", connection.totalTX]];
-    [rxLabel setText:[NSString stringWithFormat:@"%0.1f KB", connection.totalRX]];
+    [txLabel setText:[AMUtils toNearestMetric:(uint64_t)connection.totalTX desiredFraction:1]];
+    [rxLabel setText:[AMUtils toNearestMetric:(uint64_t)connection.totalRX desiredFraction:1]];
     
     return cell;
 }

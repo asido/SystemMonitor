@@ -17,9 +17,9 @@
 @interface StorageInfoController()
 @property (strong, nonatomic) StorageInfo *storageInfo;
 
-- (CGFloat)getTotalSpace;
-- (CGFloat)getUsedSpace;
-- (CGFloat)getFreeSpace;
+- (uint64_t)getTotalSpace;
+- (uint64_t)getUsedSpace;
+- (uint64_t)getFreeSpace;
 - (NSUInteger)getSongCount;
 - (NSUInteger)getTotalSongSize;
 - (NSUInteger)updatePictureCount;
@@ -53,7 +53,7 @@
 
 #pragma mark - private
 
-- (CGFloat)getTotalSpace
+- (uint64_t)getTotalSpace
 {    
     NSError         *error = nil;
     NSArray         *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -62,7 +62,7 @@
     if (dictionary)
     {
         NSNumber *fileSystemSizeInBytes = [dictionary objectForKey:NSFileSystemSize];
-        return B_TO_KB([fileSystemSizeInBytes unsignedLongLongValue]);
+        return [fileSystemSizeInBytes unsignedLongLongValue];
     }
     else
     {
@@ -71,7 +71,7 @@
     }
 }
 
-- (CGFloat)getUsedSpace
+- (uint64_t)getUsedSpace
 {
     NSError         *error = nil;
     NSArray         *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -82,7 +82,7 @@
         NSNumber *fileSystemSize = [dictionary objectForKey:NSFileSystemSize];
         NSNumber *fileSystemFreeSize = [dictionary objectForKey:NSFileSystemFreeSize];
         uint64_t usedSize = [fileSystemSize unsignedLongLongValue] - [fileSystemFreeSize unsignedLongLongValue];
-        return B_TO_KB(usedSize);
+        return usedSize;
     }
     else
     {
@@ -91,7 +91,7 @@
     }
 }
 
-- (CGFloat)getFreeSpace
+- (uint64_t)getFreeSpace
 {
     NSError         *error = nil;
     NSArray         *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -100,7 +100,7 @@
     if (dictionary)
     {
         NSNumber *fileSystemFreeSize = [dictionary objectForKey:NSFileSystemFreeSize];
-        return B_TO_KB([fileSystemFreeSize unsignedLongLongValue]);
+        return [fileSystemFreeSize unsignedLongLongValue];
     }
     else
     {
@@ -154,7 +154,7 @@
                     self.storageInfo.pictureCount++;
                     
                     ALAssetRepresentation *rep = [asset defaultRepresentation];
-                    self.storageInfo.totalPictureSize += B_TO_KB(rep.size);
+                    self.storageInfo.totalPictureSize += rep.size;
                 }
             }
             else
@@ -187,7 +187,7 @@
                     self.storageInfo.videoCount++;
                     
                     ALAssetRepresentation *rep = [asset defaultRepresentation];
-                    self.storageInfo.totalVideoSize += B_TO_KB(rep.size);
+                    self.storageInfo.totalVideoSize += rep.size;
                 }
             }
             else

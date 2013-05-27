@@ -555,13 +555,13 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
             
             if ([ifname isEqualToString:kInterfaceWiFi])
             {
-                bandwidth.totalWiFiSent += B_TO_KB(if2m->ifm_data.ifi_obytes);
-                bandwidth.totalWiFiReceived += B_TO_KB(if2m->ifm_data.ifi_ibytes);
+                bandwidth.totalWiFiSent += if2m->ifm_data.ifi_obytes;
+                bandwidth.totalWiFiReceived += if2m->ifm_data.ifi_ibytes;
             }
             else if ([ifname isEqualToString:kInterfaceWWAN])
             {
-                bandwidth.totalWWANSent += B_TO_KB(if2m->ifm_data.ifi_obytes);
-                bandwidth.totalWWANReceived += B_TO_KB(if2m->ifm_data.ifi_ibytes);
+                bandwidth.totalWWANSent += if2m->ifm_data.ifi_obytes;
+                bandwidth.totalWWANReceived += if2m->ifm_data.ifi_ibytes;
             }
         }
     }
@@ -573,13 +573,13 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         {
             if ([self.currentInterface isEqualToString:kInterfaceWiFi])
             {
-                bandwidth.sent = B_TO_KB(bandwidth.totalWiFiSent - prevBandwidth.totalWiFiSent);
-                bandwidth.received = B_TO_KB(bandwidth.totalWiFiReceived - prevBandwidth.totalWiFiReceived);
+                bandwidth.sent = bandwidth.totalWiFiSent - prevBandwidth.totalWiFiSent;
+                bandwidth.received = bandwidth.totalWiFiReceived - prevBandwidth.totalWiFiReceived;
             }
             else if ([self.currentInterface isEqualToString:kInterfaceWWAN])
             {
-                bandwidth.sent = B_TO_KB(bandwidth.totalWWANSent - prevBandwidth.totalWWANSent);
-                bandwidth.received = B_TO_KB(bandwidth.totalWWANReceived - prevBandwidth.totalWWANReceived);
+                bandwidth.sent = bandwidth.totalWWANSent - prevBandwidth.totalWWANSent;
+                bandwidth.received = bandwidth.totalWWANReceived - prevBandwidth.totalWWANReceived;
             }
         }
     }
@@ -759,8 +759,8 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         
         for (NSUInteger i = 0; i < SO_TC_STATS_MAX; ++i)
         {
-            connection.totalRX += B_TO_KB(so_stat->xst_tc_stats[i].rxbytes);
-            connection.totalTX += B_TO_KB(so_stat->xst_tc_stats[i].txbytes);
+            connection.totalRX += so_stat->xst_tc_stats[i].rxbytes;
+            connection.totalTX += so_stat->xst_tc_stats[i].txbytes;
         }
         
         [result addObject:connection];

@@ -8,6 +8,7 @@
 
 #import <GLKit/GLKit.h>
 #import "GLLineGraph.h"
+#import "AMUtils.h"
 #import "AppDelegate.h"
 #import "CPUInfoController.h"
 #import "CPUViewController.h"
@@ -51,10 +52,10 @@
     [self.logicalCoresLabel setText:[NSString stringWithFormat:@"%u", app.iDevice.cpuInfo.logicalCPUCount]];
     [self.maxLogicalCoresLabel setText:[NSString stringWithFormat:@"%u", app.iDevice.cpuInfo.logicalCPUMaxCount]];
     [self.frequencyLabel setText:[NSString stringWithFormat:@"%u MHz", app.iDevice.cpuInfo.cpuFrequency]];
-    [self.l1iCacheLabel setText:(app.iDevice.cpuInfo.l1ICache == 0 ? @"-" : [NSString stringWithFormat:@"%d KB", app.iDevice.cpuInfo.l1ICache])];
-    [self.l1dCacheLabel setText:(app.iDevice.cpuInfo.l1DCache == 0 ? @"-" : [NSString stringWithFormat:@"%d KB", app.iDevice.cpuInfo.l1DCache])];
-    [self.l2CacheLabel setText:(app.iDevice.cpuInfo.l2Cache == 0 ? @"-" : [NSString stringWithFormat:@"%d KB", app.iDevice.cpuInfo.l2Cache])];
-    [self.l3CacheLabel setText:(app.iDevice.cpuInfo.l3Cache == 0 ? @"-" : [NSString stringWithFormat:@"%d KB", app.iDevice.cpuInfo.l3Cache])];
+    [self.l1iCacheLabel setText:(app.iDevice.cpuInfo.l1ICache == 0 ? @"-" : [AMUtils toNearestMetric:(uint64_t)app.iDevice.cpuInfo.l1ICache desiredFraction:0])];
+    [self.l1dCacheLabel setText:(app.iDevice.cpuInfo.l1DCache == 0 ? @"-" : [AMUtils toNearestMetric:(uint64_t)app.iDevice.cpuInfo.l1DCache desiredFraction:0])];
+    [self.l2CacheLabel setText:(app.iDevice.cpuInfo.l2Cache == 0 ? @"-" : [AMUtils toNearestMetric:(uint64_t)app.iDevice.cpuInfo.l2Cache desiredFraction:0])];
+    [self.l3CacheLabel setText:(app.iDevice.cpuInfo.l3Cache == 0 ? @"-" : [AMUtils toNearestMetric:(uint64_t)app.iDevice.cpuInfo.l3Cache desiredFraction:0])];
     [self.endianessLabel setText:app.iDevice.cpuInfo.endianess];
     
     self.cpuUsageGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, 703.0f, 200.0f)];

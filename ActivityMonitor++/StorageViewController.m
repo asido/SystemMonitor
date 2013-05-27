@@ -65,12 +65,12 @@ enum {
 - (void)updateInfoLabels
 {
     AppDelegate *app = [AppDelegate sharedDelegate];
-    [self.totalStorageLabel setText:[NSString stringWithFormat:@"%0.2f GB", KB_TO_GB(app.iDevice.storageInfo.totalSapce)]];
-    [self.freeStorageLabel setText:[NSString stringWithFormat:@"%0.2f GB", KB_TO_GB(app.iDevice.storageInfo.freeSpace)]];
-    [self.usedStorageLabel setText:[NSString stringWithFormat:@"%0.2f GB", KB_TO_GB(app.iDevice.storageInfo.usedSpace)]];
+    [self.totalStorageLabel setText:[AMUtils toNearestMetric:app.iDevice.storageInfo.totalSapce desiredFraction:2]];
+    [self.freeStorageLabel setText:[AMUtils toNearestMetric:app.iDevice.storageInfo.freeSpace desiredFraction:2]];
+    [self.usedStorageLabel setText:[AMUtils toNearestMetric:app.iDevice.storageInfo.usedSpace desiredFraction:2]];
     [self.numberOfSongsLabel setText:[NSString stringWithFormat:@"%d", app.iDevice.storageInfo.songCount]];
-    [self.numberOfPicturesLabel setText:[NSString stringWithFormat:@"%d (%0.1f MB)", app.iDevice.storageInfo.pictureCount, KB_TO_MB(app.iDevice.storageInfo.totalPictureSize)]];
-    [self.numberOfVideosLabel setText:[NSString stringWithFormat:@"%d (%0.1f MB)", app.iDevice.storageInfo.videoCount, KB_TO_MB(app.iDevice.storageInfo.totalVideoSize)]];
+    [self.numberOfPicturesLabel setText:[NSString stringWithFormat:@"%d (%@)", app.iDevice.storageInfo.pictureCount, [AMUtils toNearestMetric:app.iDevice.storageInfo.totalPictureSize desiredFraction:1]]];
+    [self.numberOfVideosLabel setText:[NSString stringWithFormat:@"%d (%@)", app.iDevice.storageInfo.videoCount, [AMUtils toNearestMetric:app.iDevice.storageInfo.totalVideoSize desiredFraction:1]]];
 }
 
 #pragma mark - Table view data source

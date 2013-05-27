@@ -168,6 +168,48 @@
 #undef ARC4RANDOM_MAX
 }
 
++ (NSString*)toNearestMetric:(uint64_t)value desiredFraction:(NSUInteger)fraction
+{
+    static const uint64_t  B  = 0;
+    static const uint64_t KB  = 1024;
+    static const uint64_t MB  = KB * 1024;
+    static const uint64_t GB  = MB * 1024;
+    static const uint64_t TB  = GB * 1024;
+    
+    uint64_t absValue = fabs(value);
+    double metricValue;
+    NSString *specifier = [NSString stringWithFormat:@"%%0.%df", fraction];
+    NSString *format;
+    
+    if (absValue >= B && absValue < KB)
+    {
+        metricValue = value;
+        format = [NSString stringWithFormat:@"%@ B", specifier];
+    }
+    else if (absValue >= KB && absValue < MB)
+    {
+        metricValue = B_TO_KB(value);
+        format = [NSString stringWithFormat:@"%@ KB", specifier];
+    }
+    else if (absValue >= MB && absValue < GB)
+    {
+        metricValue = B_TO_MB(value);
+        format = [NSString stringWithFormat:@"%@ MB", specifier];
+    }
+    else if (absValue >= GB && absValue < TB)
+    {
+        metricValue = B_TO_GB(value);
+        format = [NSString stringWithFormat:@"%@ GB", specifier];
+    }
+    else
+    {
+        metricValue = B_TO_TB(value);
+        format = [NSString stringWithFormat:@"%@ TB", specifier];
+    }
+    
+    return [NSString stringWithFormat:format, metricValue];
+}
+
 + (BOOL)isIPad
 {
     return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;

@@ -52,7 +52,7 @@ enum {
     [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]]];
     
     AppDelegate *app = [AppDelegate sharedDelegate];
-    [self.totalRamLabel setText:[NSString stringWithFormat:@"%0.0f MB", KB_TO_MB(app.iDevice.ramInfo.totalRam)]];
+    [self.totalRamLabel setText:[AMUtils toNearestMetric:(uint64_t)app.iDevice.ramInfo.totalRam desiredFraction:0]];
     [self.ramTypeLabel setText:app.iDevice.ramInfo.ramType];
     
     self.ramUsageGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, 703.0f, 200.0f)];
@@ -108,10 +108,10 @@ enum {
 
 - (void)updateUsageLabels:(RAMUsage*)usage
 {
-    [self.wiredRamLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(usage.wiredRam)]];
-    [self.activeRamLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(usage.activeRam)]];
-    [self.inactiveRamLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(usage.inactiveRam)]];
-    [self.freeRamLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(usage.freeRam)]];
+    [self.wiredRamLabel setText:[AMUtils toNearestMetric:usage.wiredRam desiredFraction:1]];
+    [self.activeRamLabel setText:[AMUtils toNearestMetric:usage.activeRam desiredFraction:1]];
+    [self.inactiveRamLabel setText:[AMUtils toNearestMetric:usage.inactiveRam desiredFraction:1]];
+    [self.freeRamLabel setText:[AMUtils toNearestMetric:usage.freeRam desiredFraction:1]];
     [self.pageInsLabel setText:[NSString stringWithFormat:@"%lld", usage.pageIns]];
     [self.pageOutsLabel setText:[NSString stringWithFormat:@"%lld", usage.pageOuts]];
     [self.pageFaultsLabel setText:[NSString stringWithFormat:@"%lld", usage.pageFaults]];

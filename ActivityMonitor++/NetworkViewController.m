@@ -118,10 +118,10 @@ enum {
 
 - (void)updateBandwidthLabels:(NetworkBandwidth*)bandwidth
 {
-    [self.totalWiFiDownloadsLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(bandwidth.totalWiFiReceived)]];
-    [self.totalWiFiUploadsLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(bandwidth.totalWiFiSent)]];
-    [self.totalWWANDownloadsLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(bandwidth.totalWWANReceived)]];
-    [self.totalWWANUploadsLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(bandwidth.totalWWANSent)]];
+    [self.totalWiFiDownloadsLabel setText:[AMUtils toNearestMetric:bandwidth.totalWiFiReceived desiredFraction:1]];
+    [self.totalWiFiUploadsLabel setText:[AMUtils toNearestMetric:bandwidth.totalWiFiSent desiredFraction:1]];
+    [self.totalWWANDownloadsLabel setText:[AMUtils toNearestMetric:bandwidth.totalWWANReceived desiredFraction:1]];
+    [self.totalWWANUploadsLabel setText:[AMUtils toNearestMetric:bandwidth.totalWWANSent desiredFraction:1]];
 }
 
 #pragma mark - Table view data source

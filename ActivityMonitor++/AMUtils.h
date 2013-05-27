@@ -13,6 +13,7 @@
 #define B_TO_KB(a)      ((a) / 1024.0f)
 #define B_TO_MB(a)      (B_TO_KB(a) / 1024.0f)
 #define B_TO_GB(a)      (B_TO_MB(a) / 1024.0f)
+#define B_TO_TB(a)      (B_TO_GB(a) / 1024.0f)
 #define KB_TO_MB(a)     ((a) / 1024.0f)
 #define KB_TO_GB(a)     (KB_TO_MB(a) / 1024.0f)
 
@@ -29,6 +30,8 @@
 + (float)valuePercentFrom:(float)from to:(float)to value:(float)value;
 
 + (CGFloat)random;
+
++ (NSString*)toNearestMetric:(uint64_t)value desiredFraction:(NSUInteger)fraction;
 
 + (BOOL)isIPad;
 + (BOOL)isIPhone;

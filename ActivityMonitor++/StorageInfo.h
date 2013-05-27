@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface StorageInfo : NSObject
-@property (assign, nonatomic) CGFloat       totalSapce;
-@property (assign, nonatomic) CGFloat       usedSpace;
-@property (assign, nonatomic) CGFloat       freeSpace;
+@property (assign, nonatomic) uint64_t      totalSapce;
+@property (assign, nonatomic) uint64_t      usedSpace;
+@property (assign, nonatomic) uint64_t      freeSpace;
 
 @property (assign, nonatomic) NSUInteger    songCount;
 @property (assign, nonatomic) NSUInteger    pictureCount;
