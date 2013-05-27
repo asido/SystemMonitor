@@ -29,8 +29,8 @@
 @property (assign, nonatomic) GLfloat           drawableGlassX;
 @property (assign, nonatomic) GLfloat           drawableGlassWidth;
 
-@property (assign, nonatomic) GLfloat           fromValue;
-@property (assign, nonatomic) GLfloat           toValue;
+@property (assign, nonatomic) double            fromValue;
+@property (assign, nonatomic) double            toValue;
 @property (assign, nonatomic) GLfloat           currentPercentage;
 
 @property (assign, nonatomic) GLuint            glVertexArrayTubeLeft;
@@ -110,7 +110,7 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
 
 #pragma mark - public
 
-- (id)initWithGLKView:(GLKView*)aGLView fromValue:(float)from toValue:(float)to
+- (id)initWithGLKView:(GLKView*)aGLView fromValue:(double)from toValue:(double)to
 {
     if (self = [super init])
     {
@@ -141,7 +141,7 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
     return self;
 }
 
-- (void)setValue:(CGFloat)value
+- (void)setValue:(double)value
 {
     assert(value >= self.fromValue && value <= self.toValue);
     self.currentPercentage = [AMUtils valuePercentFrom:self.fromValue to:self.toValue value:value];

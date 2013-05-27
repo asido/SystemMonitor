@@ -65,7 +65,7 @@
     self.glGraph = [[GLLineGraph alloc] initWithGLKView:self.cpuUsageGLView
                                           dataLineCount:1
                                               fromValue:0.0f toValue:100.0f
-                                                legends:[NSArray arrayWithObjects:@"0%", @"50%", @"100%", nil]];
+                                                topLegend:@"100%"];
     self.glGraph.preferredFramesPerSecond = kCpuLoadUpdateFrequency;
     
     [app.cpuInfoCtrl setCPULoadHistorySize:[self.glGraph requiredElementToFillGraph]];

@@ -63,7 +63,7 @@ enum {
                                           dataLineCount:1
                                               fromValue:0.0f
                                                 toValue:app.iDevice.ramInfo.totalRam
-                                                legends:[NSArray arrayWithObject:@"RAM used:"]];
+                                                topLegend:[AMUtils toNearestMetric:(uint64_t)app.iDevice.ramInfo.totalRam desiredFraction:0]];
     self.glGraph.preferredFramesPerSecond = kRamUsageUpdateFrequency;
     
     [app.ramInfoCtrl setRAMUsageHistorySize:[self.glGraph requiredElementToFillGraph]];

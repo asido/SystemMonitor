@@ -45,7 +45,7 @@
     CGContextRef imageContext = CGBitmapContextCreate(NULL, textureSize.width, textureSize.height, 8,
                                                       textureSize.width * 4, // 4 elements per pixel (RGBA)
                                                       rgbColorSpace,
-                                                      kCGBitmapByteOrderDefault|kCGImageAlphaPremultipliedFirst);
+                                                      kCGBitmapByteOrder32Little|kCGImageAlphaPremultipliedFirst);
     UIGraphicsPushContext(imageContext);
     
     CGContextSetFillColorWithColor(imageContext, color.CGColor);

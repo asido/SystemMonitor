@@ -146,13 +146,13 @@
     return val;
 }
 
-+ (float)percentageValueFromMax:(float)max min:(float)min percent:(float)percent
++ (double)percentageValueFromMax:(double)max min:(double)min percent:(float)percent
 {
     assert(max > min);
     return min + ((max - min) / 100 * percent);
 }
 
-+ (float)valuePercentFrom:(float)from to:(float)to value:(float)value
++ (float)valuePercentFrom:(double)from to:(double)to value:(double)value
 {
     assert(from < to);
     

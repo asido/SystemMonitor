@@ -60,7 +60,7 @@ enum {
     self.networkGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, 703.0f, 200.0f)];
     self.networkGLView.opaque = NO;
     self.networkGLView.backgroundColor = [UIColor clearColor];
-    self.networkGraph = [[GLLineGraph alloc] initWithGLKView:self.networkGLView dataLineCount:2 fromValue:0.0f toValue:100.0f legends:[NSArray arrayWithObject:@"WiFi"]];
+    self.networkGraph = [[GLLineGraph alloc] initWithGLKView:self.networkGLView dataLineCount:2 fromValue:0.0f toValue:100.0f topLegend:@"0 B/s"];
     self.networkGraph.preferredFramesPerSecond = kNetworkUpdateFrequency;
 
     AppDelegate *app = [AppDelegate sharedDelegate];

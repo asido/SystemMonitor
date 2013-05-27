@@ -19,9 +19,9 @@
 @property (assign, nonatomic) BOOL          initialized;
 
 @property (assign, nonatomic) NSUInteger    dataLineCount;
-@property (assign, nonatomic) float         fromValue;
-@property (assign, nonatomic) float         toValue;
-@property (strong, nonatomic) NSArray       *legendStrings; // NSString* array
+@property (assign, nonatomic) double         fromValue;
+@property (assign, nonatomic) double         toValue;
+@property (strong, nonatomic) NSString      *legend;
 
 @property (strong, nonatomic) GLKView       *glView;
 @property (assign, nonatomic) GLfloat       aspectRatio;
@@ -72,7 +72,7 @@
 @synthesize dataLineCount=_dataLineCount;
 @synthesize fromValue=_fromValue;
 @synthesize toValue=_toValue;
-@synthesize legendStrings=_legendStrings;
+@synthesize legend=_legend;
 
 @synthesize glView=_glView;
 @synthesize aspectRatio;
@@ -93,6 +93,8 @@
 
 @synthesize glVertexArrayLegends=_glVertexArrayLegends;
 @synthesize glBufferLegends=_glBufferLegends;
+
+static const GLfloat kFontScaleMultiplier   = 1.0f / 24.0f;
 
 static const GLfloat kProjectionLeft        = -10.0f;
 static const GLfloat kProjectionRight       =  10.0f;
@@ -133,16 +135,16 @@ static VertexData_t dataBlur[] = {
 
 - (id)initWithGLKView:(GLKView*)aGLView
         dataLineCount:(NSUInteger)count
-            fromValue:(float)from
-              toValue:(float)to
-              legends:(NSArray*)legends
+            fromValue:(double)from
+              toValue:(double)to
+            topLegend:(NSString*)aLegend
 {
     if (self = [super init])
     {
         self.dataLineCount = count;
         self.fromValue = from;
         self.toValue = to;
-        self.legendStrings = legends;
+        self.legend = aLegend;
                 
         self.glView = aGLView;
         self.view = self.glView;
@@ -190,6 +192,18 @@ static VertexData_t dataBlur[] = {
         GLDataLine *dataLine = [self.dataLines objectAtIndex:i];
         [dataLine addLineDataValue:percent];
     }
+}
+
+- (void)setTopLegend:(NSString*)aLegend
+{
+    self.legend = aLegend;
+    UIImage *img = [GLCommon imageWithText:self.legend font:[UIFont fontWithName:@"Verdana" size:16.0f] color:[UIColor lightTextColor]];
+    self.legendsTexture = [GLKTextureLoader textureWithCGImage:img.CGImage options:nil error:NULL];
+}
+
+- (void)setTopValue:(double)value
+{
+    self.toValue = value;
 }
 
 - (void)resetDataArray:(NSArray*)dataArray
@@ -289,16 +303,12 @@ static VertexData_t dataBlur[] = {
     [EAGLContext setCurrentContext:self.glView.context];
     
     glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE);
     
     self.effect = [[GLKBaseEffect alloc] init];
     self.effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -5.0f);
     
-    /* Textures */
-    UIImage *img = [GLCommon imageWithText:@"Test" font:[UIFont fontWithName:@"Helvetica" size:84.0f] color:[UIColor redColor]];
-    self.legendsTexture = [GLKTextureLoader textureWithCGImage:img.CGImage options:nil error:NULL];
-    self.effect.texture2d0.name = self.legendsTexture.name;
-    self.effect.texture2d0.target = self.legendsTexture.target;
+    [self setTopLegend:self.legend];
     
     self.blurEffect = [[GLBlurEffect alloc] init];
     
@@ -306,11 +316,7 @@ static VertexData_t dataBlur[] = {
 }
 
 - (void)setupVBOs
-{
-    /* VBO */
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindVertexArrayOES(0);
-    
+{    
     /*
      * Blur VBO.
      */
@@ -350,7 +356,7 @@ static VertexData_t dataBlur[] = {
     }
     
     /*
-     * Legend lines VBO.
+     * Legend VBO.
      */
     {
         glGenVertexArraysOES(1, &_glVertexArrayLegends);
@@ -367,9 +373,6 @@ static VertexData_t dataBlur[] = {
         glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE,
                               sizeof(VertexData_t), NULL + offsetof(VertexData_t, textureCoords));
         glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
-        
-        
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
         
         GL_CHECK_ERROR();
     }
@@ -562,13 +565,15 @@ static VertexData_t dataBlur[] = {
 
 - (void)renderLegends
 {
+    GLfloat x = self.graphRight - (self.legendsTexture.width * 0.12);
+    GLfloat y = self.graphTop;
     GLfloat aspect = fabsf((GLfloat)self.legendsTexture.width / (GLfloat)self.legendsTexture.height);
-    GLfloat xScale = self.legendsTexture.width / 60.0f * aspect;
-    GLfloat yScale = self.legendsTexture.height / 60.0f;
+    GLfloat xScale = self.legendsTexture.width * kFontScaleMultiplier * aspect;
+    GLfloat yScale = self.legendsTexture.height * kFontScaleMultiplier;
     
     glBindVertexArrayOES(self.glVertexArrayLegends);
     
-    GLKVector3 position = GLKVector3Make(0.0f, self.graphBottom, kModelZ);
+    GLKVector3 position = GLKVector3Make(x, y, kModelZ);
     GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
     GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, yScale, 1.0f);
     GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
@@ -577,7 +582,7 @@ static VertexData_t dataBlur[] = {
     self.effect.useConstantColor = GL_FALSE;
     self.effect.texture2d0.enabled = GL_TRUE;
     self.effect.texture2d0.name = self.legendsTexture.name;
-    self.effect.texture2d0.target = self.legendsTexture.target;
+    self.effect.texture2d0.target = GLKTextureTarget2D;
     self.effect.texture2d0.envMode = GLKTextureEnvModeReplace;
     [self.effect prepareToDraw];
 
@@ -611,8 +616,8 @@ static VertexData_t dataBlur[] = {
     glClear(GL_COLOR_BUFFER_BIT);
     
     [self renderReferenceLines];
-    [self renderLegends];
     [self renderDataCurve];
+    [self renderLegends];
 }
 
 @end

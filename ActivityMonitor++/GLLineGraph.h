@@ -19,11 +19,13 @@
 
 - (id)initWithGLKView:(GLKView*)aGLView
         dataLineCount:(NSUInteger)count
-            fromValue:(float)from
-              toValue:(float)to
-              legends:(NSArray*)legends;
+            fromValue:(double)from
+              toValue:(double)to
+              topLegend:(NSString*)aLegend;
 
 - (void)addDataValue:(NSArray*)data;
+- (void)setTopLegend:(NSString*)aLegend;
+- (void)setTopValue:(double)value;
 - (void)resetDataArray:(NSArray*)dataArray;
 - (NSUInteger)requiredElementToFillGraph;
 @end

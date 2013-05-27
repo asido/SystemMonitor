@@ -75,7 +75,7 @@ static const GLfloat kDataLineShiftSize     = 0.15f;
     free(_dataLineData);
 }
 
-- (void)addLineDataValue:(float)value
+- (void)addLineDataValue:(double)value
 {
     GLfloat vX = self.dataLineDataNextX++;
     GLfloat vY = [AMUtils percentageValueFromMax:self.graph.graphTop min:self.graph.graphBottom percent:value];
