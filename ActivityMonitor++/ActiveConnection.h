@@ -25,4 +25,7 @@ typedef enum {
 
 @property (assign, nonatomic) ConnectionStatus_t    status;
 @property (strong, nonatomic) NSString              *statusString;
+
+@property (assign, nonatomic) CGFloat               totalTX;
+@property (assign, nonatomic) CGFloat               totalRX;
 @end

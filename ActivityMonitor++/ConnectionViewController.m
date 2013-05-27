@@ -124,9 +124,11 @@
 {
     enum {
         TAG_LOCAL_ADDRESS_LABEL=1,
-        TAG_REMOTE_ADDRESS_LABEL,
-        TAG_STATUS_IMAGEVIEW,
-        TAG_STATUS_LABEL
+        TAG_REMOTE_ADDRESS_LABEL=2,
+        TAG_STATUS_IMAGEVIEW=3,
+        TAG_STATUS_LABEL=4,
+        TAG_TX_LABEL=5,
+        TAG_RX_LABEL=6
     };
     
     static NSString *CellIdentifier = @"ConnectionCell";
@@ -143,6 +145,8 @@
     UILabel     *remoteAddressLabel = (UILabel*)    [cell viewWithTag:TAG_REMOTE_ADDRESS_LABEL];
     UIImageView *statusImageView    = (UIImageView*)[cell viewWithTag:TAG_STATUS_IMAGEVIEW];
     UILabel     *statusLabel        = (UILabel*)    [cell viewWithTag:TAG_STATUS_LABEL];
+    UILabel     *txLabel            = (UILabel*)    [cell viewWithTag:TAG_TX_LABEL];
+    UILabel     *rxLabel            = (UILabel*)    [cell viewWithTag:TAG_RX_LABEL];
     
     NSString *key = [[self.activeConnections allKeys] objectAtIndex:indexPath.section];
     NSArray *connections = [self.activeConnections objectForKey:key];
@@ -168,6 +172,8 @@
             break;
     }
     [statusLabel setText:connection.statusString];
+    [txLabel setText:[NSString stringWithFormat:@"%0.1f KB", connection.totalTX]];
+    [rxLabel setText:[NSString stringWithFormat:@"%0.1f KB", connection.totalRX]];
     
     return cell;
 }

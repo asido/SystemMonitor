@@ -98,7 +98,6 @@ struct xsockstat_n {
     u_int32_t           xst_kind;   // XSO_STATS
 #define SO_TC_STATS_MAX 4
     struct data_stats   xst_tc_stats[SO_TC_STATS_MAX];
-#undef SO_TC_STATS_MAX
 };
 
 

@@ -19,4 +19,7 @@
 
 @synthesize status;
 @synthesize statusString;
+
+@synthesize totalTX;
+@synthesize totalRX;
 @end

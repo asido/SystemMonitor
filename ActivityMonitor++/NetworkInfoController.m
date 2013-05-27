@@ -756,6 +756,13 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
             connection.statusString = @"";
         }
         connection.status = [self connectionStatusFromState:connection.statusString];
+        
+        for (NSUInteger i = 0; i < SO_TC_STATS_MAX; ++i)
+        {
+            connection.totalRX += B_TO_KB(so_stat->xst_tc_stats[i].rxbytes);
+            connection.totalTX += B_TO_KB(so_stat->xst_tc_stats[i].txbytes);
+        }
+        
         [result addObject:connection];
     }
     
