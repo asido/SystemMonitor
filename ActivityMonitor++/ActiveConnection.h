@@ -8,7 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    CONNECTION_STATUS_ESTABLISHED,
+    CONNECTION_STATUS_CLOSED,
+    CONNECTION_STATUS_OTHER
+} ConnectionStatus_t;
+
 @interface ActiveConnection : NSObject
-@property (strong, nonatomic) NSString  *localAddress;
-@property (strong, nonatomic) NSString  *foreignAddress;
+@property (strong, nonatomic) NSString              *localIP;
+@property (strong, nonatomic) NSString              *localPort;
+@property (strong, nonatomic) NSString              *localPortService;
+
+@property (strong, nonatomic) NSString              *remoteIP;
+@property (strong, nonatomic) NSString              *remotePort;
+@property (strong, nonatomic) NSString              *remotePortService;
+
+@property (assign, nonatomic) ConnectionStatus_t    status;
+@property (strong, nonatomic) NSString              *statusString;
 @end

@@ -58,7 +58,7 @@ struct xsocket_n {
     u_int32_t   xso_kind;   // XSO_SOCKET
     u_int64_t   xso_so;     // Makes a convenient handle.
     short       so_type;
-    short       so_options;
+    u_int32_t   so_options;
     short       so_linger;
     short       so_state;
     u_int64_t   so_pcb;     // Another convenient handle.
@@ -145,6 +145,7 @@ struct xinpcb_n {
         u_short     inp6_ifindex;
         short       inp6_hops;
     } inp_depend6;
+    u_int32_t   inp_flowhash;
 };
 // These defines are for use with the inpcb.
 #define INP_IPV4        0x1

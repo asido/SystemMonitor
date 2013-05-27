@@ -21,7 +21,10 @@
 @property (strong, nonatomic) NSMutableArray                    *networkBandwidthHistory;
 
 - (NetworkInfo*)getNetworkInfo;
+
 - (void)startNetworkBandwidthUpdatesWithFrequency:(NSUInteger)frequency;
 - (void)stopNetworkBandwidthUpdates;
 - (void)setNetworkBandwidthHistorySize:(NSUInteger)size;
+
+- (NSArray*)getActiveConnections;
 @end

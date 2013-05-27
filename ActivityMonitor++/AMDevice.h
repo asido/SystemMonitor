@@ -28,8 +28,10 @@
 @property (readonly) NSArray        *processes;
 @property (readonly) RAMInfo        *ramInfo;
 @property (readonly) NetworkInfo    *networkInfo;
+@property (readonly) NSArray        *activeConnections;
 @property (readonly) StorageInfo    *storageInfo;
 @property (readonly) BatteryInfo    *batteryInfo;
 
 - (void)refreshProcesses;
+- (void)refreshActiveConnections;
 @end

@@ -38,7 +38,7 @@ static const NSString *ViewCtrlIdentifiers[] = {
     [VIEW_CTRL_RAM]         = @"RAMViewController",
     [VIEW_CTRL_GPU]         = @"GPUViewController",
     [VIEW_CTRL_NETWORK]     = @"NetworkViewController",
-    [VIEW_CTRL_CONNECTIONS] = @"TODO",
+    [VIEW_CTRL_CONNECTIONS] = @"ConnectionViewController",
     [VIEW_CTRL_STORAGE]     = @"StorageViewController",
     [VIEW_CTRL_BATTERY]     = @"BatteryViewController"
 };

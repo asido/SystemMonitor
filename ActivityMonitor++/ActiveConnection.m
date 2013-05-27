@@ -9,6 +9,14 @@
 #import "ActiveConnection.h"
 
 @implementation ActiveConnection
-@synthesize localAddress;
-@synthesize foreignAddress;
+@synthesize localIP;
+@synthesize localPort;
+@synthesize localPortService;
+
+@synthesize remoteIP;
+@synthesize remotePort;
+@synthesize remotePortService;
+
+@synthesize status;
+@synthesize statusString;
 @end

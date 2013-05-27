@@ -24,6 +24,7 @@
 #import "AMLog.h"
 #import "AMUtils.h"
 #import "AMDevice.h"
+#import "ActiveConnection.h"
 #import "NetworkBandwidth.h"
 #import "NetworkInfoController.h"
 
@@ -59,10 +60,13 @@ typedef enum {
 
 - (void)pushNetworkBandwidth:(NetworkBandwidth*)bandwidth;
 
-- (void)printActiveConnectionsOfType:(ConnectionType_t)connectionType;
+- (NSArray*)getActiveConnectionsOfType:(ConnectionType_t)connectionType;
 - (NSString*)ipToString:(struct in_addr *)in;
 - (NSString*)portToString:(int)port;
+- (NSString*)portToServiceName:(int)port connectionType:(ConnectionType_t)connectionType;
 - (NSString*)stateToString:(int)state;
+- (NSString*)stateStringPostfix:(u_int)connectionFlags;
+- (ConnectionStatus_t)connectionStatusFromState:(NSString*)stateString;
 @end
 
 @implementation NetworkInfoController
@@ -104,41 +108,7 @@ static NSString *kInterfaceNone = @"";
 
 - (NetworkInfo*)getNetworkInfo
 {
-    /*
-    size_t len = 0;
-    if (sysctlbyname("net.inet.tcp.pcblist", 0, &len, 0, 0) < 0)
-    {
-        NSLog(@"sysctlbyname pcblist has failed.");
-    }
-    else
-    {
-        char *buf = malloc(len);
-        if (sysctlbyname("net.inet.tcp.pcblist", buf, &len, 0, 0) < 0)
-        {
-            NSLog(@"sysctlbyname pcblist has failed (2)");
-        }
-        else
-        {
-            typedef u_quad_t inp_gen_t;
-            typedef u_quad_t so_gen_t;
-            struct xinpgen {
-                u_int32_t   xig_len;
-                u_int       xig_count;
-                inp_gen_t   xig_gen;
-                so_gen_t    xig_sogen;
-            };
-            struct xinpgen *xin = (struct xinpgen *)buf;
-            NSData *data = [NSData dataWithBytesNoCopy:buf length:len];
-            NSLog(@"%@", data);
-        }
-    }
-     */    
-    
     self.networkInfo = [self populateNetworkInfo];
-    
-    [self printActiveConnectionsOfType:CONNECTION_TYPE_TCP4];
-    [self printActiveConnectionsOfType:CONNECTION_TYPE_UDP4];
-    
     return self.networkInfo;
 }
 
@@ -162,6 +132,16 @@ static NSString *kInterfaceNone = @"";
 - (void)setNetworkBandwidthHistorySize:(NSUInteger)size
 {
     self.bandwidthHistorySize = size;
+}
+
+- (NSArray*)getActiveConnections
+{
+    NSArray *tcpConnections = [self getActiveConnectionsOfType:CONNECTION_TYPE_TCP4];
+    //NSArray *udpConnections = [self getActiveConnectionsOfType:CONNECTION_TYPE_UDP4];
+    
+    NSMutableSet *set = [NSMutableSet setWithArray:tcpConnections];
+    //[set addObjectsFromArray:udpConnections];
+    return [set allObjects];
 }
 
 #pragma mark - private
@@ -619,9 +599,8 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
 #import "bsd_var.h"
 
-- (void)printActiveConnectionsOfType:(ConnectionType_t)connectionType
+- (NSArray*)getActiveConnectionsOfType:(ConnectionType_t)connectionType
 {
-    BOOL                istcp;
     uint32_t            proto;
     char                *mib;
     char                *buf, *next;
@@ -635,10 +614,10 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     struct xsockbuf_n   *so_snd = NULL;
     struct xsockstat_n  *so_stat = NULL;
     int                 which = 0;
+    NSMutableArray      *result = [[NSMutableArray alloc] init];
     
     switch (connectionType) {
         case CONNECTION_TYPE_TCP4:
-            istcp = YES;
             proto = IPPROTO_TCP;
             mib = "net.inet.tcp.pcblist_n";
             break;
@@ -648,34 +627,34 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
             break;
         default:
             AMWarn(@"unknown connection type: %d", connectionType);
-            return;
+            return result;
     }
     
     if (sysctlbyname(mib, 0, &len, 0, 0) < 0)
     {
         AMWarn(@"sysctlbyname() for len has failed with mib: %s.", mib);
-        return;
+        return result;
     }
     
     buf = malloc(len);
     if (!buf)
     {
         AMWarn(@"malloc() for buf has failed with mib: %s.", mib);
-        return;
+        return result;
     }
     
     if (sysctlbyname(mib, buf, &len, 0, 0) < 0)
     {
         AMWarn(@"sysctlbyname() for buf has failed with mib: %s.", mib);
         free(buf);
-        return;
+        return result;
     }
     
     // Bail-out if there is no more control block to process.
     if (len <= sizeof(struct xinpgen))
     {
         free(buf);
-        return;
+        return result;
     }
     
 #define ROUNDUP64(a)    \
@@ -723,8 +702,8 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
             AMWarn(@"got %d twice.", xgn->xgn_kind);
         }
         
-        if ((istcp && which != ALL_XGN_KIND_TCP) ||
-            (!istcp && which != ALL_XGN_KIND_INP))
+        if ((connectionType == CONNECTION_TYPE_TCP4 && which != ALL_XGN_KIND_TCP) ||
+            (connectionType != CONNECTION_TYPE_TCP4 && which != ALL_XGN_KIND_INP))
         {
             continue;
         }
@@ -747,29 +726,41 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
             continue;
         }
         
+        // Ignore when both local and remote IPs are LOOPBACK.
+        if (ntohl(inp->inp_laddr.s_addr) == INADDR_LOOPBACK &&
+            ntohl(inp->inp_faddr.s_addr) == INADDR_LOOPBACK)
+        {
+            continue;
+        }
+        
         /* 
          * Local address is not an indication of listening socket or server socket,
          * but just rather the socket has been bound.
          * Thats why many UDP sockets were not displayed in the original code.
          */
-    
-        //const char *vchar = ((inp->inp_vflag & INP_IPV4) != 0) ? "4" : " ";
-        if (inp->inp_vflag & INP_IPV4)
+        
+        ActiveConnection *connection = [[ActiveConnection alloc] init];
+        connection.localIP = [self ipToString:&inp->inp_laddr];
+        connection.localPort = [self portToString:(int)inp->inp_lport];
+        connection.localPortService = [self portToServiceName:(int)inp->inp_lport connectionType:connectionType];
+        connection.remoteIP = [self ipToString:&inp->inp_faddr];
+        connection.remotePort = [self portToString:(int)inp->inp_fport];
+        connection.remotePortService = [self portToServiceName:(int)inp->inp_fport connectionType:connectionType];
+        if (connectionType == CONNECTION_TYPE_TCP4)
         {
-            NSString *localIP = [self ipToString:&inp->inp_laddr];
-            NSString *remoteIP = [self ipToString:&inp->inp_faddr];
-            NSString *localPort = [self portToString:(int)inp->inp_lport];
-            NSString *remotePort = [self portToString:(int)inp->inp_fport];
-            NSString *status = [self stateToString:tp->t_state];
-            if (tp->t_flags & (TF_NEEDSYN|TF_NEEDFIN))
-            {
-                status = [NSString stringWithFormat:@"%@*", status];
-            }
-            struct servent *ls = getservbyport((int)inp->inp_lport, "tcp");
-            struct servent *fs = getservbyport((int)inp->inp_fport, "tcp");
-            NSLog(@"(%@) Local IP: %@:%@ | Remote IP: %@:%@ | Status: %@ | Type: %s | %s", (istcp ? @"TCP" : @"UDP"), localIP, localPort, remoteIP, remotePort, status, (ls ? ls->s_name : "none"), (fs ? fs->s_name : "none"));
+            connection.statusString = [self stateToString:tp->t_state];
+            connection.statusString = [NSString stringWithFormat:@"%@%@", connection.statusString, [self stateStringPostfix:tp->t_flags]];
         }
+        else
+        {
+            connection.statusString = @"";
+        }
+        connection.status = [self connectionStatusFromState:connection.statusString];
+        [result addObject:connection];
     }
+    
+    free(buf);
+    return result;
 }
 
 - (NSString*)ipToString:(struct in_addr *)in
@@ -795,9 +786,71 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     return (port == 0 ? @"*" : [NSString stringWithFormat:@"%d", port]);
 }
 
+- (NSString*)portToServiceName:(int)port connectionType:(ConnectionType_t)connectionType
+{
+    NSString *serviceName = @"";
+    struct servent *servent;
+    const char *proto;
+    
+    if (connectionType == CONNECTION_TYPE_TCP4)
+    {
+        proto = "tcp";
+    }
+    else if (connectionType == CONNECTION_TYPE_UDP4)
+    {
+        proto = "udp";
+    }
+    else
+    {
+        AMWarn(@"unknown connection type: %d", connectionType);
+        return serviceName;
+    }
+    
+    servent = getservbyport(port, proto);
+    
+    if (!servent)
+    {
+        return serviceName;
+    }
+    
+    serviceName = [NSString stringWithCString:servent->s_name encoding:NSASCIIStringEncoding];
+    return serviceName;
+}
+
 - (NSString*)stateToString:(int)state
 {
     return [NSString stringWithCString:tcpstates[state] encoding:NSASCIIStringEncoding];
+}
+
+- (NSString*)stateStringPostfix:(u_int)connectionFlags
+{
+    if (connectionFlags & (TF_NEEDSYN|TF_NEEDFIN))
+    {
+        return @"*";
+    }
+
+    return @"";
+}
+
+- (ConnectionStatus_t)connectionStatusFromState:(NSString*)stateString
+{
+    if (stateString.length == 0)
+    {
+        // UDP has no status. Interpret it as active.
+        return CONNECTION_STATUS_ESTABLISHED;
+    }
+    else if ([stateString hasPrefix:@"ESTABLISHED"])
+    {
+        return CONNECTION_STATUS_ESTABLISHED;
+    }
+    else if ([stateString hasPrefix:@"CLOSED"])
+    {
+        return CONNECTION_STATUS_CLOSED;
+    }
+    else
+    {
+        return CONNECTION_STATUS_OTHER;
+    }
 }
 
 @end

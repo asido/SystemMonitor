@@ -112,9 +112,9 @@ enum {
     [self.activeRamLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(usage.activeRam)]];
     [self.inactiveRamLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(usage.inactiveRam)]];
     [self.freeRamLabel setText:[NSString stringWithFormat:@"%0.1f MB", KB_TO_MB(usage.freeRam)]];
-    [self.pageInsLabel setText:[NSString stringWithFormat:@"%d", usage.pageIns]];
-    [self.pageOutsLabel setText:[NSString stringWithFormat:@"%d", usage.pageOuts]];
-    [self.pageFaultsLabel setText:[NSString stringWithFormat:@"%d", usage.pageFaults]];
+    [self.pageInsLabel setText:[NSString stringWithFormat:@"%lld", usage.pageIns]];
+    [self.pageOutsLabel setText:[NSString stringWithFormat:@"%lld", usage.pageOuts]];
+    [self.pageFaultsLabel setText:[NSString stringWithFormat:@"%lld", usage.pageFaults]];
 }
 
 #pragma mark - Table view data source

@@ -57,6 +57,15 @@
 		70AF61351739255700EF49E9 /* CPUInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF61341739255700EF49E9 /* CPUInfoController.m */; };
 		70AF613A17392CE600EF49E9 /* AMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF613917392CE600EF49E9 /* AMUtils.m */; };
 		70AF613D173965D500EF49E9 /* RootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF613C173965D500EF49E9 /* RootTableViewController.m */; };
+		70C150B817536FFE009BEB11 /* ConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C150B717536FFE009BEB11 /* ConnectionViewController.m */; };
+		70C150BA17537380009BEB11 /* ConnectionCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C150B917537380009BEB11 /* ConnectionCell@2x.png */; };
+		70C150BD1753739A009BEB11 /* ConnectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C150BC1753739A009BEB11 /* ConnectionCell.m */; };
+		70C150C117537760009BEB11 /* GreenCircle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C150BE17537760009BEB11 /* GreenCircle@2x.png */; };
+		70C150C217537760009BEB11 /* OrangeCircle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C150BF17537760009BEB11 /* OrangeCircle@2x.png */; };
+		70C150C317537760009BEB11 /* RedCircle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C150C017537760009BEB11 /* RedCircle@2x.png */; };
+		70C150C71753B770009BEB11 /* ConnectionSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70C150C61753B770009BEB11 /* ConnectionSectionView.xib */; };
+		70C150CA1753B7D0009BEB11 /* ConnectionSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C150C91753B7D0009BEB11 /* ConnectionSectionView.m */; };
+		70C150D21753BDA0009BEB11 /* ConnectionsSectionBackground-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C150D11753BD9F009BEB11 /* ConnectionsSectionBackground-60@2x.png */; };
 		70C2E9231739BAA8008CB1B1 /* AMUtils_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9221739BAA8008CB1B1 /* AMUtils_Tests.m */; };
 		70C2E9261739C7B7008CB1B1 /* GeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */; };
 		70C2E9291739C8D2008CB1B1 /* AMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9281739C8D2008CB1B1 /* AMDevice.m */; };
@@ -192,6 +201,18 @@
 		70AF613917392CE600EF49E9 /* AMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtils.m; sourceTree = "<group>"; };
 		70AF613B173965D400EF49E9 /* RootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTableViewController.h; sourceTree = "<group>"; };
 		70AF613C173965D500EF49E9 /* RootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTableViewController.m; sourceTree = "<group>"; };
+		70C150B617536FFE009BEB11 /* ConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionViewController.h; sourceTree = "<group>"; };
+		70C150B717536FFE009BEB11 /* ConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionViewController.m; sourceTree = "<group>"; };
+		70C150B917537380009BEB11 /* ConnectionCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ConnectionCell@2x.png"; sourceTree = "<group>"; };
+		70C150BB1753739A009BEB11 /* ConnectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionCell.h; sourceTree = "<group>"; };
+		70C150BC1753739A009BEB11 /* ConnectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionCell.m; sourceTree = "<group>"; };
+		70C150BE17537760009BEB11 /* GreenCircle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GreenCircle@2x.png"; sourceTree = "<group>"; };
+		70C150BF17537760009BEB11 /* OrangeCircle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OrangeCircle@2x.png"; sourceTree = "<group>"; };
+		70C150C017537760009BEB11 /* RedCircle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RedCircle@2x.png"; sourceTree = "<group>"; };
+		70C150C61753B770009BEB11 /* ConnectionSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionSectionView.xib; sourceTree = "<group>"; };
+		70C150C81753B7D0009BEB11 /* ConnectionSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionSectionView.h; sourceTree = "<group>"; };
+		70C150C91753B7D0009BEB11 /* ConnectionSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionSectionView.m; sourceTree = "<group>"; };
+		70C150D11753BD9F009BEB11 /* ConnectionsSectionBackground-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ConnectionsSectionBackground-60@2x.png"; sourceTree = "<group>"; };
 		70C2E9211739BAA8008CB1B1 /* AMUtils_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMUtils_Tests.h; sourceTree = "<group>"; };
 		70C2E9221739BAA8008CB1B1 /* AMUtils_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtils_Tests.m; sourceTree = "<group>"; };
 		70C2E9241739C7B6008CB1B1 /* GeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralViewController.h; sourceTree = "<group>"; };
@@ -486,6 +507,9 @@
 		703D232417381ED80001E3B3 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				70C150BE17537760009BEB11 /* GreenCircle@2x.png */,
+				70C150BF17537760009BEB11 /* OrangeCircle@2x.png */,
+				70C150C017537760009BEB11 /* RedCircle@2x.png */,
 				70340CA41752758F001C1F1A /* TubeTexture-retina.png */,
 				70E4371317526E0200ED3876 /* TubeTexture-nonretina.png */,
 				70E4371B175270F100ED3876 /* BubbleTexture-retina.png */,
@@ -495,11 +519,13 @@
 				70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */,
 				701190D9174D09A900B5D8B1 /* DefaultCell@2x.png */,
 				701190E4174D12C100B5D8B1 /* ProcessCell@2x.png */,
+				70C150B917537380009BEB11 /* ConnectionCell@2x.png */,
 				701190D2174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png */,
 				701190D3174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png */,
 				70D8F456174CEAE6003824E2 /* LineGraphBackground-464@2x.png */,
 				70340CB417527FB6001C1F1A /* TubeBackground-retina@2x.png */,
 				70340CAC17527DB1001C1F1A /* TubeBackground-nonretina@2x.png */,
+				70C150D11753BD9F009BEB11 /* ConnectionsSectionBackground-60@2x.png */,
 				701190F1174D1C5100B5D8B1 /* SettingsIcon@2x.png */,
 				701190F5174D21DB00B5D8B1 /* FilterButton@2x.png */,
 			);
@@ -582,6 +608,7 @@
 				701190FE174D37C500B5D8B1 /* CpuUI */,
 				701190FD174D37BD00B5D8B1 /* GpuUI */,
 				701190FC174D37A100B5D8B1 /* ProcessUI */,
+				70C150B517536FE0009BEB11 /* ConnectionUI */,
 				70FC38F7174F833D0085EBC3 /* BatteryUI */,
 				703D22F3173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard */,
 				703D22F6173818EC0001E3B3 /* MainStoryboard_iPad.storyboard */,
@@ -608,6 +635,20 @@
 				70AF61341739255700EF49E9 /* CPUInfoController.m */,
 			);
 			name = CPU;
+			sourceTree = "<group>";
+		};
+		70C150B517536FE0009BEB11 /* ConnectionUI */ = {
+			isa = PBXGroup;
+			children = (
+				70C150C61753B770009BEB11 /* ConnectionSectionView.xib */,
+				70C150C81753B7D0009BEB11 /* ConnectionSectionView.h */,
+				70C150C91753B7D0009BEB11 /* ConnectionSectionView.m */,
+				70C150BB1753739A009BEB11 /* ConnectionCell.h */,
+				70C150BC1753739A009BEB11 /* ConnectionCell.m */,
+				70C150B617536FFE009BEB11 /* ConnectionViewController.h */,
+				70C150B717536FFE009BEB11 /* ConnectionViewController.m */,
+			);
+			name = ConnectionUI;
 			sourceTree = "<group>";
 		};
 		70D92D5C173B21D800C57DEA /* GPU */ = {
@@ -814,6 +855,12 @@
 				70340CA51752758F001C1F1A /* TubeTexture-retina.png in Resources */,
 				70340CAD17527DB1001C1F1A /* TubeBackground-nonretina@2x.png in Resources */,
 				70340CB517527FB7001C1F1A /* TubeBackground-retina@2x.png in Resources */,
+				70C150BA17537380009BEB11 /* ConnectionCell@2x.png in Resources */,
+				70C150C117537760009BEB11 /* GreenCircle@2x.png in Resources */,
+				70C150C217537760009BEB11 /* OrangeCircle@2x.png in Resources */,
+				70C150C317537760009BEB11 /* RedCircle@2x.png in Resources */,
+				70C150C71753B770009BEB11 /* ConnectionSectionView.xib in Resources */,
+				70C150D21753BDA0009BEB11 /* ConnectionsSectionBackground-60@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -896,6 +943,9 @@
 				70ECE27F1750596C00B1402A /* GLEffect.m in Sources */,
 				70E437101752526F00ED3876 /* DeviceSpecificUI.m in Sources */,
 				70340CB81752A810001C1F1A /* ActiveConnection.m in Sources */,
+				70C150B817536FFE009BEB11 /* ConnectionViewController.m in Sources */,
+				70C150BD1753739A009BEB11 /* ConnectionCell.m in Sources */,
+				70C150CA1753B7D0009BEB11 /* ConnectionSectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

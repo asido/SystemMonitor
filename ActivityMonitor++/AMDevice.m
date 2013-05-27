@@ -27,6 +27,7 @@
     NSArray     *_processes;
     RAMInfo     *_ramInfo;
     NetworkInfo *_networkInfo;
+    NSArray     *_activeConnections;
     StorageInfo *_storageInfo;
     BatteryInfo *_batteryInfo;
 }
@@ -48,6 +49,7 @@
         _processes = [app.processInfoCtrl getProcesses];
         _ramInfo = [app.ramInfoCtrl getRAMInfo];
         _networkInfo = [app.networkInfoCtrl getNetworkInfo];
+        _activeConnections = [app.networkInfoCtrl getActiveConnections];
         _storageInfo = [app.storageInfoCtrl getStorageInfo];
         _batteryInfo = [app.batteryInfoCtrl getBatteryInfo];
     }
@@ -69,12 +71,23 @@
     return _processes;
 }
 
+- (NSArray*)getActiveConnections
+{
+    return _activeConnections;
+}
+
 #pragma mark - public
 
 - (void)refreshProcesses
 {
     AppDelegate *app = [AppDelegate sharedDelegate];
     _processes = [app.processInfoCtrl getProcesses];
+}
+
+- (void)refreshActiveConnections
+{
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    _activeConnections = [app.networkInfoCtrl getActiveConnections];
 }
 
 @end
