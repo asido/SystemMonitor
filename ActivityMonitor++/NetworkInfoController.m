@@ -13,14 +13,24 @@
 #import <sys/types.h>
 #import <sys/socket.h>
 #import <sys/sysctl.h>
+#import <sys/param.h>
 #import <netinet/in.h>
+#import <netinet/tcp.h>
+#import <netinet/in_systm.h>
+#import <netinet/ip.h>
 #import <net/if.h>
 #import <net/if_dl.h>
+#import <netdb.h>
 #import "AMLog.h"
 #import "AMUtils.h"
 #import "AMDevice.h"
 #import "NetworkBandwidth.h"
 #import "NetworkInfoController.h"
+
+typedef enum {
+    CONNECTION_TYPE_TCP4,
+    CONNECTION_TYPE_UDP4
+} ConnectionType_t;
 
 @interface NetworkInfoController()
 @property (strong, nonatomic) NetworkInfo   *networkInfo;
@@ -48,6 +58,11 @@
 - (NetworkBandwidth*)getNetworkBandwidth;
 
 - (void)pushNetworkBandwidth:(NetworkBandwidth*)bandwidth;
+
+- (void)printActiveConnectionsOfType:(ConnectionType_t)connectionType;
+- (NSString*)ipToString:(struct in_addr *)in;
+- (NSString*)portToString:(int)port;
+- (NSString*)stateToString:(int)state;
 @end
 
 @implementation NetworkInfoController
@@ -89,7 +104,42 @@ static NSString *kInterfaceNone = @"";
 
 - (NetworkInfo*)getNetworkInfo
 {
-    return [self populateNetworkInfo];
+    /*
+    size_t len = 0;
+    if (sysctlbyname("net.inet.tcp.pcblist", 0, &len, 0, 0) < 0)
+    {
+        NSLog(@"sysctlbyname pcblist has failed.");
+    }
+    else
+    {
+        char *buf = malloc(len);
+        if (sysctlbyname("net.inet.tcp.pcblist", buf, &len, 0, 0) < 0)
+        {
+            NSLog(@"sysctlbyname pcblist has failed (2)");
+        }
+        else
+        {
+            typedef u_quad_t inp_gen_t;
+            typedef u_quad_t so_gen_t;
+            struct xinpgen {
+                u_int32_t   xig_len;
+                u_int       xig_count;
+                inp_gen_t   xig_gen;
+                so_gen_t    xig_sogen;
+            };
+            struct xinpgen *xin = (struct xinpgen *)buf;
+            NSData *data = [NSData dataWithBytesNoCopy:buf length:len];
+            NSLog(@"%@", data);
+        }
+    }
+     */    
+    
+    self.networkInfo = [self populateNetworkInfo];
+    
+    [self printActiveConnectionsOfType:CONNECTION_TYPE_TCP4];
+    [self printActiveConnectionsOfType:CONNECTION_TYPE_UDP4];
+    
+    return self.networkInfo;
 }
 
 - (void)startNetworkBandwidthUpdatesWithFrequency:(NSUInteger)frequency
@@ -565,6 +615,189 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     {
         [self.networkBandwidthHistory removeObjectAtIndex:0];
     }
+}
+
+#import "bsd_var.h"
+
+- (void)printActiveConnectionsOfType:(ConnectionType_t)connectionType
+{
+    BOOL                istcp;
+    uint32_t            proto;
+    char                *mib;
+    char                *buf, *next;
+    struct xinpgen      *xig, *oxig;
+    struct xgen_n       *xgn;
+    size_t              len;
+    struct xtcpcb_n     *tp = NULL;
+    struct xinpcb_n     *inp = NULL;
+    struct xsocket_n    *so = NULL;
+    struct xsockbuf_n   *so_rcv = NULL;
+    struct xsockbuf_n   *so_snd = NULL;
+    struct xsockstat_n  *so_stat = NULL;
+    int                 which = 0;
+    
+    switch (connectionType) {
+        case CONNECTION_TYPE_TCP4:
+            istcp = YES;
+            proto = IPPROTO_TCP;
+            mib = "net.inet.tcp.pcblist_n";
+            break;
+        case CONNECTION_TYPE_UDP4:
+            proto = IPPROTO_UDP;
+            mib = "net.inet.udp.pcblist_n";
+            break;
+        default:
+            AMWarn(@"unknown connection type: %d", connectionType);
+            return;
+    }
+    
+    if (sysctlbyname(mib, 0, &len, 0, 0) < 0)
+    {
+        AMWarn(@"sysctlbyname() for len has failed with mib: %s.", mib);
+        return;
+    }
+    
+    buf = malloc(len);
+    if (!buf)
+    {
+        AMWarn(@"malloc() for buf has failed with mib: %s.", mib);
+        return;
+    }
+    
+    if (sysctlbyname(mib, buf, &len, 0, 0) < 0)
+    {
+        AMWarn(@"sysctlbyname() for buf has failed with mib: %s.", mib);
+        free(buf);
+        return;
+    }
+    
+    // Bail-out if there is no more control block to process.
+    if (len <= sizeof(struct xinpgen))
+    {
+        free(buf);
+        return;
+    }
+    
+#define ROUNDUP64(a)    \
+    ((a) > 0 ? (1 + (((a) - 1) | (sizeof(uint64_t) - 1))) : sizeof(uint64_t))
+    
+    oxig = xig = (struct xinpgen *)buf;
+    for (next = buf + ROUNDUP64(xig->xig_len); next < buf + len; next += ROUNDUP64(xgn->xgn_len))
+    {
+        xgn = (struct xgen_n *)next;
+        if (xgn->xgn_len <= sizeof(struct xinpgen))
+        {
+            break;
+        }
+        
+        if ((which & xgn->xgn_kind) == 0)
+        {
+            which |= xgn->xgn_kind;
+            
+            switch (xgn->xgn_kind) {
+                case XSO_SOCKET:
+                    so = (struct xsocket_n *)xgn;
+                    break;
+                case XSO_RCVBUF:
+                    so_rcv = (struct xsockbuf_n *)xgn;
+                    break;
+                case XSO_SNDBUF:
+                    so_snd = (struct xsockbuf_n *)xgn;
+                    break;
+                case XSO_STATS:
+                    so_stat = (struct xsockstat_n *)xgn;
+                    break;
+                case XSO_INPCB:
+                    inp = (struct xinpcb_n *)xgn;
+                    break;
+                case XSO_TCPCB:
+                    tp = (struct xtcpcb_n *)xgn;
+                    break;
+                default:
+                    AMWarn(@"unknown kind %d", xgn->xgn_kind);
+                    break;
+            }
+        }
+        else
+        {
+            AMWarn(@"got %d twice.", xgn->xgn_kind);
+        }
+        
+        if ((istcp && which != ALL_XGN_KIND_TCP) ||
+            (!istcp && which != ALL_XGN_KIND_INP))
+        {
+            continue;
+        }
+        
+        which = 0;
+        
+        // Ignore sockets for protocols other than the desired one.
+        if (so->xso_protocol != (int)proto)
+        {
+        //    continue;
+        }
+        // Ignore PCBs which were freed during copyout.
+        if (inp->inp_gencnt > oxig->xig_gen)
+        {
+            continue;
+        }
+        
+        if ((inp->inp_vflag & INP_IPV4) == 0)
+        {
+            continue;
+        }
+        
+        /* 
+         * Local address is not an indication of listening socket or server socket,
+         * but just rather the socket has been bound.
+         * Thats why many UDP sockets were not displayed in the original code.
+         */
+    
+        //const char *vchar = ((inp->inp_vflag & INP_IPV4) != 0) ? "4" : " ";
+        if (inp->inp_vflag & INP_IPV4)
+        {
+            NSString *localIP = [self ipToString:&inp->inp_laddr];
+            NSString *remoteIP = [self ipToString:&inp->inp_faddr];
+            NSString *localPort = [self portToString:(int)inp->inp_lport];
+            NSString *remotePort = [self portToString:(int)inp->inp_fport];
+            NSString *status = [self stateToString:tp->t_state];
+            if (tp->t_flags & (TF_NEEDSYN|TF_NEEDFIN))
+            {
+                status = [NSString stringWithFormat:@"%@*", status];
+            }
+            struct servent *ls = getservbyport((int)inp->inp_lport, "tcp");
+            struct servent *fs = getservbyport((int)inp->inp_fport, "tcp");
+            NSLog(@"(%@) Local IP: %@:%@ | Remote IP: %@:%@ | Status: %@ | Type: %s | %s", (istcp ? @"TCP" : @"UDP"), localIP, localPort, remoteIP, remotePort, status, (ls ? ls->s_name : "none"), (fs ? fs->s_name : "none"));
+        }
+    }
+}
+
+- (NSString*)ipToString:(struct in_addr *)in
+{
+    if (!in)
+    {
+        AMWarn(@"in == NULL");
+        return @"";
+    }
+    
+    if (in->s_addr == INADDR_ANY)
+    {
+        return @"*";
+    }
+    else
+    {
+        return [NSString stringWithCString:inet_ntoa(*in) encoding:NSASCIIStringEncoding];
+    }
+}
+
+- (NSString*)portToString:(int)port
+{
+    return (port == 0 ? @"*" : [NSString stringWithFormat:@"%d", port]);
+}
+
+- (NSString*)stateToString:(int)state
+{
+    return [NSString stringWithCString:tcpstates[state] encoding:NSASCIIStringEncoding];
 }
 
 @end

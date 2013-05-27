@@ -31,6 +31,7 @@
 		70340CA51752758F001C1F1A /* TubeTexture-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 70340CA41752758F001C1F1A /* TubeTexture-retina.png */; };
 		70340CAD17527DB1001C1F1A /* TubeBackground-nonretina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70340CAC17527DB1001C1F1A /* TubeBackground-nonretina@2x.png */; };
 		70340CB517527FB7001C1F1A /* TubeBackground-retina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70340CB417527FB6001C1F1A /* TubeBackground-retina@2x.png */; };
+		70340CB81752A810001C1F1A /* ActiveConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 70340CB71752A810001C1F1A /* ActiveConnection.m */; };
 		703D22DC173818EC0001E3B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DB173818EC0001E3B3 /* UIKit.framework */; };
 		703D22DE173818EC0001E3B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DD173818EC0001E3B3 /* Foundation.framework */; };
 		703D22E0173818EC0001E3B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DF173818EC0001E3B3 /* CoreGraphics.framework */; };
@@ -147,6 +148,9 @@
 		70340CA41752758F001C1F1A /* TubeTexture-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TubeTexture-retina.png"; sourceTree = "<group>"; };
 		70340CAC17527DB1001C1F1A /* TubeBackground-nonretina@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TubeBackground-nonretina@2x.png"; sourceTree = "<group>"; };
 		70340CB417527FB6001C1F1A /* TubeBackground-retina@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TubeBackground-retina@2x.png"; sourceTree = "<group>"; };
+		70340CB61752A810001C1F1A /* ActiveConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveConnection.h; sourceTree = "<group>"; };
+		70340CB71752A810001C1F1A /* ActiveConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveConnection.m; sourceTree = "<group>"; };
+		70340CB91752B47D001C1F1A /* bsd_var.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bsd_var.h; sourceTree = "<group>"; };
 		703D22D8173818EC0001E3B3 /* ActivityMonitor++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ActivityMonitor++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		703D22DB173818EC0001E3B3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		703D22DD173818EC0001E3B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -313,12 +317,15 @@
 		700FDC06174E3187000D6848 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				70340CB61752A810001C1F1A /* ActiveConnection.h */,
+				70340CB71752A810001C1F1A /* ActiveConnection.m */,
 				700FDC19174E7250000D6848 /* NetworkBandwidth.h */,
 				700FDC1A174E7250000D6848 /* NetworkBandwidth.m */,
 				700FDC0A174E3E61000D6848 /* NetworkInfo.h */,
 				700FDC0B174E3E61000D6848 /* NetworkInfo.m */,
 				700FDC07174E3E54000D6848 /* NetworkInfoController.h */,
 				700FDC08174E3E54000D6848 /* NetworkInfoController.m */,
+				70340CB91752B47D001C1F1A /* bsd_var.h */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -888,6 +895,7 @@
 				70ECE27C175058C300B1402A /* GLBubbleEffect.m in Sources */,
 				70ECE27F1750596C00B1402A /* GLEffect.m in Sources */,
 				70E437101752526F00ED3876 /* DeviceSpecificUI.m in Sources */,
+				70340CB81752A810001C1F1A /* ActiveConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
