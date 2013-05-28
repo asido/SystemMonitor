@@ -11,14 +11,16 @@
 #import "NetworkInfo.h"
 
 @protocol NetworkInfoControllerDelegate
+@optional
 - (void)networkBandwidthUpdated:(NetworkBandwidth*)bandwidth;
 - (void)networkStatusUpdated;
 - (void)networkExternalIPAddressUpdated;
 - (void)networkMaxBandwidthUpdated;
+- (void)networkActiveConnectionsUpdated:(NSArray*)connections;
 @end
 
 @interface NetworkInfoController : NSObject
-@property (strong, nonatomic) id<NetworkInfoControllerDelegate> delegate;
+@property (weak, nonatomic) id<NetworkInfoControllerDelegate> delegate;
 @property (strong, nonatomic) NSMutableArray    *networkBandwidthHistory;
 
 @property (assign, nonatomic) CGFloat       currentMaxSentBandwidth;
@@ -30,5 +32,5 @@
 - (void)stopNetworkBandwidthUpdates;
 - (void)setNetworkBandwidthHistorySize:(NSUInteger)size;
 
-- (NSArray*)getActiveConnections;
+- (void)updateActiveConnections;
 @end

@@ -13,16 +13,20 @@
 #import "ConnectionSectionView.h"
 #import "ConnectionViewController.h"
 
-@interface ConnectionViewController()
+@interface ConnectionViewController() <NetworkInfoControllerDelegate>
 /* 
  * The dictionary holds arrays of active connections with keys being
  * the connection status: ESTABLISHED, LISTEN...
  */
 @property (strong, nonatomic) NSMutableDictionary *activeConnections;
+@property (assign, nonatomic) BOOL refreshingConnections;
 
 @property (strong, nonatomic) UIImage *greenCircle;
 @property (strong, nonatomic) UIImage *orangeCircle;
 @property (strong, nonatomic) UIImage *redCircle;
+
+- (UITableViewCell*)dequeueRefreshingCellForTable:(UITableView*)table indexPath:(NSIndexPath*)indexPath;
+- (UITableViewCell*)dequeueConnectionCellForTable:(UITableView*)table indexPath:(NSIndexPath*)indexPath;
 @end
 
 @implementation ConnectionViewController
@@ -31,6 +35,8 @@
 @synthesize greenCircle;
 @synthesize orangeCircle;
 @synthesize redCircle;
+
+#pragma mark - override
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -59,69 +65,46 @@
     self.redCircle = [UIImage imageNamed:@"RedCircle.png"];
     
     // Refresh active connection list.
+    self.refreshingConnections = YES;
     AppDelegate *app = [AppDelegate sharedDelegate];
-    [app.iDevice refreshActiveConnections];
+    app.networkInfoCtrl.delegate = self;
+    [app.networkInfoCtrl updateActiveConnections];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
-    self.activeConnections = [[NSMutableDictionary alloc] init];
-    NSArray *connections = [NSArray arrayWithArray:app.iDevice.activeConnections];
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    app.networkInfoCtrl.delegate = self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
     
-    for (ActiveConnection *connection in connections)
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    app.networkInfoCtrl.delegate = nil;
+}
+
+#pragma mark - private
+
+- (UITableViewCell*)dequeueRefreshingCellForTable:(UITableView*)table indexPath:(NSIndexPath*)indexPath
+{
+    static NSString *CellIdentifier = @"RetrievingCell";
+    UITableViewCell *cell = [table dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (!cell)
     {
-        if (![self.activeConnections objectForKey:connection.statusString])
-        {
-            [self.activeConnections setObject:[[NSMutableArray alloc] init] forKey:connection.statusString];
-        }
-        
-        NSMutableArray *connectionsWithLocalIP = [self.activeConnections objectForKey:connection.statusString];
-        [connectionsWithLocalIP addObject:connection];
-        [self.activeConnections setObject:connectionsWithLocalIP forKey:connection.statusString];
-    }
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return self.activeConnections.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    NSArray *keys           = [self.activeConnections allKeys];
-    NSArray *connections    = [self.activeConnections objectForKey:[keys objectAtIndex:section]];
-    return connections.count;
-}
-
-- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    ConnectionSectionView *view = nil;
-    
-    NSArray *bundle = [[NSBundle mainBundle] loadNibNamed:@"ConnectionSectionView" owner:self options:nil];
-    for (id obj in bundle)
-    {
-        if ([obj isKindOfClass:[ConnectionSectionView class]])
-        {
-            view = (ConnectionSectionView*) obj;
-            view.frame = CGRectMake(0, 0, tableView.frame.size.width, 30);
-            NSString *sectionKey = [[self.activeConnections allKeys] objectAtIndex:section];
-            [view.label setText:sectionKey];
-        }
+        AMWarn(@"attempt to dequeue reusable cell has failed.");
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    return view;
+    return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 30;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 60;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell*)dequeueConnectionCellForTable:(UITableView*)table indexPath:(NSIndexPath*)indexPath
 {
     enum {
         TAG_LOCAL_ADDRESS_LABEL=1,
@@ -133,7 +116,7 @@
     };
     
     static NSString *CellIdentifier = @"ConnectionCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [table dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if (!cell)
     {
@@ -177,6 +160,105 @@
     [rxLabel setText:[AMUtils toNearestMetric:(uint64_t)connection.totalRX desiredFraction:1]];
     
     return cell;
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    if (self.refreshingConnections)
+    {
+        return 1;
+    }
+    else
+    {
+        return self.activeConnections.count;
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (self.refreshingConnections)
+    {
+        return 1;
+    }
+    else
+    {
+        NSArray *keys           = [self.activeConnections allKeys];
+        NSArray *connections    = [self.activeConnections objectForKey:[keys objectAtIndex:section]];
+        return connections.count;
+    }
+}
+
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    ConnectionSectionView *view = nil;
+    
+    NSArray *bundle = [[NSBundle mainBundle] loadNibNamed:@"ConnectionSectionView" owner:self options:nil];
+    for (id obj in bundle)
+    {
+        if ([obj isKindOfClass:[ConnectionSectionView class]])
+        {
+            view = (ConnectionSectionView*) obj;
+            view.frame = CGRectMake(0, 0, tableView.frame.size.width, 30);
+            
+            if (self.activeConnections)
+            {
+                NSString *sectionKey = [[self.activeConnections allKeys] objectAtIndex:section];
+                [view.label setText:sectionKey];
+            }
+            else
+            {
+                [view.label setText:@""];
+            }
+        }
+    }
+    
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.refreshingConnections)
+    {
+        return [self dequeueRefreshingCellForTable:tableView indexPath:indexPath];
+    }
+    else
+    {
+        return [self dequeueConnectionCellForTable:tableView indexPath:indexPath];
+    }
+}
+
+#pragma mark - NetworkInfoController delegate
+
+- (void)networkActiveConnectionsUpdated:(NSArray *)connections
+{
+    self.activeConnections = [[NSMutableDictionary alloc] init];
+    
+    for (ActiveConnection *connection in connections)
+    {
+        if (![self.activeConnections objectForKey:connection.statusString])
+        {
+            [self.activeConnections setObject:[[NSMutableArray alloc] init] forKey:connection.statusString];
+        }
+        
+        NSMutableArray *connectionsWithLocalIP = [self.activeConnections objectForKey:connection.statusString];
+        [connectionsWithLocalIP addObject:connection];
+        [self.activeConnections setObject:connectionsWithLocalIP forKey:connection.statusString];
+    }
+    
+    self.refreshingConnections = NO;
+    [self.tableView reloadData];
 }
 
 @end

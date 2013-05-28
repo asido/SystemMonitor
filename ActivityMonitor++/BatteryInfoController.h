@@ -14,7 +14,7 @@
 @end
 
 @interface BatteryInfoController : NSObject
-@property (strong, nonatomic) id<BatteryInfoControllerDelegate> delegate;
+@property (weak, nonatomic) id<BatteryInfoControllerDelegate> delegate;
 
 - (BatteryInfo*)getBatteryInfo;
 - (void)startBatteryMonitoring;

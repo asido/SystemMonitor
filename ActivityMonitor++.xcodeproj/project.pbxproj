@@ -11,6 +11,7 @@
 		7003E7EB1751178700214D6A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7003E7EA1751178700214D6A /* SystemConfiguration.framework */; };
 		7003E82717513CFA00214D6A /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7003E82617513CFA00214D6A /* libLumberjack.a */; };
 		7003E82817513D0800214D6A /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7003E82617513CFA00214D6A /* libLumberjack.a */; };
+		700AFACB17554446003E7D40 /* RetrievingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700AFACA17554446003E7D40 /* RetrievingCell.m */; };
 		700FDC05174E1C8D000D6848 /* RAMUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC04174E1C8D000D6848 /* RAMUsage.m */; };
 		700FDC09174E3E54000D6848 /* NetworkInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC08174E3E54000D6848 /* NetworkInfoController.m */; };
 		700FDC0C174E3E61000D6848 /* NetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC0B174E3E61000D6848 /* NetworkInfo.m */; };
@@ -142,6 +143,8 @@
 		7003E82317513C9500214D6A /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
 		7003E82417513C9500214D6A /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
 		7003E82617513CFA00214D6A /* libLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLumberjack.a; sourceTree = "<group>"; };
+		700AFAC917554446003E7D40 /* RetrievingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetrievingCell.h; sourceTree = "<group>"; };
+		700AFACA17554446003E7D40 /* RetrievingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetrievingCell.m; sourceTree = "<group>"; };
 		700FDC03174E1C8D000D6848 /* RAMUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMUsage.h; sourceTree = "<group>"; };
 		700FDC04174E1C8D000D6848 /* RAMUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMUsage.m; sourceTree = "<group>"; };
 		700FDC07174E3E54000D6848 /* NetworkInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInfoController.h; sourceTree = "<group>"; };
@@ -664,6 +667,8 @@
 				70C150C91753B7D0009BEB11 /* ConnectionSectionView.m */,
 				70C150BB1753739A009BEB11 /* ConnectionCell.h */,
 				70C150BC1753739A009BEB11 /* ConnectionCell.m */,
+				700AFAC917554446003E7D40 /* RetrievingCell.h */,
+				700AFACA17554446003E7D40 /* RetrievingCell.m */,
 				70C150B617536FFE009BEB11 /* ConnectionViewController.h */,
 				70C150B717536FFE009BEB11 /* ConnectionViewController.m */,
 			);
@@ -1004,6 +1009,7 @@
 				70C150B817536FFE009BEB11 /* ConnectionViewController.m in Sources */,
 				70C150BD1753739A009BEB11 /* ConnectionCell.m in Sources */,
 				70C150CA1753B7D0009BEB11 /* ConnectionSectionView.m in Sources */,
+				700AFACB17554446003E7D40 /* RetrievingCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

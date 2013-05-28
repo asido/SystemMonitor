@@ -15,7 +15,7 @@
 @end
 
 @interface RAMInfoController : NSObject
-@property (strong, nonatomic) id<RAMInfoControllerDelegate> delegate;
+@property (weak, nonatomic) id<RAMInfoControllerDelegate> delegate;
 @property (strong, nonatomic) NSMutableArray                *ramUsageHistory;
 
 - (RAMInfo*)getRAMInfo;

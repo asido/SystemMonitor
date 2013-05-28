@@ -99,7 +99,10 @@ static NSString *kInterfaceNone = @"";
 - (void)setCurrentMaxSentBandwidth:(CGFloat)currentMaxSentBandwidth
 {
     _currentMaxSentBandwidth = currentMaxSentBandwidth;
-    [self.delegate networkMaxBandwidthUpdated];
+    if ([(NSObject*)self.delegate respondsToSelector:@selector(networkMaxBandwidthUpdated)])
+    {
+        [self.delegate networkMaxBandwidthUpdated];
+    }
 }
 
 - (CGFloat)currentMaxSentBandwidth
@@ -110,7 +113,10 @@ static NSString *kInterfaceNone = @"";
 - (void)setCurrentMaxReceivedBandwidth:(CGFloat)currentMaxReceivedBandwidth
 {
     _currentMaxReceivedBandwidth = currentMaxReceivedBandwidth;
-    [self.delegate networkMaxBandwidthUpdated];
+    if ([(NSObject*)self.delegate respondsToSelector:@selector(networkMaxBandwidthUpdated)])
+    {
+        [self.delegate networkMaxBandwidthUpdated];
+    }
 }
 
 - (CGFloat)currentMaxReceivedBandwidth
@@ -169,14 +175,22 @@ static NSString *kInterfaceNone = @"";
     self.bandwidthHistorySize = size;
 }
 
-- (NSArray*)getActiveConnections
+- (void)updateActiveConnections
 {
-    NSArray *tcpConnections = [self getActiveConnectionsOfType:CONNECTION_TYPE_TCP4];
-    //NSArray *udpConnections = [self getActiveConnectionsOfType:CONNECTION_TYPE_UDP4];
-    
-    NSMutableSet *set = [NSMutableSet setWithArray:tcpConnections];
-    //[set addObjectsFromArray:udpConnections];
-    return [set allObjects];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSArray *tcpConnections = [self getActiveConnectionsOfType:CONNECTION_TYPE_TCP4];
+        //NSArray *udpConnections = [self getActiveConnectionsOfType:CONNECTION_TYPE_UDP4];
+        
+        NSMutableSet *set = [NSMutableSet setWithArray:tcpConnections];
+        //[set addObjectsFromArray:udpConnections];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if ([(NSObject*)self.delegate respondsToSelector:@selector(networkActiveConnectionsUpdated:)])
+            {
+                [self.delegate networkActiveConnectionsUpdated:[set allObjects]];
+            }
+        });
+    });
 }
 
 #pragma mark - private
@@ -185,7 +199,10 @@ static NSString *kInterfaceNone = @"";
 {
     NetworkBandwidth *bandwidth = [self getNetworkBandwidth];
     [self pushNetworkBandwidth:bandwidth];
-    [self.delegate networkBandwidthUpdated:bandwidth];
+    if ([(NSObject*)self.delegate respondsToSelector:@selector(networkBandwidthUpdated:)])
+    {
+        [self.delegate networkBandwidthUpdated:bandwidth];
+    }
 }
 
 static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info)
@@ -318,7 +335,10 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 - (void)reachabilityStatusChangedCB
 {
     [self populateNetworkInfo];
-    [self.delegate networkStatusUpdated];
+    if ([(NSObject*)self.delegate respondsToSelector:@selector(networkStatusUpdated)])
+    {
+        [self.delegate networkStatusUpdated];
+    }
 }
 
 - (NetworkInfo*)populateNetworkInfo
@@ -329,7 +349,10 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         self.networkInfo.externalIPAddress = @"-"; // Placeholder while fetching.
         self.networkInfo.externalIPAddress = [self getExternalIPAddress];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate networkExternalIPAddressUpdated];
+            if ([(NSObject*)self.delegate respondsToSelector:@selector(networkStatusUpdated)])
+            {
+                [self.delegate networkStatusUpdated];
+            }
         });
     });
     

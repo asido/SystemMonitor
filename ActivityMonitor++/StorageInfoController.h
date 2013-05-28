@@ -14,7 +14,7 @@
 @end
 
 @interface StorageInfoController : NSObject
-@property (strong, nonatomic) id<StorageInfoControllerDelegate> delegate;
+@property (weak, nonatomic) id<StorageInfoControllerDelegate> delegate;
 
 - (StorageInfo*)getStorageInfo;
 @end

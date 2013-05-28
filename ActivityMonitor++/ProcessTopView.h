@@ -20,7 +20,7 @@ typedef enum {
 @end
 
 @interface ProcessTopView : UIView
-@property (strong, nonatomic) id<ProcessTopViewDelegate> delegate;
+@property (weak, nonatomic) id<ProcessTopViewDelegate> delegate;
 
 - (void)setProcessCount:(NSUInteger)count;
 @end

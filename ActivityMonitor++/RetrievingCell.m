@@ -1,14 +1,18 @@
 //
-//  ConnectionCell.m
+//  RetrievingCell.m
 //  ActivityMonitor++
 //
-//  Created by st on 27/05/2013.
+//  Created by st on 28/05/2013.
 //  Copyright (c) 2013 st. All rights reserved.
 //
 
-#import "ConnectionCell.h"
+#import "RetrievingCell.h"
 
-@implementation ConnectionCell
+enum {
+    TAG_ACTIVITY_INDICATOR=1
+};
+
+@implementation RetrievingCell
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {

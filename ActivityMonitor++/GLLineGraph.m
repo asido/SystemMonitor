@@ -109,15 +109,6 @@ static const VertexData_t legendData[] = {
     {{ 0.0f, 1.0f, 0.0f }, { 0.0f, 1.0f }}
 };
 
-static VertexData_t dataBlur[] = {
-    {{ 0.0f, 0.0f, kModelZ }, { 0.0f, 0.0f }},
-    {{ 1.0f, 0.0f, kModelZ }, { 1.0f, 0.0f }},
-    {{ 0.0f, 1.0f, kModelZ }, { 0.0f, 1.0f }},
-    {{ 1.0f, 0.0f, kModelZ }, { 1.0f, 0.0f }},
-    {{ 1.0f, 1.0f, kModelZ }, { 1.0f, 1.0f }},
-    {{ 0.0f, 1.0f, kModelZ }, { 0.0f, 1.0f }}
-};
-
 #pragma mark - public
 
 - (id)initWithGLKView:(GLKView*)aGLView

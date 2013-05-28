@@ -15,7 +15,7 @@
 @end
 
 @interface CPUInfoController : NSObject
-@property (assign, nonatomic) id<CPUInfoControllerDelegate> delegate;
+@property (weak, nonatomic) id<CPUInfoControllerDelegate> delegate;
 @property (strong, nonatomic) NSMutableArray *cpuLoadHistory;
 
 - (CPUInfo*)getCPUInfo;

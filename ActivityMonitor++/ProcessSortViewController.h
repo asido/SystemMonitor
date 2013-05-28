@@ -14,5 +14,5 @@
 @end
 
 @interface ProcessSortViewController : UITableViewController
-@property (strong, nonatomic) id<ProcessSortViewControllerDelegate> delegate;
+@property (weak, nonatomic) id<ProcessSortViewControllerDelegate> delegate;
 @end
