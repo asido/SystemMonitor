@@ -14,11 +14,15 @@
 - (void)networkBandwidthUpdated:(NetworkBandwidth*)bandwidth;
 - (void)networkStatusUpdated;
 - (void)networkExternalIPAddressUpdated;
+- (void)networkMaxBandwidthUpdated;
 @end
 
 @interface NetworkInfoController : NSObject
 @property (strong, nonatomic) id<NetworkInfoControllerDelegate> delegate;
-@property (strong, nonatomic) NSMutableArray                    *networkBandwidthHistory;
+@property (strong, nonatomic) NSMutableArray    *networkBandwidthHistory;
+
+@property (assign, nonatomic) CGFloat       currentMaxSentBandwidth;
+@property (assign, nonatomic) CGFloat       currentMaxReceivedBandwidth; 
 
 - (NetworkInfo*)getNetworkInfo;
 

@@ -29,6 +29,8 @@
 @property (assign, nonatomic) GLKVector3    dataLinePosition1;
 @property (assign, nonatomic) GLKVector3    dataLinePosition2;
 
+@property (assign, nonatomic) GLfloat       zoom;
+
 - (void)setupVBO;
 @end
 
@@ -47,6 +49,8 @@
 @synthesize dataLinePosition1=_dataLinePosition1;
 @synthesize dataLinePosition2=_dataLinePosition2;
 
+@synthesize zoom;
+
 static const GLfloat kDataLineShiftSize     = 0.15f;
 
 #pragma mark - public
@@ -63,6 +67,8 @@ static const GLfloat kDataLineShiftSize     = 0.15f;
         self.dataLineDataSize = (self.graph.graphRight - self.graph.graphLeft) / kDataLineShiftSize;
         _dataLineData = malloc(self.dataLineDataSize * sizeof(VertexData_t));
         
+        self.zoom = 1.0f;
+        
         [self resetLineData];
         
         [self setupVBO];
@@ -78,7 +84,7 @@ static const GLfloat kDataLineShiftSize     = 0.15f;
 - (void)addLineDataValue:(double)value
 {
     GLfloat vX = self.dataLineDataNextX++;
-    GLfloat vY = [AMUtils percentageValueFromMax:self.graph.graphTop min:self.graph.graphBottom percent:value];
+    GLfloat vY = [AMUtils percentageValueFromMax:self.graph.graphTop-self.graph.graphBottom min:0.0f percent:value];
     BOOL bufferSizeIncreased = NO;
     
     if (self.dataLineDataValidSize == 0)
@@ -155,8 +161,8 @@ static const GLfloat kDataLineShiftSize     = 0.15f;
 - (void)resetLineData
 {
     GLfloat xTranslate = self.graph.graphRight;
-    self.dataLinePosition1 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
-    self.dataLinePosition2 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
+    self.dataLinePosition1 = GLKVector3Make(xTranslate, self.graph.graphBottom, kModelZ);
+    self.dataLinePosition2 = GLKVector3Make(xTranslate, self.graph.graphBottom, kModelZ);
     
     self.dataLineDataValidSize = 0;
     self.dataLineDataCurrIdx = 0;
@@ -171,15 +177,19 @@ static const GLfloat kDataLineShiftSize     = 0.15f;
         return;
     }
     
+    GLfloat yScale = 1.0f / self.zoom;
+    
     /*
      * Render the first batch starting from 0 to self.dataLineDataCurrIdx.
      */
     {
+        GLfloat yScale = 1.0f / self.zoom;
+        
         glBindVertexArrayOES(self.glVertexArrayDataLine);
         
         GLKVector3 position = self.dataLinePosition1;
         GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(kDataLineShiftSize, 1.0f, 1.0f);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(kDataLineShiftSize, yScale, 1.0f);
         GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.graph.effect.transform.modelviewMatrix = modelMatrix;
@@ -206,7 +216,7 @@ static const GLfloat kDataLineShiftSize     = 0.15f;
         
         GLKVector3 position = self.dataLinePosition2;
         GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(kDataLineShiftSize, 1.0f, 1.0f);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(kDataLineShiftSize, yScale, 1.0f);
         GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.graph.effect.transform.modelviewMatrix = modelMatrix;
@@ -228,6 +238,11 @@ static const GLfloat kDataLineShiftSize     = 0.15f;
 - (NSUInteger)maxDataLineElements
 {
     return self.dataLineDataSize;
+}
+
+- (void)setDataLineZoom:(GLfloat)aZoom
+{
+    self.zoom = aZoom;
 }
 
 #pragma mark - private

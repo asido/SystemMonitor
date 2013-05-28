@@ -38,6 +38,9 @@ typedef enum {
 @property (strong, nonatomic) NSString      *currentInterface;
 @property (assign, nonatomic) NSUInteger    bandwidthHistorySize;
 
+@property (assign, nonatomic) NSUInteger    maxSentBandwidthTimes;
+@property (assign, nonatomic) NSUInteger    maxReceivedBandwidthTimes;
+
 @property (strong, nonatomic) NSTimer       *networkBandwidthUpdateTimer;
 - (void)networkBandwidthUpdateCB:(NSNotification*)notification;
 
@@ -57,6 +60,7 @@ typedef enum {
 - (NSString*)getBroadcastAddressOfInterface:(NSString*)interface;
 - (NSString*)getMacAddressOfInterface:(NSString*)interface;
 - (NetworkBandwidth*)getNetworkBandwidth;
+- (void)adjustMaxBandwidth:(NetworkBandwidth*)bandwidth;
 
 - (void)pushNetworkBandwidth:(NetworkBandwidth*)bandwidth;
 
@@ -70,8 +74,15 @@ typedef enum {
 @end
 
 @implementation NetworkInfoController
+{
+    CGFloat _currentMaxSentBandwidth;
+    CGFloat _currentMaxReceivedBandwidth;
+}
 @synthesize delegate;
 @synthesize networkBandwidthHistory;
+
+@synthesize maxSentBandwidthTimes;
+@synthesize maxReceivedBandwidthTimes;
 
 @synthesize networkInfo;
 @synthesize currentInterface;
@@ -82,6 +93,30 @@ typedef enum {
 static NSString *kInterfaceWiFi = @"en0";
 static NSString *kInterfaceWWAN = @"pdp_ip0";
 static NSString *kInterfaceNone = @"";
+
+#pragma mark - synthesize
+
+- (void)setCurrentMaxSentBandwidth:(CGFloat)currentMaxSentBandwidth
+{
+    _currentMaxSentBandwidth = currentMaxSentBandwidth;
+    [self.delegate networkMaxBandwidthUpdated];
+}
+
+- (CGFloat)currentMaxSentBandwidth
+{
+    return _currentMaxSentBandwidth;
+}
+
+- (void)setCurrentMaxReceivedBandwidth:(CGFloat)currentMaxReceivedBandwidth
+{
+    _currentMaxReceivedBandwidth = currentMaxReceivedBandwidth;
+    [self.delegate networkMaxBandwidthUpdated];
+}
+
+- (CGFloat)currentMaxReceivedBandwidth
+{
+    return _currentMaxReceivedBandwidth;
+}
 
 #pragma mark - override
 
@@ -581,10 +616,48 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
                 bandwidth.sent = bandwidth.totalWWANSent - prevBandwidth.totalWWANSent;
                 bandwidth.received = bandwidth.totalWWANReceived - prevBandwidth.totalWWANReceived;
             }
+            
+            [self adjustMaxBandwidth:bandwidth];
         }
     }
     
     return bandwidth;
+}
+
+- (void)adjustMaxBandwidth:(NetworkBandwidth*)bandwidth
+{
+    if (bandwidth.sent > self.currentMaxSentBandwidth)
+    {
+        self.currentMaxSentBandwidth = bandwidth.sent;
+        self.maxSentBandwidthTimes = 0;
+    }
+    if (bandwidth.received > self.currentMaxReceivedBandwidth)
+    {
+        self.currentMaxReceivedBandwidth = bandwidth.received;
+        self.maxReceivedBandwidthTimes = 0;
+    }
+    
+    self.maxSentBandwidthTimes++;
+    self.maxReceivedBandwidthTimes++;
+    
+    if (self.maxSentBandwidthTimes > self.bandwidthHistorySize)
+    {
+        CGFloat newMaxSent = 0;
+        for (NetworkBandwidth *b in self.networkBandwidthHistory)
+        {
+            newMaxSent = MAX(newMaxSent, b.sent);
+        }
+        self.currentMaxSentBandwidth = newMaxSent;
+        self.maxSentBandwidthTimes = 0;
+        
+        CGFloat newMaxReceived = 0;
+        for (NetworkBandwidth *b in self.networkBandwidthHistory)
+        {
+            newMaxReceived = MAX(newMaxReceived, b.received);
+        }
+        self.currentMaxReceivedBandwidth = newMaxReceived;
+        self.maxReceivedBandwidthTimes = 0;
+    }
 }
 
 - (void)pushNetworkBandwidth:(NetworkBandwidth*)bandwidth

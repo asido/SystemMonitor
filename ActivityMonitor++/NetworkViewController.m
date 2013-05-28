@@ -23,6 +23,7 @@ enum {
 
 - (void)updateStatusLabels;
 - (void)updateBandwidthLabels:(NetworkBandwidth*)bandwidth;
+- (void)updateGraphZoomLevel;
 
 @property (weak, nonatomic) IBOutlet UILabel *networkTypeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *externalIPLabel;
@@ -40,6 +41,8 @@ enum {
 @implementation NetworkViewController
 @synthesize networkGraph;
 @synthesize networkGLView;
+
+static const double kNetworkGraphMaxValue = MB_TO_B(100);
 
 #pragma mark - override
 
@@ -60,11 +63,13 @@ enum {
     self.networkGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, 703.0f, 200.0f)];
     self.networkGLView.opaque = NO;
     self.networkGLView.backgroundColor = [UIColor clearColor];
-    self.networkGraph = [[GLLineGraph alloc] initWithGLKView:self.networkGLView dataLineCount:2 fromValue:0.0f toValue:100.0f topLegend:@"0 B/s"];
+    self.networkGraph = [[GLLineGraph alloc] initWithGLKView:self.networkGLView dataLineCount:2 fromValue:0.0f toValue:kNetworkGraphMaxValue topLegend:@"0 B/s"];
     self.networkGraph.preferredFramesPerSecond = kNetworkUpdateFrequency;
 
     AppDelegate *app = [AppDelegate sharedDelegate];
     [app.networkInfoCtrl setNetworkBandwidthHistorySize:[self.networkGraph requiredElementToFillGraph]];
+    
+    [self updateGraphZoomLevel];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -124,6 +129,16 @@ enum {
     [self.totalWWANUploadsLabel setText:[AMUtils toNearestMetric:bandwidth.totalWWANSent desiredFraction:1]];
 }
 
+- (void)updateGraphZoomLevel
+{
+    NetworkInfoController *networkCtrl = [AppDelegate sharedDelegate].networkInfoCtrl;
+    GLfloat zoomLevel = MAX(networkCtrl.currentMaxSentBandwidth, networkCtrl.currentMaxReceivedBandwidth) / kNetworkGraphMaxValue;
+    GLfloat topValue = kNetworkGraphMaxValue * zoomLevel;
+    NSLog(@"Zoom level: %f || topValue: %f", zoomLevel, topValue);
+    [self.networkGraph setZoomLevel:zoomLevel];
+    [self.networkGraph setTopLegend:[NSString stringWithFormat:@"%@/s", [AMUtils toNearestMetric:topValue desiredFraction:0]]];
+}
+
 #pragma mark - Table view data source
 
 - (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -180,6 +195,11 @@ enum {
 {
     AppDelegate *app = [AppDelegate sharedDelegate];
     [self.externalIPLabel setText:app.iDevice.networkInfo.externalIPAddress];
+}
+
+- (void)networkMaxBandwidthUpdated
+{
+    [self updateGraphZoomLevel];
 }
 
 @end

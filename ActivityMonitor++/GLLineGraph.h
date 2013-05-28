@@ -25,7 +25,7 @@
 
 - (void)addDataValue:(NSArray*)data;
 - (void)setTopLegend:(NSString*)aLegend;
-- (void)setTopValue:(double)value;
+- (void)setZoomLevel:(GLfloat)value;
 - (void)resetDataArray:(NSArray*)dataArray;
 - (NSUInteger)requiredElementToFillGraph;
 @end

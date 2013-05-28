@@ -20,4 +20,5 @@
 - (void)resetLineData;
 - (void)render;
 - (NSUInteger)maxDataLineElements;
+- (void)setDataLineZoom:(GLfloat)zoom;
 @end

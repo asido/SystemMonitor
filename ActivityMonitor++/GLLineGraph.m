@@ -201,9 +201,12 @@ static VertexData_t dataBlur[] = {
     self.legendsTexture = [GLKTextureLoader textureWithCGImage:img.CGImage options:nil error:NULL];
 }
 
-- (void)setTopValue:(double)value
+- (void)setZoomLevel:(GLfloat)value
 {
-    self.toValue = value;
+    for (GLDataLine *dataLine in self.dataLines)
+    {
+        [dataLine setDataLineZoom:value];
+    }
 }
 
 - (void)resetDataArray:(NSArray*)dataArray
