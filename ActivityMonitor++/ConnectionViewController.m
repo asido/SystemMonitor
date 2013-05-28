@@ -173,7 +173,7 @@
     }
     else
     {
-        return self.activeConnections.count;
+        return [[self.activeConnections allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)].count;
     }
 }
 
@@ -253,9 +253,9 @@
             [self.activeConnections setObject:[[NSMutableArray alloc] init] forKey:connection.statusString];
         }
         
-        NSMutableArray *connectionsWithLocalIP = [self.activeConnections objectForKey:connection.statusString];
-        [connectionsWithLocalIP addObject:connection];
-        [self.activeConnections setObject:connectionsWithLocalIP forKey:connection.statusString];
+        NSMutableArray *connectionsWithStatus = [self.activeConnections objectForKey:connection.statusString];
+        [connectionsWithStatus addObject:connection];
+        [self.activeConnections setObject:connectionsWithStatus forKey:connection.statusString];
     }
     
     self.refreshingConnections = NO;
