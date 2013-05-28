@@ -160,7 +160,8 @@
 - (NSString*)getScreenResolution
 {
     CGRect dimension = [UIScreen mainScreen].bounds;                    // Dimensions are flipped over.
-    NSString *resolution = [NSString stringWithFormat:@"%0.0fx%0.0f", dimension.size.height, dimension.size.width];
+    CGFloat scale = [UIScreen mainScreen].scale;
+    NSString *resolution = [NSString stringWithFormat:@"%0.0fx%0.0f", dimension.size.height * scale, dimension.size.width * scale];
     return resolution;
 }
 
