@@ -133,6 +133,7 @@ static const double kNetworkGraphMaxValue = MB_TO_B(100);
 {
     NetworkInfoController *networkCtrl = [AppDelegate sharedDelegate].networkInfoCtrl;
     GLfloat zoomLevel = MAX(networkCtrl.currentMaxSentBandwidth, networkCtrl.currentMaxReceivedBandwidth) / kNetworkGraphMaxValue;
+    zoomLevel = MAX(zoomLevel, FLT_MIN); // Make sure it's not 0
     GLfloat topValue = kNetworkGraphMaxValue * zoomLevel;
     [self.networkGraph setZoomLevel:zoomLevel];
     [self.networkGraph setGraphLegend:[NSString stringWithFormat:@"%@/s", [AMUtils toNearestMetric:topValue desiredFraction:0]]];

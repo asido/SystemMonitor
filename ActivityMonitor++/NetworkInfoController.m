@@ -566,6 +566,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 - (NetworkBandwidth*)getNetworkBandwidth
 {
     NetworkBandwidth *bandwidth = [[NetworkBandwidth alloc] init];
+    bandwidth.timestamp = [NSDate date];
     bandwidth.interface = self.currentInterface;
     
     int mib[] = {
@@ -627,7 +628,10 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     if (self.networkBandwidthHistory.count > 0)
     {
         NetworkBandwidth *prevBandwidth = [self.networkBandwidthHistory lastObject];
-        if ([prevBandwidth.interface isEqualToString:self.currentInterface])
+        
+        // Make sure previous bandwidth was at the same interface and measured during last second.
+        if ([prevBandwidth.interface isEqualToString:self.currentInterface] &&
+            ![AMUtils dateDidTimeout:prevBandwidth.timestamp seconds:2])
         {
             if ([self.currentInterface isEqualToString:kInterfaceWiFi])
             {
@@ -663,7 +667,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     self.maxSentBandwidthTimes++;
     self.maxReceivedBandwidthTimes++;
     
-    if (self.maxSentBandwidthTimes > self.bandwidthHistorySize)
+    if (self.maxSentBandwidthTimes > self.bandwidthHistorySize/2)
     {
         CGFloat newMaxSent = 0;
         for (NetworkBandwidth *b in self.networkBandwidthHistory)

@@ -10,6 +10,7 @@
 
 @interface NetworkBandwidth : NSObject
 @property (strong, nonatomic) NSString  *interface;
+@property (strong, nonatomic) NSDate    *timestamp;
 
 @property (assign, nonatomic) float     sent;
 @property (assign, nonatomic) uint64_t  totalWiFiSent;

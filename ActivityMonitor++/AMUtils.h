@@ -38,4 +38,6 @@
 + (BOOL)isIPad;
 + (BOOL)isIPhone;
 + (BOOL)isIPhone5;
+
++ (BOOL)dateDidTimeout:(NSDate*)date seconds:(double)sec;
 @end

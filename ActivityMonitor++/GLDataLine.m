@@ -32,6 +32,8 @@
 @property (assign, nonatomic) GLfloat       zoom;
 
 - (void)setupVBO;
+- (void)renderDataLine;
+- (void)renderLegend;
 @end
 
 @implementation GLDataLine
@@ -186,62 +188,7 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
         return;
     }
     
-    GLfloat yScale = 1.0f / self.zoom;
-    
-    /*
-     * Render the first batch starting from 0 to self.dataLineDataCurrIdx.
-     */
-    {
-        GLfloat yScale = 1.0f / self.zoom;
-        
-        glBindVertexArrayOES(self.glVertexArrayDataLine);
-        
-        GLKVector3 position = self.dataLinePosition1;
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(kDataLineShiftSize, yScale, 1.0f);
-        GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
-        
-        self.graph.effect.transform.modelviewMatrix = modelMatrix;
-        self.graph.effect.useConstantColor = YES;
-        self.graph.effect.texture2d0.enabled = NO;
-        
-        const CGFloat *components = CGColorGetComponents(self.color.CGColor);
-        self.graph.effect.constantColor = GLKVector4Make(components[0], components[1], components[2], CGColorGetAlpha(self.color.CGColor));
-        [self.graph.effect prepareToDraw];
-        
-        DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
-        glLineWidth(ui.GLdataLineWidth);
-        glDrawArrays(GL_LINE_STRIP, 0, self.dataLineDataCurrIdx);
-
-        GL_CHECK_ERROR();
-    }
-    
-    /*
-     * Render the second batch starting from self.dataLineDataCurrIdx+1 to the end.
-     */
-    if (self.dataLineDataValidSize > self.dataLineDataCurrIdx)
-    {
-        glBindVertexArrayOES(self.glVertexArrayDataLine);
-        
-        GLKVector3 position = self.dataLinePosition2;
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(kDataLineShiftSize, yScale, 1.0f);
-        GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
-        
-        self.graph.effect.transform.modelviewMatrix = modelMatrix;
-        self.graph.effect.useConstantColor = YES;
-        const CGFloat *components = CGColorGetComponents(self.color.CGColor);
-        self.graph.effect.constantColor = GLKVector4Make(components[0], components[1], components[2], CGColorGetAlpha(self.color.CGColor));
-        self.graph.effect.texture2d0.enabled = NO;
-        [self.graph.effect prepareToDraw];
-        
-        DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
-        glLineWidth(ui.GLdataLineWidth);
-        glDrawArrays(GL_LINE_STRIP, self.dataLineDataCurrIdx, self.dataLineDataValidSize - self.dataLineDataCurrIdx);
-
-        GL_CHECK_ERROR();
-    }
-
+    [self renderDataLine];
 }
 
 - (NSUInteger)maxDataLineElements
@@ -270,6 +217,70 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
     glEnableVertexAttribArray(GLKVertexAttribPosition);
     
     GL_CHECK_ERROR();
+}
+
+- (void)renderDataLine
+{
+    GLfloat yScale = 1.0f / self.zoom;
+    
+    /*
+     * Render the first batch starting from 0 to self.dataLineDataCurrIdx.
+     */
+    {
+        GLfloat yScale = 1.0f / self.zoom;
+        
+        glBindVertexArrayOES(self.glVertexArrayDataLine);
+        
+        GLKVector3 position = self.dataLinePosition1;
+        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(kDataLineShiftSize, yScale, 1.0f);
+        GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
+        
+        self.graph.effect.transform.modelviewMatrix = modelMatrix;
+        self.graph.effect.useConstantColor = YES;
+        self.graph.effect.texture2d0.enabled = NO;
+        
+        const CGFloat *components = CGColorGetComponents(self.color.CGColor);
+        self.graph.effect.constantColor = GLKVector4Make(components[0], components[1], components[2], CGColorGetAlpha(self.color.CGColor));
+        [self.graph.effect prepareToDraw];
+        
+        DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
+        glLineWidth(ui.GLdataLineWidth);
+        glDrawArrays(GL_LINE_STRIP, 0, self.dataLineDataCurrIdx);
+        
+        GL_CHECK_ERROR();
+    }
+    
+    /*
+     * Render the second batch starting from self.dataLineDataCurrIdx+1 to the end.
+     */
+    if (self.dataLineDataValidSize > self.dataLineDataCurrIdx)
+    {
+        glBindVertexArrayOES(self.glVertexArrayDataLine);
+        
+        GLKVector3 position = self.dataLinePosition2;
+        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(kDataLineShiftSize, yScale, 1.0f);
+        GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
+        
+        self.graph.effect.transform.modelviewMatrix = modelMatrix;
+        self.graph.effect.useConstantColor = YES;
+        const CGFloat *components = CGColorGetComponents(self.color.CGColor);
+        self.graph.effect.constantColor = GLKVector4Make(components[0], components[1], components[2], CGColorGetAlpha(self.color.CGColor));
+        self.graph.effect.texture2d0.enabled = NO;
+        [self.graph.effect prepareToDraw];
+        
+        DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
+        glLineWidth(ui.GLdataLineWidth);
+        glDrawArrays(GL_LINE_STRIP, self.dataLineDataCurrIdx, self.dataLineDataValidSize - self.dataLineDataCurrIdx);
+        
+        GL_CHECK_ERROR();
+    }
+}
+
+- (void)renderLegend
+{
+    
 }
 
 @end

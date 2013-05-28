@@ -229,4 +229,12 @@
     return pixelHeight == 1136.0f;
 }
 
++ (BOOL)dateDidTimeout:(NSDate*)date seconds:(double)sec
+{
+    if (date == nil)
+        return YES;
+    
+    return [date timeIntervalSinceNow] < -sec;
+}
+
 @end

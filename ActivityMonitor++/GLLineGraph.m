@@ -81,7 +81,7 @@
 @synthesize glVertexArrayLegends=_glVertexArrayLegends;
 @synthesize glBufferLegends=_glBufferLegends;
 
-static const GLfloat kFontScaleMultiplier   = 1.0f / 24.0f;
+static const GLfloat kFontScaleMultiplier   = 1.0f / 56.0f;
 
 static const GLfloat kProjectionLeft        = -10.0f;
 static const GLfloat kProjectionRight       =  10.0f;
@@ -177,7 +177,7 @@ static const VertexData_t legendData[] = {
 - (void)setGraphLegend:(NSString*)aLegend
 {
     self.legend = aLegend;
-    UIImage *img = [GLCommon imageWithText:self.legend font:[UIFont fontWithName:@"Verdana" size:16.0f] color:[UIColor lightTextColor]];
+    UIImage *img = [GLCommon imageWithText:self.legend font:[UIFont fontWithName:@"Verdana" size:36.0f] color:[UIColor lightTextColor]];
     self.legendsTexture = [GLKTextureLoader textureWithCGImage:img.CGImage options:nil error:NULL];
 }
 
@@ -464,10 +464,10 @@ static const VertexData_t legendData[] = {
 
 - (void)renderLegends
 {
-    GLfloat x = self.graphRight - (self.legendsTexture.width * 0.12);
+    GLfloat x = self.graphRight - (self.legendsTexture.width * kFontScaleMultiplier) - 2.0f;
     GLfloat y = self.graphTop;
     GLfloat aspect = fabsf((GLfloat)self.legendsTexture.width / (GLfloat)self.legendsTexture.height);
-    GLfloat xScale = self.legendsTexture.width * kFontScaleMultiplier * aspect;
+    GLfloat xScale = self.legendsTexture.width * kFontScaleMultiplier * (aspect / 2);
     GLfloat yScale = self.legendsTexture.height * kFontScaleMultiplier;
     
     glBindVertexArrayOES(self.glVertexArrayLegends);

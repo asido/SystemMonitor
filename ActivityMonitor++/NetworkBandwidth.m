@@ -10,6 +10,7 @@
 
 @implementation NetworkBandwidth
 @synthesize interface;
+@synthesize timestamp;
 
 @synthesize sent;
 @synthesize totalWiFiSent;
