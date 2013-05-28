@@ -6,13 +6,24 @@
 //  Copyright (c) 2013 st. All rights reserved.
 //
 
+#import "AMLog.h"
 #import "RootCell.h"
 
-@interface RootCell()
+enum {
+    TAG_CELL_IMAGE=1,
+    TAG_CELL_LABEL=2
+};
 
+@interface RootCell()
+- (void)refreshCellImage;
+
+@property (strong, nonatomic) UIImage *cellImage;
+@property (strong, nonatomic) UIImage *cellHighlightImage;
 @end
 
 @implementation RootCell
+
+#pragma mark - override
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -27,7 +38,7 @@
 {
     [super setSelected:selected animated:animated];
 
-    UILabel *label = (UILabel*) [self viewWithTag:1];
+    UILabel *label = (UILabel*) [self viewWithTag:TAG_CELL_LABEL];
     
     if (selected)
     {
@@ -38,6 +49,49 @@
     {
         label.textColor = [UIColor whiteColor];
         label.font = [UIFont systemFontOfSize:17.0f];
+    }
+    
+    [self refreshCellImage];
+}
+
+#pragma mark - public
+
+- (void)setCellIconImage:(UIImage*)image
+{
+    self.cellImage = image;
+    [self refreshCellImage];
+}
+
+- (void)setHighlightedCellIconImage:(UIImage*)image
+{
+    self.cellHighlightImage = image;
+    [self refreshCellImage];
+}
+
+#pragma mark - private
+
+- (void)refreshCellImage
+{
+    if (!self.cellImage)
+    {
+        AMWarn(@"self.cellImage == nil");
+        return;
+    }
+    if (!self.cellHighlightImage)
+    {
+        AMWarn(@"self.cellHighlightImage == nil");
+        return;
+    }
+    
+    UIImageView *imageView = (UIImageView*)[self viewWithTag:TAG_CELL_IMAGE];
+    
+    if (self.selected)
+    {
+        [imageView setImage:self.cellHighlightImage];
+    }
+    else
+    {
+        [imageView setImage:self.cellImage];
     }
 }
 

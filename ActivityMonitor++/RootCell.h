@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RootCell : UITableViewCell
-
+- (void)setCellIconImage:(UIImage*)image;
+- (void)setHighlightedCellIconImage:(UIImage*)image;
 @end

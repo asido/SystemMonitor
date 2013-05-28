@@ -98,6 +98,24 @@
 		70F1F17117397CEC007224AD /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17017397CEC007224AD /* DeviceInfo.m */; };
 		70F1F17417397CFE007224AD /* DeviceInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17317397CFE007224AD /* DeviceInfoController.m */; };
 		70F4D7D8173D147F007E58E2 /* CPULoadFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F4D7D7173D147F007E58E2 /* CPULoadFilter.m */; };
+		70F932971754A65600CF22D0 /* GpuIcon-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932951754A65600CF22D0 /* GpuIcon-highlight.png */; };
+		70F932981754A65600CF22D0 /* GpuIcon-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932961754A65600CF22D0 /* GpuIcon-normal.png */; };
+		70F932A01754A83000CF22D0 /* NetworkIcon-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F9329E1754A83000CF22D0 /* NetworkIcon-normal.png */; };
+		70F932A31754A9D600CF22D0 /* ConnectionsIcon-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932A11754A9D600CF22D0 /* ConnectionsIcon-highlight.png */; };
+		70F932A41754A9D600CF22D0 /* ConnectionsIcon-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932A21754A9D600CF22D0 /* ConnectionsIcon-normal.png */; };
+		70F932A61754A9DC00CF22D0 /* NetworkIcon-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932A51754A9DC00CF22D0 /* NetworkIcon-highlight.png */; };
+		70F932A91754ABE100CF22D0 /* RamIcon-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932A71754ABE100CF22D0 /* RamIcon-highlight.png */; };
+		70F932AA1754ABE100CF22D0 /* RamIcon-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932A81754ABE100CF22D0 /* RamIcon-normal.png */; };
+		70F932AD1754ADEA00CF22D0 /* StorageIcon-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932AB1754ADEA00CF22D0 /* StorageIcon-highlight.png */; };
+		70F932AE1754ADEA00CF22D0 /* StorageIcon-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932AC1754ADEA00CF22D0 /* StorageIcon-normal.png */; };
+		70F932B71754B06E00CF22D0 /* BatteryIcon-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932B51754B06E00CF22D0 /* BatteryIcon-highlight.png */; };
+		70F932B81754B06E00CF22D0 /* BatteryIcon-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932B61754B06E00CF22D0 /* BatteryIcon-normal.png */; };
+		70F932BB1754B16700CF22D0 /* GeneralIcon-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932B91754B16600CF22D0 /* GeneralIcon-highlight.png */; };
+		70F932BC1754B16700CF22D0 /* GeneralIcon-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932BA1754B16700CF22D0 /* GeneralIcon-normal.png */; };
+		70F932C71754B69100CF22D0 /* CpuIcon-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932C51754B69100CF22D0 /* CpuIcon-highlight.png */; };
+		70F932C81754B69100CF22D0 /* CpuIcon-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932C61754B69100CF22D0 /* CpuIcon-normal.png */; };
+		70F932CB1754B8C400CF22D0 /* ProcessesIcon-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932C91754B8C400CF22D0 /* ProcessesIcon-highlight.png */; };
+		70F932CC1754B8C400CF22D0 /* ProcessesIcon-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 70F932CA1754B8C400CF22D0 /* ProcessesIcon-normal.png */; };
 		70FC38E4174F48590085EBC3 /* StorageInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FC38E3174F48590085EBC3 /* StorageInfoController.m */; };
 		70FC38E7174F48680085EBC3 /* StorageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FC38E6174F48680085EBC3 /* StorageInfo.m */; };
 		70FC38E9174F4F380085EBC3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FC38E8174F4F380085EBC3 /* MediaPlayer.framework */; };
@@ -265,6 +283,24 @@
 		70F1F18F17398C37007224AD /* AMLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMLog.h; sourceTree = "<group>"; };
 		70F4D7D6173D147F007E58E2 /* CPULoadFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoadFilter.h; sourceTree = "<group>"; };
 		70F4D7D7173D147F007E58E2 /* CPULoadFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPULoadFilter.m; sourceTree = "<group>"; };
+		70F932951754A65600CF22D0 /* GpuIcon-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GpuIcon-highlight.png"; sourceTree = "<group>"; };
+		70F932961754A65600CF22D0 /* GpuIcon-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GpuIcon-normal.png"; sourceTree = "<group>"; };
+		70F9329E1754A83000CF22D0 /* NetworkIcon-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NetworkIcon-normal.png"; sourceTree = "<group>"; };
+		70F932A11754A9D600CF22D0 /* ConnectionsIcon-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ConnectionsIcon-highlight.png"; sourceTree = "<group>"; };
+		70F932A21754A9D600CF22D0 /* ConnectionsIcon-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ConnectionsIcon-normal.png"; sourceTree = "<group>"; };
+		70F932A51754A9DC00CF22D0 /* NetworkIcon-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NetworkIcon-highlight.png"; sourceTree = "<group>"; };
+		70F932A71754ABE100CF22D0 /* RamIcon-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RamIcon-highlight.png"; sourceTree = "<group>"; };
+		70F932A81754ABE100CF22D0 /* RamIcon-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RamIcon-normal.png"; sourceTree = "<group>"; };
+		70F932AB1754ADEA00CF22D0 /* StorageIcon-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StorageIcon-highlight.png"; sourceTree = "<group>"; };
+		70F932AC1754ADEA00CF22D0 /* StorageIcon-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StorageIcon-normal.png"; sourceTree = "<group>"; };
+		70F932B51754B06E00CF22D0 /* BatteryIcon-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BatteryIcon-highlight.png"; sourceTree = "<group>"; };
+		70F932B61754B06E00CF22D0 /* BatteryIcon-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BatteryIcon-normal.png"; sourceTree = "<group>"; };
+		70F932B91754B16600CF22D0 /* GeneralIcon-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GeneralIcon-highlight.png"; sourceTree = "<group>"; };
+		70F932BA1754B16700CF22D0 /* GeneralIcon-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GeneralIcon-normal.png"; sourceTree = "<group>"; };
+		70F932C51754B69100CF22D0 /* CpuIcon-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CpuIcon-highlight.png"; sourceTree = "<group>"; };
+		70F932C61754B69100CF22D0 /* CpuIcon-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CpuIcon-normal.png"; sourceTree = "<group>"; };
+		70F932C91754B8C400CF22D0 /* ProcessesIcon-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ProcessesIcon-highlight.png"; sourceTree = "<group>"; };
+		70F932CA1754B8C400CF22D0 /* ProcessesIcon-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ProcessesIcon-normal.png"; sourceTree = "<group>"; };
 		70FC38E2174F48590085EBC3 /* StorageInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageInfoController.h; sourceTree = "<group>"; };
 		70FC38E3174F48590085EBC3 /* StorageInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageInfoController.m; sourceTree = "<group>"; };
 		70FC38E5174F48680085EBC3 /* StorageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageInfo.h; sourceTree = "<group>"; };
@@ -507,6 +543,7 @@
 		703D232417381ED80001E3B3 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				70F932741754A0DA00CF22D0 /* Root Table Icons */,
 				70C150BE17537760009BEB11 /* GreenCircle@2x.png */,
 				70C150BF17537760009BEB11 /* OrangeCircle@2x.png */,
 				70C150C017537760009BEB11 /* RedCircle@2x.png */,
@@ -714,6 +751,31 @@
 			path = "ActivityMonitor++";
 			sourceTree = "<group>";
 		};
+		70F932741754A0DA00CF22D0 /* Root Table Icons */ = {
+			isa = PBXGroup;
+			children = (
+				70F932B91754B16600CF22D0 /* GeneralIcon-highlight.png */,
+				70F932BA1754B16700CF22D0 /* GeneralIcon-normal.png */,
+				70F932C51754B69100CF22D0 /* CpuIcon-highlight.png */,
+				70F932C61754B69100CF22D0 /* CpuIcon-normal.png */,
+				70F932C91754B8C400CF22D0 /* ProcessesIcon-highlight.png */,
+				70F932CA1754B8C400CF22D0 /* ProcessesIcon-normal.png */,
+				70F9329E1754A83000CF22D0 /* NetworkIcon-normal.png */,
+				70F932A51754A9DC00CF22D0 /* NetworkIcon-highlight.png */,
+				70F932A11754A9D600CF22D0 /* ConnectionsIcon-highlight.png */,
+				70F932A21754A9D600CF22D0 /* ConnectionsIcon-normal.png */,
+				70F932951754A65600CF22D0 /* GpuIcon-highlight.png */,
+				70F932961754A65600CF22D0 /* GpuIcon-normal.png */,
+				70F932A71754ABE100CF22D0 /* RamIcon-highlight.png */,
+				70F932A81754ABE100CF22D0 /* RamIcon-normal.png */,
+				70F932AB1754ADEA00CF22D0 /* StorageIcon-highlight.png */,
+				70F932AC1754ADEA00CF22D0 /* StorageIcon-normal.png */,
+				70F932B51754B06E00CF22D0 /* BatteryIcon-highlight.png */,
+				70F932B61754B06E00CF22D0 /* BatteryIcon-normal.png */,
+			);
+			name = "Root Table Icons";
+			sourceTree = "<group>";
+		};
 		70FC38E1174F48450085EBC3 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -861,6 +923,24 @@
 				70C150C317537760009BEB11 /* RedCircle@2x.png in Resources */,
 				70C150C71753B770009BEB11 /* ConnectionSectionView.xib in Resources */,
 				70C150D81753DD74009BEB11 /* ConnectionsSectionBackground-60@2x.png in Resources */,
+				70F932971754A65600CF22D0 /* GpuIcon-highlight.png in Resources */,
+				70F932981754A65600CF22D0 /* GpuIcon-normal.png in Resources */,
+				70F932A01754A83000CF22D0 /* NetworkIcon-normal.png in Resources */,
+				70F932A31754A9D600CF22D0 /* ConnectionsIcon-highlight.png in Resources */,
+				70F932A41754A9D600CF22D0 /* ConnectionsIcon-normal.png in Resources */,
+				70F932A61754A9DC00CF22D0 /* NetworkIcon-highlight.png in Resources */,
+				70F932A91754ABE100CF22D0 /* RamIcon-highlight.png in Resources */,
+				70F932AA1754ABE100CF22D0 /* RamIcon-normal.png in Resources */,
+				70F932AD1754ADEA00CF22D0 /* StorageIcon-highlight.png in Resources */,
+				70F932AE1754ADEA00CF22D0 /* StorageIcon-normal.png in Resources */,
+				70F932B71754B06E00CF22D0 /* BatteryIcon-highlight.png in Resources */,
+				70F932B81754B06E00CF22D0 /* BatteryIcon-normal.png in Resources */,
+				70F932BB1754B16700CF22D0 /* GeneralIcon-highlight.png in Resources */,
+				70F932BC1754B16700CF22D0 /* GeneralIcon-normal.png in Resources */,
+				70F932C71754B69100CF22D0 /* CpuIcon-highlight.png in Resources */,
+				70F932C81754B69100CF22D0 /* CpuIcon-normal.png in Resources */,
+				70F932CB1754B8C400CF22D0 /* ProcessesIcon-highlight.png in Resources */,
+				70F932CC1754B8C400CF22D0 /* ProcessesIcon-normal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
