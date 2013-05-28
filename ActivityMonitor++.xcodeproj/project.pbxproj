@@ -52,7 +52,6 @@
 		70681B881750E70C0095547F /* BubbleTexture-nonretina.png in Resources */ = {isa = PBXBuildFile; fileRef = 70681B871750E70C0095547F /* BubbleTexture-nonretina.png */; };
 		706F717E174D8C6100E5842C /* RAMInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F717D174D8C6100E5842C /* RAMInfoController.m */; };
 		706F7184174D96E000E5842C /* RAMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F7183174D96E000E5842C /* RAMViewController.m */; };
-		70A627EF17494C49008B39C1 /* GLBlurEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A627EE17494C49008B39C1 /* GLBlurEffect.m */; };
 		70AF61321739250800EF49E9 /* CPUInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF61311739250800EF49E9 /* CPUInfo.m */; };
 		70AF61351739255700EF49E9 /* CPUInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF61341739255700EF49E9 /* CPUInfoController.m */; };
 		70AF613A17392CE600EF49E9 /* AMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF613917392CE600EF49E9 /* AMUtils.m */; };
@@ -92,8 +91,6 @@
 		70ECE27F1750596C00B1402A /* GLEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ECE27E1750596C00B1402A /* GLEffect.m */; };
 		70ECE28217508E4900B1402A /* GLBubbleEffect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 70ECE276175058A500B1402A /* GLBubbleEffect.vsh */; };
 		70ECE28317508E4900B1402A /* GLBubbleEffect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 70ECE278175058B200B1402A /* GLBubbleEffect.fsh */; };
-		70EE6080174A9F3400CB847D /* GLBlurEffect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 70A627F117494F40008B39C1 /* GLBlurEffect.vsh */; };
-		70EE6081174A9F3400CB847D /* GLBlurEffect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 70A627F317494F49008B39C1 /* GLBlurEffect.fsh */; };
 		70F1F16D1739712D007224AD /* CPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F16C1739712C007224AD /* CPUViewController.m */; };
 		70F1F17117397CEC007224AD /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17017397CEC007224AD /* DeviceInfo.m */; };
 		70F1F17417397CFE007224AD /* DeviceInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17317397CFE007224AD /* DeviceInfoController.m */; };
@@ -207,10 +204,6 @@
 		706F717F174D8C7700E5842C /* RAMInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfo.h; sourceTree = "<group>"; };
 		706F7182174D96E000E5842C /* RAMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMViewController.h; sourceTree = "<group>"; };
 		706F7183174D96E000E5842C /* RAMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMViewController.m; sourceTree = "<group>"; };
-		70A627ED17494C49008B39C1 /* GLBlurEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBlurEffect.h; sourceTree = "<group>"; };
-		70A627EE17494C49008B39C1 /* GLBlurEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLBlurEffect.m; sourceTree = "<group>"; };
-		70A627F117494F40008B39C1 /* GLBlurEffect.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLBlurEffect.vsh; sourceTree = "<group>"; };
-		70A627F317494F49008B39C1 /* GLBlurEffect.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLBlurEffect.fsh; sourceTree = "<group>"; };
 		70AF61301739250800EF49E9 /* CPUInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUInfo.h; sourceTree = "<group>"; };
 		70AF61311739250800EF49E9 /* CPUInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUInfo.m; sourceTree = "<group>"; };
 		70AF61331739255700EF49E9 /* CPUInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUInfoController.h; sourceTree = "<group>"; };
@@ -623,17 +616,6 @@
 			name = RAM;
 			sourceTree = "<group>";
 		};
-		70A627F017494F1F008B39C1 /* BlurEffect */ = {
-			isa = PBXGroup;
-			children = (
-				70A627ED17494C49008B39C1 /* GLBlurEffect.h */,
-				70A627EE17494C49008B39C1 /* GLBlurEffect.m */,
-				70A627F117494F40008B39C1 /* GLBlurEffect.vsh */,
-				70A627F317494F49008B39C1 /* GLBlurEffect.fsh */,
-			);
-			name = BlurEffect;
-			sourceTree = "<group>";
-		};
 		70AF612E173924B100EF49E9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -810,7 +792,6 @@
 		70FE9F0E173BC49E0056B891 /* GLGraph */ = {
 			isa = PBXGroup;
 			children = (
-				70A627F017494F1F008B39C1 /* BlurEffect */,
 				70FE9F0F173BC5830056B891 /* GLLineGraph.h */,
 				70FE9F10173BC5830056B891 /* GLLineGraph.m */,
 				70E19A41174B718900A411C8 /* GLDataLine.h */,
@@ -892,8 +873,6 @@
 			files = (
 				70ECE28217508E4900B1402A /* GLBubbleEffect.vsh in Resources */,
 				70ECE28317508E4900B1402A /* GLBubbleEffect.fsh in Resources */,
-				70EE6080174A9F3400CB847D /* GLBlurEffect.vsh in Resources */,
-				70EE6081174A9F3400CB847D /* GLBlurEffect.fsh in Resources */,
 				703D22E6173818EC0001E3B3 /* InfoPlist.strings in Resources */,
 				703D22EE173818EC0001E3B3 /* Default.png in Resources */,
 				703D22F0173818EC0001E3B3 /* Default@2x.png in Resources */,
@@ -994,7 +973,6 @@
 				70D92D67173B2B4D00C57DEA /* GPUInfo.m in Sources */,
 				70FE9F11173BC5830056B891 /* GLLineGraph.m in Sources */,
 				70F4D7D8173D147F007E58E2 /* CPULoadFilter.m in Sources */,
-				70A627EF17494C49008B39C1 /* GLBlurEffect.m in Sources */,
 				70E19A43174B718900A411C8 /* GLDataLine.m in Sources */,
 				70E19A46174B790400A411C8 /* GLCommon.m in Sources */,
 				70E19A4A174BBBA400A411C8 /* ProcessInfoController.m in Sources */,

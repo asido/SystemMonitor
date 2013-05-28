@@ -51,7 +51,7 @@
 
 @synthesize zoom;
 
-static const GLfloat kDataLineShiftSize     = 0.15f;
+static const GLfloat kDataLineShiftSize     = 0.25f;
 
 #pragma mark - public
 
@@ -103,6 +103,15 @@ static const GLfloat kDataLineShiftSize     = 0.15f;
         self.dataLineData[self.dataLineDataCurrIdx].positionCoords.y = vY;
         self.dataLineData[self.dataLineDataCurrIdx].positionCoords.z = kModelZ;
         
+        if (self.dataLineDataCurrIdx == 0)
+        {
+            // Previous data add wrapped the lines.
+            // It's best to set last value Y to current Y or otherwise the line might have a gap.
+            // It is quite an ugly solution because the previous data will be lost, but I can't
+            // figure anything better now.
+            self.dataLineData[self.dataLineDataSize-1].positionCoords.y = vY;
+        }
+        
         self.dataLineDataCurrIdx++;
         
         if (self.dataLineDataValidSize < self.dataLineDataSize)
@@ -122,7 +131,7 @@ static const GLfloat kDataLineShiftSize     = 0.15f;
         
         // Then re-init the first data position vector to starting position.
         GLfloat xTranslate = self.graph.graphRight;
-        self.dataLinePosition1 = GLKVector3Make(xTranslate, 0.0f, kModelZ);
+        self.dataLinePosition1 = GLKVector3Make(xTranslate, self.graph.graphBottom, kModelZ);
         
         self.dataLineDataNextX = 0;
         self.dataLineDataCurrIdx = 0;

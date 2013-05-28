@@ -72,14 +72,8 @@ enum {
 
 - (void)refreshCellImage
 {
-    if (!self.cellImage)
+    if (!self.cellImage || !self.cellHighlightImage)
     {
-        AMWarn(@"self.cellImage == nil");
-        return;
-    }
-    if (!self.cellHighlightImage)
-    {
-        AMWarn(@"self.cellHighlightImage == nil");
         return;
     }
     

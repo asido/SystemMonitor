@@ -134,9 +134,8 @@ static const double kNetworkGraphMaxValue = MB_TO_B(100);
     NetworkInfoController *networkCtrl = [AppDelegate sharedDelegate].networkInfoCtrl;
     GLfloat zoomLevel = MAX(networkCtrl.currentMaxSentBandwidth, networkCtrl.currentMaxReceivedBandwidth) / kNetworkGraphMaxValue;
     GLfloat topValue = kNetworkGraphMaxValue * zoomLevel;
-    NSLog(@"Zoom level: %f || topValue: %f", zoomLevel, topValue);
     [self.networkGraph setZoomLevel:zoomLevel];
-    [self.networkGraph setTopLegend:[NSString stringWithFormat:@"%@/s", [AMUtils toNearestMetric:topValue desiredFraction:0]]];
+    [self.networkGraph setGraphLegend:[NSString stringWithFormat:@"%@/s", [AMUtils toNearestMetric:topValue desiredFraction:0]]];
 }
 
 #pragma mark - Table view data source

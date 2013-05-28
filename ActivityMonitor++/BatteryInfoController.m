@@ -123,7 +123,7 @@
             self.batteryInfo.status = @"Fully charged";
             break;
         case UIDeviceBatteryStateUnplugged:
-            self.batteryInfo.status = @"Discharging";
+            self.batteryInfo.status = @"Unplugged";
             break;
         case UIDeviceBatteryStateUnknown:
             self.batteryInfo.status = @"Unknown";

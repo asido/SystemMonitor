@@ -9,7 +9,6 @@
 #import <OpenGLES/EAGLDrawable.h>
 #import "AMLog.h"
 #import "AMUtils.h"
-#import "GLBlurEffect.h"
 #import "CPULoad.h"
 #import "GLDataLine.h"
 #import "GLCommon.h"
@@ -31,11 +30,6 @@
 /* Data line */
 @property (strong, nonatomic) NSArray       *dataLines;
 @property (strong, nonatomic) NSArray       *queuedDataLineData;
-@property (assign, nonatomic) GLuint        blurFbo;
-@property (assign, nonatomic) GLuint        blurTexture;
-@property (assign, nonatomic) GLuint        glVertexArrayBlur;
-@property (assign, nonatomic) GLuint        glBufferBlur;
-@property (strong, nonatomic) GLBlurEffect *blurEffect;
 
 /* Reference lines */
 @property (assign, nonatomic) GLuint        glVertexArrayReferenceLine;
@@ -53,8 +47,6 @@
 - (void)tearDownGL;
 
 - (void)renderDataCurve;
-- (void)renderDataCurveToTexture;
-- (void)renderDataCurveTexture;
 - (void)renderReferenceLines;
 - (void)renderLegends;
 @end
@@ -81,11 +73,6 @@
 
 @synthesize dataLines=_dataLines;
 @synthesize queuedDataLineData=_queuedDataLineData;
-@synthesize blurFbo=_blurFbo;
-@synthesize blurTexture=_blurTexture;
-@synthesize glVertexArrayBlur=_glVertexArrayBlur;
-@synthesize glBufferBlur=_glBufferBlur;
-@synthesize blurEffect=_blurEffect;
 
 @synthesize glVertexArrayReferenceLine=_glVertexArrayReferenceLine;
 @synthesize glBufferReferenceLine=_glBufferReferenceLine;
@@ -149,6 +136,8 @@ static VertexData_t dataBlur[] = {
         self.glView = aGLView;
         self.view = self.glView;
         
+        self.glView.drawableMultisample = GLKViewDrawableMultisample4X;
+        
         self.drawableWidth = self.glView.contentScaleFactor * self.glView.bounds.size.width;
         self.drawableHeight = self.glView.contentScaleFactor * self.glView.bounds.size.height;
         self.aspectRatio = fabsf(self.drawableWidth / self.drawableHeight);
@@ -161,7 +150,7 @@ static VertexData_t dataBlur[] = {
         [self setupGL];
         
         // Init data lines.
-        NSArray *lineColors = [NSArray arrayWithObjects:[UIColor colorWithRed:167.0f/255.0f green:190.0f/255.0f blue:231.0f/255.0f alpha:1.0f],
+        NSArray *lineColors = [NSArray arrayWithObjects:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f],
                                                         [UIColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1.0f],
                                                         nil];
         NSMutableArray *lines = [[NSMutableArray alloc] initWithCapacity:self.dataLineCount];
@@ -194,7 +183,7 @@ static VertexData_t dataBlur[] = {
     }
 }
 
-- (void)setTopLegend:(NSString*)aLegend
+- (void)setGraphLegend:(NSString*)aLegend
 {
     self.legend = aLegend;
     UIImage *img = [GLCommon imageWithText:self.legend font:[UIFont fontWithName:@"Verdana" size:16.0f] color:[UIColor lightTextColor]];
@@ -262,34 +251,11 @@ static VertexData_t dataBlur[] = {
                                                                  kProjectionTop,
                                                                  kProjectionNear,
                                                                  kProjectionFar);
-    
     if (self.queuedDataLineData)
     {
         [self resetDataArray:self.queuedDataLineData];
         self.queuedDataLineData = nil;
     }
-    
-    /* Data line blur framebuffer */
-    glGenFramebuffers(1, &_blurFbo);
-    glBindFramebuffer(GL_FRAMEBUFFER, self.blurFbo);
-
-    glGenTextures(1, &_blurTexture);
-    glBindTexture(GL_TEXTURE_2D, self.blurTexture);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, self.drawableWidth, self.drawableHeight,
-                 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, self.blurTexture, 0);
-    
-    GLuint status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-    if (status != GL_FRAMEBUFFER_COMPLETE)
-    {
-        AMWarn(@"blur framebuffer init has failed: 0x%X", status);
-    }
-    
-    [self.glView bindDrawable];
     
     GL_CHECK_ERROR();
 }
@@ -311,35 +277,13 @@ static VertexData_t dataBlur[] = {
     self.effect = [[GLKBaseEffect alloc] init];
     self.effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -5.0f);
     
-    [self setTopLegend:self.legend];
-    
-    self.blurEffect = [[GLBlurEffect alloc] init];
+    [self setGraphLegend:self.legend];
     
     [self setupVBOs];
 }
 
 - (void)setupVBOs
-{    
-    /*
-     * Blur VBO.
-     */
-    {
-        glGenVertexArraysOES(1, &_glVertexArrayBlur);
-        glBindVertexArrayOES(self.glVertexArrayBlur);
-        
-        glGenBuffers(1, &_glBufferBlur);
-        glBindBuffer(GL_ARRAY_BUFFER, self.glBufferBlur);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(dataBlur), dataBlur, GL_STATIC_DRAW);
-        
-        glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(VertexData_t),
-                              NULL + offsetof(VertexData_t, positionCoords));
-        glEnableVertexAttribArray(GLKVertexAttribPosition);
-        
-        glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, sizeof(VertexData_t),
-                              NULL + offsetof(VertexData_t, textureCoords));
-        glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
-    }
-    
+{
     /*
      * Reference lines VBO.
      */
@@ -394,49 +338,10 @@ static VertexData_t dataBlur[] = {
 
 - (void)renderDataCurve
 {    
-    [self renderDataCurveToTexture];
-    [self renderDataCurveTexture];
-}
-
-- (void)renderDataCurveToTexture
-{
-    glBindFramebuffer(GL_FRAMEBUFFER, self.blurFbo);
-    glViewport(0, 0, self.glView.drawableWidth, self.glView.drawableHeight);
-    
-    glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-
     for (GLDataLine *line in self.dataLines)
     {
         [line render];
     }
-    
-    [self.glView bindDrawable];
-}
-
-- (void)renderDataCurveTexture
-{
-    // Render the texture back to the screen.
-    
-    GLfloat x = kProjectionLeft * self.aspectRatio;
-    GLfloat y = kProjectionBottom;
-    GLfloat xScale = (kProjectionRight - kProjectionLeft) * self.aspectRatio;
-    GLfloat yScale = kProjectionTop - kProjectionBottom;
-    
-    glBindVertexArrayOES(self.glVertexArrayBlur);
-    
-    GLKVector3 position = GLKVector3Make(x, y, kModelZ);
-    GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-    GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, yScale, 1.0f);
-    GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
-    GLKMatrix4 mvpMatrix = GLKMatrix4Multiply(self.effect.transform.projectionMatrix, modelMatrix);
-    
-    self.blurEffect.mvpMatrix = mvpMatrix;
-    self.blurEffect.texture0 = self.blurTexture;
-    [self.blurEffect prepareToDraw];
-    glDrawArrays(GL_TRIANGLES, 0, sizeof(dataBlur) / sizeof(VertexData_t));
-
-    GL_CHECK_ERROR();
 }
 
 - (void)renderReferenceLines
