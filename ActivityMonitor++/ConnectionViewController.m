@@ -132,7 +132,8 @@
     UILabel     *txLabel            = (UILabel*)    [cell viewWithTag:TAG_TX_LABEL];
     UILabel     *rxLabel            = (UILabel*)    [cell viewWithTag:TAG_RX_LABEL];
     
-    NSString *key = [[self.activeConnections allKeys] objectAtIndex:indexPath.section];
+    NSArray *allKeys = [[self.activeConnections allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    NSString *key = [allKeys objectAtIndex:indexPath.section];
     NSArray *connections = [self.activeConnections objectForKey:key];
     ActiveConnection *connection = [connections objectAtIndex:indexPath.row];
     

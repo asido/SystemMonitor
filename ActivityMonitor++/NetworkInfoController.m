@@ -667,7 +667,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     self.maxSentBandwidthTimes++;
     self.maxReceivedBandwidthTimes++;
     
-    if (self.maxSentBandwidthTimes > self.bandwidthHistorySize/2)
+    if (self.maxSentBandwidthTimes > self.bandwidthHistorySize)
     {
         CGFloat newMaxSent = 0;
         for (NetworkBandwidth *b in self.networkBandwidthHistory)
