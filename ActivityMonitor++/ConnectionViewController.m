@@ -225,7 +225,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.refreshingConnections)
+    // iPad uses 60px for both refreshing and connection cells,
+    // while iPhone exlusively requires 92px for connections cell to fit everything in.
+    if (self.refreshingConnections || [AMUtils isIPad])
     {
         return 60.0f;
     }
