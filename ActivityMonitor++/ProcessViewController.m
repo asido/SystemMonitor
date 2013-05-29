@@ -7,20 +7,33 @@
 //
 
 #import "AppDelegate.h"
+#import "iPadProcessSortViewController.h"
+#import "iPhoneProcessSortViewController.h"
 #import "AMLog.h"
+#import "AMUtils.h"
 #import "ProcessInfo.h"
 #import "ProcessTopView.h"
 #import "ProcessViewController.h"
 
-@interface ProcessViewController() <ProcessTopViewDelegate>
-@property (strong, nonatomic) ProcessTopView    *topView;
-@property (strong, nonatomic) NSArray           *filteredProcesses;
+@interface ProcessViewController() <ProcessTopViewDelegate, ProcessSortViewControllerDelegate>
+@property (strong, nonatomic) ProcessTopView                    *topView;
+@property (strong, nonatomic) iPhoneProcessSortViewController   *iPhoneSortViewCtrl;
+@property (strong, nonatomic) UIActionSheet                     *sortSheet;
+@property (strong, nonatomic) iPadProcessSortViewController     *iPadSortViewCtrl;
+@property (strong, nonatomic) UIPopoverController               *sortPopover;
+
+@property (strong, nonatomic) NSArray                           *filteredProcesses;
 
 - (NSString*)formatStartTime:(time_t)unixTime;
 @end
 
 @implementation ProcessViewController
 @synthesize topView;
+@synthesize iPhoneSortViewCtrl;
+@synthesize sortSheet;
+@synthesize iPadSortViewCtrl;
+@synthesize sortPopover;
+
 @synthesize filteredProcesses;
 
 #pragma mark - override
@@ -56,6 +69,7 @@
     
     
     self.filteredProcesses = [NSArray arrayWithArray:app.iDevice.processes];
+    [self processSortFilterChanged:SORT_DEFAULT];
     
     [self.topView setProcessCount:self.filteredProcesses.count];
 }
@@ -115,21 +129,16 @@
     return self.filteredProcesses.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 78;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     enum {
         TAG_ICON_VIEW=1,
-        TAG_NAME_LABEL,
-        TAG_STATUS_LABEL,
-        TAG_START_TIME_LABEL,
-        TAG_PID_LABEL,
-        TAG_PRIORITY_LABEL,
-        TAG_COMMAND_LINE_LABEL
+        TAG_NAME_LABEL=2,
+        TAG_STATUS_LABEL=3,
+        TAG_START_TIME_LABEL=4,
+        TAG_PID_LABEL=5,
+        TAG_PRIORITY_LABEL=6,
+        TAG_COMMAND_LINE_LABEL=7
     };
     
     static NSString *CellIdentifier = @"ProcessCell";
@@ -165,8 +174,70 @@
 
 #pragma mark - ProcessTopView delegate
 
-- (void)processTopViewSortFilterChanged:(SortFilter_t)newFilter
+- (void)wantsToPresentSortViewForButton:(UIButton*)button
 {
+    if ([AMUtils isIPhone])
+    {
+        if (!self.iPhoneSortViewCtrl)
+        {
+            self.iPhoneSortViewCtrl = [[iPhoneProcessSortViewController alloc] init];
+            [self.iPhoneSortViewCtrl setFilter:SORT_DEFAULT];
+            self.iPhoneSortViewCtrl.sortDelegate = self;
+        }
+        
+        self.sortSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                     delegate:nil
+                                            cancelButtonTitle:nil
+                                       destructiveButtonTitle:nil
+                                            otherButtonTitles:nil];
+        self.sortSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        [self.sortSheet addSubview:self.iPhoneSortViewCtrl];
+        
+        UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 40.0f)];
+        toolbar.barStyle = UIBarStyleBlackOpaque;
+        [self.sortSheet addSubview:toolbar];
+        
+        UILabel *pickerTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 8, 200, 25)];
+        pickerTitleLabel.text = @"Choose";
+        pickerTitleLabel.backgroundColor = [UIColor clearColor];
+        pickerTitleLabel.textColor = [UIColor whiteColor];
+        pickerTitleLabel.textAlignment = NSTextAlignmentCenter;
+        pickerTitleLabel.font = [UIFont boldSystemFontOfSize:15.0f];
+        [toolbar addSubview:pickerTitleLabel];
+        
+        [self.sortSheet showFromRect:CGRectMake(0, 480, 320, 215) inView:self.view animated:YES];
+        [self.sortSheet setBounds:CGRectMake(0, 0, 320, 411)];
+    }
+    else
+    {
+        if (!self.iPadSortViewCtrl)
+        {
+            self.iPadSortViewCtrl = [[iPadProcessSortViewController alloc] initWithStyle:UITableViewStylePlain];
+            [self.iPadSortViewCtrl setFilter:SORT_DEFAULT];
+            self.iPadSortViewCtrl.sortDelegate = self;
+        }
+        if (!self.sortPopover)
+        {
+            self.sortPopover = [[UIPopoverController alloc] initWithContentViewController:self.iPadSortViewCtrl];
+        }
+        
+        [self.sortPopover presentPopoverFromRect:button.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+}
+
+#pragma mark - ProcessSortViewControllerDelegate
+
+- (void)processSortFilterChanged:(SortFilter_t)newFilter
+{
+    if (self.sortSheet)
+    {
+        [self.sortSheet dismissWithClickedButtonIndex:0 animated:YES];
+    }
+    if (self.sortPopover)
+    {
+        [self.sortPopover dismissPopoverAnimated:YES];
+    }
+    
     AppDelegate *app = [AppDelegate sharedDelegate];
     
     switch (newFilter) {

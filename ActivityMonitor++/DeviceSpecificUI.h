@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface DeviceSpecificUI : NSObject
+@property (assign, nonatomic) CGFloat   pickViewY;
+
+@property (assign, nonatomic) GLfloat   GLdataLineGraphWidth;
 @property (assign, nonatomic) GLfloat   GLdataLineWidth;
 
 @property (strong, nonatomic) NSString  *GLtubeBackgroundFilename;

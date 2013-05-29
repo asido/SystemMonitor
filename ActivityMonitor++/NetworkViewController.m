@@ -59,14 +59,15 @@ static const double kNetworkGraphMaxValue = MB_TO_B(100);
     [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]]];
 
     [self updateStatusLabels];
+
+    AppDelegate *app = [AppDelegate sharedDelegate];
     
-    self.networkGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, 703.0f, 200.0f)];
+    self.networkGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, app.deviceSpecificUI.GLdataLineGraphWidth, 200.0f)];
     self.networkGLView.opaque = NO;
     self.networkGLView.backgroundColor = [UIColor clearColor];
     self.networkGraph = [[GLLineGraph alloc] initWithGLKView:self.networkGLView dataLineCount:2 fromValue:0.0f toValue:kNetworkGraphMaxValue topLegend:@"0 B/s"];
     self.networkGraph.preferredFramesPerSecond = kNetworkUpdateFrequency;
 
-    AppDelegate *app = [AppDelegate sharedDelegate];
     [app.networkInfoCtrl setNetworkBandwidthHistorySize:[self.networkGraph requiredElementToFillGraph]];
     
     [self updateGraphZoomLevel];

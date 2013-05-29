@@ -14,7 +14,9 @@
 #import "DeviceSpecificUI.h"
 
 @implementation DeviceSpecificUI
+@synthesize pickViewY;
 
+@synthesize GLdataLineGraphWidth;
 @synthesize GLdataLineWidth;
 
 @synthesize GLtubeBackgroundFilename;
@@ -47,6 +49,9 @@
         AppDelegate *app = [AppDelegate sharedDelegate];
         assert(app.iDevice.deviceInfo != nil);
         
+        self.pickViewY = [UIScreen mainScreen].bounds.size.height - 276.0f;
+        
+        self.GLdataLineGraphWidth = ([AMUtils isIPhone] ? 320.0f : 703.0f);
         self.GLdataLineWidth = (app.iDevice.deviceInfo.retina ? 3.0f : 2.0f);
         
         self.GLtubeBackgroundFilename = (app.iDevice.deviceInfo.retina ? @"TubeBackground-retina.png" : @"TubeBackground-nonretina.png");
@@ -70,7 +75,7 @@
         self.GLtubeLiquidTopGlowL = (app.iDevice.deviceInfo.retina ? 5.0f : 0.0f);
         self.GLtubeGLKViewFrame = CGRectMake(5.0f,
                                              (app.iDevice.deviceInfo.retina ? 16.0f : 12.0f),
-                                             ([AMUtils isIPhone] ? 100.0f/* TODO: 100.0f is nonsense */ : 693.0f),
+                                             ([AMUtils isIPhone] ? 310.0f : 693.0f),
                                              (app.iDevice.deviceInfo.retina ? self.GLtubeTextureH / 2 : self.GLtubeTextureH));
     }
     return self;

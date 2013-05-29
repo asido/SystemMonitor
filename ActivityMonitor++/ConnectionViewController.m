@@ -220,12 +220,19 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 30;
+    return 30.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    if (self.refreshingConnections)
+    {
+        return 60.0f;
+    }
+    else
+    {
+        return 92.0f;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -245,8 +252,9 @@
 - (void)networkActiveConnectionsUpdated:(NSArray *)connections
 {
     self.activeConnections = [[NSMutableDictionary alloc] init];
+    NSArray *currentConnections = [NSArray arrayWithArray:connections];
     
-    for (ActiveConnection *connection in connections)
+    for (ActiveConnection *connection in currentConnections)
     {
         if (![self.activeConnections objectForKey:connection.statusString])
         {

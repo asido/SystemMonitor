@@ -6,8 +6,27 @@
 //  Copyright (c) 2013 st. All rights reserved.
 //
 
+#import "AMLog.h"
 #import "AppDelegate.h"
 #import "GPUViewController.h"
+
+enum Section {
+    SECTION_GPU=0,
+    SECTION_OPENGL=1,
+    SECTION_OPENGL_EXTENSIONS=2,
+    SECTION_MAX=3
+};
+
+enum GPURow {
+    GPU_ROW_GPU=0,
+    GPU_ROW_MAX=1
+};
+
+enum OpenGLRow {
+    OPENGL_ROW_VERSION=0,
+    OPENGL_ROW_VENDOR=1,
+    OPENGL_ROW_MAX=2
+};
 
 @interface GPUViewController ()
 @end
@@ -39,28 +58,21 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return SECTION_MAX;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger rows;
-    
-    if (section == 0)
-    {
-        rows = 3;
+    switch (section) {
+        case SECTION_GPU:
+            return GPU_ROW_MAX;
+        case SECTION_OPENGL:
+            return OPENGL_ROW_MAX;
+        case SECTION_OPENGL_EXTENSIONS:
+            return [AppDelegate sharedDelegate].iDevice.gpuInfo.openGLExtensions.count;
+        default:
+            return 0;
     }
-    else if (section == 1)
-    {
-        AppDelegate *app = [AppDelegate sharedDelegate];
-        rows = app.iDevice.gpuInfo.openGLExtensions.count;
-    }
-    else
-    {
-        rows = 0;
-    }
-    
-    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,35 +80,55 @@
     UITableViewCell *cell;
     AppDelegate *app = [AppDelegate sharedDelegate];
     
-    if (indexPath.section == 0)
-    {
-        switch (indexPath.row) {
-            case 0: {
-                cell = [tableView dequeueReusableCellWithIdentifier:@"GPUNameCell"];
-                UILabel *nameLabel = (UILabel*)[cell viewWithTag:1];
-                [nameLabel setText:app.iDevice.gpuInfo.gpuName];
-                break;
+    switch (indexPath.section) {
+        case SECTION_GPU: {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"GPUNameCell"];
+            if (!cell)
+            {
+                AMWarn(@"cell == nil with identifier 'GPUNameCell'");
             }
-            case 1: {
-                cell = [tableView dequeueReusableCellWithIdentifier:@"OpenGLVersionCell"];
-                UILabel *glVersionLabel = (UILabel*)[cell viewWithTag:1];
-                [glVersionLabel setText:app.iDevice.gpuInfo.openGLVersion];
-                break;
-            }
-            case 2: {
-                cell = [tableView dequeueReusableCellWithIdentifier:@"OpenGLVendorCell"];
-                UILabel *glVendorLabel = (UILabel*)[cell viewWithTag:1];
-                [glVendorLabel setText:app.iDevice.gpuInfo.openGLVendor];
-                break;
-            }
+            UILabel *nameLabel = (UILabel*)[cell viewWithTag:1];
+            [nameLabel setText:app.iDevice.gpuInfo.gpuName];
+            break;
         }
-    }
-    else
-    {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"OpenGLExtensionCell"];
-        NSString *extension = [app.iDevice.gpuInfo.openGLExtensions objectAtIndex:indexPath.row];
-        UILabel *extensionLabel = (UILabel*)[cell viewWithTag:1];
-        [extensionLabel setText:extension];
+        case SECTION_OPENGL: {
+            switch (indexPath.row) {
+                case OPENGL_ROW_VERSION: {
+                    cell = [tableView dequeueReusableCellWithIdentifier:@"OpenGLVersionCell"];
+                    if (!cell)
+                    {
+                        AMWarn(@"cell == nil with identifier 'OpenGLVersionCell'");
+                    }
+                    UILabel *glVersionLabel = (UILabel*)[cell viewWithTag:1];
+                    [glVersionLabel setText:app.iDevice.gpuInfo.openGLVersion];
+                    break;
+                }
+                case OPENGL_ROW_VENDOR: {
+                    cell = [tableView dequeueReusableCellWithIdentifier:@"OpenGLVendorCell"];
+                    if (!cell)
+                    {
+                        AMWarn(@"cell == nil with identifier 'OpenGLVendorCell'");
+                    }
+                    UILabel *glVendorLabel = (UILabel*)[cell viewWithTag:1];
+                    [glVendorLabel setText:app.iDevice.gpuInfo.openGLVendor];
+                    break;
+                }
+                default:
+                    AMWarn(@"invalid row(%d) for section(%d)", indexPath.section, indexPath.row);
+                    break;
+            }
+            break;
+        }
+        case SECTION_OPENGL_EXTENSIONS: {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"OpenGLExtensionCell"];
+            NSString *extension = [app.iDevice.gpuInfo.openGLExtensions objectAtIndex:indexPath.row];
+            UILabel *extensionLabel = (UILabel*)[cell viewWithTag:1];
+            [extensionLabel setText:extension];
+            break;
+        }
+        default:
+            AMWarn(@"invalid section(%d)", indexPath.section);
+            break;
     }
     
     return cell;
@@ -104,12 +136,16 @@
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if (section == 1)
-    {
-        return @"OpenGL Extensions";
+    switch (section) {
+        case SECTION_GPU:
+            return @"GPU Information";
+        case SECTION_OPENGL:
+            return @"OpenGL Information";
+        case SECTION_OPENGL_EXTENSIONS:
+            return @"OpenGL Extensions";
+        default:
+            return nil;
     }
-    
-    return nil;
 }
 
 /*

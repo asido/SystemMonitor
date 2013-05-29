@@ -55,7 +55,7 @@ enum {
     [self.totalRamLabel setText:[AMUtils toNearestMetric:(uint64_t)app.iDevice.ramInfo.totalRam desiredFraction:0]];
     [self.ramTypeLabel setText:app.iDevice.ramInfo.ramType];
     
-    self.ramUsageGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, 703.0f, 200.0f)];
+    self.ramUsageGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, app.deviceSpecificUI.GLdataLineGraphWidth, 200.0f)];
     self.ramUsageGLView.opaque = NO;
     self.ramUsageGLView.backgroundColor = [UIColor clearColor];
     

@@ -7,16 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef enum {
-    SORT_BY_ID=0,
-    SORT_BY_NAME,
-    SORT_BY_PRIORITY,
-    SORT_BY_START_TIME
-} SortFilter_t;
+#import "ProcessViewController.h"
 
 @protocol ProcessTopViewDelegate
-- (void)processTopViewSortFilterChanged:(SortFilter_t)newFilter;
+- (void)wantsToPresentSortViewForButton:(UIButton*)button;
 @end
 
 @interface ProcessTopView : UIView

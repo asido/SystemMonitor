@@ -58,7 +58,7 @@
     [self.l3CacheLabel setText:(app.iDevice.cpuInfo.l3Cache == 0 ? @"-" : [AMUtils toNearestMetric:(uint64_t)app.iDevice.cpuInfo.l3Cache desiredFraction:0])];
     [self.endianessLabel setText:app.iDevice.cpuInfo.endianess];
     
-    self.cpuUsageGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, 703.0f, 200.0f)];
+    self.cpuUsageGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, app.deviceSpecificUI.GLdataLineGraphWidth, 200.0f)];
     self.cpuUsageGLView.opaque = NO;
     self.cpuUsageGLView.backgroundColor = [UIColor clearColor];
     

@@ -6,12 +6,14 @@
 //  Copyright (c) 2013 st. All rights reserved.
 //
 
-#import "ProcessSortViewController.h"
+#import "AppDelegate.h"
+#import "AMUtils.h"
+#import "ProcessSort.h"
+#import "iPhoneProcessSortViewController.h"
+#import "iPadProcessSortViewController.h"
 #import "ProcessTopView.h"
 
-@interface ProcessTopView() <ProcessSortViewControllerDelegate>
-@property (strong, nonatomic) UIPopoverController       *sortPopover;
-@property (strong, nonatomic) ProcessSortViewController *sortViewCtrl;
+@interface ProcessTopView()
 @property (weak, nonatomic) IBOutlet UIButton *sortButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *processCountLabel;
@@ -19,8 +21,6 @@
 @end
 
 @implementation ProcessTopView
-@synthesize sortPopover;
-@synthesize sortViewCtrl;
 
 #pragma mark - override
 
@@ -28,8 +28,13 @@
 {
     if (self = [super initWithCoder:aDecoder])
     {
+        DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
+        CGRect frame = self.frame;
+        frame.size.width = ui.GLdataLineGraphWidth;
+        self.frame = frame;
+        
         UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]];
-        CGRect frame = background.frame;
+        frame = background.frame;
         frame.size.height = self.frame.size.height;
         background.frame = frame;
         [self addSubview:background];
@@ -38,15 +43,6 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-
 #pragma mark - public
 
 - (void)setProcessCount:(NSUInteger)count
@@ -54,29 +50,11 @@
     [self.processCountLabel setText:[NSString stringWithFormat:@"%d Processes Running", count]];
 }
 
-#pragma mark - ProcessSortViewController delegate
-
-- (void)processSortFilterChanged:(SortFilter_t)newFilter
-{
-    [self.sortPopover dismissPopoverAnimated:YES];
-    [self.delegate processTopViewSortFilterChanged:newFilter];
-}
-
 #pragma mark - UI interaction
 
 - (IBAction)filterButtonTouchDown:(UIButton*)button
 {
-    if (!self.sortViewCtrl)
-    {
-        self.sortViewCtrl = [[ProcessSortViewController alloc] initWithStyle:UITableViewStylePlain];
-        self.sortViewCtrl.delegate = self;
-    }
-    if (!self.sortPopover)
-    {
-        self.sortPopover = [[UIPopoverController alloc] initWithContentViewController:self.sortViewCtrl];
-    }
-    
-    [self.sortPopover presentPopoverFromRect:button.frame inView:self permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [self.delegate wantsToPresentSortViewForButton:button];
 }
 
 @end

@@ -154,7 +154,10 @@
 
 + (float)valuePercentFrom:(double)from to:(double)to value:(double)value
 {
+    // In simulator returned memory is always 0 and so messes the statistics very much.
+#if !TARGET_IPHONE_SIMULATOR
     assert(from < to);
+#endif
     
     float phase = from;
     float zeroBasedValue = value - phase;
