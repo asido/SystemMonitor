@@ -62,10 +62,16 @@
     }
     
     procs = malloc(size);
+    if (!procs)
+    {
+        AMWarn(@"malloc() for procs has failed.");
+        return result;
+    }
 
     if (sysctl(mib, 4, procs, &size, NULL, 0) == -1)
     {
         AMWarn(@"sysctl to retrieve processes has failed");
+        free(procs);
         return result;
     }
     
@@ -83,6 +89,7 @@
         [result addObject:process];
     }
 
+    free(procs);
     return result;
 }
 
@@ -117,7 +124,7 @@
     {
         // Failure here means it's a system process.
         process.commandLine = [NSString stringWithFormat:@"(%@)", process.name];
-        return;
+        goto exit;
     }
     
     memcpy(&nargs, procargs, sizeof(nargs));
@@ -133,7 +140,7 @@
     
     if (cp == &procargs[size])
     {
-        return;
+        goto exit;;
     }
     
     // Skip trailing '\0' characters.
@@ -147,7 +154,7 @@
     
     if (cp == &procargs[size])
     {
-        return;
+        goto exit;
     }
     
     // Save where argv[0] string starts.
@@ -178,12 +185,13 @@
      */
     if (np == NULL || np == sp) {
         /* Empty or unterminated string. */
-        return;
+        goto exit;
     }
     
     /* Make a copy of the string. */
     process.commandLine = [NSString stringWithCString:sp encoding:NSUTF8StringEncoding];
     
+exit:
     /* Clean up. */
     free(procargs);
 }

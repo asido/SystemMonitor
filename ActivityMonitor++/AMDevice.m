@@ -33,7 +33,7 @@
 
 - (id)init
 {
-    if ([super init])
+    if (self = [super init])
     {
         // Warning: since we rely a lot on hardcoded data, hw.machine must be retrieved
         // before everything else!

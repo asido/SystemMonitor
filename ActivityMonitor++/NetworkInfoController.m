@@ -548,7 +548,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
             if (sysctl(mib, 6, msgBuffer, &length, NULL, 0) < 0)
             {
                 AMWarn(@"sysctl() has failed. (2)");
-                return mac;
+                goto exit;
             }
         }
     }
@@ -558,8 +558,9 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     memcpy(&macAddress, socketStruct->sdl_data + socketStruct->sdl_nlen, 6);
     mac = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
            macAddress[0], macAddress[1], macAddress[2], macAddress[3], macAddress[4], macAddress[5]];
-    free(msgBuffer);
     
+exit:
+    free(msgBuffer);
     return mac;
 }
 
@@ -584,10 +585,18 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         AMWarn(@"sysctl failed (1)");
         return bandwidth;
     }
+    
     char *buf = malloc(len);
+    if (!buf)
+    {
+        AMWarn(@"malloc() for buf has failed.");
+        return bandwidth;
+    }
+    
     if (sysctl(mib, 6, buf, &len, NULL, 0) < 0)
     {
         AMWarn(@"sysctl failed (2)");
+        free(buf);
         return bandwidth;
     }
     char *lim = buf + len;
@@ -648,6 +657,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         }
     }
     
+    free(buf);
     return bandwidth;
 }
 
@@ -809,6 +819,9 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         }
         
         which = 0;
+        
+        assert(inp != NULL);
+        assert(so != NULL);
         
         // Ignore sockets for protocols other than the desired one.
         if (so->xso_protocol != (int)proto)
