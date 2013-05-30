@@ -33,12 +33,21 @@
 
 @synthesize storageInfo;
 
+#pragma mark - override
+
+- (id)init
+{
+    if (self = [super init])
+    {
+        self.storageInfo = [[StorageInfo alloc] init];
+    }
+    return self;
+}
+
 #pragma mark - public
 
 - (StorageInfo*)getStorageInfo
 {
-    self.storageInfo = [[StorageInfo alloc] init];
-    
     self.storageInfo.totalSapce = [self getTotalSpace];
     self.storageInfo.usedSpace = [self getUsedSpace];
     self.storageInfo.freeSpace = [self getFreeSpace];

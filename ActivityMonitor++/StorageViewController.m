@@ -47,10 +47,10 @@ enum {
     
     [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]]];
     
-    [self updateInfoLabels];
-    
     AppDelegate      *app = [AppDelegate sharedDelegate];
     DeviceSpecificUI *ui = app.deviceSpecificUI;
+
+    [self updateInfoLabels];
     
     self.glTubeView = [[GLKView alloc] initWithFrame:ui.GLtubeGLKViewFrame];
     self.glTubeView.opaque = NO;
@@ -58,6 +58,24 @@ enum {
     self.glTube = [[GLTube alloc] initWithGLKView:self.glTubeView fromValue:0 toValue:app.iDevice.storageInfo.totalSapce];
     
     [self.glTube setValue:app.iDevice.storageInfo.usedSpace];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    app.storageInfoCtrl.delegate = self;
+    
+    [app.iDevice refreshStorageInfo];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    app.storageInfoCtrl.delegate = nil;
 }
 
 #pragma mark - private
@@ -112,6 +130,9 @@ enum {
 - (void)storageInfoUpdated
 {
     [self updateInfoLabels];
+    
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    [self.glTube setValue:app.iDevice.storageInfo.usedSpace];
 }
 
 @end

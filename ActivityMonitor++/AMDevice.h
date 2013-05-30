@@ -32,4 +32,5 @@
 @property (readonly) BatteryInfo    *batteryInfo;
 
 - (void)refreshProcesses;
+- (void)refreshStorageInfo;
 @end

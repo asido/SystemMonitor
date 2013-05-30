@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--I Pad Root Table View Controller - Activity Monitor ++-->
+        <!--I Pad Root Table View Controller - System Activity Monitor-->
         <scene sceneID="LfI-W0-ryK">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="eJD-0d-uI8" customClass="iPadRootTableViewController" sceneMemberID="viewController">
@@ -212,7 +212,7 @@
                             <outlet property="delegate" destination="eJD-0d-uI8" id="2x3-5o-MlE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Activity Monitor ++" id="Bnw-sI-Qlg"/>
+                    <navigationItem key="navigationItem" title="System Activity Monitor" id="Bnw-sI-Qlg"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQQ-IS-Fqj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

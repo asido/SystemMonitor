@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="-366" y="170"/>
         </scene>
-        <!--I Phone Root Table View Controller - Activity Monitor ++-->
+        <!--I Phone Root Table View Controller - System Activity Monitor-->
         <scene sceneID="JQM-bn-fsl">
             <objects>
                 <tableViewController id="jUU-gC-pcW" customClass="iPhoneRootTableViewController" sceneMemberID="viewController">
@@ -311,7 +311,7 @@
                             <outlet property="delegate" destination="jUU-gC-pcW" id="sAU-D8-7hB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Activity Monitor ++" id="OEu-95-Y2D"/>
+                    <navigationItem key="navigationItem" title="System Activity Monitor" id="OEu-95-Y2D"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jkn-Lr-bvV" userLabel="First Responder" sceneMemberID="firstResponder"/>

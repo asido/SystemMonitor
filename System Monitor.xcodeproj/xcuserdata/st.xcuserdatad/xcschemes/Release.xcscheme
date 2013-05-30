@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "703D22D7173818EC0001E3B3"
-               BuildableName = "ActivityMonitor++.app"
-               BlueprintName = "ActivityMonitor++"
-               ReferencedContainer = "container:ActivityMonitor++.xcodeproj">
+               BuildableName = "System Monitor.app"
+               BlueprintName = "System Monitor"
+               ReferencedContainer = "container:System Monitor.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,24 +28,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "703D230B173818EC0001E3B3"
-               BuildableName = "ActivityMonitor++Tests.octest"
-               BlueprintName = "ActivityMonitor++Tests"
-               ReferencedContainer = "container:ActivityMonitor++.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "703D22D7173818EC0001E3B3"
-            BuildableName = "ActivityMonitor++.app"
-            BlueprintName = "ActivityMonitor++"
-            ReferencedContainer = "container:ActivityMonitor++.xcodeproj">
+            BuildableName = "System Monitor.app"
+            BlueprintName = "System Monitor"
+            ReferencedContainer = "container:System Monitor.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -54,7 +44,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
@@ -62,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "703D22D7173818EC0001E3B3"
-            BuildableName = "ActivityMonitor++.app"
-            BlueprintName = "ActivityMonitor++"
-            ReferencedContainer = "container:ActivityMonitor++.xcodeproj">
+            BuildableName = "System Monitor.app"
+            BlueprintName = "System Monitor"
+            ReferencedContainer = "container:System Monitor.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "703D22D7173818EC0001E3B3"
-            BuildableName = "ActivityMonitor++.app"
-            BlueprintName = "ActivityMonitor++"
-            ReferencedContainer = "container:ActivityMonitor++.xcodeproj">
+            BuildableName = "System Monitor.app"
+            BlueprintName = "System Monitor"
+            ReferencedContainer = "container:System Monitor.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

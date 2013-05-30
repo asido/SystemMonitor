@@ -17,7 +17,7 @@
 @property (assign, nonatomic) NSUInteger    pictureCount;
 @property (assign, nonatomic) NSUInteger    videoCount;
 
-@property (assign, nonatomic) NSUInteger    totalSongSize;
-@property (assign, nonatomic) NSUInteger    totalPictureSize;
-@property (assign, nonatomic) NSUInteger    totalVideoSize;
+@property (assign, nonatomic) uint64_t      totalSongSize;
+@property (assign, nonatomic) uint64_t      totalPictureSize;
+@property (assign, nonatomic) uint64_t      totalVideoSize;
 @end

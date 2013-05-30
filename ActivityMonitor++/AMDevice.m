@@ -77,4 +77,10 @@
     _processes = [app.processInfoCtrl getProcesses];
 }
 
+- (void)refreshStorageInfo
+{
+    AppDelegate *app = [AppDelegate sharedDelegate];
+    _storageInfo = [app.storageInfoCtrl getStorageInfo];
+}
+
 @end

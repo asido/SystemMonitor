@@ -30,6 +30,11 @@
 		701190F8174D246800B5D8B1 /* ProcessTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 701190F7174D246800B5D8B1 /* ProcessTopView.xib */; };
 		701190FB174D2F2000B5D8B1 /* iPadProcessSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701190FA174D2F2000B5D8B1 /* iPadProcessSortViewController.m */; };
 		70119102174D7DA600B5D8B1 /* RootCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70119101174D7DA600B5D8B1 /* RootCell.m */; };
+		7033715C1757C78B007AE82C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7033715B1757C78B007AE82C /* Default-568h@2x.png */; };
+		7033715E1757C78C007AE82C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7033715D1757C78C007AE82C /* Default@2x.png */; };
+		703371601757C78E007AE82C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7033715F1757C78E007AE82C /* Default.png */; };
+		703371631757C805007AE82C /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 703371611757C798007AE82C /* Default-Landscape@2x~ipad.png */; };
+		703371651757C850007AE82C /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 703371641757C850007AE82C /* Default-Landscape~ipad.png */; };
 		70340CA51752758F001C1F1A /* TubeTexture-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 70340CA41752758F001C1F1A /* TubeTexture-retina.png */; };
 		70340CAD17527DB1001C1F1A /* TubeBackground-nonretina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70340CAC17527DB1001C1F1A /* TubeBackground-nonretina@2x.png */; };
 		70340CB517527FB7001C1F1A /* TubeBackground-retina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70340CB417527FB6001C1F1A /* TubeBackground-retina@2x.png */; };
@@ -40,7 +45,6 @@
 		703D22E6173818EC0001E3B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 703D22E4173818EC0001E3B3 /* InfoPlist.strings */; };
 		703D22E8173818EC0001E3B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 703D22E7173818EC0001E3B3 /* main.m */; };
 		703D22EC173818EC0001E3B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 703D22EB173818EC0001E3B3 /* AppDelegate.m */; };
-		703D22EE173818EC0001E3B3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 703D22ED173818EC0001E3B3 /* Default.png */; };
 		703D22F5173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703D22F3173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard */; };
 		703D22F8173818EC0001E3B3 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703D22F6173818EC0001E3B3 /* MainStoryboard_iPad.storyboard */; };
 		703D230E173818EC0001E3B3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D230D173818EC0001E3B3 /* SenTestingKit.framework */; };
@@ -91,11 +95,6 @@
 		70E1B4F9175758310072C24A /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E1B4F8175758310072C24A /* Icon-57.png */; };
 		70E1B4FB175758A80072C24A /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E1B4FA175758A80072C24A /* Icon-144.png */; };
 		70E1B4FD175758AA0072C24A /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E1B4FC175758AA0072C24A /* Icon-72.png */; };
-		70E1B4FF175759FB0072C24A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E1B4FE175759FB0072C24A /* Default-Landscape~ipad.png */; };
-		70E1B50117575A020072C24A /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E1B50017575A020072C24A /* Default-Landscape@2x~ipad.png */; };
-		70E1B50917575CF50072C24A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E1B50817575CF50072C24A /* Default-568h@2x.png */; };
-		70E1B50B17575CF90072C24A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E1B50A17575CF90072C24A /* Default@2x.png */; };
-		70E1B50D17575CFC0072C24A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E1B50C17575CFC0072C24A /* Default.png */; };
 		70E437101752526F00ED3876 /* DeviceSpecificUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4370F1752526F00ED3876 /* DeviceSpecificUI.m */; };
 		70E4371417526E0200ED3876 /* TubeTexture-nonretina.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E4371317526E0200ED3876 /* TubeTexture-nonretina.png */; };
 		70E4371C175270F100ED3876 /* BubbleTexture-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E4371B175270F100ED3876 /* BubbleTexture-retina.png */; };
@@ -185,20 +184,25 @@
 		701190FA174D2F2000B5D8B1 /* iPadProcessSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProcessSortViewController.m; sourceTree = "<group>"; };
 		70119100174D7DA500B5D8B1 /* RootCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootCell.h; sourceTree = "<group>"; };
 		70119101174D7DA600B5D8B1 /* RootCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootCell.m; sourceTree = "<group>"; };
+		7033715B1757C78B007AE82C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7033715D1757C78C007AE82C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		7033715F1757C78E007AE82C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		703371611757C798007AE82C /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		703371641757C850007AE82C /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		70340CA41752758F001C1F1A /* TubeTexture-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TubeTexture-retina.png"; sourceTree = "<group>"; };
 		70340CAC17527DB1001C1F1A /* TubeBackground-nonretina@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TubeBackground-nonretina@2x.png"; sourceTree = "<group>"; };
 		70340CB417527FB6001C1F1A /* TubeBackground-retina@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TubeBackground-retina@2x.png"; sourceTree = "<group>"; };
 		70340CB61752A810001C1F1A /* ActiveConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveConnection.h; sourceTree = "<group>"; };
 		70340CB71752A810001C1F1A /* ActiveConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveConnection.m; sourceTree = "<group>"; };
 		70340CB91752B47D001C1F1A /* bsd_var.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bsd_var.h; sourceTree = "<group>"; };
-		703D22D8173818EC0001E3B3 /* ActivityMonitor++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ActivityMonitor++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		703D22D8173818EC0001E3B3 /* System Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "System Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		703D22DB173818EC0001E3B3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		703D22DD173818EC0001E3B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		703D22DF173818EC0001E3B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		703D22E3173818EC0001E3B3 /* ActivityMonitor++-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ActivityMonitor++-Info.plist"; sourceTree = "<group>"; };
+		703D22E3173818EC0001E3B3 /* System Monitor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "System Monitor-Info.plist"; sourceTree = "<group>"; };
 		703D22E5173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		703D22E7173818EC0001E3B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		703D22E9173818EC0001E3B3 /* ActivityMonitor++-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ActivityMonitor++-Prefix.pch"; sourceTree = "<group>"; };
+		703D22E9173818EC0001E3B3 /* System Monitor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System Monitor-Prefix.pch"; sourceTree = "<group>"; };
 		703D22EA173818EC0001E3B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		703D22EB173818EC0001E3B3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		703D22ED173818EC0001E3B3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -206,9 +210,9 @@
 		703D22F1173818EC0001E3B3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		703D22F4173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		703D22F7173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		703D230C173818EC0001E3B3 /* ActivityMonitor++Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ActivityMonitor++Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		703D230C173818EC0001E3B3 /* System MonitorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "System MonitorTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		703D230D173818EC0001E3B3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		703D2315173818EC0001E3B3 /* ActivityMonitor++Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ActivityMonitor++Tests-Info.plist"; sourceTree = "<group>"; };
+		703D2315173818EC0001E3B3 /* System MonitorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "System MonitorTests-Info.plist"; sourceTree = "<group>"; };
 		703D2317173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		704528AA174EAD44003DD424 /* GLTube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTube.h; sourceTree = "<group>"; };
 		704528AB174EAD44003DD424 /* GLTube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLTube.m; sourceTree = "<group>"; };
@@ -283,11 +287,6 @@
 		70E1B4F8175758310072C24A /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
 		70E1B4FA175758A80072C24A /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-144.png"; sourceTree = "<group>"; };
 		70E1B4FC175758AA0072C24A /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
-		70E1B4FE175759FB0072C24A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
-		70E1B50017575A020072C24A /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
-		70E1B50817575CF50072C24A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		70E1B50A17575CF90072C24A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		70E1B50C17575CFC0072C24A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		70E437061752514500ED3876 /* DeviceSpecificUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSpecificUI.h; sourceTree = "<group>"; };
 		70E4370F1752526F00ED3876 /* DeviceSpecificUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSpecificUI.m; sourceTree = "<group>"; };
 		70E4371317526E0200ED3876 /* TubeTexture-nonretina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TubeTexture-nonretina.png"; sourceTree = "<group>"; };
@@ -398,11 +397,11 @@
 		700A75EA17578A2E0099ABB3 /* Icon & splash */ = {
 			isa = PBXGroup;
 			children = (
-				70E1B50C17575CFC0072C24A /* Default.png */,
-				70E1B50A17575CF90072C24A /* Default@2x.png */,
-				70E1B50817575CF50072C24A /* Default-568h@2x.png */,
-				70E1B50017575A020072C24A /* Default-Landscape@2x~ipad.png */,
-				70E1B4FE175759FB0072C24A /* Default-Landscape~ipad.png */,
+				703371641757C850007AE82C /* Default-Landscape~ipad.png */,
+				703371611757C798007AE82C /* Default-Landscape@2x~ipad.png */,
+				7033715F1757C78E007AE82C /* Default.png */,
+				7033715D1757C78C007AE82C /* Default@2x.png */,
+				7033715B1757C78B007AE82C /* Default-568h@2x.png */,
 				70E1B4FC175758AA0072C24A /* Icon-72.png */,
 				70E1B4FA175758A80072C24A /* Icon-144.png */,
 				70E1B4F8175758310072C24A /* Icon-57.png */,
@@ -498,8 +497,8 @@
 		703D22D9173818EC0001E3B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				703D22D8173818EC0001E3B3 /* ActivityMonitor++.app */,
-				703D230C173818EC0001E3B3 /* ActivityMonitor++Tests.octest */,
+				703D22D8173818EC0001E3B3 /* System Monitor.app */,
+				703D230C173818EC0001E3B3 /* System MonitorTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -552,10 +551,10 @@
 		703D22E2173818EC0001E3B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				703D22E3173818EC0001E3B3 /* ActivityMonitor++-Info.plist */,
+				703D22E3173818EC0001E3B3 /* System Monitor-Info.plist */,
 				703D22E4173818EC0001E3B3 /* InfoPlist.strings */,
 				703D22E7173818EC0001E3B3 /* main.m */,
-				703D22E9173818EC0001E3B3 /* ActivityMonitor++-Prefix.pch */,
+				703D22E9173818EC0001E3B3 /* System Monitor-Prefix.pch */,
 				703D22ED173818EC0001E3B3 /* Default.png */,
 				703D22EF173818EC0001E3B3 /* Default@2x.png */,
 				703D22F1173818EC0001E3B3 /* Default-568h@2x.png */,
@@ -577,7 +576,7 @@
 		703D2314173818EC0001E3B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				703D2315173818EC0001E3B3 /* ActivityMonitor++Tests-Info.plist */,
+				703D2315173818EC0001E3B3 /* System MonitorTests-Info.plist */,
 				703D2316173818EC0001E3B3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -862,9 +861,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		703D22D7173818EC0001E3B3 /* ActivityMonitor++ */ = {
+		703D22D7173818EC0001E3B3 /* System Monitor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 703D231E173818EC0001E3B3 /* Build configuration list for PBXNativeTarget "ActivityMonitor++" */;
+			buildConfigurationList = 703D231E173818EC0001E3B3 /* Build configuration list for PBXNativeTarget "System Monitor" */;
 			buildPhases = (
 				703D22D4173818EC0001E3B3 /* Sources */,
 				703D22D5173818EC0001E3B3 /* Frameworks */,
@@ -874,14 +873,14 @@
 			);
 			dependencies = (
 			);
-			name = "ActivityMonitor++";
+			name = "System Monitor";
 			productName = "ActivityMonitor++";
-			productReference = 703D22D8173818EC0001E3B3 /* ActivityMonitor++.app */;
+			productReference = 703D22D8173818EC0001E3B3 /* System Monitor.app */;
 			productType = "com.apple.product-type.application";
 		};
-		703D230B173818EC0001E3B3 /* ActivityMonitor++Tests */ = {
+		703D230B173818EC0001E3B3 /* System MonitorTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 703D2321173818EC0001E3B3 /* Build configuration list for PBXNativeTarget "ActivityMonitor++Tests" */;
+			buildConfigurationList = 703D2321173818EC0001E3B3 /* Build configuration list for PBXNativeTarget "System MonitorTests" */;
 			buildPhases = (
 				703D2307173818EC0001E3B3 /* Sources */,
 				703D2308173818EC0001E3B3 /* Frameworks */,
@@ -893,9 +892,9 @@
 			dependencies = (
 				703D2312173818EC0001E3B3 /* PBXTargetDependency */,
 			);
-			name = "ActivityMonitor++Tests";
+			name = "System MonitorTests";
 			productName = "ActivityMonitor++Tests";
-			productReference = 703D230C173818EC0001E3B3 /* ActivityMonitor++Tests.octest */;
+			productReference = 703D230C173818EC0001E3B3 /* System MonitorTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -907,7 +906,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = st;
 			};
-			buildConfigurationList = 703D22D3173818EB0001E3B3 /* Build configuration list for PBXProject "ActivityMonitor++" */;
+			buildConfigurationList = 703D22D3173818EB0001E3B3 /* Build configuration list for PBXProject "System Monitor" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -919,8 +918,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				703D22D7173818EC0001E3B3 /* ActivityMonitor++ */,
-				703D230B173818EC0001E3B3 /* ActivityMonitor++Tests */,
+				703D22D7173818EC0001E3B3 /* System Monitor */,
+				703D230B173818EC0001E3B3 /* System MonitorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -933,7 +932,6 @@
 				70ECE28217508E4900B1402A /* GLBubbleEffect.vsh in Resources */,
 				70ECE28317508E4900B1402A /* GLBubbleEffect.fsh in Resources */,
 				703D22E6173818EC0001E3B3 /* InfoPlist.strings in Resources */,
-				703D22EE173818EC0001E3B3 /* Default.png in Resources */,
 				703D22F5173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard in Resources */,
 				703D22F8173818EC0001E3B3 /* MainStoryboard_iPad.storyboard in Resources */,
 				70E19A59174C260300A411C8 /* Background-748@2x.png in Resources */,
@@ -980,14 +978,14 @@
 				70E1B4F9175758310072C24A /* Icon-57.png in Resources */,
 				70E1B4FB175758A80072C24A /* Icon-144.png in Resources */,
 				70E1B4FD175758AA0072C24A /* Icon-72.png in Resources */,
-				70E1B4FF175759FB0072C24A /* Default-Landscape~ipad.png in Resources */,
-				70E1B50117575A020072C24A /* Default-Landscape@2x~ipad.png in Resources */,
-				70E1B50917575CF50072C24A /* Default-568h@2x.png in Resources */,
-				70E1B50B17575CF90072C24A /* Default@2x.png in Resources */,
-				70E1B50D17575CFC0072C24A /* Default.png in Resources */,
 				700A75F1175796180099ABB3 /* arrow-down.png in Resources */,
 				700A75F2175796180099ABB3 /* arrow-up.png in Resources */,
 				700A75F617579F690099ABB3 /* LineGraphBackground-414@2x.png in Resources */,
+				7033715C1757C78B007AE82C /* Default-568h@2x.png in Resources */,
+				7033715E1757C78C007AE82C /* Default@2x.png in Resources */,
+				703371601757C78E007AE82C /* Default.png in Resources */,
+				703371631757C805007AE82C /* Default-Landscape@2x~ipad.png in Resources */,
+				703371651757C850007AE82C /* Default-Landscape~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1092,7 +1090,7 @@
 /* Begin PBXTargetDependency section */
 		703D2312173818EC0001E3B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 703D22D7173818EC0001E3B3 /* ActivityMonitor++ */;
+			target = 703D22D7173818EC0001E3B3 /* System Monitor */;
 			targetProxy = 703D2311173818EC0001E3B3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1198,14 +1196,16 @@
 		703D231F173818EC0001E3B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ActivityMonitor++/ActivityMonitor++-Prefix.pch";
-				INFOPLIST_FILE = "ActivityMonitor++/ActivityMonitor++-Info.plist";
+				GCC_PREFIX_HEADER = "ActivityMonitor++/System Monitor-Prefix.pch";
+				INFOPLIST_FILE = "ActivityMonitor++/System Monitor-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/ActivityMonitor++\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "System Monitor";
+				PROVISIONING_PROFILE = "96EB7067-18E6-42B3-8D6A-8DFF1F2438BA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1213,14 +1213,16 @@
 		703D2320173818EC0001E3B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ActivityMonitor++/ActivityMonitor++-Prefix.pch";
-				INFOPLIST_FILE = "ActivityMonitor++/ActivityMonitor++-Info.plist";
+				GCC_PREFIX_HEADER = "ActivityMonitor++/System Monitor-Prefix.pch";
+				INFOPLIST_FILE = "ActivityMonitor++/System Monitor-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/ActivityMonitor++\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "System Monitor";
+				PROVISIONING_PROFILE = "96EB7067-18E6-42B3-8D6A-8DFF1F2438BA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1235,12 +1237,12 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActivityMonitor++/ActivityMonitor++-Prefix.pch";
-				INFOPLIST_FILE = "ActivityMonitor++Tests/ActivityMonitor++Tests-Info.plist";
+				INFOPLIST_FILE = "ActivityMonitor++Tests/System MonitorTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/ActivityMonitor++\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "System MonitorTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1256,12 +1258,12 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActivityMonitor++/ActivityMonitor++-Prefix.pch";
-				INFOPLIST_FILE = "ActivityMonitor++Tests/ActivityMonitor++Tests-Info.plist";
+				INFOPLIST_FILE = "ActivityMonitor++Tests/System MonitorTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/ActivityMonitor++\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "System MonitorTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1270,7 +1272,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		703D22D3173818EB0001E3B3 /* Build configuration list for PBXProject "ActivityMonitor++" */ = {
+		703D22D3173818EB0001E3B3 /* Build configuration list for PBXProject "System Monitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				703D231C173818EC0001E3B3 /* Debug */,
@@ -1279,7 +1281,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		703D231E173818EC0001E3B3 /* Build configuration list for PBXNativeTarget "ActivityMonitor++" */ = {
+		703D231E173818EC0001E3B3 /* Build configuration list for PBXNativeTarget "System Monitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				703D231F173818EC0001E3B3 /* Debug */,
@@ -1288,7 +1290,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		703D2321173818EC0001E3B3 /* Build configuration list for PBXNativeTarget "ActivityMonitor++Tests" */ = {
+		703D2321173818EC0001E3B3 /* Build configuration list for PBXNativeTarget "System MonitorTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				703D2322173818EC0001E3B3 /* Debug */,
