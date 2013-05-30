@@ -29,11 +29,15 @@
 @property (assign, nonatomic) GLKVector3    dataLinePosition1;
 @property (assign, nonatomic) GLKVector3    dataLinePosition2;
 
+@property (assign, nonatomic) GLuint        glVertexArrayLineLegend;
+@property (assign, nonatomic) GLuint        glBufferLineLegend;
+@property (strong, nonatomic) GLKTextureInfo *lineLegendTextTexture;
+@property (strong, nonatomic) GLKTextureInfo *lineLegendIconTexture;
+
 @property (assign, nonatomic) GLfloat       zoom;
 
 - (void)setupVBO;
 - (void)renderDataLine;
-- (void)renderLegend;
 @end
 
 @implementation GLDataLine
@@ -51,9 +55,21 @@
 @synthesize dataLinePosition1=_dataLinePosition1;
 @synthesize dataLinePosition2=_dataLinePosition2;
 
+@synthesize glVertexArrayLineLegend=_glVertexArrayLineLegend;
+@synthesize glBufferLineLegend=_glBufferLineLegend;
+@synthesize lineLegendTextTexture;
+@synthesize lineLegendIconTexture;
+
 @synthesize zoom;
 
 static const GLfloat kDataLineShiftSize     = 0.25f;
+
+static const VertexData_t lineLegendData[] = {
+    {{ 0.0f, 0.0f, kModelZ }, { 0.0f, 0.0f }},
+    {{ 1.0f, 0.0f, kModelZ }, { 1.0f, 0.0f }},
+    {{ 0.0f, 1.0f, kModelZ }, { 0.0f, 1.0f }},
+    {{ 1.0f, 1.0f, kModelZ }, { 1.0f, 1.0f }}
+};
 
 #pragma mark - public
 
@@ -180,6 +196,18 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
     self.dataLineDataNextX = 0;
 }
 
+- (void)setLineDataLegendText:(NSString*)text
+{
+    self.lineLegendTextTexture = nil;
+    UIImage *tex = [GLCommon imageWithText:text font:[UIFont fontWithName:@"Verdana" size:22.0f] color:self.color];
+    self.lineLegendTextTexture = [GLKTextureLoader textureWithCGImage:tex.CGImage options:nil error:nil];
+}
+
+- (void)setDataLineLegendIcon:(UIImage*)image
+{
+    self.lineLegendIconTexture = [GLKTextureLoader textureWithCGImage:image.CGImage options:nil error:nil];
+}
+
 - (void)render
 {
     if (self.dataLineDataValidSize == 0)
@@ -189,6 +217,63 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
     }
     
     [self renderDataLine];
+}
+
+- (void)renderLegend:(NSUInteger)lineIndex
+{
+    /*
+     * Icon
+     */
+    if (self.lineLegendIconTexture)
+    {
+        GLfloat x = self.graph.graphRight - 6.5f - (lineIndex * 9.0f);
+        GLfloat y = self.graph.graphBottom - 1.2f;
+        GLfloat xScale = 1.0f * (self.lineLegendIconTexture.width / self.lineLegendIconTexture.height);
+        GLfloat yScale = 1.0f;
+        
+        glBindVertexArrayOES(self.glVertexArrayLineLegend);
+        
+        GLKVector3 position = GLKVector3Make(x, y, 0.0f);
+        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, yScale, 1.0f);
+        GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
+        
+        self.graph.effect.transform.modelviewMatrix = modelMatrix;
+        self.graph.effect.texture2d0.enabled = GL_TRUE;
+        self.graph.effect.texture2d0.target = GLKTextureTarget2D;
+        self.graph.effect.texture2d0.name = self.lineLegendIconTexture.name;
+        self.graph.effect.texture2d0.envMode = GLKTextureEnvModeReplace;
+        [self.graph.effect prepareToDraw];
+        
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, sizeof(lineLegendData) / sizeof(VertexData_t));
+    }
+    
+    /*
+     * Text
+     */
+    if (self.lineLegendTextTexture)
+    {
+        GLfloat x = self.graph.graphRight - 5.0f - (lineIndex * 9.0f);
+        GLfloat y = self.graph.graphBottom - 1.0f;
+        GLfloat xScale = self.lineLegendTextTexture.width * kFontScaleMultiplierW;
+        GLfloat yScale = self.lineLegendTextTexture.height * kFontScaleMultiplierH;
+        
+        glBindVertexArrayOES(self.glVertexArrayLineLegend);
+        
+        GLKVector3 position = GLKVector3Make(x, y, 0.0f);
+        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, yScale, 1.0f);
+        GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
+        
+        self.graph.effect.transform.modelviewMatrix = modelMatrix;
+        self.graph.effect.texture2d0.enabled = GL_TRUE;
+        self.graph.effect.texture2d0.target = GLKTextureTarget2D;
+        self.graph.effect.texture2d0.name = self.lineLegendTextTexture.name;
+        self.graph.effect.texture2d0.envMode = GLKTextureEnvModeReplace;
+        [self.graph.effect prepareToDraw];
+        
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, sizeof(lineLegendData) / sizeof(VertexData_t));
+    }
 }
 
 - (NSUInteger)maxDataLineElements
@@ -205,18 +290,43 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
 
 - (void)setupVBO
 {
-    glGenVertexArraysOES(1, &_glVertexArrayDataLine);
-    glBindVertexArrayOES(self.glVertexArrayDataLine);
+    /*
+     * Data line.
+     */
+    {
+        glGenVertexArraysOES(1, &_glVertexArrayDataLine);
+        glBindVertexArrayOES(self.glVertexArrayDataLine);
+        
+        glGenBuffers(1, &_glBufferDataLine);
+        glBindBuffer(GL_ARRAY_BUFFER, self.glBufferDataLine);
+        glBufferData(GL_ARRAY_BUFFER, self.dataLineDataValidSize * sizeof(VertexData_t), _dataLineData, GL_DYNAMIC_DRAW);
+        
+        glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(VertexData_t),
+                              NULL + offsetof(VertexData_t, positionCoords));
+        glEnableVertexAttribArray(GLKVertexAttribPosition);
+        
+        GL_CHECK_ERROR();
+    }
     
-    glGenBuffers(1, &_glBufferDataLine);
-    glBindBuffer(GL_ARRAY_BUFFER, self.glBufferDataLine);
-    glBufferData(GL_ARRAY_BUFFER, self.dataLineDataValidSize * sizeof(VertexData_t), _dataLineData, GL_DYNAMIC_DRAW);
-    
-    glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(VertexData_t),
-                          NULL + offsetof(VertexData_t, positionCoords));
-    glEnableVertexAttribArray(GLKVertexAttribPosition);
-    
-    GL_CHECK_ERROR();
+    /*
+     * Line legend.
+     */
+    {
+        glGenVertexArraysOES(1, &_glVertexArrayLineLegend);
+        glBindVertexArrayOES(self.glVertexArrayLineLegend);
+        
+        glGenBuffers(1, &_glBufferLineLegend);
+        glBindBuffer(GL_ARRAY_BUFFER, self.glBufferLineLegend);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(lineLegendData), lineLegendData, GL_STATIC_DRAW);
+        
+        glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(VertexData_t),
+                              NULL + offsetof(VertexData_t, positionCoords));
+        glEnableVertexAttribArray(GLKVertexAttribPosition);
+        
+        glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, sizeof(VertexData_t),
+                              NULL + offsetof(VertexData_t, textureCoords));
+        glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
+    }
 }
 
 - (void)renderDataLine
@@ -276,11 +386,6 @@ static const GLfloat kDataLineShiftSize     = 0.25f;
         
         GL_CHECK_ERROR();
     }
-}
-
-- (void)renderLegend
-{
-    
 }
 
 @end

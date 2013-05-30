@@ -18,8 +18,8 @@
 @property (assign, nonatomic) BOOL          initialized;
 
 @property (assign, nonatomic) NSUInteger    dataLineCount;
-@property (assign, nonatomic) double         fromValue;
-@property (assign, nonatomic) double         toValue;
+@property (assign, nonatomic) double        fromValue;
+@property (assign, nonatomic) double        toValue;
 @property (strong, nonatomic) NSString      *legend;
 
 @property (strong, nonatomic) GLKView       *glView;
@@ -38,7 +38,10 @@
 /* Legends */
 @property (assign, nonatomic) GLuint        glVertexArrayLegends;
 @property (assign, nonatomic) GLuint        glBufferLegends;
-@property (strong, nonatomic) GLKTextureInfo *legendsTexture;
+@property (strong, nonatomic) GLKTextureInfo *topGraphLegendTexture;
+
+@property (strong, nonatomic) NSString      *lineLegendPostfix;
+@property (assign, nonatomic) NSUInteger    lineLegendDesiredFraction;
 
 - (void)lateInit;
 
@@ -49,6 +52,8 @@
 - (void)renderDataCurve;
 - (void)renderReferenceLines;
 - (void)renderLegends;
+- (void)renderTopLegend;
+- (void)renderDataLineLegends;
 @end
 
 @implementation GLLineGraph
@@ -58,6 +63,8 @@
 @synthesize graphTop;
 @synthesize graphRight;
 @synthesize graphLeft;
+
+@synthesize useClosestMetrics;
 
 @synthesize initialized;
 
@@ -76,13 +83,13 @@
 
 @synthesize glVertexArrayReferenceLine=_glVertexArrayReferenceLine;
 @synthesize glBufferReferenceLine=_glBufferReferenceLine;
-@synthesize legendsTexture=_legendsTexture;
 
 @synthesize glVertexArrayLegends=_glVertexArrayLegends;
 @synthesize glBufferLegends=_glBufferLegends;
+@synthesize topGraphLegendTexture=_legendsTexture;
 
-static const GLfloat kFontScaleMultiplierW  = 1.0f / 18.0f;
-static const GLfloat kFontScaleMultiplierH  = 1.0f / 36.0f;
+@synthesize lineLegendPostfix;
+@synthesize lineLegendDesiredFraction;
 
 static const GLfloat kProjectionLeft        = -10.0f;
 static const GLfloat kProjectionRight       =  10.0f;
@@ -139,11 +146,14 @@ static const VertexData_t legendData[] = {
         self.graphLeft = [AMUtils percentageValueFromMax:kProjectionRight min:kProjectionLeft percent:kGraphGapPercentLeft] * self.aspectRatio;
         self.graphRight = [AMUtils percentageValueFromMax:kProjectionRight min:kProjectionLeft percent:100-kGraphGapPercentRight] * self.aspectRatio;
         
+        self.lineLegendPostfix = @"";
+        self.lineLegendDesiredFraction = 0;
+        
         [self setupGL];
         
         // Init data lines.
         NSArray *lineColors = [NSArray arrayWithObjects:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f],
-                                                        [UIColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1.0f],
+                                                        [UIColor colorWithRed:171.0f/255.0f green:201.0f/255.0f blue:255.0f/255.0f alpha:1.0f],
                                                         nil];
         NSMutableArray *lines = [[NSMutableArray alloc] initWithCapacity:self.dataLineCount];
         for (NSUInteger i = 0; i < self.dataLineCount; ++i)
@@ -161,6 +171,22 @@ static const VertexData_t legendData[] = {
     [self tearDownGL];
 }
 
+- (void)setDataLineLegendPostfix:(NSString*)postfix
+{
+    self.lineLegendPostfix = postfix;
+}
+
+- (void)setDataLineLegendFraction:(NSUInteger)desiredFraction
+{
+    self.lineLegendDesiredFraction = desiredFraction;
+}
+
+- (void)setDataLineLegendIcon:(UIImage*)image forLineIndex:(NSUInteger)lineIndex
+{
+    assert(lineIndex < self.dataLines.count);
+    [[self.dataLines objectAtIndex:lineIndex] setDataLineLegendIcon:image];
+}
+
 - (void)addDataValue:(NSArray*)data
 {
     assert(data.count == self.dataLines.count);
@@ -172,6 +198,18 @@ static const VertexData_t legendData[] = {
         GLfloat percent = [AMUtils valuePercentFrom:self.fromValue to:self.toValue value:value];
         GLDataLine *dataLine = [self.dataLines objectAtIndex:i];
         [dataLine addLineDataValue:percent];
+        
+        NSString *dataLineLegend = @"";
+        if (self.useClosestMetrics)
+        {
+            dataLineLegend = [NSString stringWithFormat:@"%@%@", [AMUtils toNearestMetric:value desiredFraction:self.lineLegendDesiredFraction], self.lineLegendPostfix];
+        }
+        else
+        {
+            NSString *formatter = [NSString stringWithFormat:@"%%0.%df%%@", self.lineLegendDesiredFraction];
+            dataLineLegend = [NSString stringWithFormat:formatter, value, self.lineLegendPostfix];
+        }
+        [dataLine setLineDataLegendText:dataLineLegend];
     }
 }
 
@@ -179,7 +217,7 @@ static const VertexData_t legendData[] = {
 {
     self.legend = aLegend;
     UIImage *img = [GLCommon imageWithText:self.legend font:[UIFont fontWithName:@"Verdana" size:22.0f] color:[UIColor lightTextColor]];
-    self.legendsTexture = [GLKTextureLoader textureWithCGImage:img.CGImage options:nil error:NULL];
+    self.topGraphLegendTexture = [GLKTextureLoader textureWithCGImage:img.CGImage options:nil error:NULL];
 }
 
 - (void)setZoomLevel:(GLfloat)value
@@ -465,10 +503,16 @@ static const VertexData_t legendData[] = {
 
 - (void)renderLegends
 {
-    GLfloat x = self.graphRight - (self.legendsTexture.width * kFontScaleMultiplierW) - 2.0f;
+    [self renderTopLegend];
+    [self renderDataLineLegends];
+}
+
+- (void)renderTopLegend
+{
+    GLfloat x = self.graphRight - (self.topGraphLegendTexture.width * kFontScaleMultiplierW) - 2.0f;
     GLfloat y = self.graphTop;
-    GLfloat xScale = self.legendsTexture.width * kFontScaleMultiplierW;
-    GLfloat yScale = self.legendsTexture.height * kFontScaleMultiplierH;
+    GLfloat xScale = self.topGraphLegendTexture.width * kFontScaleMultiplierW;
+    GLfloat yScale = self.topGraphLegendTexture.height * kFontScaleMultiplierH;
     
     glBindVertexArrayOES(self.glVertexArrayLegends);
     
@@ -480,16 +524,24 @@ static const VertexData_t legendData[] = {
     self.effect.transform.modelviewMatrix = modelMatrix;
     self.effect.useConstantColor = GL_FALSE;
     self.effect.texture2d0.enabled = GL_TRUE;
-    self.effect.texture2d0.name = self.legendsTexture.name;
+    self.effect.texture2d0.name = self.topGraphLegendTexture.name;
     self.effect.texture2d0.target = GLKTextureTarget2D;
     self.effect.texture2d0.envMode = GLKTextureEnvModeReplace;
     [self.effect prepareToDraw];
-
+    
     glDrawArrays(GL_TRIANGLES, 0, sizeof(legendData) / sizeof(VertexData_t));
     
     GL_CHECK_ERROR();
 }
 
+- (void)renderDataLineLegends
+{
+    for (NSUInteger i = 0; i < self.dataLines.count; ++i)
+    {
+        GLDataLine *line = [self.dataLines objectAtIndex:i];
+        [line renderLegend:i];
+    }
+}
 
 
 #pragma mark - private override

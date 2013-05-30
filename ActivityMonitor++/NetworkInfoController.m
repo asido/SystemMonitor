@@ -559,6 +559,11 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     mac = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
            macAddress[0], macAddress[1], macAddress[2], macAddress[3], macAddress[4], macAddress[5]];
     
+    if ([mac hasPrefix:@"00:00:00:00:00"])
+    {
+        mac = @"-";
+    }
+    
 exit:
     free(msgBuffer);
     return mac;

@@ -18,7 +18,8 @@
  * The dictionary holds arrays of active connections with keys being
  * the connection status: ESTABLISHED, LISTEN...
  */
-@property (strong, nonatomic) NSMutableDictionary *activeConnections;
+@property (strong, nonatomic) NSMutableDictionary   *activeConnections;
+@property (strong, nonatomic) NSArray               *activeConnectionKeys;
 @property (assign, nonatomic) BOOL refreshingConnections;
 
 @property (strong, nonatomic) UIImage *greenCircle;
@@ -31,6 +32,7 @@
 
 @implementation ConnectionViewController
 @synthesize activeConnections;
+@synthesize activeConnectionKeys;
 
 @synthesize greenCircle;
 @synthesize orangeCircle;
@@ -132,8 +134,7 @@
     UILabel     *txLabel            = (UILabel*)    [cell viewWithTag:TAG_TX_LABEL];
     UILabel     *rxLabel            = (UILabel*)    [cell viewWithTag:TAG_RX_LABEL];
     
-    NSArray *allKeys = [[self.activeConnections allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-    NSString *key = [allKeys objectAtIndex:indexPath.section];
+    NSString *key = [self.activeConnectionKeys objectAtIndex:indexPath.section];
     NSArray *connections = [self.activeConnections objectForKey:key];
     ActiveConnection *connection = [connections objectAtIndex:indexPath.row];
     
@@ -173,7 +174,7 @@
     }
     else
     {
-        return [[self.activeConnections allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)].count;
+        return self.activeConnectionKeys.count;
     }
 }
 
@@ -185,8 +186,8 @@
     }
     else
     {
-        NSArray *keys           = [self.activeConnections allKeys];
-        NSArray *connections    = [self.activeConnections objectForKey:[keys objectAtIndex:section]];
+        NSString *key = [self.activeConnectionKeys objectAtIndex:section];
+        NSArray *connections = [self.activeConnections objectForKey:key];
         return connections.count;
     }
 }
@@ -205,8 +206,7 @@
             
             if (self.activeConnections)
             {
-                NSString *sectionKey = [[self.activeConnections allKeys] objectAtIndex:section];
-                [view.label setText:sectionKey];
+                [view.label setText:[self.activeConnectionKeys objectAtIndex:section]];
             }
             else
             {
@@ -267,6 +267,7 @@
         [connectionsWithStatus addObject:connection];
         [self.activeConnections setObject:connectionsWithStatus forKey:connection.statusString];
     }
+    self.activeConnectionKeys = [[self.activeConnections allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     
     self.refreshingConnections = NO;
     [self.tableView reloadData];

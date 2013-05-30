@@ -25,6 +25,9 @@
 
 #define kModelZ     (-2.0f)
 
+static const GLfloat kFontScaleMultiplierW  = 1.0f / 18.0f;
+static const GLfloat kFontScaleMultiplierH  = 1.0f / 36.0f;
+
 typedef struct {
     GLKVector3 positionCoords;
     GLKVector2 textureCoords;

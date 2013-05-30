@@ -66,6 +66,7 @@
                                           dataLineCount:1
                                               fromValue:0.0f toValue:100.0f
                                                 topLegend:@"100%"];
+    [self.glGraph setDataLineLegendPostfix:@"%"];
     self.glGraph.preferredFramesPerSecond = kCpuLoadUpdateFrequency;
     
     [app.cpuInfoCtrl setCPULoadHistorySize:[self.glGraph requiredElementToFillGraph]];
@@ -107,12 +108,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 280.0f;
+    return 240.0f;
 }
 
 - (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LineGraphBackground-464.png"]];
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LineGraphBackground-414.png"]];
     CGRect frame = backgroundView.frame;
     frame.origin.y = 20;
     backgroundView.frame = frame;

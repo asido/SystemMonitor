@@ -74,6 +74,8 @@
     
     self.deviceSpecificUI = [[DeviceSpecificUI alloc] init];
     
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    
     return YES;
 }
 							

@@ -74,6 +74,14 @@
     [self.topView setProcessCount:self.filteredProcesses.count];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // For some reason iPhone does't scroll without this.
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

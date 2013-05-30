@@ -312,15 +312,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Activity Monitor ++" id="OEu-95-Y2D"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jkn-Lr-bvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="114" y="170"/>
         </scene>
-        <!--General View Controller-->
+        <!--General View Controller - General-->
         <scene sceneID="QmJ-MT-eQ1">
             <objects>
-                <tableViewController storyboardIdentifier="GeneralViewController" id="jle-LP-9au" customClass="GeneralViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="GeneralViewController" title="General" id="jle-LP-9au" customClass="GeneralViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="jaD-yA-2Fy">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1051,7 +1052,7 @@
                     </tableView>
                     <connections>
                         <outlet property="aspectRatioLabel" destination="dwD-ml-MDg" id="E0a-Us-zci"/>
-                        <outlet property="bootTimeLabel" destination="ch1-Ea-JV9" id="2pW-Uj-gv1"/>
+                        <outlet property="bootTimeLabel" destination="cSt-r5-t3l" id="UvK-fg-7RK"/>
                         <outlet property="deviceLabel" destination="YmM-Yw-t2X" id="31W-O4-qLK"/>
                         <outlet property="hostnameLabel" destination="1hk-5m-Fzc" id="Rb0-Zy-b6j"/>
                         <outlet property="kernelInfoLabel" destination="zrT-9L-DPm" id="e1R-gF-Hyp"/>
@@ -1069,16 +1070,17 @@
                         <outlet property="screenRezolutionLabel" destination="VfU-tn-80F" id="PEb-RW-wCO"/>
                         <outlet property="screenSizeLabel" destination="rwN-LZ-V1x" id="Hel-aG-Rfy"/>
                         <outlet property="tickFrequencyLabel" destination="X1a-P4-UaQ" id="jzd-b5-xzP"/>
+                        <outlet property="uptimeLabel" destination="ch1-Ea-JV9" id="1am-cv-QfM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l6F-jh-Hmp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="472" y="170"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - CPU-->
         <scene sceneID="Ncy-w3-Law">
             <objects>
-                <tableViewController storyboardIdentifier="CPUViewController" id="5Ly-My-x7V" customClass="CPUViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CPUViewController" title="CPU" id="5Ly-My-x7V" customClass="CPUViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="5DF-L5-6ad">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1497,10 +1499,10 @@
             </objects>
             <point key="canvasLocation" x="832" y="170"/>
         </scene>
-        <!--Process View Controller-->
+        <!--Process View Controller - Processes-->
         <scene sceneID="vvN-2s-vdp">
             <objects>
-                <tableViewController storyboardIdentifier="ProcessViewController" id="gbP-hM-UKe" customClass="ProcessViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ProcessViewController" title="Processes" id="gbP-hM-UKe" customClass="ProcessViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="128" sectionHeaderHeight="22" sectionFooterHeight="22" id="NkN-3c-jPD">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1647,10 +1649,10 @@
             </objects>
             <point key="canvasLocation" x="1187" y="170"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - RAM-->
         <scene sceneID="csr-jg-AeG">
             <objects>
-                <tableViewController storyboardIdentifier="RAMViewController" id="iA2-dn-GRh" customClass="RAMViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RAMViewController" title="RAM" id="iA2-dn-GRh" customClass="RAMViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="TYV-XQ-spo">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1662,7 +1664,7 @@
                                         <rect key="frame" x="0.0" y="46" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Total Memory" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPe-iz-5Of">
@@ -2001,10 +2003,10 @@
             </objects>
             <point key="canvasLocation" x="1545" y="170"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - GPU-->
         <scene sceneID="tfi-RN-hC7">
             <objects>
-                <tableViewController storyboardIdentifier="GPUViewController" id="yQA-T6-U9o" customClass="GPUViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="GPUViewController" title="GPU" id="yQA-T6-U9o" customClass="GPUViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Yu6-wZ-bQE">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2028,7 +2030,7 @@
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="GeForce" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppo-26-BXI">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="210" id="Ujr-PX-ISN"/>
+                                                <constraint firstAttribute="width" constant="218" id="smR-sS-dHN"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
@@ -2041,7 +2043,7 @@
                                     <constraint firstItem="ppo-26-BXI" firstAttribute="baseline" secondItem="J2t-2k-CVV" secondAttribute="baseline" type="default" id="A50-lE-qdT"/>
                                     <constraint firstItem="J2t-2k-CVV" firstAttribute="top" secondItem="ppo-26-BXI" secondAttribute="top" type="default" id="MIa-3c-5kZ"/>
                                     <constraint firstItem="J2t-2k-CVV" firstAttribute="leading" secondItem="hvR-lN-Tc8" secondAttribute="leading" constant="30" id="evV-ha-Ast"/>
-                                    <constraint firstItem="ppo-26-BXI" firstAttribute="leading" secondItem="hvR-lN-Tc8" secondAttribute="leading" constant="80" id="qyY-4j-yqR"/>
+                                    <constraint firstItem="ppo-26-BXI" firstAttribute="leading" secondItem="hvR-lN-Tc8" secondAttribute="leading" constant="72" id="rRV-Iy-jZb"/>
                                     <constraint firstItem="J2t-2k-CVV" firstAttribute="centerY" secondItem="hvR-lN-Tc8" secondAttribute="centerY" type="default" id="x1r-Fy-VJa"/>
                                 </constraints>
                             </tableViewCell>
@@ -2063,9 +2065,9 @@
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="v0.1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laN-9D-Dc1">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="179" id="2XY-8C-YMx"/>
+                                                <constraint firstAttribute="width" constant="199" id="dfB-nq-ylx"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
@@ -2074,10 +2076,10 @@
                                 </view>
                                 <constraints>
                                     <constraint firstItem="y8A-ul-xvI" firstAttribute="top" secondItem="laN-9D-Dc1" secondAttribute="top" type="default" id="LU0-H1-Jx1"/>
-                                    <constraint firstItem="laN-9D-Dc1" firstAttribute="baseline" secondItem="y8A-ul-xvI" secondAttribute="baseline" type="default" id="LbU-kb-fXM"/>
                                     <constraint firstItem="y8A-ul-xvI" firstAttribute="top" secondItem="0C1-Sp-mlx" secondAttribute="top" constant="11" id="RWT-4C-jZN"/>
                                     <constraint firstItem="y8A-ul-xvI" firstAttribute="leading" secondItem="0C1-Sp-mlx" secondAttribute="leading" constant="30" id="cWJ-kL-IG9"/>
-                                    <constraint firstItem="laN-9D-Dc1" firstAttribute="leading" secondItem="0C1-Sp-mlx" secondAttribute="leading" constant="111" id="hOi-72-m1y"/>
+                                    <constraint firstItem="laN-9D-Dc1" firstAttribute="bottom" secondItem="y8A-ul-xvI" secondAttribute="bottom" type="default" id="ldj-T1-21f"/>
+                                    <constraint firstItem="laN-9D-Dc1" firstAttribute="leading" secondItem="0C1-Sp-mlx" secondAttribute="leading" constant="91" id="uWt-yH-9cQ"/>
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OpenGLVendorCell" id="C6O-h6-DIm" customClass="DefaultCell">
@@ -2098,9 +2100,9 @@
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Senukai" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMW-8j-Wi3">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="170" id="Tz7-cl-HoY"/>
+                                                <constraint firstAttribute="width" constant="198" id="Mg3-Rk-DY6"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
@@ -2108,11 +2110,11 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="qMW-8j-Wi3" firstAttribute="leading" secondItem="C6O-h6-DIm" secondAttribute="leading" constant="92" id="A61-R7-7qu"/>
                                     <constraint firstItem="OTp-8M-jio" firstAttribute="top" secondItem="qMW-8j-Wi3" secondAttribute="top" type="default" id="EEz-BK-XPg"/>
                                     <constraint firstItem="OTp-8M-jio" firstAttribute="top" secondItem="C6O-h6-DIm" secondAttribute="top" constant="11" id="MFR-mW-Sb8"/>
-                                    <constraint firstItem="qMW-8j-Wi3" firstAttribute="baseline" secondItem="OTp-8M-jio" secondAttribute="baseline" type="default" id="NMT-eE-6bg"/>
                                     <constraint firstItem="OTp-8M-jio" firstAttribute="leading" secondItem="C6O-h6-DIm" secondAttribute="leading" constant="30" id="Ngv-vU-wxD"/>
-                                    <constraint firstItem="qMW-8j-Wi3" firstAttribute="leading" secondItem="C6O-h6-DIm" secondAttribute="leading" constant="120" id="gvb-5h-QCN"/>
+                                    <constraint firstItem="qMW-8j-Wi3" firstAttribute="bottom" secondItem="OTp-8M-jio" secondAttribute="bottom" type="default" id="xef-yN-XRG"/>
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OpenGLExtensionCell" id="4qT-4d-EeU" customClass="DefaultCell">
@@ -2150,10 +2152,10 @@
             </objects>
             <point key="canvasLocation" x="1900" y="170"/>
         </scene>
-        <!--Network View Controller-->
+        <!--Network View Controller - Network-->
         <scene sceneID="Lv4-Ts-e8d">
             <objects>
-                <tableViewController storyboardIdentifier="NetworkViewController" id="3v7-3A-O0h" customClass="NetworkViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NetworkViewController" title="Network" id="3v7-3A-O0h" customClass="NetworkViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="qTa-eB-3xU">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2528,6 +2530,7 @@
                         <outlet property="netmaskLabel" destination="Ebe-Pn-0QB" id="nbl-nI-Xjr"/>
                         <outlet property="networkTypeLabel" destination="9hw-e9-eQJ" id="C9W-no-kMt"/>
                         <outlet property="totalWWANDownloadsLabel" destination="Mpt-hM-p7M" id="y65-g8-LyM"/>
+                        <outlet property="totalWWANUploadsLabel" destination="bIL-C4-KpS" id="MJm-Cm-sD9"/>
                         <outlet property="totalWiFiDownloadsLabel" destination="v01-kp-nWy" id="mcK-ru-WGX"/>
                         <outlet property="totalWiFiUploadsLabel" destination="Snr-HD-HZ8" id="fhB-jX-9IQ"/>
                     </connections>
@@ -2536,10 +2539,10 @@
             </objects>
             <point key="canvasLocation" x="2258" y="170"/>
         </scene>
-        <!--Connection View Controller-->
+        <!--Connection View Controller - Connections-->
         <scene sceneID="sxu-Yv-wnV">
             <objects>
-                <tableViewController storyboardIdentifier="ConnectionViewController" id="8KO-M5-i1i" customClass="ConnectionViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ConnectionViewController" title="Connections" id="8KO-M5-i1i" customClass="ConnectionViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Iar-F9-vkn">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2710,10 +2713,10 @@
             </objects>
             <point key="canvasLocation" x="2613" y="170"/>
         </scene>
-        <!--Storage View Controller-->
+        <!--Storage View Controller - Storage-->
         <scene sceneID="Zcw-vO-bxx">
             <objects>
-                <tableViewController storyboardIdentifier="StorageViewController" id="9xL-lb-JBV" customClass="StorageViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="StorageViewController" title="Storage" id="9xL-lb-JBV" customClass="StorageViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="jer-Ca-HUB">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2848,7 +2851,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="170" id="dNx-MV-kng"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
@@ -2882,7 +2885,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="170" id="1rV-JI-Fco"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
@@ -2917,7 +2920,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="170" id="HS5-DV-vK4"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
@@ -2953,10 +2956,10 @@
             </objects>
             <point key="canvasLocation" x="2972" y="170"/>
         </scene>
-        <!--Battery View Controller-->
+        <!--Battery View Controller - Battery-->
         <scene sceneID="gFw-jr-GHe">
             <objects>
-                <tableViewController storyboardIdentifier="BatteryViewController" id="23H-Tf-sws" customClass="BatteryViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="BatteryViewController" title="Battery" id="23H-Tf-sws" customClass="BatteryViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="1L4-RC-5Gi">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

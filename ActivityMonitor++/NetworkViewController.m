@@ -66,6 +66,11 @@ static const double kNetworkGraphMaxValue = MB_TO_B(100);
     self.networkGLView.opaque = NO;
     self.networkGLView.backgroundColor = [UIColor clearColor];
     self.networkGraph = [[GLLineGraph alloc] initWithGLKView:self.networkGLView dataLineCount:2 fromValue:0.0f toValue:kNetworkGraphMaxValue topLegend:@"0 B/s"];
+    self.networkGraph.useClosestMetrics = YES;
+    [self.networkGraph setDataLineLegendFraction:1];
+    [self.networkGraph setDataLineLegendPostfix:@"/s"];
+    [self.networkGraph setDataLineLegendIcon:[UIImage imageNamed:@"arrow-down.png"] forLineIndex:0];
+    [self.networkGraph setDataLineLegendIcon:[UIImage imageNamed:@"arrow-up.png"] forLineIndex:1];
     self.networkGraph.preferredFramesPerSecond = kNetworkUpdateFrequency;
 
     [app.networkInfoCtrl setNetworkBandwidthHistorySize:[self.networkGraph requiredElementToFillGraph]];
@@ -146,7 +151,7 @@ static const double kNetworkGraphMaxValue = MB_TO_B(100);
 {
     if (section == SECTION_NETWORK_INFORMATION)
     {
-        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LineGraphBackground-464.png"]];
+        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LineGraphBackground-414.png"]];
         CGRect frame = backgroundView.frame;
         frame.origin.y = 20;
         backgroundView.frame = frame;
@@ -168,7 +173,7 @@ static const double kNetworkGraphMaxValue = MB_TO_B(100);
 {
     if (section == SECTION_NETWORK_INFORMATION)
     {
-        return 280.0f;
+        return 240.0f;
     }
     else
     {

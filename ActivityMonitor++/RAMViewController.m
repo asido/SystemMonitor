@@ -64,6 +64,7 @@ enum {
                                               fromValue:0.0f
                                                 toValue:app.iDevice.ramInfo.totalRam
                                                 topLegend:[AMUtils toNearestMetric:(uint64_t)app.iDevice.ramInfo.totalRam desiredFraction:0]];
+    self.glGraph.useClosestMetrics = YES;
     self.glGraph.preferredFramesPerSecond = kRamUsageUpdateFrequency;
     
     [app.ramInfoCtrl setRAMUsageHistorySize:[self.glGraph requiredElementToFillGraph]];
@@ -123,7 +124,7 @@ enum {
 {
     if (section == SECTION_MEMORY_USAGE)
     {
-        return 280.0f;
+        return 240.0f;
     }
     else
     {
@@ -135,7 +136,7 @@ enum {
 {
     if (section == SECTION_MEMORY_USAGE)
     {
-        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LineGraphBackground-464.png"]];
+        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LineGraphBackground-414.png"]];
         CGRect frame = backgroundView.frame;
         frame.origin.y = 20;
         backgroundView.frame = frame;

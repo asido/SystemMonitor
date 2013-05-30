@@ -18,7 +18,10 @@
 - (void)addLineDataValue:(double)value;
 - (void)addLineDataArray:(NSArray*)dataArray;
 - (void)resetLineData;
+- (void)setLineDataLegendText:(NSString*)text;
+- (void)setDataLineLegendIcon:(UIImage*)image;
 - (void)render;
+- (void)renderLegend:(NSUInteger)lineIndex;
 - (NSUInteger)maxDataLineElements;
 - (void)setDataLineZoom:(GLfloat)zoom;
 @end

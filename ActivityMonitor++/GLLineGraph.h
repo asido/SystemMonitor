@@ -17,11 +17,17 @@
 @property (assign, nonatomic) GLfloat       graphRight;
 @property (assign, nonatomic) GLfloat       graphLeft;
 
+@property (assign, nonatomic) BOOL          useClosestMetrics;
+
 - (id)initWithGLKView:(GLKView*)aGLView
         dataLineCount:(NSUInteger)count
             fromValue:(double)from
               toValue:(double)to
               topLegend:(NSString*)aLegend;
+
+- (void)setDataLineLegendPostfix:(NSString*)postfix;
+- (void)setDataLineLegendFraction:(NSUInteger)desiredFraction;
+- (void)setDataLineLegendIcon:(UIImage*)image forLineIndex:(NSUInteger)lineIndex;
 
 - (void)addDataValue:(NSArray*)data;
 - (void)setGraphLegend:(NSString*)aLegend;
