@@ -1199,6 +1199,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActivityMonitor++/System Monitor-Prefix.pch";
 				INFOPLIST_FILE = "ActivityMonitor++/System Monitor-Info.plist";
@@ -1208,6 +1209,7 @@
 				);
 				PRODUCT_NAME = "System Monitor";
 				PROVISIONING_PROFILE = "E6394448-6ABC-482B-8696-D89A17EFAC4B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E6394448-6ABC-482B-8696-D89A17EFAC4B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1216,6 +1218,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActivityMonitor++/System Monitor-Prefix.pch";
 				INFOPLIST_FILE = "ActivityMonitor++/System Monitor-Info.plist";
@@ -1225,6 +1228,7 @@
 				);
 				PRODUCT_NAME = "System Monitor";
 				PROVISIONING_PROFILE = "E6394448-6ABC-482B-8696-D89A17EFAC4B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E6394448-6ABC-482B-8696-D89A17EFAC4B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
