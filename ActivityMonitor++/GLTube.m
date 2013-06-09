@@ -13,7 +13,7 @@
 #import "GLTube.h"
 
 @interface GLTube()
-@property (strong, nonatomic) GLKView           *glView;
+@property (weak, nonatomic) GLKView             *glView;
 @property (strong, nonatomic) GLKBaseEffect     *effect;
 @property (strong, nonatomic) GLBubbleEffect    *bubbleEffect;
 @property (assign, nonatomic) GLfloat           aspectRatio;

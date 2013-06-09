@@ -161,6 +161,7 @@ static NSString *kInterfaceNone = @"";
                                                                       selector:@selector(networkBandwidthUpdateCB:)
                                                                       userInfo:nil
                                                                        repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.networkBandwidthUpdateTimer forMode:NSRunLoopCommonModes];
     [self.networkBandwidthUpdateTimer fire];
 }
 

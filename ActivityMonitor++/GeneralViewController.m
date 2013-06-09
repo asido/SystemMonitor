@@ -99,7 +99,12 @@
 - (void)startUptimeTimer
 {
     [self stopUptimeTimer];
-    self.uptimeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(uptimeTimerCB:) userInfo:nil repeats:YES];
+    self.uptimeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                        target:self
+                                                      selector:@selector(uptimeTimerCB:)
+                                                      userInfo:nil
+                                                       repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.uptimeTimer forMode:NSRunLoopCommonModes];
 }
 
 - (void)stopUptimeTimer

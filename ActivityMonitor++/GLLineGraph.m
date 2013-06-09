@@ -22,7 +22,7 @@
 @property (assign, nonatomic) double        toValue;
 @property (strong, nonatomic) NSString      *legend;
 
-@property (strong, nonatomic) GLKView       *glView;
+@property (weak, nonatomic)   GLKView       *glView;
 @property (assign, nonatomic) GLfloat       aspectRatio;
 @property (assign, nonatomic) GLfloat       drawableWidth;
 @property (assign, nonatomic) GLfloat       drawableHeight;
@@ -216,6 +216,13 @@ static const VertexData_t legendData[] = {
 - (void)setGraphLegend:(NSString*)aLegend
 {
     self.legend = aLegend;
+    
+    if (self.topGraphLegendTexture)
+    {
+        GLuint texture = self.topGraphLegendTexture.name;
+        glDeleteTextures(1, &texture);
+    }
+    
     UIImage *img = [GLCommon imageWithText:self.legend font:[UIFont fontWithName:@"Verdana" size:22.0f] color:[UIColor lightTextColor]];
     self.topGraphLegendTexture = [GLKTextureLoader textureWithCGImage:img.CGImage options:nil error:NULL];
 }
@@ -357,6 +364,12 @@ static const VertexData_t legendData[] = {
 
 - (void)tearDownGL
 {
+    if (self.topGraphLegendTexture)
+    {
+        GLuint texture = self.topGraphLegendTexture.name;
+        glDeleteTextures(1, &texture);
+    }
+    
     if (self.glBufferReferenceLine)
     {
         glDeleteBuffers(1, &_glBufferReferenceLine);

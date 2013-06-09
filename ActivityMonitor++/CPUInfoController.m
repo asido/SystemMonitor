@@ -150,9 +150,7 @@
                                                              selector:@selector(cpuLoadUpdateTimerCB:)
                                                              userInfo:nil
                                                               repeats:YES];
-    NSRunLoop *runloop = [NSRunLoop currentRunLoop];
-    [runloop addTimer:self.cpuLoadUpdateTimer forMode:NSRunLoopCommonModes];
-    [runloop addTimer:self.cpuLoadUpdateTimer forMode:UITrackingRunLoopMode];
+    [[NSRunLoop mainRunLoop] addTimer:self.cpuLoadUpdateTimer forMode:NSRunLoopCommonModes];
 }
 
 - (void)stopCPULoadUpdates

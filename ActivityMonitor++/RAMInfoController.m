@@ -68,6 +68,7 @@
                                                         selector:@selector(ramUsageTimerCB:)
                                                         userInfo:nil
                                                          repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.ramUsageTimer forMode:NSRunLoopCommonModes];
     [self.ramUsageTimer fire];
 }
 

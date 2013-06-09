@@ -13,7 +13,7 @@
 #import "GLDataLine.h"
 
 @interface GLDataLine()
-@property (strong, nonatomic) GLLineGraph   *graph;
+@property (weak, nonatomic) GLLineGraph     *graph;
 
 @property (assign, nonatomic) GLuint        glVertexArrayDataLine;
 @property (assign, nonatomic) GLuint        glBufferDataLine;
@@ -201,7 +201,13 @@ static const VertexData_t lineLegendData[] = {
 
 - (void)setLineDataLegendText:(NSString*)text
 {
-    self.lineLegendTextTexture = nil;
+    // Apparently GLKTextureInfo leaks memory if you don't delete textures explicitly.
+    if (self.lineLegendTextTexture)
+    {
+        GLuint texture = self.lineLegendTextTexture.name;
+        glDeleteTextures(1, &texture);
+    }
+    
     UIImage *tex = [GLCommon imageWithText:text font:[UIFont fontWithName:@"Verdana" size:22.0f] color:self.color];
     self.lineLegendTextTexture = [GLKTextureLoader textureWithCGImage:tex.CGImage options:nil error:nil];
 }
@@ -393,6 +399,18 @@ static const VertexData_t lineLegendData[] = {
 
 - (void)tearDownGL
 {
+    // Apparently GLKTextureInfo leaks memory if you don't delete textures explicitly.
+    if (self.lineLegendIconTexture)
+    {
+        GLuint texture = self.lineLegendIconTexture.name;
+        glDeleteTextures(1, &texture);
+    }
+    if (self.lineLegendTextTexture)
+    {
+        GLuint texture = self.lineLegendTextTexture.name;
+        glDeleteTextures(1, &texture);
+    }
+    
     if (self.glBufferDataLine)
     {
         glDeleteBuffers(1, &_glBufferDataLine);

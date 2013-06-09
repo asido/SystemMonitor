@@ -184,6 +184,7 @@
 		701190FA174D2F2000B5D8B1 /* iPadProcessSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProcessSortViewController.m; sourceTree = "<group>"; };
 		70119100174D7DA500B5D8B1 /* RootCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootCell.h; sourceTree = "<group>"; };
 		70119101174D7DA600B5D8B1 /* RootCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootCell.m; sourceTree = "<group>"; };
+		7030C0B41764EDA30072DC8D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7033715B1757C78B007AE82C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7033715D1757C78C007AE82C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		7033715F1757C78E007AE82C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -506,6 +507,7 @@
 		703D22DA173818EC0001E3B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7030C0B41764EDA30072DC8D /* QuartzCore.framework */,
 				7003E7EA1751178700214D6A /* SystemConfiguration.framework */,
 				70FC38EE174F74400085EBC3 /* AVFoundation.framework */,
 				70FC38EC174F73F80085EBC3 /* CoreMedia.framework */,
