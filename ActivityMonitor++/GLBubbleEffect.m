@@ -45,6 +45,7 @@ enum GLBubbleEffectUniforms {
 - (BOOL)loadShaders;
 - (void)setupVBO;
 - (void)setupTexture;
+- (void)tearDownGL;
 - (NSUInteger)numberOfBubbles;
 - (BubbleEffectAttributes_t)bubbleAtIndex:(NSUInteger)index;
 @end
@@ -52,6 +53,7 @@ enum GLBubbleEffectUniforms {
 @implementation GLBubbleEffect
 {
     GLuint program;
+    GLuint vertexShader, fragmentShader;
     GLuint uniforms[GLBubbleEffectUniformNumUniforms];
 }
 
@@ -65,6 +67,13 @@ enum GLBubbleEffectUniforms {
 @synthesize glBufferBubble=_glBufferBubble;
 @synthesize bubbleTexture=_bubbleTexture;
 @synthesize bubbleSize;
+
+#pragma mark - override
+
+- (void)dealloc
+{
+    [self tearDownGL];
+}
 
 #pragma mark - public
 
@@ -163,7 +172,6 @@ enum GLBubbleEffectUniforms {
 
 - (BOOL)loadShaders
 {
-    GLuint vertexShader, fragmentShader;
     NSString *vertexShaderFilename, *fragmentShaderFilename;
     
     vertexShaderFilename = [[NSBundle mainBundle] pathForResource:@"GLBubbleEffect" ofType:@"vsh"];
@@ -292,6 +300,39 @@ enum GLBubbleEffectUniforms {
     
     free(texData);
 
+    GL_CHECK_ERROR();
+}
+
+- (void)tearDownGL
+{
+    if (vertexShader)
+    {
+        glDetachShader(program, vertexShader);
+        glDeleteShader(vertexShader);
+    }
+    if (fragmentShader)
+    {
+        glDetachShader(program, fragmentShader);
+        glDeleteShader(fragmentShader);
+    }
+    if (program)
+    {
+        glDeleteProgram(program);
+    }
+    
+    if (self.bubbleTexture)
+    {
+        glDeleteTextures(1, &_bubbleTexture);
+    }
+    if (self.glBufferBubble)
+    {
+        glDeleteBuffers(1, &_glBufferBubble);
+    }
+    if (self.glVertexArrayBubble)
+    {
+        glDeleteVertexArraysOES(1, &_glVertexArrayBubble);
+    }
+    
     GL_CHECK_ERROR();
 }
 

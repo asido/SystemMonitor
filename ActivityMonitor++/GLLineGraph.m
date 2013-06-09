@@ -357,11 +357,23 @@ static const VertexData_t legendData[] = {
 
 - (void)tearDownGL
 {
-    glDeleteBuffers(1, &_glBufferReferenceLine);
-    glDeleteVertexArraysOES(1, &_glVertexArrayReferenceLine);
-    glDeleteBuffers(1, &_glBufferLegends);
-    glDeleteVertexArraysOES(1, &_glVertexArrayLegends);
-    self.effect = nil;
+    if (self.glBufferReferenceLine)
+    {
+        glDeleteBuffers(1, &_glBufferReferenceLine);
+    }
+    if (self.glBufferLegends)
+    {
+        glDeleteBuffers(1, &_glBufferLegends);
+    }
+    
+    if (self.glVertexArrayReferenceLine)
+    {
+        glDeleteVertexArraysOES(1, &_glVertexArrayReferenceLine);
+    }
+    if (self.glVertexArrayLegends)
+    {
+        glDeleteVertexArraysOES(1, &_glVertexArrayLegends);
+    }
     
     GL_CHECK_ERROR();
 }

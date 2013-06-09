@@ -38,6 +38,7 @@
 
 - (void)setupVBO;
 - (void)renderDataLine;
+- (void)tearDownGL;
 @end
 
 @implementation GLDataLine
@@ -96,6 +97,8 @@ static const VertexData_t lineLegendData[] = {
 
 - (void)dealloc
 {
+    [self tearDownGL];
+    
     free(_dataLineData);
 }
 
@@ -386,6 +389,29 @@ static const VertexData_t lineLegendData[] = {
         
         GL_CHECK_ERROR();
     }
+}
+
+- (void)tearDownGL
+{
+    if (self.glBufferDataLine)
+    {
+        glDeleteBuffers(1, &_glBufferDataLine);
+    }
+    if (self.glBufferLineLegend)
+    {
+        glDeleteBuffers(1, &_glBufferLineLegend);
+    }
+    
+    if (self.glVertexArrayDataLine)
+    {
+        glDeleteVertexArraysOES(1, &_glVertexArrayDataLine);
+    }
+    if (self.glVertexArrayLineLegend)
+    {
+        glDeleteVertexArraysOES(1, &_glVertexArrayLineLegend);
+    }
+    
+    GL_CHECK_ERROR();
 }
 
 @end

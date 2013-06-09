@@ -1205,7 +1205,7 @@
 					"\"$(SRCROOT)/ActivityMonitor++\"",
 				);
 				PRODUCT_NAME = "System Monitor";
-				PROVISIONING_PROFILE = "96EB7067-18E6-42B3-8D6A-8DFF1F2438BA";
+				PROVISIONING_PROFILE = "E6394448-6ABC-482B-8696-D89A17EFAC4B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1222,7 +1222,7 @@
 					"\"$(SRCROOT)/ActivityMonitor++\"",
 				);
 				PRODUCT_NAME = "System Monitor";
-				PROVISIONING_PROFILE = "96EB7067-18E6-42B3-8D6A-8DFF1F2438BA";
+				PROVISIONING_PROFILE = "E6394448-6ABC-482B-8696-D89A17EFAC4B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

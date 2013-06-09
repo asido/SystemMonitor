@@ -86,17 +86,17 @@
 @synthesize toValue;
 @synthesize currentPercentage;
 
-@synthesize glVertexArrayTubeLeft;
-@synthesize glVertexArrayTubeRight;
-@synthesize glVertexArrayTubeLiquid;
-@synthesize glVertexArrayTubeLiquidTop;
-@synthesize glVertexArrayTubeGlass;
+@synthesize glVertexArrayTubeLeft=_glVertexArrayTubeLeft;
+@synthesize glVertexArrayTubeRight=_glVertexArrayTubeRight;
+@synthesize glVertexArrayTubeLiquid=_glVertexArrayTubeLiquid;
+@synthesize glVertexArrayTubeLiquidTop=_glVertexArrayTubeLiquidTop;
+@synthesize glVertexArrayTubeGlass=_glVertexArrayTubeGlass;
 
-@synthesize glBufferTubeLeft;
-@synthesize glBufferTubeRight;
-@synthesize glBufferTubeLiquid;
-@synthesize glBufferTubeLiquidTop;
-@synthesize glBufferTubeGlass;
+@synthesize glBufferTubeLeft=_glBufferTubeLeft;
+@synthesize glBufferTubeRight=_glBufferTubeRight;
+@synthesize glBufferTubeLiquid=_glBufferTubeLiquid;
+@synthesize glBufferTubeLiquidTop=_glBufferTubeLiquidTop;
+@synthesize glBufferTubeGlass=_glBufferTubeGlass;
 
 @synthesize tubeVertexCountLeft;
 @synthesize tubeVertexCountRight;
@@ -104,9 +104,16 @@
 @synthesize tubeVertexCountLiquidTop;
 @synthesize tubeVertexCountGlass;
 
-@synthesize tubeTexture;
+@synthesize tubeTexture=_tubeTexture;
 
 static const GLfloat kBubblesPerSecondAvrg = 1.0f;
+
+#pragma mark - override
+
+- (void)dealloc
+{
+    [self tearDownGL];
+}
 
 #pragma mark - public
 
@@ -265,7 +272,54 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
 
 - (void)tearDownGL
 {
-    // TODO: dealloc all GL resources.
+    if (self.tubeTexture)
+    {
+        glDeleteTextures(1, &_tubeTexture);
+    }
+    
+    if (self.glBufferTubeLeft)
+    {
+        glDeleteBuffers(1, &_glBufferTubeLeft);
+    }
+    if (self.glBufferTubeRight)
+    {
+        glDeleteBuffers(1, &_glBufferTubeRight);
+    }
+    if (self.glBufferTubeLiquid)
+    {
+        glDeleteBuffers(1, &_glBufferTubeLiquid);
+    }
+    if (self.glBufferTubeLiquidTop)
+    {
+        glDeleteBuffers(1, &_glBufferTubeLiquidTop);
+    }
+    if (self.glBufferTubeGlass)
+    {
+        glDeleteBuffers(1, &_glBufferTubeGlass);
+    }
+    
+    if (self.glVertexArrayTubeLeft)
+    {
+        glDeleteVertexArraysOES(1, &_glVertexArrayTubeLeft);
+    }
+    if (self.glVertexArrayTubeRight)
+    {
+        glDeleteVertexArraysOES(1, &_glVertexArrayTubeRight);
+    }
+    if (self.glVertexArrayTubeLiquid)
+    {
+        glDeleteVertexArraysOES(1, &_glVertexArrayTubeLiquid);
+    }
+    if (self.glVertexArrayTubeLiquidTop)
+    {
+        glDeleteVertexArraysOES(1, &_glVertexArrayTubeLiquidTop);
+    }
+    if (self.glVertexArrayTubeGlass)
+    {
+        glDeleteVertexArraysOES(1, &_glVertexArrayTubeGlass);
+    }
+    
+    GL_CHECK_ERROR();
 }
 
 - (GLuint)setupTexture:(NSString*)filename
