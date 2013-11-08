@@ -17,6 +17,8 @@ typedef enum {
     iPhone_4S,
     iPhone_5_GSM,
     iPhone_5_CDMA,
+    iPhone_5C,
+    iPhone_5S,
     iPod_Touch_1G,
     iPod_Touch_2G,
     iPod_Touch_3G,
@@ -32,9 +34,11 @@ typedef enum {
     iPad_4_WiFi,
     iPad_4_GSM,
     iPad_4_CDMA,
+    iPad_5,
     iPad_Mini_WiFi,
     iPad_Mini_GSM,
     iPad_Mini_CDMA,
+    iPad_Mini_2,
     iUnknown
 } iDevice_t;
 
@@ -56,6 +60,8 @@ static const NSString *iDeviceNameTable[] = {
     [iPhone_4S]         = @"iPhone 4S",
     [iPhone_5_GSM]      = @"iPhone 5 (GSM)",
     [iPhone_5_CDMA]     = @"iPhone 5 (CDMA)",
+    [iPhone_5C]         = @"iPhone 5C",
+    [iPhone_5S]         = @"iPhone 5S",
     [iPod_Touch_1G]     = @"iPod Touch 1G",
     [iPod_Touch_2G]     = @"iPod Touch 2G",
     [iPod_Touch_3G]     = @"iPod Touch 3G",
@@ -71,9 +77,11 @@ static const NSString *iDeviceNameTable[] = {
     [iPad_4_WiFi]       = @"iPad 4 (WiFi)",
     [iPad_4_GSM]        = @"iPad 4 (GSM)",
     [iPad_4_CDMA]       = @"iPad 4 (CDMA)",
+    [iPad_5]            = @"iPad Air",
     [iPad_Mini_WiFi]    = @"iPad Mini (WiFi)",
     [iPad_Mini_GSM]     = @"iPad Mini (GSM)",
     [iPad_Mini_CDMA]    = @"iPad Mini (CDMA)",
+    [iPad_Mini_2]       = @"iPad Mini 2",
     [iUnknown]          = @"Unknown"
 };
 
@@ -86,6 +94,8 @@ static const NSUInteger CPUFrequencyTable[] = {
     [iPhone_4S]         = 800,
     [iPhone_5_GSM]      = 1300,
     [iPhone_5_CDMA]     = 1300,
+    [iPhone_5C]         = 1000,
+    [iPhone_5S]         = 1300,
     [iPod_Touch_1G]     = 400,
     [iPod_Touch_2G]     = 533,
     [iPod_Touch_3G]     = 600,
@@ -101,9 +111,11 @@ static const NSUInteger CPUFrequencyTable[] = {
     [iPad_4_WiFi]       = 1400,
     [iPad_4_GSM]        = 1400,
     [iPad_4_CDMA]       = 1400,
+    [iPad_5]            = 1400,
     [iPad_Mini_WiFi]    = 1000,
     [iPad_Mini_GSM]     = 1000,
     [iPad_Mini_CDMA]    = 1000,
+    [iPad_Mini_2]       = 1400,
     [iUnknown]          = 0
 };
 
@@ -116,6 +128,8 @@ static const NSString *CPUNameTable[] = {
     [iPhone_4S]         = @"Apple A5",
     [iPhone_5_GSM]      = @"Apple A6",
     [iPhone_5_CDMA]     = @"Apple A6",
+    [iPhone_5C]         = @"Apple A6",
+    [iPhone_5S]         = @"Apple A7",
     [iPod_Touch_1G]     = @"ARM 1176JZ",
     [iPod_Touch_2G]     = @"ARM 1176JZ",
     [iPod_Touch_3G]     = @"ARM Cortex-A8",
@@ -131,9 +145,11 @@ static const NSString *CPUNameTable[] = {
     [iPad_4_WiFi]       = @"Apple Swift",
     [iPad_4_GSM]        = @"Apple Swift",
     [iPad_4_CDMA]       = @"Apple Swift",
+    [iPad_5]            = @"Apple A7",
     [iPad_Mini_WiFi]    = @"ARM Cortex-A9",
     [iPad_Mini_GSM]     = @"ARM Cortex-A9",
     [iPad_Mini_CDMA]    = @"ARM Cortex-A9",
+    [iPad_Mini_2]       = @"Apple A7",
     [iUnknown]          = @"Unknown"
 };
 
@@ -146,6 +162,8 @@ static const NSString *RAMTypeTable[] = {
     [iPhone_4S]         = @"LPDDR2 DRAM",
     [iPhone_5_GSM]      = @"LPDDR2 DRAM",
     [iPhone_5_CDMA]     = @"LPDDR2 DRAM",
+    [iPhone_5C]         = @"LPDDR2 DRAM",
+    [iPhone_5S]         = @"LPDDR3 DRAM",
     [iPod_Touch_1G]     = @"LPDDR DRAM",
     [iPod_Touch_2G]     = @"LPDDR DRAM",
     [iPod_Touch_3G]     = @"LPDDR DRAM",
@@ -161,9 +179,11 @@ static const NSString *RAMTypeTable[] = {
     [iPad_4_WiFi]       = @"LPDDR2 DRAM",
     [iPad_4_GSM]        = @"LPDDR2 DRAM",
     [iPad_4_CDMA]       = @"LPDDR2 DRAM",
+    [iPad_5]            = @"LPDDR3 DRAM",
     [iPad_Mini_WiFi]    = @"LPDDR2 DRAM",
     [iPad_Mini_GSM]     = @"LPDDR2 DRAM",
     [iPad_Mini_CDMA]    = @"LPDDR2 DRAM",
+    [iPad_Mini_2]       = @"LPDDR3 DRAM",
     [iUnknown]          = @"Unknown"
 };
 
@@ -176,6 +196,8 @@ static const NSUInteger BatteryCapacityTable[] = {
     [iPhone_4S]         = 1430,
     [iPhone_5_GSM]      = 1440,
     [iPhone_5_CDMA]     = 1440,
+    [iPhone_5C]         = 1507,
+    [iPhone_5S]         = 1570,
     [iPod_Touch_1G]     = 789,
     [iPod_Touch_2G]     = 789,
     [iPod_Touch_3G]     = 930,
@@ -191,9 +213,11 @@ static const NSUInteger BatteryCapacityTable[] = {
     [iPad_4_WiFi]       = 11560,
     [iPad_4_GSM]        = 11560,
     [iPad_4_CDMA]       = 11560,
+    [iPad_5]            = 8827,
     [iPad_Mini_WiFi]    = 4440,
     [iPad_Mini_GSM]     = 4440,
     [iPad_Mini_CDMA]    = 4440,
+    [iPad_Mini_2]       = 4440,
     [iUnknown]          = 0
 };
 
@@ -206,6 +230,8 @@ static const CGFloat BatteryVoltageTable[] = {
     [iPhone_4S]         = 3.7,
     [iPhone_5_GSM]      = 3.8,
     [iPhone_5_CDMA]     = 3.8,
+    [iPhone_5C]         = 3.8,
+    [iPhone_5S]         = 3.8,
     [iPod_Touch_1G]     = 3.7,
     [iPod_Touch_2G]     = 3.7,
     [iPod_Touch_3G]     = 3.7,
@@ -221,9 +247,11 @@ static const CGFloat BatteryVoltageTable[] = {
     [iPad_4_WiFi]       = 3.7,
     [iPad_4_GSM]        = 3.7,
     [iPad_4_CDMA]       = 3.7,
+    [iPad_5]            = 3.7,
     [iPad_Mini_WiFi]    = 3.72,
     [iPad_Mini_GSM]     = 3.72,
     [iPad_Mini_CDMA]    = 3.72,
+    [iPad_Mini_2]       = 3.72,
     [iUnknown]          = 0
 };
 
@@ -236,6 +264,8 @@ static const CGFloat ScreenSizeTable[] = {
     [iPhone_4S]         = 3.5,
     [iPhone_5_GSM]      = 4.0,
     [iPhone_5_CDMA]     = 4.0,
+    [iPhone_5C]         = 4.0,
+    [iPhone_5S]         = 4.0,
     [iPod_Touch_1G]     = 3.5,
     [iPod_Touch_2G]     = 3.5,
     [iPod_Touch_3G]     = 3.5,
@@ -251,9 +281,11 @@ static const CGFloat ScreenSizeTable[] = {
     [iPad_4_WiFi]       = 9.7,
     [iPad_4_GSM]        = 9.7,
     [iPad_4_CDMA]       = 9.7,
+    [iPad_5]            = 9.7,
     [iPad_Mini_WiFi]    = 7.9,
-    [iPad_Mini_GSM]     = 9.7,
-    [iPad_Mini_CDMA]    = 9.7,
+    [iPad_Mini_GSM]     = 7.9,
+    [iPad_Mini_CDMA]    = 7.9,
+    [iPad_Mini_2]       = 7.9,
     [iUnknown]          = 0.0
 };
 
@@ -266,6 +298,8 @@ static const NSUInteger ScreenPPITable[] = {
     [iPhone_4S]         = 326,
     [iPhone_5_GSM]      = 326,
     [iPhone_5_CDMA]     = 326,
+    [iPhone_5C]         = 326,
+    [iPhone_5S]         = 326,
     [iPod_Touch_1G]     = 163,
     [iPod_Touch_2G]     = 163,
     [iPod_Touch_3G]     = 163,
@@ -281,9 +315,11 @@ static const NSUInteger ScreenPPITable[] = {
     [iPad_4_WiFi]       = 264,
     [iPad_4_GSM]        = 264,
     [iPad_4_CDMA]       = 264,
+    [iPad_5]            = 264,
     [iPad_Mini_WiFi]    = 163,
     [iPad_Mini_GSM]     = 163,
     [iPad_Mini_CDMA]    = 163,
+    [iPad_Mini_2]       = 326,
     [iUnknown]          = 0.0
 };
 
@@ -296,6 +332,8 @@ static const NSString *AspectRatioTable[] = {
     [iPhone_4S]         = @"3:2",
     [iPhone_5_GSM]      = @"16:9",
     [iPhone_5_CDMA]     = @"16:9",
+    [iPhone_5C]         = @"16:9",
+    [iPhone_5S]         = @"16:9",
     [iPod_Touch_1G]     = @"3:2",
     [iPod_Touch_2G]     = @"3:2",
     [iPod_Touch_3G]     = @"3:2",
@@ -311,9 +349,11 @@ static const NSString *AspectRatioTable[] = {
     [iPad_4_WiFi]       = @"4:3",
     [iPad_4_GSM]        = @"4:3",
     [iPad_4_CDMA]       = @"4:3",
+    [iPad_5]            = @"4:3",
     [iPad_Mini_WiFi]    = @"4:3",
     [iPad_Mini_GSM]     = @"4:3",
     [iPad_Mini_CDMA]    = @"4:3",
+    [iPad_Mini_2]       = @"4:3",
     [iUnknown]          = @"0:0"
 };
    
@@ -383,33 +423,42 @@ static const NSString *AspectRatioTable[] = {
 
 - (iDevice_t)hwMachineToIdevice:(NSString*)hwMachine
 {
-    if ([hwMachine isEqualToString:@"iPhone1,1"])    return iPhone_1G;
-    if ([hwMachine isEqualToString:@"iPhone1,2"])    return iPhone_3G;
-    if ([hwMachine isEqualToString:@"iPhone2,1"])    return iPhone_3GS;
-    if ([hwMachine isEqualToString:@"iPhone3,1"])    return iPhone_4;
-    if ([hwMachine isEqualToString:@"iPhone3,3"])    return iPhone_4_Verizon;
-    if ([hwMachine isEqualToString:@"iPhone4,1"])    return iPhone_4S;
-    if ([hwMachine isEqualToString:@"iPhone5,1"])    return iPhone_5_GSM;
-    if ([hwMachine isEqualToString:@"iPhone5,2"])    return iPhone_5_CDMA;
-    if ([hwMachine isEqualToString:@"iPod1,1"])      return iPod_Touch_1G;
-    if ([hwMachine isEqualToString:@"iPod2,1"])      return iPod_Touch_2G;
-    if ([hwMachine isEqualToString:@"iPod3,1"])      return iPod_Touch_3G;
-    if ([hwMachine isEqualToString:@"iPod4,1"])      return iPod_Touch_4G;
-    if ([hwMachine isEqualToString:@"iPod5,1"])      return iPod_Touch_5;
-    if ([hwMachine isEqualToString:@"iPad1,1"])      return iPad_1;
-    if ([hwMachine isEqualToString:@"iPad2,1"])      return iPad_2_WiFi;
-    if ([hwMachine isEqualToString:@"iPad2,2"])      return iPad_2_GSM;
-    if ([hwMachine isEqualToString:@"iPad2,3"])      return iPad_2_CDMA;
-    if ([hwMachine isEqualToString:@"iPad2,4"])      return iPad_2_CDMA;
-    if ([hwMachine isEqualToString:@"iPad2,5"])      return iPad_Mini_WiFi;
-    if ([hwMachine isEqualToString:@"iPad2,6"])      return iPad_Mini_GSM;
-    if ([hwMachine isEqualToString:@"iPad2,7"])      return iPad_Mini_CDMA;
-    if ([hwMachine isEqualToString:@"iPad3,1"])      return iPad_3_WiFi;
-    if ([hwMachine isEqualToString:@"iPad3,2"])      return iPad_3_GSM;
-    if ([hwMachine isEqualToString:@"iPad3,3"])      return iPad_3_CDMA;
-    if ([hwMachine isEqualToString:@"iPad3,4"])      return iPad_4_WiFi;
-    if ([hwMachine isEqualToString:@"iPad3,5"])      return iPad_4_GSM;
-    if ([hwMachine isEqualToString:@"iPad3,6"])      return iPad_4_CDMA;
+    if ([hwMachine isEqualToString:@"iPhone1,1"])   return iPhone_1G;
+    if ([hwMachine isEqualToString:@"iPhone1,2"])   return iPhone_3G;
+    if ([hwMachine isEqualToString:@"iPhone2,1"])   return iPhone_3GS;
+    if ([hwMachine isEqualToString:@"iPhone3,1"])   return iPhone_4;
+    if ([hwMachine isEqualToString:@"iPhone3,3"])   return iPhone_4_Verizon;
+    if ([hwMachine isEqualToString:@"iPhone4,1"])   return iPhone_4S;
+    if ([hwMachine isEqualToString:@"iPhone5,1"])   return iPhone_5_GSM;
+    if ([hwMachine isEqualToString:@"iPhone5,2"])   return iPhone_5_CDMA;
+    if ([hwMachine isEqualToString:@"iPhone5,3"])   return iPhone_5C;
+    if ([hwMachine isEqualToString:@"iPhone5,4"])   return iPhone_5C;
+    if ([hwMachine isEqualToString:@"iPhone6,1"])   return iPhone_5S;
+    if ([hwMachine isEqualToString:@"iPhone6,2"])   return iPhone_5S;
+    if ([hwMachine isEqualToString:@"iPod1,1"])     return iPod_Touch_1G;
+    if ([hwMachine isEqualToString:@"iPod2,1"])     return iPod_Touch_2G;
+    if ([hwMachine isEqualToString:@"iPod3,1"])     return iPod_Touch_3G;
+    if ([hwMachine isEqualToString:@"iPod4,1"])     return iPod_Touch_4G;
+    if ([hwMachine isEqualToString:@"iPod5,1"])     return iPod_Touch_5;
+    if ([hwMachine isEqualToString:@"iPad1,1"])     return iPad_1;
+    if ([hwMachine isEqualToString:@"iPad2,1"])     return iPad_2_WiFi;
+    if ([hwMachine isEqualToString:@"iPad2,2"])     return iPad_2_GSM;
+    if ([hwMachine isEqualToString:@"iPad2,3"])     return iPad_2_CDMA;
+    if ([hwMachine isEqualToString:@"iPad2,4"])     return iPad_2_CDMA;
+    if ([hwMachine isEqualToString:@"iPad2,5"])     return iPad_Mini_WiFi;
+    if ([hwMachine isEqualToString:@"iPad2,6"])     return iPad_Mini_GSM;
+    if ([hwMachine isEqualToString:@"iPad2,7"])     return iPad_Mini_CDMA;
+    if ([hwMachine isEqualToString:@"iPad3,1"])     return iPad_3_WiFi;
+    if ([hwMachine isEqualToString:@"iPad3,2"])     return iPad_3_GSM;
+    if ([hwMachine isEqualToString:@"iPad3,3"])     return iPad_3_CDMA;
+    if ([hwMachine isEqualToString:@"iPad3,4"])     return iPad_4_WiFi;
+    if ([hwMachine isEqualToString:@"iPad3,5"])     return iPad_4_GSM;
+    if ([hwMachine isEqualToString:@"iPad3,6"])     return iPad_4_CDMA;
+    if ([hwMachine isEqualToString:@"iPad4,1"])     return iPad_5;
+    if ([hwMachine isEqualToString:@"iPad4,2"])     return iPad_5;
+    if ([hwMachine isEqualToString:@"iPad4,4"])     return iPad_Mini_2;
+    if ([hwMachine isEqualToString:@"iPad4,5"])     return iPad_Mini_2;
+
     return iUnknown;
 }
 
