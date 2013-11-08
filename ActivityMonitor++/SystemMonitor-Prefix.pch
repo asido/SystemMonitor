@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'ActivityMonitor++' target in the 'ActivityMonitor++' project
+// Prefix header for all source files of the 'SystemMonitor' target in the 'SystemMonitor' project
 //
 
 #import <Availability.h>
