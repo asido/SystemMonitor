@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03FAE654182D51330038DB7C /* DefaultCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03FAE653182D51330038DB7C /* DefaultCell@2x.png */; };
 		7003E7E9175115EF00214D6A /* RAMInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ECE2731750558100B1402A /* RAMInfo.m */; };
 		7003E7EB1751178700214D6A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7003E7EA1751178700214D6A /* SystemConfiguration.framework */; };
 		700A75F1175796180099ABB3 /* arrow-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 700A75EF175796180099ABB3 /* arrow-down.png */; };
@@ -21,7 +22,6 @@
 		701190D4174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 701190D2174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png */; };
 		701190D5174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 701190D3174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png */; };
 		701190D8174D063300B5D8B1 /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 701190D7174D063300B5D8B1 /* DefaultCell.m */; };
-		701190DA174D09A900B5D8B1 /* DefaultCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 701190D9174D09A900B5D8B1 /* DefaultCell@2x.png */; };
 		701190DF174D0F6200B5D8B1 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 701190DE174D0F6100B5D8B1 /* ProcessCell.m */; };
 		701190E5174D12C100B5D8B1 /* ProcessCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 701190E4174D12C100B5D8B1 /* ProcessCell@2x.png */; };
 		701190EA174D194400B5D8B1 /* ProcessTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 701190E9174D194400B5D8B1 /* ProcessTopView.m */; };
@@ -147,6 +147,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03FAE653182D51330038DB7C /* DefaultCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultCell@2x.png"; sourceTree = "<group>"; };
 		7003E7EA1751178700214D6A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7003E81F17513C2000214D6A /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
 		7003E82217513C9500214D6A /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
@@ -171,7 +172,6 @@
 		701190D3174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RootCellTop-dark-88@2x.png"; sourceTree = "<group>"; };
 		701190D6174D063300B5D8B1 /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCell.h; sourceTree = "<group>"; };
 		701190D7174D063300B5D8B1 /* DefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCell.m; sourceTree = "<group>"; };
-		701190D9174D09A900B5D8B1 /* DefaultCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultCell@2x.png"; sourceTree = "<group>"; };
 		701190DD174D0F6100B5D8B1 /* ProcessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessCell.h; sourceTree = "<group>"; };
 		701190DE174D0F6100B5D8B1 /* ProcessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessCell.m; sourceTree = "<group>"; };
 		701190E4174D12C100B5D8B1 /* ProcessCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ProcessCell@2x.png"; sourceTree = "<group>"; };
@@ -589,29 +589,29 @@
 			children = (
 				700A75EA17578A2E0099ABB3 /* Icon & splash */,
 				70F932741754A0DA00CF22D0 /* Root Table Icons */,
-				70C150BE17537760009BEB11 /* GreenCircle@2x.png */,
-				70C150BF17537760009BEB11 /* OrangeCircle@2x.png */,
-				70C150C017537760009BEB11 /* RedCircle@2x.png */,
-				70340CA41752758F001C1F1A /* TubeTexture-retina.png */,
-				70E4371317526E0200ED3876 /* TubeTexture-nonretina.png */,
-				70E4371B175270F100ED3876 /* BubbleTexture-retina.png */,
-				70681B871750E70C0095547F /* BubbleTexture-nonretina.png */,
-				70E19A58174C260300A411C8 /* Background-748@2x.png */,
-				70D8F45C174CF1E9003824E2 /* Background-1496@2x.png */,
-				70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */,
-				701190D9174D09A900B5D8B1 /* DefaultCell@2x.png */,
-				701190E4174D12C100B5D8B1 /* ProcessCell@2x.png */,
-				70C150B917537380009BEB11 /* ConnectionCell@2x.png */,
-				701190D2174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png */,
-				701190D3174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png */,
-				700A75F517579F690099ABB3 /* LineGraphBackground-414@2x.png */,
-				70340CB417527FB6001C1F1A /* TubeBackground-retina@2x.png */,
-				70340CAC17527DB1001C1F1A /* TubeBackground-nonretina@2x.png */,
-				70C150D71753DD74009BEB11 /* ConnectionsSectionBackground-60@2x.png */,
-				701190F1174D1C5100B5D8B1 /* SettingsIcon@2x.png */,
-				701190F5174D21DB00B5D8B1 /* FilterButton@2x.png */,
 				700A75EF175796180099ABB3 /* arrow-down.png */,
 				700A75F0175796180099ABB3 /* arrow-up.png */,
+				70D8F45C174CF1E9003824E2 /* Background-1496@2x.png */,
+				70E19A58174C260300A411C8 /* Background-748@2x.png */,
+				70E19A5C174C289A00A411C8 /* Background-Left-748@2x.png */,
+				70681B871750E70C0095547F /* BubbleTexture-nonretina.png */,
+				70E4371B175270F100ED3876 /* BubbleTexture-retina.png */,
+				70C150B917537380009BEB11 /* ConnectionCell@2x.png */,
+				70C150D71753DD74009BEB11 /* ConnectionsSectionBackground-60@2x.png */,
+				03FAE653182D51330038DB7C /* DefaultCell@2x.png */,
+				701190F5174D21DB00B5D8B1 /* FilterButton@2x.png */,
+				70C150BE17537760009BEB11 /* GreenCircle@2x.png */,
+				700A75F517579F690099ABB3 /* LineGraphBackground-414@2x.png */,
+				70C150BF17537760009BEB11 /* OrangeCircle@2x.png */,
+				701190E4174D12C100B5D8B1 /* ProcessCell@2x.png */,
+				70C150C017537760009BEB11 /* RedCircle@2x.png */,
+				701190D2174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png */,
+				701190D3174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png */,
+				701190F1174D1C5100B5D8B1 /* SettingsIcon@2x.png */,
+				70340CAC17527DB1001C1F1A /* TubeBackground-nonretina@2x.png */,
+				70340CB417527FB6001C1F1A /* TubeBackground-retina@2x.png */,
+				70E4371317526E0200ED3876 /* TubeTexture-nonretina.png */,
+				70340CA41752758F001C1F1A /* TubeTexture-retina.png */,
 			);
 			name = Media;
 			sourceTree = "<group>";
@@ -907,6 +907,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = st;
+				TargetAttributes = {
+					703D22D7173818EC0001E3B3 = {
+						DevelopmentTeam = C8Q8Y4HWTP;
+					};
+				};
 			};
 			buildConfigurationList = 703D22D3173818EB0001E3B3 /* Build configuration list for PBXProject "System Monitor" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -941,7 +946,6 @@
 				70D8F45D174CF1E9003824E2 /* Background-1496@2x.png in Resources */,
 				701190D4174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png in Resources */,
 				701190D5174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png in Resources */,
-				701190DA174D09A900B5D8B1 /* DefaultCell@2x.png in Resources */,
 				701190E5174D12C100B5D8B1 /* ProcessCell@2x.png in Resources */,
 				701190F2174D1C5200B5D8B1 /* SettingsIcon@2x.png in Resources */,
 				701190F6174D21DB00B5D8B1 /* FilterButton@2x.png in Resources */,
@@ -987,6 +991,7 @@
 				7033715E1757C78C007AE82C /* Default@2x.png in Resources */,
 				703371601757C78E007AE82C /* Default.png in Resources */,
 				703371631757C805007AE82C /* Default-Landscape@2x~ipad.png in Resources */,
+				03FAE654182D51330038DB7C /* DefaultCell@2x.png in Resources */,
 				703371651757C850007AE82C /* Default-Landscape~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1145,8 +1150,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1161,7 +1166,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1179,8 +1184,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1188,7 +1193,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1198,8 +1203,8 @@
 		703D231F173818EC0001E3B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActivityMonitor++/System Monitor-Prefix.pch";
 				INFOPLIST_FILE = "ActivityMonitor++/System Monitor-Info.plist";
@@ -1208,8 +1213,8 @@
 					"\"$(SRCROOT)/ActivityMonitor++\"",
 				);
 				PRODUCT_NAME = "System Monitor";
-				PROVISIONING_PROFILE = "E6394448-6ABC-482B-8696-D89A17EFAC4B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E6394448-6ABC-482B-8696-D89A17EFAC4B";
+				PROVISIONING_PROFILE = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1217,8 +1222,8 @@
 		703D2320173818EC0001E3B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActivityMonitor++/System Monitor-Prefix.pch";
 				INFOPLIST_FILE = "ActivityMonitor++/System Monitor-Info.plist";
@@ -1227,8 +1232,8 @@
 					"\"$(SRCROOT)/ActivityMonitor++\"",
 				);
 				PRODUCT_NAME = "System Monitor";
-				PROVISIONING_PROFILE = "E6394448-6ABC-482B-8696-D89A17EFAC4B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E6394448-6ABC-482B-8696-D89A17EFAC4B";
+				PROVISIONING_PROFILE = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
