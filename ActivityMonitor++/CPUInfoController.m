@@ -319,7 +319,9 @@
         case CPU_SUBTYPE_ARM_V7F:   return @"ARMv7F";       break;
         case CPU_SUBTYPE_ARM_V7K:   return @"ARMv7K";       break;
         case CPU_SUBTYPE_ARM_V7S:   return @"ARMv7S";       break;
+#if !(TARGET_IPHONE_SIMULATOR) // Simulator headers don't include such subtype.
         case CPU_SUBTYPE_ARM64_V8:  return @"ARM64";        break;
+#endif
         default:                    return @"Unknown";      break;
     }
 }
