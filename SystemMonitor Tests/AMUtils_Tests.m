@@ -1,16 +1,15 @@
 //
 //  AMUtils_Tests.m
-//  ActivityMonitor++
+//  SystemMonitor
 //
-//  Created by st on 07/05/2013.
+//  Created by Arvydas on 08/11/13.
 //  Copyright (c) 2013 st. All rights reserved.
 //
 
-#import <sys/sysctl.h>
+#import <XCTest/XCTest.h>
 #import "AMUtils.h"
-#import "AMUtils_Tests.h"
 
-@interface AMUtils_Tests()
+@interface AMUtils_Tests : XCTestCase
 - (void)_doTestSysCtl64WithSpecifier:(char*)specifier forSuccess:(BOOL)success;
 - (void)_doTestSysCtlChrWithSpecifier:(char*)specifier forSuccess:(BOOL)success;
 @end
@@ -20,14 +19,12 @@
 - (void)setUp
 {
     [super setUp];
-    
-    // Set-up code here.
+    // Put setup code here; it will be run once, before the first test case.
 }
 
 - (void)tearDown
 {
-    // Tear-down code here.
-    
+    // Put teardown code here; it will be run once, after the last test case.
     [super tearDown];
 }
 
@@ -57,7 +54,7 @@
     [self _doTestSysCtl64WithSpecifier:"hw.l1icachesize" forSuccess:YES];
     [self _doTestSysCtl64WithSpecifier:"hw.l2cachesize" forSuccess:YES];
     [self _doTestSysCtl64WithSpecifier:"hw.l3cachesize" forSuccess:NO];
-    [self _doTestSysCtl64WithSpecifier:"hw.packages" forSuccess:YES];    
+    [self _doTestSysCtl64WithSpecifier:"hw.packages" forSuccess:YES];
 }
 
 - (void)test_getSysCtlChrWithSpecifier
@@ -74,7 +71,7 @@
     float percent = 20.0f;
     float expected = 20.0f;
     
-    STAssertTrue([AMUtils percentageValueFromMax:max min:min percent:percent] == expected, @"AMUtils::percentageValueFromMax is dodgy (1)");
+    XCTAssertTrue([AMUtils percentageValueFromMax:max min:min percent:percent] == expected, @"AMUtils::percentageValueFromMax is dodgy (1)");
 }
 
 - (void)test_valuePercent
@@ -84,7 +81,7 @@
     float value = 60.0f;
     float expected = 20.0f;
     
-    STAssertTrue([AMUtils valuePercentFrom:from to:to value:value] == expected, @"AMUtils::valuePercentFrom is dodgy");
+    XCTAssertTrue([AMUtils valuePercentFrom:from to:to value:value] == expected, @"AMUtils::valuePercentFrom is dodgy");
 }
 
 #pragma mark - private
@@ -99,17 +96,17 @@
     
     if (success)
     {
-        STAssertTrue(val1 == val2, @"'%s' is dodgy.", specifier);
-        STAssertTrue(val2 == val3, @"'%s' is dodgy.", specifier);
-        STAssertTrue(val1 != -1, @"'%s' failed.", specifier);
-        STAssertTrue(val2 != -1, @"'%s' failed.", specifier);
-        STAssertTrue(val3 != -1, @"'%s' failed.", specifier);
+        XCTAssertTrue(val1 == val2, @"'%s' is dodgy.", specifier);
+        XCTAssertTrue(val2 == val3, @"'%s' is dodgy.", specifier);
+        XCTAssertTrue(val1 != -1, @"'%s' failed.", specifier);
+        XCTAssertTrue(val2 != -1, @"'%s' failed.", specifier);
+        XCTAssertTrue(val3 != -1, @"'%s' failed.", specifier);
     }
     else
     {
-        STAssertTrue(val1 == -1, @"'%s' failed.", specifier);
-        STAssertTrue(val2 == -1, @"'%s' failed.", specifier);
-        STAssertTrue(val3 == -1, @"'%s' failed.", specifier);
+        XCTAssertTrue(val1 == -1, @"'%s' failed. Expected: -1. Got: %llu", specifier, val1);
+        XCTAssertTrue(val2 == -1, @"'%s' failed. Expected: -1. Got: %llu", specifier, val2);
+        XCTAssertTrue(val3 == -1, @"'%s' failed. Expected: -1. Got: %llu", specifier, val3);
     }
 }
 
@@ -123,23 +120,23 @@
     
     if (success)
     {
-        STAssertNotNil(val1, @"'%s' is dodgy: val1 == nil", specifier);
-        STAssertNotNil(val2, @"'%s' is dodgy: val2 == nil", specifier);
-        STAssertNotNil(val3, @"'%s' is dodgy: val3 == nil", specifier);
-        STAssertTrue([val1 isEqualToString:val2], @"'%s' is dodgy: val1 != val2", specifier);
-        STAssertTrue([val2 isEqualToString:val3], @"'%s' is dodgy: val2 != val3", specifier);
-        STAssertFalse([val1 isEqualToString:@""], @"'%s' failed. val1 is empty", specifier);
-        STAssertFalse([val2 isEqualToString:@""], @"'%s' failed: val2 is empty", specifier);
-        STAssertFalse([val3 isEqualToString:@""], @"'%s' failed: val3 is empty", specifier);
+        XCTAssertNotNil(val1, @"'%s' is dodgy: val1 == nil", specifier);
+        XCTAssertNotNil(val2, @"'%s' is dodgy: val2 == nil", specifier);
+        XCTAssertNotNil(val3, @"'%s' is dodgy: val3 == nil", specifier);
+        XCTAssertTrue([val1 isEqualToString:val2], @"'%s' is dodgy: val1 != val2", specifier);
+        XCTAssertTrue([val2 isEqualToString:val3], @"'%s' is dodgy: val2 != val3", specifier);
+        XCTAssertFalse([val1 isEqualToString:@""], @"'%s' failed. val1 is empty", specifier);
+        XCTAssertFalse([val2 isEqualToString:@""], @"'%s' failed: val2 is empty", specifier);
+        XCTAssertFalse([val3 isEqualToString:@""], @"'%s' failed: val3 is empty", specifier);
     }
     else
     {
-        STAssertNotNil(val1, @"'%s' is dodgy: val1 == nil", specifier);
-        STAssertNotNil(val2, @"'%s' is dodgy: val2 == nil", specifier);
-        STAssertNotNil(val3, @"'%s' is dodgy: val3 == nil", specifier);
-        STAssertTrue([val1 isEqualToString:@""], @"'%s' failed. val1 is empty", specifier);
-        STAssertTrue([val2 isEqualToString:@""], @"'%s' failed: val2 is empty", specifier);
-        STAssertTrue([val3 isEqualToString:@""], @"'%s' failed: val3 is empty", specifier);
+        XCTAssertNotNil(val1, @"'%s' is dodgy: val1 == nil", specifier);
+        XCTAssertNotNil(val2, @"'%s' is dodgy: val2 == nil", specifier);
+        XCTAssertNotNil(val3, @"'%s' is dodgy: val3 == nil", specifier);
+        XCTAssertTrue([val1 isEqualToString:@""], @"'%s' failed. val1 is empty", specifier);
+        XCTAssertTrue([val2 isEqualToString:@""], @"'%s' failed: val2 is empty", specifier);
+        XCTAssertTrue([val3 isEqualToString:@""], @"'%s' failed: val3 is empty", specifier);
     }
 }
 

@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03724CD6182D7E3700221FE8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03724CD5182D7E3700221FE8 /* XCTest.framework */; };
+		03724CD7182D7E3700221FE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DD173818EC0001E3B3 /* Foundation.framework */; };
+		03724CD8182D7E3700221FE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DB173818EC0001E3B3 /* UIKit.framework */; };
+		03724CDE182D7E3700221FE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03724CDC182D7E3700221FE8 /* InfoPlist.strings */; };
+		03724CE8182D7EA200221FE8 /* AMUtils_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03724CE7182D7EA200221FE8 /* AMUtils_Tests.m */; };
 		03FAE654182D51330038DB7C /* DefaultCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03FAE653182D51330038DB7C /* DefaultCell@2x.png */; };
+		03FAE686182D7C200038DB7C /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D926B61755FC1C000B3800 /* libLumberjack.a */; };
 		7003E7E9175115EF00214D6A /* RAMInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ECE2731750558100B1402A /* RAMInfo.m */; };
 		7003E7EB1751178700214D6A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7003E7EA1751178700214D6A /* SystemConfiguration.framework */; };
 		700A75F1175796180099ABB3 /* arrow-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 700A75EF175796180099ABB3 /* arrow-down.png */; };
@@ -47,10 +53,6 @@
 		703D22EC173818EC0001E3B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 703D22EB173818EC0001E3B3 /* AppDelegate.m */; };
 		703D22F5173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703D22F3173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard */; };
 		703D22F8173818EC0001E3B3 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703D22F6173818EC0001E3B3 /* MainStoryboard_iPad.storyboard */; };
-		703D230E173818EC0001E3B3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D230D173818EC0001E3B3 /* SenTestingKit.framework */; };
-		703D230F173818EC0001E3B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DB173818EC0001E3B3 /* UIKit.framework */; };
-		703D2310173818EC0001E3B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DD173818EC0001E3B3 /* Foundation.framework */; };
-		703D2318173818EC0001E3B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 703D2316173818EC0001E3B3 /* InfoPlist.strings */; };
 		704528AC174EAD44003DD424 /* GLTube.m in Sources */ = {isa = PBXBuildFile; fileRef = 704528AB174EAD44003DD424 /* GLTube.m */; };
 		704528BB174ED3A7003DD424 /* StorageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704528BA174ED3A7003DD424 /* StorageViewController.m */; };
 		70681B881750E70C0095547F /* BubbleTexture-nonretina.png in Resources */ = {isa = PBXBuildFile; fileRef = 70681B871750E70C0095547F /* BubbleTexture-nonretina.png */; };
@@ -69,14 +71,12 @@
 		70C150C71753B770009BEB11 /* ConnectionSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70C150C61753B770009BEB11 /* ConnectionSectionView.xib */; };
 		70C150CA1753B7D0009BEB11 /* ConnectionSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C150C91753B7D0009BEB11 /* ConnectionSectionView.m */; };
 		70C150D81753DD74009BEB11 /* ConnectionsSectionBackground-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C150D71753DD74009BEB11 /* ConnectionsSectionBackground-60@2x.png */; };
-		70C2E9231739BAA8008CB1B1 /* AMUtils_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9221739BAA8008CB1B1 /* AMUtils_Tests.m */; };
 		70C2E9261739C7B7008CB1B1 /* GeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */; };
 		70C2E9291739C8D2008CB1B1 /* AMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9281739C8D2008CB1B1 /* AMDevice.m */; };
 		70CD01BC1739AB870047E72F /* HardcodedDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */; };
 		70D8F45D174CF1E9003824E2 /* Background-1496@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D8F45C174CF1E9003824E2 /* Background-1496@2x.png */; };
 		70D926B11755F4C5000B3800 /* iPhoneRootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D926B01755F4C5000B3800 /* iPhoneRootTableViewController.m */; };
 		70D926B51755F595000B3800 /* RootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D926B41755F595000B3800 /* RootTableViewController.m */; };
-		70D926B71755FC1C000B3800 /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D926B61755FC1C000B3800 /* libLumberjack.a */; };
 		70D926BA17561077000B3800 /* iPhoneProcessSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D926B917561077000B3800 /* iPhoneProcessSortViewController.m */; };
 		70D92D5B173AA91300C57DEA /* CPULoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D5A173AA91300C57DEA /* CPULoad.m */; };
 		70D92D61173B299B00C57DEA /* GPUInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D60173B299B00C57DEA /* GPUInfoController.m */; };
@@ -137,16 +137,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		703D2311173818EC0001E3B3 /* PBXContainerItemProxy */ = {
+		03724CE2182D7E3700221FE8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 703D22D0173818EB0001E3B3 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 703D22D7173818EC0001E3B3;
-			remoteInfo = "ActivityMonitor++";
+			remoteInfo = SystemMonitor;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03724CD4182D7E3700221FE8 /* SystemMonitor Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SystemMonitor Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		03724CD5182D7E3700221FE8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		03724CDB182D7E3700221FE8 /* SystemMonitor Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SystemMonitor Tests-Info.plist"; sourceTree = "<group>"; };
+		03724CDD182D7E3700221FE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		03724CE1182D7E3700221FE8 /* SystemMonitor Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SystemMonitor Tests-Prefix.pch"; sourceTree = "<group>"; };
+		03724CE7182D7EA200221FE8 /* AMUtils_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtils_Tests.m; sourceTree = "<group>"; };
 		03FAE653182D51330038DB7C /* DefaultCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultCell@2x.png"; sourceTree = "<group>"; };
 		7003E7EA1751178700214D6A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7003E81F17513C2000214D6A /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
@@ -196,14 +202,14 @@
 		70340CB61752A810001C1F1A /* ActiveConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveConnection.h; sourceTree = "<group>"; };
 		70340CB71752A810001C1F1A /* ActiveConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveConnection.m; sourceTree = "<group>"; };
 		70340CB91752B47D001C1F1A /* bsd_var.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bsd_var.h; sourceTree = "<group>"; };
-		703D22D8173818EC0001E3B3 /* System Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "System Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		703D22D8173818EC0001E3B3 /* SystemMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SystemMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		703D22DB173818EC0001E3B3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		703D22DD173818EC0001E3B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		703D22DF173818EC0001E3B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		703D22E3173818EC0001E3B3 /* System Monitor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "System Monitor-Info.plist"; sourceTree = "<group>"; };
+		703D22E3173818EC0001E3B3 /* SystemMonitor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SystemMonitor-Info.plist"; sourceTree = "<group>"; };
 		703D22E5173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		703D22E7173818EC0001E3B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		703D22E9173818EC0001E3B3 /* System Monitor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System Monitor-Prefix.pch"; sourceTree = "<group>"; };
+		703D22E9173818EC0001E3B3 /* SystemMonitor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SystemMonitor-Prefix.pch"; sourceTree = "<group>"; };
 		703D22EA173818EC0001E3B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		703D22EB173818EC0001E3B3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		703D22ED173818EC0001E3B3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -211,10 +217,7 @@
 		703D22F1173818EC0001E3B3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		703D22F4173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		703D22F7173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		703D230C173818EC0001E3B3 /* System MonitorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "System MonitorTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		703D230D173818EC0001E3B3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		703D2315173818EC0001E3B3 /* System MonitorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "System MonitorTests-Info.plist"; sourceTree = "<group>"; };
-		703D2317173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		704528AA174EAD44003DD424 /* GLTube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTube.h; sourceTree = "<group>"; };
 		704528AB174EAD44003DD424 /* GLTube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLTube.m; sourceTree = "<group>"; };
 		704528B9174ED3A7003DD424 /* StorageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageViewController.h; sourceTree = "<group>"; };
@@ -245,8 +248,6 @@
 		70C150C81753B7D0009BEB11 /* ConnectionSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionSectionView.h; sourceTree = "<group>"; };
 		70C150C91753B7D0009BEB11 /* ConnectionSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionSectionView.m; sourceTree = "<group>"; };
 		70C150D71753DD74009BEB11 /* ConnectionsSectionBackground-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ConnectionsSectionBackground-60@2x.png"; sourceTree = "<group>"; };
-		70C2E9211739BAA8008CB1B1 /* AMUtils_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMUtils_Tests.h; sourceTree = "<group>"; };
-		70C2E9221739BAA8008CB1B1 /* AMUtils_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtils_Tests.m; sourceTree = "<group>"; };
 		70C2E9241739C7B6008CB1B1 /* GeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralViewController.h; sourceTree = "<group>"; };
 		70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralViewController.m; sourceTree = "<group>"; };
 		70C2E9271739C8D1008CB1B1 /* AMDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDevice.h; sourceTree = "<group>"; };
@@ -258,7 +259,7 @@
 		70D926B01755F4C5000B3800 /* iPhoneRootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneRootTableViewController.m; sourceTree = "<group>"; };
 		70D926B31755F595000B3800 /* RootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTableViewController.h; sourceTree = "<group>"; };
 		70D926B41755F595000B3800 /* RootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTableViewController.m; sourceTree = "<group>"; };
-		70D926B61755FC1C000B3800 /* libLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLumberjack.a; sourceTree = "<group>"; };
+		70D926B61755FC1C000B3800 /* libLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLumberjack.a; path = ../libLumberjack.a; sourceTree = "<group>"; };
 		70D926B817561077000B3800 /* iPhoneProcessSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneProcessSortViewController.h; sourceTree = "<group>"; };
 		70D926B917561077000B3800 /* iPhoneProcessSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneProcessSortViewController.m; sourceTree = "<group>"; };
 		70D926BB1756109F000B3800 /* ProcessSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProcessSort.h; sourceTree = "<group>"; };
@@ -345,6 +346,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		03724CD1182D7E3700221FE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03724CD6182D7E3700221FE8 /* XCTest.framework in Frameworks */,
+				03724CD8182D7E3700221FE8 /* UIKit.framework in Frameworks */,
+				03724CD7182D7E3700221FE8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		703D22D5173818EC0001E3B3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -359,23 +370,32 @@
 				703D22DC173818EC0001E3B3 /* UIKit.framework in Frameworks */,
 				703D22DE173818EC0001E3B3 /* Foundation.framework in Frameworks */,
 				703D22E0173818EC0001E3B3 /* CoreGraphics.framework in Frameworks */,
-				70D926B71755FC1C000B3800 /* libLumberjack.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		703D2308173818EC0001E3B3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				703D230E173818EC0001E3B3 /* SenTestingKit.framework in Frameworks */,
-				703D230F173818EC0001E3B3 /* UIKit.framework in Frameworks */,
-				703D2310173818EC0001E3B3 /* Foundation.framework in Frameworks */,
+				03FAE686182D7C200038DB7C /* libLumberjack.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03724CD9182D7E3700221FE8 /* SystemMonitor Tests */ = {
+			isa = PBXGroup;
+			children = (
+				03724CE7182D7EA200221FE8 /* AMUtils_Tests.m */,
+				03724CDA182D7E3700221FE8 /* Supporting Files */,
+			);
+			path = "SystemMonitor Tests";
+			sourceTree = "<group>";
+		};
+		03724CDA182D7E3700221FE8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				03724CDB182D7E3700221FE8 /* SystemMonitor Tests-Info.plist */,
+				03724CDC182D7E3700221FE8 /* InfoPlist.strings */,
+				03724CE1182D7E3700221FE8 /* SystemMonitor Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		7003E81D17513C0300214D6A /* Include */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,7 +509,7 @@
 				703D22E2173818EC0001E3B3 /* Supporting Files */,
 				703D232417381ED80001E3B3 /* Media */,
 				703D22E1173818EC0001E3B3 /* Source */,
-				703D2313173818EC0001E3B3 /* ActivityMonitor++Tests */,
+				03724CD9182D7E3700221FE8 /* SystemMonitor Tests */,
 				703D22DA173818EC0001E3B3 /* Frameworks */,
 				703D22D9173818EC0001E3B3 /* Products */,
 			);
@@ -498,8 +518,8 @@
 		703D22D9173818EC0001E3B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				703D22D8173818EC0001E3B3 /* System Monitor.app */,
-				703D230C173818EC0001E3B3 /* System MonitorTests.octest */,
+				703D22D8173818EC0001E3B3 /* SystemMonitor.app */,
+				03724CD4182D7E3700221FE8 /* SystemMonitor Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -519,6 +539,7 @@
 				703D22DD173818EC0001E3B3 /* Foundation.framework */,
 				703D22DF173818EC0001E3B3 /* CoreGraphics.framework */,
 				703D230D173818EC0001E3B3 /* SenTestingKit.framework */,
+				03724CD5182D7E3700221FE8 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -553,35 +574,16 @@
 		703D22E2173818EC0001E3B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				703D22E3173818EC0001E3B3 /* System Monitor-Info.plist */,
+				703D22E3173818EC0001E3B3 /* SystemMonitor-Info.plist */,
 				703D22E4173818EC0001E3B3 /* InfoPlist.strings */,
 				703D22E7173818EC0001E3B3 /* main.m */,
-				703D22E9173818EC0001E3B3 /* System Monitor-Prefix.pch */,
+				703D22E9173818EC0001E3B3 /* SystemMonitor-Prefix.pch */,
 				703D22ED173818EC0001E3B3 /* Default.png */,
 				703D22EF173818EC0001E3B3 /* Default@2x.png */,
 				703D22F1173818EC0001E3B3 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			path = "ActivityMonitor++";
-			sourceTree = "<group>";
-		};
-		703D2313173818EC0001E3B3 /* ActivityMonitor++Tests */ = {
-			isa = PBXGroup;
-			children = (
-				70C2E9211739BAA8008CB1B1 /* AMUtils_Tests.h */,
-				70C2E9221739BAA8008CB1B1 /* AMUtils_Tests.m */,
-				703D2314173818EC0001E3B3 /* Supporting Files */,
-			);
-			path = "ActivityMonitor++Tests";
-			sourceTree = "<group>";
-		};
-		703D2314173818EC0001E3B3 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				703D2315173818EC0001E3B3 /* System MonitorTests-Info.plist */,
-				703D2316173818EC0001E3B3 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		703D232417381ED80001E3B3 /* Media */ = {
@@ -863,9 +865,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		703D22D7173818EC0001E3B3 /* System Monitor */ = {
+		03724CD3182D7E3700221FE8 /* SystemMonitor Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 703D231E173818EC0001E3B3 /* Build configuration list for PBXNativeTarget "System Monitor" */;
+			buildConfigurationList = 03724CE4182D7E3700221FE8 /* Build configuration list for PBXNativeTarget "SystemMonitor Tests" */;
+			buildPhases = (
+				03724CD0182D7E3700221FE8 /* Sources */,
+				03724CD1182D7E3700221FE8 /* Frameworks */,
+				03724CD2182D7E3700221FE8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03724CE3182D7E3700221FE8 /* PBXTargetDependency */,
+			);
+			name = "SystemMonitor Tests";
+			productName = "SystemMonitor Tests";
+			productReference = 03724CD4182D7E3700221FE8 /* SystemMonitor Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		703D22D7173818EC0001E3B3 /* SystemMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 703D231E173818EC0001E3B3 /* Build configuration list for PBXNativeTarget "SystemMonitor" */;
 			buildPhases = (
 				703D22D4173818EC0001E3B3 /* Sources */,
 				703D22D5173818EC0001E3B3 /* Frameworks */,
@@ -875,29 +895,10 @@
 			);
 			dependencies = (
 			);
-			name = "System Monitor";
+			name = SystemMonitor;
 			productName = "ActivityMonitor++";
-			productReference = 703D22D8173818EC0001E3B3 /* System Monitor.app */;
+			productReference = 703D22D8173818EC0001E3B3 /* SystemMonitor.app */;
 			productType = "com.apple.product-type.application";
-		};
-		703D230B173818EC0001E3B3 /* System MonitorTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 703D2321173818EC0001E3B3 /* Build configuration list for PBXNativeTarget "System MonitorTests" */;
-			buildPhases = (
-				703D2307173818EC0001E3B3 /* Sources */,
-				703D2308173818EC0001E3B3 /* Frameworks */,
-				703D2309173818EC0001E3B3 /* Resources */,
-				703D230A173818EC0001E3B3 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				703D2312173818EC0001E3B3 /* PBXTargetDependency */,
-			);
-			name = "System MonitorTests";
-			productName = "ActivityMonitor++Tests";
-			productReference = 703D230C173818EC0001E3B3 /* System MonitorTests.octest */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -908,12 +909,15 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = st;
 				TargetAttributes = {
+					03724CD3182D7E3700221FE8 = {
+						TestTargetID = 703D22D7173818EC0001E3B3;
+					};
 					703D22D7173818EC0001E3B3 = {
 						DevelopmentTeam = C8Q8Y4HWTP;
 					};
 				};
 			};
-			buildConfigurationList = 703D22D3173818EB0001E3B3 /* Build configuration list for PBXProject "System Monitor" */;
+			buildConfigurationList = 703D22D3173818EB0001E3B3 /* Build configuration list for PBXProject "SystemMonitor" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -925,13 +929,21 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				703D22D7173818EC0001E3B3 /* System Monitor */,
-				703D230B173818EC0001E3B3 /* System MonitorTests */,
+				703D22D7173818EC0001E3B3 /* SystemMonitor */,
+				03724CD3182D7E3700221FE8 /* SystemMonitor Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		03724CD2182D7E3700221FE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03724CDE182D7E3700221FE8 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		703D22D6173818EC0001E3B3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -996,33 +1008,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		703D2309173818EC0001E3B3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				703D2318173818EC0001E3B3 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		703D230A173818EC0001E3B3 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
+/* Begin PBXSourcesBuildPhase section */
+		03724CD0182D7E3700221FE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
+				03724CE8182D7EA200221FE8 /* AMUtils_Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
 		703D22D4173818EC0001E3B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1084,25 +1080,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		703D2307173818EC0001E3B3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				70C2E9231739BAA8008CB1B1 /* AMUtils_Tests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		703D2312173818EC0001E3B3 /* PBXTargetDependency */ = {
+		03724CE3182D7E3700221FE8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 703D22D7173818EC0001E3B3 /* System Monitor */;
-			targetProxy = 703D2311173818EC0001E3B3 /* PBXContainerItemProxy */;
+			target = 703D22D7173818EC0001E3B3 /* SystemMonitor */;
+			targetProxy = 03724CE2182D7E3700221FE8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		03724CDC182D7E3700221FE8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03724CDD182D7E3700221FE8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		703D22E4173818EC0001E3B3 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1127,22 +1123,81 @@
 			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
-		703D2316173818EC0001E3B3 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				703D2317173818EC0001E3B3 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		03724CE5182D7E3700221FE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SystemMonitor.app/SystemMonitor";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SystemMonitor Tests/SystemMonitor Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "SystemMonitor Tests/SystemMonitor Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		03724CE6182D7E3700221FE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SystemMonitor.app/SystemMonitor";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SystemMonitor Tests/SystemMonitor Tests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "SystemMonitor Tests/SystemMonitor Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		703D231C173818EC0001E3B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1153,7 +1208,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1176,7 +1231,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1187,7 +1243,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1203,16 +1259,20 @@
 		703D231F173818EC0001E3B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ActivityMonitor++/System Monitor-Prefix.pch";
-				INFOPLIST_FILE = "ActivityMonitor++/System Monitor-Info.plist";
+				GCC_PREFIX_HEADER = "ActivityMonitor++/SystemMonitor-Prefix.pch";
+				INFOPLIST_FILE = "ActivityMonitor++/SystemMonitor-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/ActivityMonitor++\"",
+					"$(SRCROOT)",
+					"/Users/asido/Documents/activity-monitor",
 				);
-				PRODUCT_NAME = "System Monitor";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = SystemMonitor;
 				PROVISIONING_PROFILE = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
 				WRAPPER_EXTENSION = app;
@@ -1222,68 +1282,37 @@
 		703D2320173818EC0001E3B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ActivityMonitor++/System Monitor-Prefix.pch";
-				INFOPLIST_FILE = "ActivityMonitor++/System Monitor-Info.plist";
+				GCC_PREFIX_HEADER = "ActivityMonitor++/SystemMonitor-Prefix.pch";
+				INFOPLIST_FILE = "ActivityMonitor++/SystemMonitor-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/ActivityMonitor++\"",
+					"$(SRCROOT)",
+					"/Users/asido/Documents/activity-monitor",
 				);
-				PRODUCT_NAME = "System Monitor";
+				PRODUCT_NAME = SystemMonitor;
 				PROVISIONING_PROFILE = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
-		703D2322173818EC0001E3B3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ActivityMonitor++.app/ActivityMonitor++";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ActivityMonitor++/ActivityMonitor++-Prefix.pch";
-				INFOPLIST_FILE = "ActivityMonitor++Tests/System MonitorTests-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/ActivityMonitor++\"",
-				);
-				PRODUCT_NAME = "System MonitorTests";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		703D2323173818EC0001E3B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ActivityMonitor++.app/ActivityMonitor++";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ActivityMonitor++/ActivityMonitor++-Prefix.pch";
-				INFOPLIST_FILE = "ActivityMonitor++Tests/System MonitorTests-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/ActivityMonitor++\"",
-				);
-				PRODUCT_NAME = "System MonitorTests";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		703D22D3173818EB0001E3B3 /* Build configuration list for PBXProject "System Monitor" */ = {
+		03724CE4182D7E3700221FE8 /* Build configuration list for PBXNativeTarget "SystemMonitor Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03724CE5182D7E3700221FE8 /* Debug */,
+				03724CE6182D7E3700221FE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		703D22D3173818EB0001E3B3 /* Build configuration list for PBXProject "SystemMonitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				703D231C173818EC0001E3B3 /* Debug */,
@@ -1292,20 +1321,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		703D231E173818EC0001E3B3 /* Build configuration list for PBXNativeTarget "System Monitor" */ = {
+		703D231E173818EC0001E3B3 /* Build configuration list for PBXNativeTarget "SystemMonitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				703D231F173818EC0001E3B3 /* Debug */,
 				703D2320173818EC0001E3B3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		703D2321173818EC0001E3B3 /* Build configuration list for PBXNativeTarget "System MonitorTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				703D2322173818EC0001E3B3 /* Debug */,
-				703D2323173818EC0001E3B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
