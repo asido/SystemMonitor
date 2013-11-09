@@ -123,11 +123,15 @@
     vm_size_t               pageSize;
     vm_statistics64_data_t  vm_stat;
     
-    if (host_page_size(host_port, &pageSize) != KERN_SUCCESS)
-    {
-        AMWarn(@"host_page_size() has failed - defaulting to 4K");
-        pageSize = 4096;
-    }
+//    if (host_page_size(host_port, &pageSize) != KERN_SUCCESS)
+//    {
+//        AMWarn(@"host_page_size() has failed - defaulting to 4K");
+//        pageSize = 4096;
+//    }
+    // There is a crazy bug(?) on iPhone 5S causing host_page_size give 16384, but host_statistics64 provide statistics
+    // relative to 4096 page size. For the moment it is relatively safe to hardcode 4096 here, but in the upcomming updates
+    // it can misbehaves very badly.
+    pageSize = 4096;
     
     if (host_statistics64(host_port, HOST_VM_INFO64, (host_info64_t)&vm_stat, &host_size) != KERN_SUCCESS)
     {
