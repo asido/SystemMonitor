@@ -24,18 +24,22 @@
 @property (strong, nonatomic) NSMutableDictionary   *activeConnections;
 @property (strong, nonatomic) NSArray               *activeConnectionKeys;
 @property (assign, nonatomic) BOOL refreshingConnections;
+@property (assign, nonatomic) BOOL nothingToSee;
 
 @property (strong, nonatomic) UIImage *greenCircle;
 @property (strong, nonatomic) UIImage *orangeCircle;
 @property (strong, nonatomic) UIImage *redCircle;
 
 - (UITableViewCell*)dequeueRefreshingCellForTable:(UITableView*)table indexPath:(NSIndexPath*)indexPath;
+- (UITableViewCell*)dequeueNothingToSeeCellForTable:(UITableView*)table indexPath:(NSIndexPath*)indexPath;
 - (UITableViewCell*)dequeueConnectionCellForTable:(UITableView*)table indexPath:(NSIndexPath*)indexPath;
 @end
 
 @implementation ConnectionViewController
 @synthesize activeConnections;
 @synthesize activeConnectionKeys;
+@synthesize refreshingConnections;
+@synthesize nothingToSee;
 
 @synthesize greenCircle;
 @synthesize orangeCircle;
@@ -68,6 +72,8 @@
     self.greenCircle = [UIImage imageNamed:@"GreenCircle.png"];
     self.orangeCircle = [UIImage imageNamed:@"OrangeCircle.png"];
     self.redCircle = [UIImage imageNamed:@"RedCircle.png"];
+    
+    [self setNothingToSee:NO];
     
     // Refresh active connection list.
     self.refreshingConnections = YES;
@@ -106,6 +112,13 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
+    return cell;
+}
+
+- (UITableViewCell*)dequeueNothingToSeeCellForTable:(UITableView*)table indexPath:(NSIndexPath*)indexPath
+{
+    static NSString *CellIdentifier = @"NothingToSeeCell";
+    UITableViewCell *cell = [table dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     return cell;
 }
 
@@ -171,7 +184,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (self.refreshingConnections)
+    if (self.refreshingConnections || self.nothingToSee)
     {
         return 1;
     }
@@ -183,7 +196,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.refreshingConnections)
+    if (self.refreshingConnections || self.nothingToSee)
     {
         return 1;
     }
@@ -198,7 +211,7 @@
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     ConnectionSectionView *view = nil;
-    
+
     NSArray *bundle = [[NSBundle mainBundle] loadNibNamed:@"ConnectionSectionView" owner:self options:nil];
     for (id obj in bundle)
     {
@@ -207,7 +220,7 @@
             view = (ConnectionSectionView*) obj;
             view.frame = CGRectMake(0, 0, tableView.frame.size.width, 30);
             
-            if (self.activeConnections)
+            if (self.activeConnections != nil && self.activeConnections.count > 0)
             {
                 [view.label setText:[self.activeConnectionKeys objectAtIndex:section]];
             }
@@ -230,7 +243,7 @@
 {
     // iPad uses 60px for both refreshing and connection cells,
     // while iPhone exlusively requires 92px for connections cell to fit everything in.
-    if (self.refreshingConnections || [AMUtils isIPad])
+    if (self.refreshingConnections || self.nothingToSee || [AMUtils isIPad])
     {
         return 60.0f;
     }
@@ -245,6 +258,10 @@
     if (self.refreshingConnections)
     {
         return [self dequeueRefreshingCellForTable:tableView indexPath:indexPath];
+    }
+    else if (self.nothingToSee)
+    {
+        return [self dequeueNothingToSeeCellForTable:tableView indexPath:indexPath];
     }
     else
     {
@@ -273,6 +290,7 @@
     self.activeConnectionKeys = [[self.activeConnections allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     
     self.refreshingConnections = NO;
+    self.nothingToSee = (self.activeConnectionKeys.count == 0);
     [self.tableView reloadData];
 }
 

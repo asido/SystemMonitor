@@ -2860,6 +2860,32 @@
                                     <constraint firstItem="DpH-RK-tyZ" firstAttribute="leading" secondItem="40Y-NI-omM" secondAttribute="leading" constant="73" id="x7M-2b-UaH"/>
                                 </constraints>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NothingToSeeCell" rowHeight="60" id="haK-Os-Er7" customClass="RetrievingCell">
+                                <rect key="frame" x="0.0" y="174" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="haK-Os-Er7" id="7iN-1G-kT8">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Nothing to see :(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkJ-HG-kyi">
+                                            <rect key="frame" x="73" y="19" width="175" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="175" id="62e-Kp-zQD"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="xkJ-HG-kyi" firstAttribute="centerX" secondItem="7iN-1G-kT8" secondAttribute="centerX" id="Xoz-sQ-2gl"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="xkJ-HG-kyi" secondAttribute="bottom" constant="20" id="0bw-3w-fXb"/>
+                                </constraints>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="8KO-M5-i1i" id="bH4-d2-Hx4"/>
