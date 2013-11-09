@@ -36,16 +36,21 @@
     [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-Left-748.png"]]];
         
     self.currentCtrl = -1;
-    [self tableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:VIEW_CTRL_GENERAL inSection:0]];
+    NSIndexPath *generalIndexPath = [NSIndexPath indexPathForRow:VIEW_CTRL_GENERAL inSection:0];
+    [self tableView:[self tableView] didSelectRowAtIndexPath:generalIndexPath];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
-                                animated:NO
-                          scrollPosition:UITableViewScrollPositionTop];
+    // A bit ugly, but for some reason the row gets deselected if setting it selected without delay.
+    double delayInSeconds = 0.1;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        NSIndexPath *selectedIndexPath = [NSIndexPath indexPathForRow:VIEW_CTRL_GENERAL inSection:0];
+        [[self tableView] selectRowAtIndexPath:selectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
+    });
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,7 +77,10 @@
     
     NSString *identifier = (NSString*)ViewCtrlIdentifiers[viewCtrl];
     UIViewController *ctrl = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-    self.splitViewController.viewControllers = [NSArray arrayWithObjects:self.navigationController, ctrl, nil];
+    UINavigationController *navigationCtrl = [[UINavigationController alloc] initWithRootViewController:ctrl];
+    [[navigationCtrl navigationBar] setBarStyle:UIBarStyleBlack];
+    [[navigationCtrl navigationBar] setTranslucent:YES];
+    self.splitViewController.viewControllers = @[[self navigationController], navigationCtrl];
 }
 
 #pragma mark - Table view data source
