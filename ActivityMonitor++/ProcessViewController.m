@@ -68,8 +68,6 @@
             self.topView.delegate = self;
         }
     }
-    [self.view addSubview:self.topView];
-    
     
     self.filteredProcesses = [NSArray arrayWithArray:app.iDevice.processes];
     [self processSortFilterChanged:SORT_DEFAULT];
@@ -122,12 +120,7 @@
 
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *dummyView = [[UIView alloc] init];
-    dummyView.backgroundColor = [UIColor clearColor];
-    // During reloadData the header goes on top of the top view block UI interaction.
-    // Disabling interactions on the header will make it go through to topView.
-    dummyView.userInteractionEnabled = NO;
-    return dummyView;
+    return self.topView;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
