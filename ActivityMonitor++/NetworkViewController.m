@@ -33,7 +33,6 @@ enum {
 @property (weak, nonatomic) IBOutlet UILabel *internalIPLabel;
 @property (weak, nonatomic) IBOutlet UILabel *netmaskLabel;
 @property (weak, nonatomic) IBOutlet UILabel *broadcastAddressLabel;
-@property (weak, nonatomic) IBOutlet UILabel *macAddressLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *totalWiFiDownloadsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalWiFiUploadsLabel;
@@ -127,7 +126,6 @@ static const double kNetworkGraphMaxValue = MB_TO_B(100);
     [self.internalIPLabel setText:app.iDevice.networkInfo.internalIPAddress];
     [self.netmaskLabel setText:app.iDevice.networkInfo.netmask];
     [self.broadcastAddressLabel setText:app.iDevice.networkInfo.broadcastAddress];
-    [self.macAddressLabel setText:app.iDevice.networkInfo.macAddress];
 }
 
 - (void)updateBandwidthLabels:(NetworkBandwidth*)bandwidth

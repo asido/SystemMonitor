@@ -61,7 +61,6 @@ typedef enum {
 - (NSString*)getInternalIPAddressOfInterface:(NSString*)interface;
 - (NSString*)getNetmaskOfInterface:(NSString*)interface;
 - (NSString*)getBroadcastAddressOfInterface:(NSString*)interface;
-- (NSString*)getMacAddressOfInterface:(NSString*)interface;
 - (NetworkBandwidth*)getNetworkBandwidth;
 - (void)adjustMaxBandwidth:(NetworkBandwidth*)bandwidth;
 
@@ -364,7 +363,6 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     self.networkInfo.internalIPAddress = [self getInternalIPAddressOfInterface:self.currentInterface];
     self.networkInfo.netmask = [self getNetmaskOfInterface:self.currentInterface];
     self.networkInfo.broadcastAddress = [self getBroadcastAddressOfInterface:self.currentInterface];
-    self.networkInfo.macAddress = [self getMacAddressOfInterface:self.currentInterface];
     return self.networkInfo;
 }
 
@@ -505,72 +503,6 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
     freeifaddrs(interfaces);
     return address;
-}
-
-- (NSString*)getMacAddressOfInterface:(NSString*)interface
-{
-    NSString            *mac = @"-";
-    int                 mib[6];
-    char                *msgBuffer = NULL;
-    size_t              length;
-    unsigned char       macAddress[6];
-    struct if_msghdr    *interfaceMsgStruct;
-    struct sockaddr_dl  *socketStruct;
-    
-    if (!interface || interface.length == 0)
-    {
-        return mac;
-    }
-    
-    mib[0] = CTL_NET;       // Network subsystem.
-    mib[1] = AF_ROUTE;      // Routing table info
-    mib[2] = 0;
-    mib[3] = AF_LINK;       // Link layer information
-    mib[4] = NET_RT_IFLIST; // All configured interfaces
-    
-    if ((mib[5] = if_nametoindex([interface cStringUsingEncoding:NSASCIIStringEncoding])) == 0)
-    {
-        AMWarn(@"if_nametoindex() has failed for interface %@.", interface);
-        return mac;
-    }
-    else
-    {
-        if (sysctl(mib, 6, NULL, &length, NULL, 0) < 0)
-        {
-            AMWarn(@"sysctl() has failed. (1)");
-            return mac;
-        }
-        else
-        {
-            msgBuffer = malloc(length);
-            if (!msgBuffer)
-            {
-                AMWarn(@"malloc() has failed.");
-                return mac;
-            }
-            
-            if (sysctl(mib, 6, msgBuffer, &length, NULL, 0) < 0)
-            {
-                AMWarn(@"sysctl() has failed. (2)");
-                goto exit;
-            }
-        }
-    }
-    
-    interfaceMsgStruct = (struct if_msghdr*) msgBuffer;
-    socketStruct = (struct sockaddr_dl*) (interfaceMsgStruct + 1);
-    memcpy(&macAddress, socketStruct->sdl_data + socketStruct->sdl_nlen, 6);
-    mac = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
-           macAddress[0], macAddress[1], macAddress[2], macAddress[3], macAddress[4], macAddress[5]];
-    
-    if ([mac hasPrefix:@"00:00:00:00:00"])
-    {
-        mac = @"-";
-    }
-    
-exit:
-    free(msgBuffer);
-    return mac;
 }
 
 - (NetworkBandwidth*)getNetworkBandwidth

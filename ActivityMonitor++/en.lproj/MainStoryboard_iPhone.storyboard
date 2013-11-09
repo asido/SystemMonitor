@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A598" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="foL-QI-fbr">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
@@ -2471,49 +2471,12 @@
                                             <constraint firstItem="0n0-sq-DxT" firstAttribute="top" secondItem="U6u-nU-kbB" secondAttribute="top" id="lQx-pc-kRK"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="90e-JL-00w" customClass="DefaultCell">
-                                        <rect key="frame" x="0.0" y="275" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="90e-JL-00w" id="FR1-0s-mlj">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="MAC Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCY-vd-DIh">
-                                                    <rect key="frame" x="30" y="11" width="111" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="111" id="3tZ-rq-9pF"/>
-                                                        <constraint firstAttribute="height" constant="21" id="pGh-vj-yy4"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;placeholder>" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d9J-UK-PIJ">
-                                                    <rect key="frame" x="120" y="11" width="170" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="170" id="5aA-Wf-LE9"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="d9J-UK-PIJ" firstAttribute="leading" secondItem="90e-JL-00w" secondAttribute="leading" constant="120" id="2S8-iG-alc"/>
-                                            <constraint firstItem="d9J-UK-PIJ" firstAttribute="baseline" secondItem="HCY-vd-DIh" secondAttribute="baseline" id="DQv-Ir-EdC"/>
-                                            <constraint firstItem="d9J-UK-PIJ" firstAttribute="top" secondItem="HCY-vd-DIh" secondAttribute="top" id="cwp-4x-JXO"/>
-                                            <constraint firstItem="HCY-vd-DIh" firstAttribute="top" secondItem="90e-JL-00w" secondAttribute="top" constant="11" id="fzg-KZ-rNB"/>
-                                            <constraint firstItem="HCY-vd-DIh" firstAttribute="leading" secondItem="90e-JL-00w" secondAttribute="leading" constant="30" id="hzR-xL-aBz"/>
-                                        </constraints>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Network Usage Since Boot" id="lab-aO-1bB">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="PQn-17-OVa" customClass="DefaultCell">
-                                        <rect key="frame" x="0.0" y="367" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="323" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PQn-17-OVa" id="CqD-X2-cdP">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -2549,7 +2512,7 @@
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="4eW-42-qEd" customClass="DefaultCell">
-                                        <rect key="frame" x="0.0" y="411" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="367" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4eW-42-qEd" id="VaS-wY-KrZ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -2586,7 +2549,7 @@
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Rjd-Yg-cBT" customClass="DefaultCell">
-                                        <rect key="frame" x="0.0" y="455" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="411" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rjd-Yg-cBT" id="vpx-SF-bB7">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -2622,7 +2585,7 @@
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="31r-1b-I0q" customClass="DefaultCell">
-                                        <rect key="frame" x="0.0" y="499" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="455" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="31r-1b-I0q" id="a0y-8u-3q3">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -2669,7 +2632,6 @@
                         <outlet property="broadcastAddressLabel" destination="0n0-sq-DxT" id="HKE-Ig-zCG"/>
                         <outlet property="externalIPLabel" destination="h9b-HE-6tw" id="uMO-Ea-dTs"/>
                         <outlet property="internalIPLabel" destination="r8r-yb-lgv" id="nqr-jk-fj0"/>
-                        <outlet property="macAddressLabel" destination="d9J-UK-PIJ" id="vkY-MG-A9D"/>
                         <outlet property="netmaskLabel" destination="Ebe-Pn-0QB" id="nbl-nI-Xjr"/>
                         <outlet property="networkTypeLabel" destination="9hw-e9-eQJ" id="C9W-no-kMt"/>
                         <outlet property="totalWWANDownloadsLabel" destination="Mpt-hM-p7M" id="y65-g8-LyM"/>

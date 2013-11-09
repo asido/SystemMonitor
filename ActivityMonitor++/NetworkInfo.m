@@ -17,5 +17,4 @@
 @synthesize internalIPAddress;
 @synthesize netmask;
 @synthesize broadcastAddress;
-@synthesize macAddress;
 @end

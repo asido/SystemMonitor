@@ -17,5 +17,4 @@
 @property (strong, nonatomic) NSString  *internalIPAddress;
 @property (strong, nonatomic) NSString  *netmask;
 @property (strong, nonatomic) NSString  *broadcastAddress;
-@property (strong, nonatomic) NSString  *macAddress;
 @end
