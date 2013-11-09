@@ -34,7 +34,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-Left-748.png"]]];
-        
+    
     self.currentCtrl = -1;
     NSIndexPath *generalIndexPath = [NSIndexPath indexPathForRow:VIEW_CTRL_GENERAL inSection:0];
     [self tableView:[self tableView] didSelectRowAtIndexPath:generalIndexPath];

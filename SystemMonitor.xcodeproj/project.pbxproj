@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		033D9649182E94AA009477E7 /* SMSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033D9648182E94AA009477E7 /* SMSplitViewController.m */; };
 		03724CD6182D7E3700221FE8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03724CD5182D7E3700221FE8 /* XCTest.framework */; };
 		03724CD7182D7E3700221FE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DD173818EC0001E3B3 /* Foundation.framework */; };
 		03724CD8182D7E3700221FE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DB173818EC0001E3B3 /* UIKit.framework */; };
@@ -147,6 +148,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		033D9647182E94AA009477E7 /* SMSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSplitViewController.h; sourceTree = "<group>"; };
+		033D9648182E94AA009477E7 /* SMSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSplitViewController.m; sourceTree = "<group>"; };
 		03724CD4182D7E3700221FE8 /* SystemMonitor Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SystemMonitor Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03724CD5182D7E3700221FE8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		03724CDB182D7E3700221FE8 /* SystemMonitor Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SystemMonitor Tests-Info.plist"; sourceTree = "<group>"; };
@@ -697,6 +700,8 @@
 				70AF613C173965D500EF49E9 /* iPadRootTableViewController.m */,
 				70D926B31755F595000B3800 /* RootTableViewController.h */,
 				70D926B41755F595000B3800 /* RootTableViewController.m */,
+				033D9647182E94AA009477E7 /* SMSplitViewController.h */,
+				033D9648182E94AA009477E7 /* SMSplitViewController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1047,6 +1052,7 @@
 				70E19A4A174BBBA400A411C8 /* ProcessInfoController.m in Sources */,
 				70E19A4D174BBBB600A411C8 /* ProcessInfo.m in Sources */,
 				70E19A53174C0FA500A411C8 /* ProcessViewController.m in Sources */,
+				033D9649182E94AA009477E7 /* SMSplitViewController.m in Sources */,
 				701190D8174D063300B5D8B1 /* DefaultCell.m in Sources */,
 				701190DF174D0F6200B5D8B1 /* ProcessCell.m in Sources */,
 				701190EA174D194400B5D8B1 /* ProcessTopView.m in Sources */,

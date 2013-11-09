@@ -2275,7 +2275,7 @@
         <!--Split View Controller-->
         <scene sceneID="b59-H3-PN1">
             <objects>
-                <splitViewController id="SKu-xS-AFT" sceneMemberID="viewController">
+                <splitViewController id="SKu-xS-AFT" customClass="SMSplitViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
