@@ -661,8 +661,6 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     struct xtcpcb_n     *tp = NULL;
     struct xinpcb_n     *inp = NULL;
     struct xsocket_n    *so = NULL;
-    struct xsockbuf_n   *so_rcv = NULL;
-    struct xsockbuf_n   *so_snd = NULL;
     struct xsockstat_n  *so_stat = NULL;
     int                 which = 0;
     NSMutableArray      *result = [[NSMutableArray alloc] init];
@@ -729,10 +727,10 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
                     so = (struct xsocket_n *)xgn;
                     break;
                 case XSO_RCVBUF:
-                    so_rcv = (struct xsockbuf_n *)xgn;
+                    // (struct xsockbuf_n *)xgn;
                     break;
                 case XSO_SNDBUF:
-                    so_snd = (struct xsockbuf_n *)xgn;
+                    // (struct xsockbuf_n *)xgn;
                     break;
                 case XSO_STATS:
                     so_stat = (struct xsockstat_n *)xgn;
