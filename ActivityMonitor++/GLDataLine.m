@@ -108,7 +108,7 @@ static const VertexData_t lineLegendData[] = {
 - (void)addLineDataValue:(double)value
 {
     GLfloat vX = self.dataLineDataNextX++;
-    GLfloat vY = [AMUtils percentageValueFromMax:self.graph.graphTop-self.graph.graphBottom min:0.0f percent:value];
+    GLfloat vY = [AMUtils percentageValueFromMax:self.graph.graphTop-self.graph.graphBottom min:0.0 percent:value];
     BOOL bufferSizeIncreased = NO;
     
     if (self.dataLineDataValidSize == 0)

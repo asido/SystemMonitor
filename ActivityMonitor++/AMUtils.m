@@ -170,7 +170,7 @@
 + (CGFloat)random
 {
 #define ARC4RANDOM_MAX  0x100000000
-    return (double)arc4random() / ARC4RANDOM_MAX;
+    return (CGFloat)arc4random() / ARC4RANDOM_MAX;
 #undef ARC4RANDOM_MAX
 }
 

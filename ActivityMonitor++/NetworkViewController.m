@@ -44,7 +44,7 @@ enum {
 @synthesize networkGraph;
 @synthesize networkGLView;
 
-static const double kNetworkGraphMaxValue = MB_TO_B(100);
+static const CGFloat kNetworkGraphMaxValue = MB_TO_B(100);
 
 #pragma mark - override
 
