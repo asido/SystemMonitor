@@ -43,4 +43,6 @@
 + (BOOL)isIPhone5;
 
 + (BOOL)dateDidTimeout:(NSDate*)date seconds:(double)sec;
+
++ (void)openReviewAppPage;
 @end

@@ -15,6 +15,7 @@
 		03724CDE182D7E3700221FE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03724CDC182D7E3700221FE8 /* InfoPlist.strings */; };
 		03724CE8182D7EA200221FE8 /* AMUtils_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03724CE7182D7EA200221FE8 /* AMUtils_Tests.m */; };
 		03F9B397183913B100804E1D /* ProcessSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F9B396183913B100804E1D /* ProcessSort.m */; };
+		03F9B3991839260A00804E1D /* GithubIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F9B3981839260A00804E1D /* GithubIcon.png */; };
 		03FAE654182D51330038DB7C /* DefaultCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03FAE653182D51330038DB7C /* DefaultCell@2x.png */; };
 		03FAE686182D7C200038DB7C /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D926B61755FC1C000B3800 /* libLumberjack.a */; };
 		7003E7E9175115EF00214D6A /* RAMInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ECE2731750558100B1402A /* RAMInfo.m */; };
@@ -151,6 +152,7 @@
 		03724CE1182D7E3700221FE8 /* SystemMonitor Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SystemMonitor Tests-Prefix.pch"; sourceTree = "<group>"; };
 		03724CE7182D7EA200221FE8 /* AMUtils_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtils_Tests.m; sourceTree = "<group>"; };
 		03F9B396183913B100804E1D /* ProcessSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessSort.m; sourceTree = "<group>"; };
+		03F9B3981839260A00804E1D /* GithubIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GithubIcon.png; sourceTree = "<group>"; };
 		03FAE653182D51330038DB7C /* DefaultCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultCell@2x.png"; sourceTree = "<group>"; };
 		7003E7EA1751178700214D6A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7003E81F17513C2000214D6A /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
@@ -774,6 +776,7 @@
 		70F932741754A0DA00CF22D0 /* Root Table Icons */ = {
 			isa = PBXGroup;
 			children = (
+				03F9B3981839260A00804E1D /* GithubIcon.png */,
 				70F932B91754B16600CF22D0 /* GeneralIcon-highlight.png */,
 				70F932BA1754B16700CF22D0 /* GeneralIcon-normal.png */,
 				70F932C51754B69100CF22D0 /* CpuIcon-highlight.png */,
@@ -953,6 +956,7 @@
 				70F932971754A65600CF22D0 /* GpuIcon-highlight.png in Resources */,
 				70F932981754A65600CF22D0 /* GpuIcon-normal.png in Resources */,
 				70F932A01754A83000CF22D0 /* NetworkIcon-normal.png in Resources */,
+				03F9B3991839260A00804E1D /* GithubIcon.png in Resources */,
 				70F932A31754A9D600CF22D0 /* ConnectionsIcon-highlight.png in Resources */,
 				70F932A41754A9D600CF22D0 /* ConnectionsIcon-normal.png in Resources */,
 				70F932A61754A9DC00CF22D0 /* NetworkIcon-highlight.png in Resources */,

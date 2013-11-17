@@ -10,6 +10,7 @@
 //
 
 #import "AMLog.h"
+#import "AMUtils.h"
 #import "RootCell.h"
 #import "RootTableViewController.h"
 #import "iPadRootTableViewController.h"
@@ -65,22 +66,30 @@
 {
     NSParameterAssert(viewCtrl < VIEW_CTRL_MAX);
     
-    if (viewCtrl == self.currentCtrl)
+    if (viewCtrl == VIEW_CTRL_RATE_US)
     {
-        return;
+        // Keep the old cell selected.
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:(NSInteger)[self currentCtrl] inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+        
+        [AMUtils openReviewAppPage];
     }
-    self.currentCtrl = viewCtrl;
-    
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:(NSInteger)viewCtrl inSection:0]
-                                animated:NO
-                          scrollPosition:UITableViewScrollPositionTop];
-    
-    NSString *identifier = (NSString*)ViewCtrlIdentifiers[viewCtrl];
-    UIViewController *ctrl = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-    UINavigationController *navigationCtrl = [[UINavigationController alloc] initWithRootViewController:ctrl];
-    [[navigationCtrl navigationBar] setBarStyle:UIBarStyleBlack];
-    [[navigationCtrl navigationBar] setTranslucent:YES];
-    self.splitViewController.viewControllers = @[[self navigationController], navigationCtrl];
+    else
+    {
+        if (viewCtrl == self.currentCtrl)
+        {
+            return;
+        }
+        self.currentCtrl = viewCtrl;
+        
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:(NSInteger)viewCtrl inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+        
+        NSString *identifier = (NSString*)ViewCtrlIdentifiers[viewCtrl];
+        UIViewController *ctrl = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        UINavigationController *navigationCtrl = [[UINavigationController alloc] initWithRootViewController:ctrl];
+        [[navigationCtrl navigationBar] setBarStyle:UIBarStyleBlack];
+        [[navigationCtrl navigationBar] setTranslucent:YES];
+        self.splitViewController.viewControllers = @[[self navigationController], navigationCtrl];
+    }
 }
 
 #pragma mark - Table view data source

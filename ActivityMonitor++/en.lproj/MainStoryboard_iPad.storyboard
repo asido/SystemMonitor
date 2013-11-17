@@ -205,6 +205,38 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="wS0-9G-tEf" customClass="RootCell">
+                                        <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wS0-9G-tEf" id="yV1-OY-lBk">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Write a Review!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTJ-zI-xo9">
+                                                    <rect key="frame" x="57" y="11" width="243" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JBO-aV-NAi">
+                                                    <rect key="frame" x="20" y="7" width="29" height="29"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="29" id="MoP-au-nlF"/>
+                                                        <constraint firstAttribute="height" constant="29" id="wTg-26-FRb"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="sTJ-zI-xo9" firstAttribute="centerY" secondItem="JBO-aV-NAi" secondAttribute="centerY" id="BzU-25-Aww"/>
+                                            <constraint firstItem="sTJ-zI-xo9" firstAttribute="leading" secondItem="JBO-aV-NAi" secondAttribute="trailing" constant="8" symbolic="YES" id="Pdf-Xs-etQ"/>
+                                            <constraint firstItem="JBO-aV-NAi" firstAttribute="top" secondItem="wS0-9G-tEf" secondAttribute="top" constant="7" id="eqJ-bs-ESf"/>
+                                            <constraint firstAttribute="trailing" secondItem="sTJ-zI-xo9" secondAttribute="trailing" constant="20" id="jQZ-aY-ncy"/>
+                                            <constraint firstItem="JBO-aV-NAi" firstAttribute="leading" secondItem="wS0-9G-tEf" secondAttribute="leading" constant="20" id="ycV-3A-qKw"/>
+                                        </constraints>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>

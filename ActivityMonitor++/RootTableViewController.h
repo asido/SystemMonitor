@@ -21,6 +21,7 @@ typedef enum {
     VIEW_CTRL_CONNECTIONS,
     VIEW_CTRL_STORAGE,
     VIEW_CTRL_BATTERY,
+    VIEW_CTRL_RATE_US,
     VIEW_CTRL_MAX
 } ViewCtrl_t;
 
@@ -33,7 +34,8 @@ static NSString *ViewCtrlIdentifiers[] = {
     [VIEW_CTRL_NETWORK]     = @"NetworkViewController",
     [VIEW_CTRL_CONNECTIONS] = @"ConnectionViewController",
     [VIEW_CTRL_STORAGE]     = @"StorageViewController",
-    [VIEW_CTRL_BATTERY]     = @"BatteryViewController"
+    [VIEW_CTRL_BATTERY]     = @"BatteryViewController",
+    [VIEW_CTRL_RATE_US]     = nil
 };
 
 static NSString *CellImageFilenames[] = {
@@ -45,7 +47,8 @@ static NSString *CellImageFilenames[] = {
     [VIEW_CTRL_NETWORK]     = @"NetworkIcon-normal.png",
     [VIEW_CTRL_CONNECTIONS] = @"ConnectionsIcon-normal.png",
     [VIEW_CTRL_STORAGE]     = @"StorageIcon-normal.png",
-    [VIEW_CTRL_BATTERY]     = @"BatteryIcon-normal.png"
+    [VIEW_CTRL_BATTERY]     = @"BatteryIcon-normal.png",
+    [VIEW_CTRL_RATE_US]     = @"GithubIcon.png"
 };
 
 static NSString *CellHighlightImageFilenames[] = {
@@ -57,7 +60,8 @@ static NSString *CellHighlightImageFilenames[] = {
     [VIEW_CTRL_NETWORK]     = @"NetworkIcon-highlight.png",
     [VIEW_CTRL_CONNECTIONS] = @"ConnectionsIcon-highlight.png",
     [VIEW_CTRL_STORAGE]     = @"StorageIcon-highlight.png",
-    [VIEW_CTRL_BATTERY]     = @"BatteryIcon-highlight.png"
+    [VIEW_CTRL_BATTERY]     = @"BatteryIcon-highlight.png",
+    [VIEW_CTRL_RATE_US]     = @"GithubIcon.png"
 };
 
 @interface RootTableViewController : UITableViewController

@@ -12,18 +12,13 @@
 #import "RootCell.h"
 #import "RootTableViewController.h"
 #import "iPhoneRootTableViewController.h"
+#import "AMUtils.h"
 
 @implementation iPhoneRootTableViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-Left-748.png"]]];
 }
@@ -39,13 +34,24 @@
 {
     NSParameterAssert(viewCtrl < VIEW_CTRL_MAX);
     
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:(NSInteger)viewCtrl inSection:0]
-                                animated:NO
-                          scrollPosition:UITableViewScrollPositionTop];
-    
-    NSString *identifier = (NSString*)ViewCtrlIdentifiers[viewCtrl];
-    UIViewController *ctrl = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-    [self.navigationController pushViewController:ctrl animated:YES];
+    if (viewCtrl == VIEW_CTRL_RATE_US)
+    {
+        // Deselect the row.
+        NSIndexPath *rateUsIndexPath = [[self tableView] indexPathForSelectedRow];
+        [[self tableView] deselectRowAtIndexPath:rateUsIndexPath animated:YES];
+        
+        [AMUtils openReviewAppPage];
+    }
+    else
+    {
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:(NSInteger)viewCtrl inSection:0]
+                                    animated:NO
+                              scrollPosition:UITableViewScrollPositionTop];
+        
+        NSString *identifier = (NSString*)ViewCtrlIdentifiers[viewCtrl];
+        UIViewController *ctrl = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }
 }
 
 #pragma mark - Table view data source

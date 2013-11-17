@@ -243,4 +243,10 @@
     return [date timeIntervalSinceNow] < -sec;
 }
 
++ (void)openReviewAppPage
+{
+    NSString *appReviewLink = @"itms-apps://itunes.apple.com/app/id740765454";
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:appReviewLink]];
+}
+
 @end

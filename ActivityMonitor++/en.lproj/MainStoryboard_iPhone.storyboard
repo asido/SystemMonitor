@@ -322,6 +322,38 @@
                                             <constraint firstItem="Khn-3j-f1N" firstAttribute="centerY" secondItem="CHy-JQ-AoD" secondAttribute="centerY" id="jDV-W2-prD"/>
                                         </constraints>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="O3L-GN-Qg4" customClass="RootCell">
+                                        <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O3L-GN-Qg4" id="iXJ-gk-Gix">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Write a Review!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ex3-04-dfU">
+                                                    <rect key="frame" x="57" y="11" width="243" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wg4-GU-UyH">
+                                                    <rect key="frame" x="20" y="7" width="29" height="29"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="29" id="b0i-im-yLv"/>
+                                                        <constraint firstAttribute="height" constant="29" id="bVH-bJ-1p6"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="wg4-GU-UyH" firstAttribute="leading" secondItem="O3L-GN-Qg4" secondAttribute="leading" constant="20" id="AuT-lY-tXY"/>
+                                            <constraint firstItem="Ex3-04-dfU" firstAttribute="centerY" secondItem="wg4-GU-UyH" secondAttribute="centerY" id="KK3-rB-xqx"/>
+                                            <constraint firstItem="Ex3-04-dfU" firstAttribute="leading" secondItem="wg4-GU-UyH" secondAttribute="trailing" constant="8" symbolic="YES" id="QNw-WA-7f7"/>
+                                            <constraint firstItem="wg4-GU-UyH" firstAttribute="top" secondItem="O3L-GN-Qg4" secondAttribute="top" constant="7" id="RAi-Zd-Qvy"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ex3-04-dfU" secondAttribute="trailing" constant="20" id="voI-h5-xu7"/>
+                                        </constraints>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
