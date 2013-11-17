@@ -29,7 +29,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *l1iCacheLabel;
 @property (weak, nonatomic) IBOutlet UILabel *l1dCacheLabel;
 @property (weak, nonatomic) IBOutlet UILabel *l2CacheLabel;
-@property (weak, nonatomic) IBOutlet UILabel *l3CacheLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endianessLabel;
 @end
 
@@ -58,7 +57,6 @@
     [self.l1iCacheLabel setText:(app.iDevice.cpuInfo.l1ICache == 0 ? @"-" : [AMUtils toNearestMetric:(uint64_t)app.iDevice.cpuInfo.l1ICache desiredFraction:0])];
     [self.l1dCacheLabel setText:(app.iDevice.cpuInfo.l1DCache == 0 ? @"-" : [AMUtils toNearestMetric:(uint64_t)app.iDevice.cpuInfo.l1DCache desiredFraction:0])];
     [self.l2CacheLabel setText:(app.iDevice.cpuInfo.l2Cache == 0 ? @"-" : [AMUtils toNearestMetric:(uint64_t)app.iDevice.cpuInfo.l2Cache desiredFraction:0])];
-    [self.l3CacheLabel setText:(app.iDevice.cpuInfo.l3Cache == 0 ? @"-" : [AMUtils toNearestMetric:(uint64_t)app.iDevice.cpuInfo.l3Cache desiredFraction:0])];
     [self.endianessLabel setText:app.iDevice.cpuInfo.endianess];
     
     self.cpuUsageGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, app.deviceSpecificUI.GLdataLineGraphWidth, 200.0f)];

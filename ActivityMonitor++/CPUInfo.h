@@ -22,7 +22,6 @@
 @property (assign, nonatomic) NSUInteger   l1DCache;
 @property (assign, nonatomic) NSUInteger   l1ICache;
 @property (assign, nonatomic) NSUInteger   l2Cache;
-@property (assign, nonatomic) NSUInteger   l3Cache;
 @property (strong, nonatomic) NSString     *cpuType;
 @property (strong, nonatomic) NSString     *cpuSubtype;
 @property (strong, nonatomic) NSString     *endianess;

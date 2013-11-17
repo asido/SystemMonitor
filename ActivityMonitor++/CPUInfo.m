@@ -22,7 +22,6 @@
 @synthesize l1DCache;
 @synthesize l1ICache;
 @synthesize l2Cache;
-@synthesize l3Cache;
 @synthesize cpuType;
 @synthesize cpuSubtype;
 @synthesize endianess;

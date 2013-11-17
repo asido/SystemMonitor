@@ -546,41 +546,8 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="zn5-Bs-Wjv" customClass="DefaultCell">
-                                        <rect key="frame" x="0.0" y="515" width="703" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zn5-Bs-Wjv" id="QFK-Qs-Tqe">
-                                            <rect key="frame" x="0.0" y="0.0" width="703" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="L3 cache" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqe-pe-Emr">
-                                                    <rect key="frame" x="20" y="11" width="200" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="pQS-xI-9hn"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;placeholder>" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nfz-oT-LRY">
-                                                    <rect key="frame" x="228" y="11" width="455" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Nfz-oT-LRY" secondAttribute="trailing" constant="20" symbolic="YES" id="6Zd-8B-gIi"/>
-                                                <constraint firstItem="vqe-pe-Emr" firstAttribute="centerY" secondItem="QFK-Qs-Tqe" secondAttribute="centerY" id="9NW-SL-hiv"/>
-                                                <constraint firstItem="vqe-pe-Emr" firstAttribute="leading" secondItem="QFK-Qs-Tqe" secondAttribute="leading" constant="20" symbolic="YES" id="C5N-vd-RrM"/>
-                                                <constraint firstItem="vqe-pe-Emr" firstAttribute="baseline" secondItem="Nfz-oT-LRY" secondAttribute="baseline" id="dec-Iw-0TT"/>
-                                                <constraint firstItem="Nfz-oT-LRY" firstAttribute="leading" secondItem="vqe-pe-Emr" secondAttribute="trailing" constant="8" symbolic="YES" id="v3l-nd-xxc"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0iH-Cl-P5c" customClass="DefaultCell">
-                                        <rect key="frame" x="0.0" y="559" width="703" height="44"/>
+                                        <rect key="frame" x="0.0" y="515" width="703" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0iH-Cl-P5c" id="FQV-RI-Cgf">
                                             <rect key="frame" x="0.0" y="0.0" width="703" height="43"/>
@@ -632,7 +599,6 @@
                         <outlet property="l1dCacheLabel" destination="TaB-8C-gQH" id="Yo0-3C-q2y"/>
                         <outlet property="l1iCacheLabel" destination="dE3-g4-AqA" id="hzO-I4-9lV"/>
                         <outlet property="l2CacheLabel" destination="RTF-WU-qMP" id="QPd-ZA-EMR"/>
-                        <outlet property="l3CacheLabel" destination="Nfz-oT-LRY" id="m4m-4f-sCf"/>
                         <outlet property="logicalCoresLabel" destination="Qor-EC-ElA" id="9f2-gK-F7A"/>
                         <outlet property="maxLogicalCoresLabel" destination="uyg-xo-Mrr" id="N2v-kx-DWq"/>
                         <outlet property="physicalCoresLabel" destination="BM5-rD-brR" id="5Qh-7s-5ze"/>

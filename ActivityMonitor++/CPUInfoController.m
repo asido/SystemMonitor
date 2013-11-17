@@ -40,7 +40,6 @@
 - (NSUInteger)getL1ICache;
 - (NSUInteger)getL1DCache;
 - (NSUInteger)getL2Cache;
-- (NSUInteger)getL3Cache;
 - (NSString*)getCPUType;
 - (NSString*)getCPUSubtype;
 - (NSString*)getEndianess;
@@ -136,7 +135,6 @@
         self.cpuInfo.l1DCache = [self getL1DCache];
         self.cpuInfo.l1ICache = [self getL1ICache];
         self.cpuInfo.l2Cache = [self getL2Cache];
-        self.cpuInfo.l3Cache = [self getL3Cache];
         self.cpuInfo.cpuType = [self getCPUType];
         self.cpuInfo.cpuSubtype = [self getCPUSubtype];
         self.cpuInfo.endianess = [self getEndianess];
@@ -235,20 +233,6 @@
 - (NSUInteger)getL2Cache
 {
     NSUInteger val = (NSUInteger)[AMUtils getSysCtl64WithSpecifier:"hw.l2cachesize"];
-    if (val == -1)
-    {
-        val = 0;
-    }
-    else
-    {
-        val = val;
-    }
-    return val;
-}
-
-- (NSUInteger)getL3Cache
-{
-    NSUInteger val = (NSUInteger)[AMUtils getSysCtl64WithSpecifier:"hw.l3cachesize"];
     if (val == -1)
     {
         val = 0;
