@@ -1,7 +1,7 @@
 System Monitor
 =============
 
-![Activity Monitor on iPad 4](http://i.imgur.com/oL1IBPn.png)
+![Activity Monitor on iPad 4](http://i.imgur.com/iTgUksW.png)
 
 iOS application providing you all information about your device - hardware, operating system, processor, memory, GPU, network interface, storage and battery, including OpenGL powered visual representation in real time. 
 
