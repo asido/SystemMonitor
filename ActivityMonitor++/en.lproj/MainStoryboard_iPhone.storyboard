@@ -2865,7 +2865,7 @@
                         <sections>
                             <tableViewSection headerTitle="Storage Information" id="nMe-pz-HCh">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="UR9-cD-WlU" customClass="DefaultCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="UR9-cD-WlU" customClass="DefaultCell">
                                         <rect key="frame" x="0.0" y="55" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UR9-cD-WlU" id="Avk-DV-3Vl">
@@ -2901,7 +2901,7 @@
                                             <constraint firstItem="JRU-xX-uC8" firstAttribute="centerY" secondItem="UR9-cD-WlU" secondAttribute="centerY" id="WXI-KN-Knv"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="hSu-15-tbb" customClass="DefaultCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="hSu-15-tbb" customClass="DefaultCell">
                                         <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hSu-15-tbb" id="2SR-r9-1IF">
@@ -2938,7 +2938,7 @@
                                             <constraint firstItem="Kwb-KX-q5q" firstAttribute="leading" secondItem="hSu-15-tbb" secondAttribute="leading" constant="30" id="fb6-PS-By7"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ziw-UG-sEz" customClass="DefaultCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ziw-UG-sEz" customClass="DefaultCell">
                                         <rect key="frame" x="0.0" y="143" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ziw-UG-sEz" id="Bb6-8J-93i">
@@ -2979,7 +2979,7 @@
                             </tableViewSection>
                             <tableViewSection id="0kJ-5o-Nhx">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="yTP-lw-uXW" customClass="DefaultCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="yTP-lw-uXW" customClass="DefaultCell">
                                         <rect key="frame" x="0.0" y="207" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yTP-lw-uXW" id="NHz-dt-bUX">
@@ -3015,7 +3015,7 @@
                                             <constraint firstItem="5ee-bW-jle" firstAttribute="leading" secondItem="yTP-lw-uXW" secondAttribute="leading" constant="120" id="oZm-WV-im9"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KgF-Hy-NzY" customClass="DefaultCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KgF-Hy-NzY" customClass="DefaultCell">
                                         <rect key="frame" x="0.0" y="251" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KgF-Hy-NzY" id="Awy-XQ-9ds">
@@ -3051,7 +3051,7 @@
                                             <constraint firstItem="hpQ-aA-ThT" firstAttribute="leading" secondItem="KgF-Hy-NzY" secondAttribute="leading" constant="30" id="uFV-FD-g0H"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="CIj-Bv-54c" customClass="DefaultCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="CIj-Bv-54c" customClass="DefaultCell">
                                         <rect key="frame" x="0.0" y="295" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CIj-Bv-54c" id="hyC-BH-05h">
@@ -3121,7 +3121,7 @@
                         <sections>
                             <tableViewSection headerTitle="Battery Information" id="SBl-L6-4Ro">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="g9v-l7-vOZ" customClass="DefaultCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="g9v-l7-vOZ" customClass="DefaultCell">
                                         <rect key="frame" x="0.0" y="55" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g9v-l7-vOZ" id="6YF-Nk-AhV">
@@ -3157,7 +3157,7 @@
                                             <constraint firstItem="tlf-Oc-PLu" firstAttribute="top" secondItem="w4n-kn-osZ" secondAttribute="top" id="yMk-uG-y46"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="NVC-Si-sfw" customClass="DefaultCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="NVC-Si-sfw" customClass="DefaultCell">
                                         <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NVC-Si-sfw" id="R2g-1m-Asc">
@@ -3197,7 +3197,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Battery Status" id="2eN-61-dBy">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="L7N-3k-D6X" customClass="DefaultCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="L7N-3k-D6X" customClass="DefaultCell">
                                         <rect key="frame" x="0.0" y="191" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L7N-3k-D6X" id="eu4-Mg-igi">
@@ -3234,7 +3234,7 @@
                                             <constraint firstItem="Ucg-wk-kPA" firstAttribute="leading" secondItem="L7N-3k-D6X" secondAttribute="leading" constant="120" id="v9P-jF-qLW"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="5bQ-Li-jxf" customClass="DefaultCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="5bQ-Li-jxf" customClass="DefaultCell">
                                         <rect key="frame" x="0.0" y="235" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5bQ-Li-jxf" id="j42-bn-bXe">
