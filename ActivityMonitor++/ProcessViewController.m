@@ -12,7 +12,7 @@
 #import "AppDelegate.h"
 #import "iPadProcessSortViewController.h"
 #import "iPhoneProcessSortViewController.h"
-#import "AMLog.h"
+#import "AMLogger.h"
 #import "AMUtils.h"
 #import "ProcessInfo.h"
 #import "ProcessTopView.h"
@@ -150,7 +150,7 @@
     
     if (!cell)
     {
-        AMWarn(@"attempt to dequeue reusable cell has failed.");
+        AMLogWarn(@"attempt to dequeue reusable cell has failed.");
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
@@ -296,7 +296,7 @@
             }];
             break;
         default:
-            AMWarn(@"unknown filter: %d", newFilter);
+            AMLogWarn(@"unknown filter: %d", newFilter);
             break;
     }
     

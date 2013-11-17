@@ -11,7 +11,7 @@
 
 #import <mach/mach.h>
 #import <mach/mach_host.h>
-#import "AMLog.h"
+#import "AMLogger.h"
 #import "AMUtils.h"
 #import "AMDevice.h"
 #import "HardcodedDeviceData.h"
@@ -125,7 +125,7 @@
     
 //    if (host_page_size(host_port, &pageSize) != KERN_SUCCESS)
 //    {
-//        AMWarn(@"host_page_size() has failed - defaulting to 4K");
+//        AMLogWarn(@"host_page_size() has failed - defaulting to 4K");
 //        pageSize = 4096;
 //    }
     // There is a crazy bug(?) on iPhone 5S causing host_page_size give 16384, but host_statistics64 provide statistics
@@ -135,7 +135,7 @@
     
     if (host_statistics64(host_port, HOST_VM_INFO64, (host_info64_t)&vm_stat, &host_size) != KERN_SUCCESS)
     {
-        AMWarn(@"host_statistics() has failed.");
+        AMLogWarn(@"host_statistics() has failed.");
         return nil;
     }
     

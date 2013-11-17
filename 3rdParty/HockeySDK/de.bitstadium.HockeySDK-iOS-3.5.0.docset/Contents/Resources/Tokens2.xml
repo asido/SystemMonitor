@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="docs/docs/Guide-Installation-Mac-App.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/doc/Guide-Installation-Mac-App</TokenIdentifier>
+			<Abstract type="html">## Introduction</Abstract>
+			<DeclaredIn>Guide-Installation-Mac-App-template.md</DeclaredIn>
+            
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+        
+	</File>
+</Tokens>

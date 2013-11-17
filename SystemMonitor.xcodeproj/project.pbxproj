@@ -14,10 +14,17 @@
 		03724CD8182D7E3700221FE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DB173818EC0001E3B3 /* UIKit.framework */; };
 		03724CDE182D7E3700221FE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03724CDC182D7E3700221FE8 /* InfoPlist.strings */; };
 		03724CE8182D7EA200221FE8 /* AMUtils_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03724CE7182D7EA200221FE8 /* AMUtils_Tests.m */; };
+		03DA2AB9183930700014C322 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F9B39B18392D7500804E1D /* HockeySDK.framework */; };
+		03DA2ABA183930C80014C322 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 03F9B39E18392D7500804E1D /* HockeySDKResources.bundle */; };
+		03DA2ABB183930CA0014C322 /* HockeySDK.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 03F9B39D18392D7500804E1D /* HockeySDK.xcconfig */; };
+		03DA2ABD183930EA0014C322 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DA2ABC183930EA0014C322 /* CoreText.framework */; };
+		03DA2ABE183930F90014C322 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7030C0B41764EDA30072DC8D /* QuartzCore.framework */; };
+		03DA2AC01839310A0014C322 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DA2ABF1839310A0014C322 /* Security.framework */; };
+		03DA2AC21839321A0014C322 /* AMLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DA2AC11839321A0014C322 /* AMLogger.m */; };
 		03F9B397183913B100804E1D /* ProcessSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F9B396183913B100804E1D /* ProcessSort.m */; };
 		03F9B3991839260A00804E1D /* GithubIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F9B3981839260A00804E1D /* GithubIcon.png */; };
+		03F9B3A018392DD600804E1D /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F9B39F18392DD600804E1D /* libLumberjack.a */; };
 		03FAE654182D51330038DB7C /* DefaultCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03FAE653182D51330038DB7C /* DefaultCell@2x.png */; };
-		03FAE686182D7C200038DB7C /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D926B61755FC1C000B3800 /* libLumberjack.a */; };
 		7003E7E9175115EF00214D6A /* RAMInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ECE2731750558100B1402A /* RAMInfo.m */; };
 		7003E7EB1751178700214D6A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7003E7EA1751178700214D6A /* SystemConfiguration.framework */; };
 		700A75F1175796180099ABB3 /* arrow-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 700A75EF175796180099ABB3 /* arrow-down.png */; };
@@ -151,14 +158,17 @@
 		03724CDD182D7E3700221FE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03724CE1182D7E3700221FE8 /* SystemMonitor Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SystemMonitor Tests-Prefix.pch"; sourceTree = "<group>"; };
 		03724CE7182D7EA200221FE8 /* AMUtils_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtils_Tests.m; sourceTree = "<group>"; };
+		03DA2ABC183930EA0014C322 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		03DA2ABF1839310A0014C322 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		03DA2AC11839321A0014C322 /* AMLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMLogger.m; sourceTree = "<group>"; };
 		03F9B396183913B100804E1D /* ProcessSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessSort.m; sourceTree = "<group>"; };
 		03F9B3981839260A00804E1D /* GithubIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GithubIcon.png; sourceTree = "<group>"; };
+		03F9B39B18392D7500804E1D /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
+		03F9B39D18392D7500804E1D /* HockeySDK.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = HockeySDK.xcconfig; sourceTree = "<group>"; };
+		03F9B39E18392D7500804E1D /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
+		03F9B39F18392DD600804E1D /* libLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLumberjack.a; path = 3rdParty/Lumberjack/libLumberjack.a; sourceTree = "<group>"; };
 		03FAE653182D51330038DB7C /* DefaultCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultCell@2x.png"; sourceTree = "<group>"; };
 		7003E7EA1751178700214D6A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		7003E81F17513C2000214D6A /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
-		7003E82217513C9500214D6A /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
-		7003E82317513C9500214D6A /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
-		7003E82417513C9500214D6A /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
 		700A75EF175796180099ABB3 /* arrow-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-down.png"; sourceTree = "<group>"; };
 		700A75F0175796180099ABB3 /* arrow-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-up.png"; sourceTree = "<group>"; };
 		700A75F517579F690099ABB3 /* LineGraphBackground-414@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LineGraphBackground-414@2x.png"; sourceTree = "<group>"; };
@@ -254,7 +264,6 @@
 		70D926B01755F4C5000B3800 /* iPhoneRootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneRootTableViewController.m; sourceTree = "<group>"; };
 		70D926B31755F595000B3800 /* RootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTableViewController.h; sourceTree = "<group>"; };
 		70D926B41755F595000B3800 /* RootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTableViewController.m; sourceTree = "<group>"; };
-		70D926B61755FC1C000B3800 /* libLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLumberjack.a; path = ../libLumberjack.a; sourceTree = "<group>"; };
 		70D926B817561077000B3800 /* iPhoneProcessSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneProcessSortViewController.h; sourceTree = "<group>"; };
 		70D926B917561077000B3800 /* iPhoneProcessSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneProcessSortViewController.m; sourceTree = "<group>"; };
 		70D926BB1756109F000B3800 /* ProcessSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProcessSort.h; sourceTree = "<group>"; };
@@ -297,7 +306,7 @@
 		70F1F17017397CEC007224AD /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
 		70F1F17217397CFE007224AD /* DeviceInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfoController.h; sourceTree = "<group>"; };
 		70F1F17317397CFE007224AD /* DeviceInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoController.m; sourceTree = "<group>"; };
-		70F1F18F17398C37007224AD /* AMLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMLog.h; sourceTree = "<group>"; };
+		70F1F18F17398C37007224AD /* AMLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMLogger.h; sourceTree = "<group>"; };
 		70F4D7D6173D147F007E58E2 /* CPULoadFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoadFilter.h; sourceTree = "<group>"; };
 		70F4D7D7173D147F007E58E2 /* CPULoadFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPULoadFilter.m; sourceTree = "<group>"; };
 		70F932951754A65600CF22D0 /* GpuIcon-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GpuIcon-highlight.png"; sourceTree = "<group>"; };
@@ -351,6 +360,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03DA2AC01839310A0014C322 /* Security.framework in Frameworks */,
+				03DA2ABE183930F90014C322 /* QuartzCore.framework in Frameworks */,
+				03DA2ABD183930EA0014C322 /* CoreText.framework in Frameworks */,
+				03F9B3A018392DD600804E1D /* libLumberjack.a in Frameworks */,
 				7003E7EB1751178700214D6A /* SystemConfiguration.framework in Frameworks */,
 				70FC38EF174F74410085EBC3 /* AVFoundation.framework in Frameworks */,
 				70FC38ED174F73F80085EBC3 /* CoreMedia.framework in Frameworks */,
@@ -358,10 +371,10 @@
 				70FC38E9174F4F380085EBC3 /* MediaPlayer.framework in Frameworks */,
 				70D92D6B173B308200C57DEA /* OpenGLES.framework in Frameworks */,
 				70D92D69173B302600C57DEA /* GLKit.framework in Frameworks */,
+				03DA2AB9183930700014C322 /* HockeySDK.framework in Frameworks */,
 				703D22DC173818EC0001E3B3 /* UIKit.framework in Frameworks */,
 				703D22DE173818EC0001E3B3 /* Foundation.framework in Frameworks */,
 				703D22E0173818EC0001E3B3 /* CoreGraphics.framework in Frameworks */,
-				03FAE686182D7C200038DB7C /* libLumberjack.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,23 +400,32 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7003E81D17513C0300214D6A /* Include */ = {
+		03F9B39A18392D7500804E1D /* HockeySDK.embeddedframework */ = {
 			isa = PBXGroup;
 			children = (
-				7003E81E17513C0900214D6A /* Lumberjack */,
+				03F9B39B18392D7500804E1D /* HockeySDK.framework */,
+				03F9B39C18392D7500804E1D /* Resources */,
 			);
-			name = Include;
+			name = HockeySDK.embeddedframework;
+			path = 3rdParty/HockeySDK/HockeySDK.embeddedframework;
 			sourceTree = "<group>";
 		};
-		7003E81E17513C0900214D6A /* Lumberjack */ = {
+		03F9B39C18392D7500804E1D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7003E81F17513C2000214D6A /* DDLog.h */,
-				7003E82217513C9500214D6A /* DDASLLogger.h */,
-				7003E82317513C9500214D6A /* DDFileLogger.h */,
-				7003E82417513C9500214D6A /* DDTTYLogger.h */,
+				03F9B39D18392D7500804E1D /* HockeySDK.xcconfig */,
+				03F9B39E18392D7500804E1D /* HockeySDKResources.bundle */,
 			);
-			name = Lumberjack;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		03F9B3A118392DE600804E1D /* 3rdParty */ = {
+			isa = PBXGroup;
+			children = (
+				03F9B39F18392DD600804E1D /* libLumberjack.a */,
+				03F9B39A18392D7500804E1D /* HockeySDK.embeddedframework */,
+			);
+			name = 3rdParty;
 			sourceTree = "<group>";
 		};
 		700FDC06174E3187000D6848 /* Network */ = {
@@ -482,7 +504,6 @@
 			isa = PBXGroup;
 			children = (
 				033D9650182EC6B6009477E7 /* Images.xcassets */,
-				70F1F18E17398B71007224AD /* Lib */,
 				703D22E2173818EC0001E3B3 /* Supporting Files */,
 				703D232417381ED80001E3B3 /* Media */,
 				703D22E1173818EC0001E3B3 /* Source */,
@@ -504,18 +525,21 @@
 		703D22DA173818EC0001E3B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7030C0B41764EDA30072DC8D /* QuartzCore.framework */,
-				7003E7EA1751178700214D6A /* SystemConfiguration.framework */,
-				70FC38EE174F74400085EBC3 /* AVFoundation.framework */,
-				70FC38EC174F73F80085EBC3 /* CoreMedia.framework */,
+				03F9B3A118392DE600804E1D /* 3rdParty */,
 				70FC38EA174F51870085EBC3 /* AssetsLibrary.framework */,
+				70FC38EE174F74400085EBC3 /* AVFoundation.framework */,
+				703D22DF173818EC0001E3B3 /* CoreGraphics.framework */,
+				70FC38EC174F73F80085EBC3 /* CoreMedia.framework */,
+				03DA2ABC183930EA0014C322 /* CoreText.framework */,
+				703D22DD173818EC0001E3B3 /* Foundation.framework */,
+				70D92D68173B302600C57DEA /* GLKit.framework */,
 				70FC38E8174F4F380085EBC3 /* MediaPlayer.framework */,
 				70D92D6A173B308100C57DEA /* OpenGLES.framework */,
-				70D92D68173B302600C57DEA /* GLKit.framework */,
-				703D22DB173818EC0001E3B3 /* UIKit.framework */,
-				703D22DD173818EC0001E3B3 /* Foundation.framework */,
-				703D22DF173818EC0001E3B3 /* CoreGraphics.framework */,
+				7030C0B41764EDA30072DC8D /* QuartzCore.framework */,
+				03DA2ABF1839310A0014C322 /* Security.framework */,
 				703D230D173818EC0001E3B3 /* SenTestingKit.framework */,
+				7003E7EA1751178700214D6A /* SystemConfiguration.framework */,
+				703D22DB173818EC0001E3B3 /* UIKit.framework */,
 				03724CD5182D7E3700221FE8 /* XCTest.framework */,
 			);
 			name = Frameworks;
@@ -536,7 +560,8 @@
 				70FC38F0174F79CE0085EBC3 /* Battery */,
 				70AF613817392CE600EF49E9 /* AMUtils.h */,
 				70AF613917392CE600EF49E9 /* AMUtils.m */,
-				70F1F18F17398C37007224AD /* AMLog.h */,
+				70F1F18F17398C37007224AD /* AMLogger.h */,
+				03DA2AC11839321A0014C322 /* AMLogger.m */,
 				70C2E9271739C8D1008CB1B1 /* AMDevice.h */,
 				70C2E9281739C8D2008CB1B1 /* AMDevice.m */,
 				70CD01BA1739AB870047E72F /* HardcodedDeviceData.h */,
@@ -763,16 +788,6 @@
 			name = Device;
 			sourceTree = "<group>";
 		};
-		70F1F18E17398B71007224AD /* Lib */ = {
-			isa = PBXGroup;
-			children = (
-				70D926B61755FC1C000B3800 /* libLumberjack.a */,
-				7003E81D17513C0300214D6A /* Include */,
-			);
-			name = Lib;
-			path = "ActivityMonitor++";
-			sourceTree = "<group>";
-		};
 		70F932741754A0DA00CF22D0 /* Root Table Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -937,10 +952,12 @@
 				70D8F45D174CF1E9003824E2 /* Background-1496@2x.png in Resources */,
 				701190D4174D046F00B5D8B1 /* RootCellFollowing-dark-88@2x.png in Resources */,
 				701190D5174D046F00B5D8B1 /* RootCellTop-dark-88@2x.png in Resources */,
+				03DA2ABB183930CA0014C322 /* HockeySDK.xcconfig in Resources */,
 				701190E5174D12C100B5D8B1 /* ProcessCell@2x.png in Resources */,
 				701190F2174D1C5200B5D8B1 /* SettingsIcon@2x.png in Resources */,
 				701190F6174D21DB00B5D8B1 /* FilterButton@2x.png in Resources */,
 				701190F8174D246800B5D8B1 /* ProcessTopView.xib in Resources */,
+				03DA2ABA183930C80014C322 /* HockeySDKResources.bundle in Resources */,
 				70681B881750E70C0095547F /* BubbleTexture-nonretina.png in Resources */,
 				70E4371417526E0200ED3876 /* TubeTexture-nonretina.png in Resources */,
 				70E4371C175270F100ED3876 /* BubbleTexture-retina.png in Resources */,
@@ -1047,6 +1064,7 @@
 				70C150BD1753739A009BEB11 /* ConnectionCell.m in Sources */,
 				70C150CA1753B7D0009BEB11 /* ConnectionSectionView.m in Sources */,
 				700AFACB17554446003E7D40 /* RetrievingCell.m in Sources */,
+				03DA2AC21839321A0014C322 /* AMLogger.m in Sources */,
 				70D926B11755F4C5000B3800 /* iPhoneRootTableViewController.m in Sources */,
 				70D926B51755F595000B3800 /* RootTableViewController.m in Sources */,
 				70D926BA17561077000B3800 /* iPhoneProcessSortViewController.m in Sources */,
@@ -1182,6 +1200,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1193,11 +1212,16 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "8907C3F4-0417-431C-B378-39106661BF23";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -1217,15 +1241,21 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "8907C3F4-0417-431C-B378-39106661BF23";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1241,22 +1271,30 @@
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = "/Users/asido/Documents/activity-monitor/3rdParty/HockeySDK/HockeySDK.embeddedframework";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActivityMonitor++/SystemMonitor-Prefix.pch";
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/3rdParty/Lumberjack/include",
+				);
 				INFOPLIST_FILE = "ActivityMonitor++/SystemMonitor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 					"/Users/asido/Documents/activity-monitor",
+					"/Users/asido/Documents/activity-monitor/3rdParty/Lumberjack",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = SystemMonitor;
 				PROVISIONING_PROFILE = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1272,21 +1310,29 @@
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = "/Users/asido/Documents/activity-monitor/3rdParty/HockeySDK/HockeySDK.embeddedframework";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActivityMonitor++/SystemMonitor-Prefix.pch";
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/3rdParty/Lumberjack/include",
+				);
 				INFOPLIST_FILE = "ActivityMonitor++/SystemMonitor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 					"/Users/asido/Documents/activity-monitor",
+					"/Users/asido/Documents/activity-monitor/3rdParty/Lumberjack",
 				);
 				PRODUCT_NAME = SystemMonitor;
 				PROVISIONING_PROFILE = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

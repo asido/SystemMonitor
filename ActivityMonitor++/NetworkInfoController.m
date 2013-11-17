@@ -24,7 +24,7 @@
 #import <net/if.h>
 #import <net/if_dl.h>
 #import <netdb.h>
-#import "AMLog.h"
+#import "AMLogger.h"
 #import "AMUtils.h"
 #import "AMDevice.h"
 #import "ActiveConnection.h"
@@ -230,7 +230,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
         if (!self.reachability)
         {
-            AMWarn(@"reachability create has failed.");
+            AMLogWarn(@"reachability create has failed.");
             return;
         }
         
@@ -240,14 +240,14 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         result = SCNetworkReachabilitySetCallback(self.reachability, reachabilityCallback, &context);
         if (!result)
         {
-            AMWarn(@"error setting reachability callback.");
+            AMLogWarn(@"error setting reachability callback.");
             return;
         }
         
         result = SCNetworkReachabilityScheduleWithRunLoop(self.reachability, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
         if (!result)
         {
-            AMWarn(@"error setting runloop mode.");
+            AMLogWarn(@"error setting runloop mode.");
             return;
         }
     }
@@ -262,14 +262,14 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
     if (!self.reachability)
     {
-        AMWarn(@"cannot initialize reachability.");
+        AMLogWarn(@"cannot initialize reachability.");
         return NO;
     }
     
     SCNetworkReachabilityFlags flags;
     if (!SCNetworkReachabilityGetFlags(self.reachability, &flags))
     {
-        AMWarn(@"failed to retrieve reachability flags.");
+        AMLogWarn(@"failed to retrieve reachability flags.");
         return NO;
     }
 
@@ -293,14 +293,14 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
     if (!self.reachability)
     {
-        AMWarn(@"cannot initialize reachability.");
+        AMLogWarn(@"cannot initialize reachability.");
         return kInterfaceNone;
     }
     
     SCNetworkReachabilityFlags flags;
     if (!SCNetworkReachabilityGetFlags(self.reachability, &flags))
     {
-        AMWarn(@"failed to retrieve reachability flags.");
+        AMLogWarn(@"failed to retrieve reachability flags.");
         return kInterfaceNone;
     }
 
@@ -378,7 +378,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     NSURL *url = [NSURL URLWithString:@"http://www.dyndns.org/cgi-bin/check_ip.cgi"];
     if (!url)
     {
-        AMWarn(@"failed to create NSURL.");
+        AMLogWarn(@"failed to create NSURL.");
         return ip;
     }
 
@@ -386,7 +386,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     NSString *ipHtml = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
     if (error)
     {
-        AMWarn(@"failed to fetch IP content: %@", error.description);
+        AMLogWarn(@"failed to fetch IP content: %@", error.description);
         return ip;
     }
 
@@ -395,7 +395,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
                                                                               error:&error];
     if (error)
     {
-        AMWarn(@"failed to create regexp: %@", error.description);
+        AMLogWarn(@"failed to create regexp: %@", error.description);
         return ip;
     }
     NSRange regexpRange = [regexp rangeOfFirstMatchInString:ipHtml options:NSMatchingReportCompletion range:NSMakeRange(0, ipHtml.length)];
@@ -523,20 +523,20 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     size_t len;
     if (sysctl(mib, 6, NULL, &len, NULL, 0) < 0)
     {
-        AMWarn(@"sysctl failed (1)");
+        AMLogWarn(@"sysctl failed (1)");
         return bandwidth;
     }
     
     char *buf = malloc(len);
     if (!buf)
     {
-        AMWarn(@"malloc() for buf has failed.");
+        AMLogWarn(@"malloc() for buf has failed.");
         return bandwidth;
     }
     
     if (sysctl(mib, 6, buf, &len, NULL, 0) < 0)
     {
-        AMWarn(@"sysctl failed (2)");
+        AMLogWarn(@"sysctl failed (2)");
         free(buf);
         return bandwidth;
     }
@@ -557,7 +557,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
             char ifnameBuf[IF_NAMESIZE];
             if (!if_indextoname(ifm->ifm_index, ifnameBuf))
             {
-                AMWarn(@"if_indextoname() has failed.");
+                AMLogWarn(@"if_indextoname() has failed.");
                 continue;
             }
             NSString *ifname = [NSString stringWithCString:ifnameBuf encoding:NSASCIIStringEncoding];
@@ -675,26 +675,26 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
             mib = "net.inet.udp.pcblist_n";
             break;
         default:
-            AMWarn(@"unknown connection type: %d", connectionType);
+            AMLogWarn(@"unknown connection type: %d", connectionType);
             return result;
     }
     
     if (sysctlbyname(mib, 0, &len, 0, 0) < 0)
     {
-        AMWarn(@"sysctlbyname() for len has failed with mib: %s.", mib);
+        AMLogWarn(@"sysctlbyname() for len has failed with mib: %s.", mib);
         return result;
     }
     
     buf = malloc(len);
     if (!buf)
     {
-        AMWarn(@"malloc() for buf has failed with mib: %s.", mib);
+        AMLogWarn(@"malloc() for buf has failed with mib: %s.", mib);
         return result;
     }
     
     if (sysctlbyname(mib, buf, &len, 0, 0) < 0)
     {
-        AMWarn(@"sysctlbyname() for buf has failed with mib: %s.", mib);
+        AMLogWarn(@"sysctlbyname() for buf has failed with mib: %s.", mib);
         free(buf);
         return result;
     }
@@ -742,13 +742,13 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
                     tp = (struct xtcpcb_n *)xgn;
                     break;
                 default:
-                    AMWarn(@"unknown kind %d", xgn->xgn_kind);
+                    AMLogWarn(@"unknown kind %d", xgn->xgn_kind);
                     break;
             }
         }
         else
         {
-            AMWarn(@"got %d twice.", xgn->xgn_kind);
+            AMLogWarn(@"got %d twice.", xgn->xgn_kind);
         }
         
         if ((connectionType == CONNECTION_TYPE_TCP4 && which != ALL_XGN_KIND_TCP) ||
@@ -826,7 +826,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 {
     if (!in)
     {
-        AMWarn(@"in == NULL");
+        AMLogWarn(@"in == NULL");
         return @"";
     }
     
@@ -861,7 +861,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     }
     else
     {
-        AMWarn(@"unknown connection type: %d", connectionType);
+        AMLogWarn(@"unknown connection type: %d", connectionType);
         return serviceName;
     }
     

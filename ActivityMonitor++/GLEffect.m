@@ -10,7 +10,7 @@
 //
 
 #import <GLKit/GLKit.h>
-#import "AMLog.h"
+#import "AMLogger.h"
 #import "GLEffect.h"
 
 @implementation GLEffect
@@ -19,7 +19,7 @@
 {
     if (!filename || filename.length == 0)
     {
-        AMWarn(@"filename is empty.");
+        AMLogWarn(@"filename is empty.");
         return NO;
     }
     
@@ -29,7 +29,7 @@
     
     if (!s)
     {
-        AMWarn(@"shader creation has failed.");
+        AMLogWarn(@"shader creation has failed.");
         return NO;
     }
     
@@ -46,7 +46,7 @@
         {
             char *infoLog = malloc(sizeof(char) * infoLen);
             glGetShaderInfoLog(s, infoLen, NULL, infoLog);
-            AMWarn(@"shader compilation has failed: %s", infoLog);
+            AMLogWarn(@"shader compilation has failed: %s", infoLog);
             free(infoLog);
         }
         
@@ -74,7 +74,7 @@
         {
             char *infoLog = malloc(sizeof(char) * infoLen);
             glGetProgramInfoLog(program, infoLen, NULL, infoLog);
-            AMWarn(@"program linking has failed: %s", infoLog);
+            AMLogWarn(@"program linking has failed: %s", infoLog);
             free(infoLog);
         }
         
@@ -99,7 +99,7 @@
         {
             char *infoLog = malloc(sizeof(char) * infoLen);
             glGetProgramInfoLog(program, infoLen, NULL, infoLog);
-            AMWarn(@"program validation has failed: %s", infoLog);
+            AMLogWarn(@"program validation has failed: %s", infoLog);
             free(infoLog);
         }
     }

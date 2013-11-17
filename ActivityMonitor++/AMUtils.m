@@ -10,7 +10,7 @@
 //
 
 #import <sys/sysctl.h>
-#import "AMLog.h"
+#import "AMLogger.h"
 #import "AMUtils.h"
 
 @interface AMUtils()
@@ -27,31 +27,31 @@
     
     if (!specifier)
     {
-        AMWarn(@"specifier == NULL");
+        AMLogWarn(@"specifier == NULL");
         return -1;
     }
     if (strlen(specifier) == 0)
     {
-        AMWarn(@"strlen(specifier) == 0");
+        AMLogWarn(@"strlen(specifier) == 0");
         return -1;
     }
     
     if (sysctlbyname(specifier, NULL, &size, NULL, 0) == -1)
     {
-        AMWarn(@"sysctlbyname size with specifier '%s' has failed: %s", specifier, strerror(errno));
+        AMLogWarn(@"sysctlbyname size with specifier '%s' has failed: %s", specifier, strerror(errno));
         return -1;
     }
     
     if (size == -1)
     {
-        AMWarn(@"sysctlbyname with specifier '%s' returned invalid size", specifier);
+        AMLogWarn(@"sysctlbyname with specifier '%s' returned invalid size", specifier);
         return -1;
     }
     
     
     if (sysctlbyname(specifier, &val, &size, NULL, 0) == -1)
     {
-        AMWarn(@"sysctlbyname value with specifier '%s' has failed: %s", specifier, strerror(errno));
+        AMLogWarn(@"sysctlbyname value with specifier '%s' has failed: %s", specifier, strerror(errno));
         return -1;
     }
     
@@ -66,24 +66,24 @@
     
     if (!specifier)
     {
-        AMWarn(@"specifier == NULL");
+        AMLogWarn(@"specifier == NULL");
         return result;
     }
     if (strlen(specifier) == 0)
     {
-        AMWarn(@"strlen(specifier) == 0");
+        AMLogWarn(@"strlen(specifier) == 0");
         return result;
     }
     
     if (sysctlbyname(specifier, NULL, &size, NULL, 0) == -1)
     {
-        AMWarn(@"sysctlbyname size with specifier '%s' has failed: %s", specifier, strerror(errno));
+        AMLogWarn(@"sysctlbyname size with specifier '%s' has failed: %s", specifier, strerror(errno));
         return result;
     }
     
     if (size == -1)
     {
-        AMWarn(@"sysctlbyname with specifier '%s' returned invalid size", specifier);
+        AMLogWarn(@"sysctlbyname with specifier '%s' returned invalid size", specifier);
         return result;
     }
     
@@ -91,7 +91,7 @@
     
     if (sysctlbyname(specifier, val, &size, NULL, 0) == -1)
     {
-        AMWarn(@"sysctlbyname value with specifier '%s' has failed: %s", specifier, strerror(errno));
+        AMLogWarn(@"sysctlbyname value with specifier '%s' has failed: %s", specifier, strerror(errno));
         free(val);
         return result;
     }
@@ -105,18 +105,18 @@
 {    
     if (!specifier)
     {
-        AMWarn(@"specifier == NULL");
+        AMLogWarn(@"specifier == NULL");
         return nil;
     }
     if (strlen(specifier) == 0)
     {
-        AMWarn(@"strlen(specifier) == 0");
+        AMLogWarn(@"strlen(specifier) == 0");
         return nil;
     }
     
     if (sysctlbyname(specifier, ptr, &size, NULL, 0) == -1)
     {
-        AMWarn(@"sysctlbyname value with specifier '%s' has failed: %s", specifier, strerror(errno));
+        AMLogWarn(@"sysctlbyname value with specifier '%s' has failed: %s", specifier, strerror(errno));
         return nil;
     }
     
@@ -131,18 +131,18 @@
     
     if (sysctl(mib, 2, NULL, &size, NULL, 0) == -1)
     {
-        AMWarn(@"sysctlbyname size with specifier %u has failed: %s", hwSpecifier, strerror(errno));
+        AMLogWarn(@"sysctlbyname size with specifier %u has failed: %s", hwSpecifier, strerror(errno));
         return -1;
     }
     
     if (size > sizeof(uint64_t))
     {
-        AMWarn(@"sysctlbyname with specifier %u size > sizeof(uint64_t). Expect corrupted data.", hwSpecifier);
+        AMLogWarn(@"sysctlbyname with specifier %u size > sizeof(uint64_t). Expect corrupted data.", hwSpecifier);
     }
     
     if (sysctl(mib, 2, &val, &size, NULL, 0) == -1)
     {
-        AMWarn(@"sysctlbyname size with specifier %u has failed: %s", hwSpecifier, strerror(errno));
+        AMLogWarn(@"sysctlbyname size with specifier %u has failed: %s", hwSpecifier, strerror(errno));
         return -1;
     }
     

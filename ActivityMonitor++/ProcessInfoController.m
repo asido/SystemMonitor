@@ -17,7 +17,7 @@
 #import <mach/mach_types.h>
 #import <mach/mach_init.h>
 #import <dlfcn.h>
-#import "AMLog.h"
+#import "AMLogger.h"
 #import "ProcessInfo.h"
 #import "ProcessInfoController.h"
 
@@ -60,20 +60,20 @@
     
     if (sysctl(mib, 4, NULL, &size, NULL, 0) == -1)
     {
-        AMWarn(@"sysctl to retrieve size has failed");
+        AMLogWarn(@"sysctl to retrieve size has failed");
         return result;
     }
     
     procs = malloc(size);
     if (!procs)
     {
-        AMWarn(@"malloc() for procs has failed.");
+        AMLogWarn(@"malloc() for procs has failed.");
         return result;
     }
 
     if (sysctl(mib, 4, procs, &size, NULL, 0) == -1)
     {
-        AMWarn(@"sysctl to retrieve processes has failed");
+        AMLogWarn(@"sysctl to retrieve processes has failed");
         free(procs);
         return result;
     }
@@ -107,14 +107,14 @@
     size = sizeof(argmax);
     if (sysctl(mib, 2, &argmax, &size, NULL, 0) == -1)
     {
-        AMWarn(@"sysctl() of KERN_ARGMAX has failed.");
+        AMLogWarn(@"sysctl() of KERN_ARGMAX has failed.");
         return;
     }
     
     procargs = malloc(argmax);
     if (procargs == NULL)
     {
-        AMWarn(@"malloc() has failed");
+        AMLogWarn(@"malloc() has failed");
         return;
     }
     

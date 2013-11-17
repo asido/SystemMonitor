@@ -170,7 +170,7 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
     EAGLContext *glContext = [GLCommon context];
     if (!glContext)
     {
-        AMWarn(@"EAGLContext == nil");
+        AMLogWarn(@"EAGLContext == nil");
         return;
     }
     self.glView.context = glContext;
@@ -330,7 +330,7 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
     CGImageRef texImage = [UIImage imageNamed:filename].CGImage;
     if (!texImage)
     {
-        AMWarn(@"loading texture has failed: %@.", filename);
+        AMLogWarn(@"loading texture has failed: %@.", filename);
         return -1;
     }
     

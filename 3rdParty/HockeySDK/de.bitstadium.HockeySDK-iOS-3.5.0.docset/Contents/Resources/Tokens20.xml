@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/BITHockeyAppClient.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/BITHockeyAppClient</TokenIdentifier>
+			<Abstract type="html">Generic Hockey API client</Abstract>
+			<DeclaredIn>BITHockeyAppClient.h</DeclaredIn>
+            
+			
+			<NodeRef refid="20"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITHockeyAppClient/initWithBaseURL:</TokenIdentifier>
+			<Abstract type="html">	designated initializer</Abstract>
+			<DeclaredIn>BITHockeyAppClient.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithBaseURL:(NSURL *)baseURL</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>baseURL</Name>
+					<Abstract type="html">the baseURL of the HockeyApp instance</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithBaseURL:</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITHockeyAppClient/setBaseURL:</TokenIdentifier>
+			<Abstract type="html">	baseURL to which relative paths are appended</Abstract>
+			<DeclaredIn>BITHockeyAppClient.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSURL *baseURL</Declaration>
+			
+			
+			<Anchor>//api/name/baseURL</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITHockeyAppClient/baseURL</TokenIdentifier>
+			<Abstract type="html">	baseURL to which relative paths are appended</Abstract>
+			<DeclaredIn>BITHockeyAppClient.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSURL *baseURL</Declaration>
+			
+			
+			<Anchor>//api/name/baseURL</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/BITHockeyAppClient/baseURL</TokenIdentifier>
+			<Abstract type="html">	baseURL to which relative paths are appended</Abstract>
+			<DeclaredIn>BITHockeyAppClient.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSURL *baseURL</Declaration>
+			
+			
+			<Anchor>//api/name/baseURL</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITHockeyAppClient/requestWithMethod:path:parameters:</TokenIdentifier>
+			<Abstract type="html">	creates an NRURLRequest for the given method and path by using
+the internally stored baseURL.</Abstract>
+			<DeclaredIn>BITHockeyAppClient.h</DeclaredIn>
+			
+			<Declaration>- (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)params</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>method</Name>
+					<Abstract type="html">the HTTPMethod to check, must not be nil</Abstract>
+				</Parameter><Parameter>
+					<Name>path</Name>
+					<Abstract type="html">path to append to baseURL. can be nil in which case &quot;/&quot; is appended</Abstract>
+				</Parameter><Parameter>
+					<Name>params</Name>
+					<Abstract type="html">parameters for the request (only supported for GET and POST for now)</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">an NSMutableURLRequest for further configuration</Abstract></ReturnValue>
+			<Anchor>//api/name/requestWithMethod:path:parameters:</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITHockeyAppClient/operationWithURLRequest:completion:</TokenIdentifier>
+			<Abstract type="html">	Creates an operation for the given NSURLRequest</Abstract>
+			<DeclaredIn>BITHockeyAppClient.h</DeclaredIn>
+			
+			<Declaration>- (BITHTTPOperation *)operationWithURLRequest:(NSURLRequest *)request completion:(BITNetworkCompletionBlock)completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">the request that should be handled</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">completionBlock that is called once the operation finished</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">operation, which can be queued via enqueueHTTPOperation:</Abstract></ReturnValue>
+			<Anchor>//api/name/operationWithURLRequest:completion:</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITHockeyAppClient/getPath:parameters:completion:</TokenIdentifier>
+			<Abstract type="html">	Creates an operation for the given path, and enqueues it</Abstract>
+			<DeclaredIn>BITHockeyAppClient.h</DeclaredIn>
+			
+			<Declaration>- (void)getPath:(NSString *)path parameters:(NSDictionary *)params completion:(BITNetworkCompletionBlock)completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>path</Name>
+					<Abstract type="html">the request path to check</Abstract>
+				</Parameter><Parameter>
+					<Name>params</Name>
+					<Abstract type="html">parameters for the request</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">completionBlock that is called once the operation finished</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getPath:parameters:completion:</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITHockeyAppClient/postPath:parameters:completion:</TokenIdentifier>
+			<Abstract type="html">	Creates an operation for the given path, and enqueues it</Abstract>
+			<DeclaredIn>BITHockeyAppClient.h</DeclaredIn>
+			
+			<Declaration>- (void)postPath:(NSString *)path parameters:(NSDictionary *)params completion:(BITNetworkCompletionBlock)completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>path</Name>
+					<Abstract type="html">the request path to check</Abstract>
+				</Parameter><Parameter>
+					<Name>params</Name>
+					<Abstract type="html">parameters for the request</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">completionBlock that is called once the operation finished</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/postPath:parameters:completion:</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITHockeyAppClient/enqeueHTTPOperation:</TokenIdentifier>
+			<Abstract type="html">	adds the given operation to the internal queue</Abstract>
+			<DeclaredIn>BITHockeyAppClient.h</DeclaredIn>
+			
+			<Declaration>- (void)enqeueHTTPOperation:(BITHTTPOperation *)operation</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>operation</Name>
+					<Abstract type="html">operation to add</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/enqeueHTTPOperation:</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITHockeyAppClient/cancelOperationsWithPath:method:</TokenIdentifier>
+			<Abstract type="html">	cancels the specified operations</Abstract>
+			<DeclaredIn>BITHockeyAppClient.h</DeclaredIn>
+			
+			<Declaration>- (NSUInteger)cancelOperationsWithPath:(NSString *)path method:(NSString *)method</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>path</Name>
+					<Abstract type="html">the path which operation should be cancelled. Can be nil to match all</Abstract>
+				</Parameter><Parameter>
+					<Name>method</Name>
+					<Abstract type="html">the method which operations to cancel. Can be nil to match all</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">number of operations cancelled</Abstract></ReturnValue>
+			<Anchor>//api/name/cancelOperationsWithPath:method:</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITHockeyAppClient/setOperationQueue:</TokenIdentifier>
+			<Abstract type="html">	Access to the internal operation queue</Abstract>
+			<DeclaredIn>BITHockeyAppClient.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSOperationQueue *operationQueue</Declaration>
+			
+			
+			<Anchor>//api/name/operationQueue</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITHockeyAppClient/operationQueue</TokenIdentifier>
+			<Abstract type="html">	Access to the internal operation queue</Abstract>
+			<DeclaredIn>BITHockeyAppClient.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSOperationQueue *operationQueue</Declaration>
+			
+			
+			<Anchor>//api/name/operationQueue</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/BITHockeyAppClient/operationQueue</TokenIdentifier>
+			<Abstract type="html">	Access to the internal operation queue</Abstract>
+			<DeclaredIn>BITHockeyAppClient.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSOperationQueue *operationQueue</Declaration>
+			
+			
+			<Anchor>//api/name/operationQueue</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/BITHockeyAppClient/dataWithPostValue:forKey:boundary:</TokenIdentifier>
+			<Abstract type="html">	create a post body from the given value, key and boundary
+c/p from HockeyBaseManager</Abstract>
+			<DeclaredIn>BITHockeyAppClient.h</DeclaredIn>
+			
+			<Declaration>+ (NSData *)dataWithPostValue:(NSString *)value forKey:(NSString *)key boundary:(NSString *)boundary</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>value</Name>
+					<Abstract type="html">-</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">-</Abstract>
+				</Parameter><Parameter>
+					<Name>boundary</Name>
+					<Abstract type="html">-</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">NSData instance configured to be attached on a (post) URLRequest</Abstract></ReturnValue>
+			<Anchor>//api/name/dataWithPostValue:forKey:boundary:</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>Guide-Installation-Mac-App Document</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../../css/stylesPrint.css" />	
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../../index.html">HockeySDK-iOS 3.5.0 </a></h1>
+				<a id="developerHome" href="../../index.html">Bit Stadium GmbH</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode" id="pageTitleHeader">Guide-Installation-Mac-App Document</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<a title="Guide-Installation-Mac-App Document" name="top"></a>
+			<div id="overview_contents" role="main">
+				<div id="container">	
+					<h2>Introduction</h2>
+
+<p>HockeyMac is a simple client application for Mac OS 10.6 or higher to upload files to HockeyApp. After the installation, you can drag &amp; drop either .ipa files or .xcarchive bundles to the dock or menu icon. HockeyMac will then open a window to enter release notes and set the download flag of the version. The upload is shown with a progress bar and there is some minimal error handling.</p>
+
+<p>This document contains the following sections:</p>
+
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#xcode">Integration With Xcode 4</a></li>
+<li><a href="#cmd">Command Line Options</a></li>
+<li><a href="#bugs">Bugs Or Questions</a></li>
+</ul>
+
+
+<p><a id="prerequisites"></a></p>
+
+<h2>Prerequisites</h2>
+
+<ol>
+<li>Mac OS X 10.6</li>
+<li>Xcode 4</li>
+</ol>
+
+
+<p><a id="installation"></a></p>
+
+<h2>Installation</h2>
+
+<ol>
+<li>Download the latest version from <a href="https://rink.hockeyapp.net/api/2/apps/67503a7926431872c4b6c1549f5bd6b1?format=zip">here</a>.</li>
+<li>Extract the .zip archive.</li>
+<li>Copy HockeyApp to your Application folder.</li>
+<li>Start HockeyApp.</li>
+<li><p>If this is your first start, the app automatically shows the Preferences dialog:</p>
+
+<p> <img src="HockeyMacGeneral_normal.png"/></p></li>
+<li><p>You need to enter your HockeyApp API token. If you don&rsquo;t have one, then create one <a href="[https://rink.hockeyapp.net/manage/auth](https://rink.hockeyapp.net/manage/auth">here</a>_tokens).</p></li>
+<li>Close the dialog and you&rsquo;re ready to go.</li>
+</ol>
+
+
+<p><a id="xcode"></a></p>
+
+<h2>Integration With Xcode 4</h2>
+
+<ol>
+<li>Open your project.</li>
+<li>Select <code>Product</code> > <code>Edit Scheme</code>.</li>
+<li>Expand <code>Archive</code>.</li>
+<li>Select <code>Post-actions</code>.</li>
+<li>Click the <code>+</code> in the lower left corner of the right pane and select <code>New Run Script Action</code>.</li>
+<li><p>Select your project for the build settings and enter the following command below:<pre>open -a HockeyApp &ldquo;${ARCHIVE_PATH}&rdquo;</pre></p>
+
+<p> <img src="XcodeArchivePostAction_normal.png"/></p></li>
+<li>Confirm with <code>OK</code>.</li>
+</ol>
+
+
+<p>If you now build your product with Build &amp; Archive and the build was successful, the .xcarchive is automatically opened with HockeyMac. You can enter your release notes and then HockeyMac creates and uploads both the .ipa and the .dSYM file. Please note that you have to configure the correct provisioning profile for AdHoc distribution in the build configuration that you use for Build &amp; Archive.</p>
+
+<p><a id="cmd"></a></p>
+
+<h2>Command Line Options</h2>
+
+<p>You can specify the following command line options:</p>
+
+<ul>
+<li>autoSubmit - the .ipa or .xcarchive will be automatically uploaded after it has been opened; you will see the progress bar, but not have the chance to specify release notes; after the upload is finished HockeyApp will be closed.</li>
+<li>downloadOff - the checkbox &ldquo;Download&rdquo; will be set to off after the file was opened.</li>
+<li>identifier - upload to app with this public identifier</li>
+<li>notes - absolute path to release notes file</li>
+<li>notifyOn - the checkbox &ldquo;Notify&rdquo; will be set to on after the file was opened.</li>
+<li>onlyIPA - only for .xcarchive files; uploads only the .ipa file</li>
+<li>onlyDSYM - only for .xcarchive files; uploads only the .dSYM.zip file</li>
+<li>openNoPage - do nothing after upload was successful</li>
+<li>openDownloadPage - open the download page after upload was successful</li>
+<li>openVersionPage - open the version page after upload was successful</li>
+<li>setAlpha - set release type to &lsquo;alpha&rsquo;</li>
+<li>setBeta - set release type to &lsquo;beta&rsquo;</li>
+<li>setLive - set release type to &lsquo;live&rsquo;</li>
+<li>tags - only allow users who are tagged by these tags to download the app (restrict downloads)</li>
+<li>token - use this api token instead of the one configured in settings.</li>
+</ul>
+
+
+<p>Please note that the command line options are passed to the app only at the first start. If the HockeyMac is already running, it will not consider any new arguments. In addition upload only tokens cause the app <em>NOT</em> to be downloadable and notifications will <em>NOT</em> be send.</p>
+
+<p>Example:</p>
+
+<pre>open -a HockeyApp MyApp.xcarchive --args autoSubmit notifyOn openDownloadPage</pre>
+
+
+<p>HockeyMac will automatically upload MyApp.ipa and MyApp.dSYM.zip from the archive and notify all testers.</p>
+
+<p><a id="bugs"></a></p>
+
+<h2>Bugs Or Questions</h2>
+
+<p>If you have a problem, a question or a suggestion, please let us know via email to support@hockeyapp.net or our <a href="http://support.hockeyapp.net">support forums</a>. We appreciate any feedback!</p>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Bit Stadium GmbH. All rights reserved. (Last updated: 2013-10-30)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						
+					
+					</div>
+				</div>
+			</div>
+		</article>
+	</body>
+</html>

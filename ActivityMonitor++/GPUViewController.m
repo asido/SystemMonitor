@@ -9,7 +9,7 @@
 //  Copyright (c) 2013 Arvydas Sidorenko
 //
 
-#import "AMLog.h"
+#import "AMLogger.h"
 #import "AppDelegate.h"
 #import "GPUViewController.h"
 
@@ -88,7 +88,7 @@ enum OpenGLRow {
             cell = [tableView dequeueReusableCellWithIdentifier:@"GPUNameCell"];
             if (!cell)
             {
-                AMWarn(@"cell == nil with identifier 'GPUNameCell'");
+                AMLogWarn(@"cell == nil with identifier 'GPUNameCell'");
             }
             UILabel *nameLabel = (UILabel*)[cell viewWithTag:1];
             [nameLabel setText:app.iDevice.gpuInfo.gpuName];
@@ -100,7 +100,7 @@ enum OpenGLRow {
                     cell = [tableView dequeueReusableCellWithIdentifier:@"OpenGLVersionCell"];
                     if (!cell)
                     {
-                        AMWarn(@"cell == nil with identifier 'OpenGLVersionCell'");
+                        AMLogWarn(@"cell == nil with identifier 'OpenGLVersionCell'");
                     }
                     UILabel *glVersionLabel = (UILabel*)[cell viewWithTag:1];
                     [glVersionLabel setText:app.iDevice.gpuInfo.openGLVersion];
@@ -110,14 +110,14 @@ enum OpenGLRow {
                     cell = [tableView dequeueReusableCellWithIdentifier:@"OpenGLVendorCell"];
                     if (!cell)
                     {
-                        AMWarn(@"cell == nil with identifier 'OpenGLVendorCell'");
+                        AMLogWarn(@"cell == nil with identifier 'OpenGLVendorCell'");
                     }
                     UILabel *glVendorLabel = (UILabel*)[cell viewWithTag:1];
                     [glVendorLabel setText:app.iDevice.gpuInfo.openGLVendor];
                     break;
                 }
                 default:
-                    AMWarn(@"invalid row(%ld) for section(%ld)", (long)[indexPath section], (long)[indexPath row]);
+                    AMLogWarn(@"invalid row(%ld) for section(%ld)", (long)[indexPath section], (long)[indexPath row]);
                     break;
             }
             break;
@@ -130,7 +130,7 @@ enum OpenGLRow {
             break;
         }
         default:
-            AMWarn(@"invalid section(%ld)", (long)[indexPath section]);
+            AMLogWarn(@"invalid section(%ld)", (long)[indexPath section]);
             break;
     }
     

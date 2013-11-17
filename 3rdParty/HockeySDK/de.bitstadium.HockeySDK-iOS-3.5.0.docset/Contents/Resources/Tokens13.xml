@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="docs/docs/Troubleshooting-Symbolication-Doesnt-Work.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/doc/Troubleshooting-Symbolication-Doesnt-Work</TokenIdentifier>
+			<Abstract type="html">## Symbolication doesn&apos;t work</Abstract>
+			<DeclaredIn>Troubleshooting-Symbolication-Doesnt-Work-template.md</DeclaredIn>
+            
+			
+			<NodeRef refid="13"/>
+		</Token>
+		
+		
+        
+	</File>
+</Tokens>

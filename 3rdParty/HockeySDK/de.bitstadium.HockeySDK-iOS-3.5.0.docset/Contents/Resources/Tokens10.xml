@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="docs/docs/HowTo-Integrate-Atlassian-JMC.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/doc/HowTo-Integrate-Atlassian-JMC</TokenIdentifier>
+			<Abstract type="html">## Introduction</Abstract>
+			<DeclaredIn>HowTo-Integrate-Atlassian-JMC-template.md</DeclaredIn>
+            
+			
+			<NodeRef refid="10"/>
+		</Token>
+		
+		
+        
+	</File>
+</Tokens>

@@ -9,13 +9,11 @@
 //  Copyright (c) 2013 Arvydas Sidorenko
 //
 
-#import "DDLog.h"
-#import "DDASLLogger.h"
-#import "DDTTYLogger.h"
-#import "DDFileLogger.h"
+#import <HockeySDK/HockeySDK.h>
 #import "AppDelegate.h"
+#import "AMLogger.h"
 
-@interface AppDelegate()
+@interface AppDelegate() <BITHockeyManagerDelegate>
 - (void)customizeAppearance;
 @end
 
@@ -52,10 +50,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"b9ec643f4ce1a4d13176eff4699386c3" delegate:self];
+    [[BITHockeyManager sharedHockeyManager] startManager];
+    
     // Initialize logger
-    [DDLog addLogger:[DDASLLogger sharedInstance]];
-    [DDLog addLogger:[DDTTYLogger sharedInstance]];
-    [DDLog addLogger:[[DDFileLogger alloc] init]];
+    [AMLogger sharedLogger];
     
     [self customizeAppearance];
     
@@ -107,6 +106,34 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+//-----------------------------------------------
+// BITHockeyManagerDelegate
+//-----------------------------------------------
+#pragma mark - BITHockeyManagerDelegate
+
+- (NSString*)applicationLogForCrashManager:(BITCrashManager*)crashManager
+{
+    NSString *logContent = [[AMLogger sharedLogger] getFileLoggerContent];
+    NSInteger logContentLen = [logContent length];
+    
+    if (logContentLen > 0)
+    {
+        static NSInteger MaxCrashLogLength = 1024 * 50; // Up to 50 KB
+        
+        if (logContentLen > MaxCrashLogLength)
+        {
+            NSRange crashLogRange = NSMakeRange(logContentLen - MaxCrashLogLength, MaxCrashLogLength);
+            logContent = [logContent substringWithRange:crashLogRange];
+        }
+        
+        return logContent;
+    }
+    else
+    {
+        return nil;
+    }
 }
 
 @end

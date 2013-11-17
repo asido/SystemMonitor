@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>HowTo-Add-Application-Log Document</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../../css/stylesPrint.css" />	
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../../index.html">HockeySDK-iOS 3.5.0 </a></h1>
+				<a id="developerHome" href="../../index.html">Bit Stadium GmbH</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode" id="pageTitleHeader">HowTo-Add-Application-Log Document</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<a title="HowTo-Add-Application-Log Document" name="top"></a>
+			<div id="overview_contents" role="main">
+				<div id="container">	
+					<h2>Introduction</h2>
+
+<p>For some types of crashes it is helpful to have more data available, than a crash report itself can provide, e.g. application specific log data.</p>
+
+<p>Since the crash report can only be send on the next start, you need to store the log data into a log file. And to make that as fast as possible it should not block the main thread. We highly recommend using <a href="https://github.com/robbiehanson/CocoaLumberjack/">CocoaLumberjack</a> or <a href="https://github.com/fpillet/NSLogger">NSLogger</a> or even both in combination using the <a href="https://github.com/steipete/NSLogger-CocoaLumberjack-connector">NSLogger-CocoaLumberjack-connector</a>.</p>
+
+<p>CocoaLumberjack can write log data to multiple destinations non blocking (!!), like the Xcode console or files, and NSLogger has the ability to stream log data over Bonjour to it&rsquo;s Mac application. We do <em>NOT</em> recommend to use <code>NSLog</code>!</p>
+
+<p><strong>Important:</strong> Make sure <em>NOT</em> to include personalized data into the log data because of privacy reasons! Also don&rsquo;t send too much data that you will never use. The crash report and the log data should be small in size, so they get send quickly even under bad mobile network conditions.</p>
+
+<h2>HowTo</h2>
+
+<ol>
+<li>Setup the logging framework of choice</li>
+<li>Implement <a href="../../Protocols/BITCrashManagerDelegate.html#//api/name/applicationLogForCrashManager:"><code>[BITCrashManagerDelegate applicationLogForCrashManager:]</code></a></li>
+<li>Return the log data</li>
+</ol>
+
+
+<h2>Example</h2>
+
+<p>This example code is based on CocoaLumberjack logging into log files:</p>
+
+<pre><code>@interface BITAppDelegate () BITCrashManagerDelegate {}
+    @property (nonatomic) DDFileLogger *fileLogger;
+@end
+
+
+@implementation BITAppDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  [self.window makeKeyAndVisible];
+
+  // initialize before HockeySDK, so the delegate can access the file logger!
+  _fileLogger = [[DDFileLogger alloc] init];
+  _fileLogger.maximumFileSize = (1024 * 64); // 64 KByte
+  _fileLogger.logFileManager.maximumNumberOfLogFiles = 1;
+  [_fileLogger rollLogFile];
+  [DDLog addLogger:_fileLogger];
+
+  [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"&lt;&gt;"
+                                                     delegate:nil];
+
+  [[BITHockeyManager sharedHockeyManager] startManager];
+
+  // add Xcode console logger if not running in the App Store
+  if (![[BITHockeyManager sharedHockeyManager] isAppStoreEnvironment]) {
+    PSDDFormatter *psLogger = [[[PSDDFormatter alloc] init] autorelease];
+    [[DDTTYLogger sharedInstance] setLogFormatter:psLogger];
+
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+
+    [DDLog addLogger:[DDNSLoggerLogger sharedInstance]];
+  }
+
+  return YES;
+}
+
+// get the log content with a maximum byte size
+- (NSString *) getLogFilesContentWithMaxSize:(NSInteger)maxSize {
+  NSMutableString *description = [NSMutableString string];
+
+  NSArray *sortedLogFileInfos = [[_fileLogger logFileManager] sortedLogFileInfos];
+  NSUInteger count = [sortedLogFileInfos count];
+
+  // we start from the last one
+  for (NSUInteger index = count - 1; index &gt;= 0; index--) {
+    DDLogFileInfo *logFileInfo = [sortedLogFileInfos objectAtIndex:index];
+
+    NSData *logData = [[NSFileManager defaultManager] contentsAtPath:[logFileInfo filePath]];
+    if ([logData length] &gt; 0) {
+      NSString *result = [[NSString alloc] initWithBytes:[logData bytes]
+                                                  length:[logData length]
+                                                encoding: NSUTF8StringEncoding];
+
+      [description appendString:result];
+</code></pre>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Bit Stadium GmbH. All rights reserved. (Last updated: 2013-10-30)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						
+					
+					</div>
+				</div>
+			</div>
+		</article>
+	</body>
+</html>

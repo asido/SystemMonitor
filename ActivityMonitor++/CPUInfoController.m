@@ -17,7 +17,7 @@
 #import <mach/mach_init.h>
 #import <mach/vm_map.h>
 #import "HardcodedDeviceData.h"
-#import "AMLog.h"
+#import "AMLogger.h"
 #import "AMUtils.h"
 #import "AMDevice.h"
 #import "CPUInfo.h"
@@ -105,7 +105,7 @@
         }
         else
         {
-            AMWarn(@"failure retreiving host_processor_info. kStatus == %d", kStatus);
+            AMLogWarn(@"failure retreiving host_processor_info. kStatus == %d", kStatus);
         }
         
     }

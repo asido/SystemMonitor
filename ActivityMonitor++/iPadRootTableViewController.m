@@ -9,7 +9,7 @@
 //  Copyright (c) 2013 Arvydas Sidorenko
 //
 
-#import "AMLog.h"
+#import "AMLogger.h"
 #import "AMUtils.h"
 #import "RootCell.h"
 #import "RootTableViewController.h"

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="docs/docs/HowTo-Add-Application-Log.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/doc/HowTo-Add-Application-Log</TokenIdentifier>
+			<Abstract type="html">## Introduction</Abstract>
+			<DeclaredIn>HowTo-Add-Application-Log-template.md</DeclaredIn>
+            
+			
+			<NodeRef refid="6"/>
+		</Token>
+		
+		
+        
+	</File>
+</Tokens>

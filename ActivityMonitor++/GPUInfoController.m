@@ -10,7 +10,7 @@
 //
 
 #import <GLKit/GLKit.h>
-#import "AMLog.h"
+#import "AMLogger.h"
 #import "GPUInfo.h"
 #import "GPUInfoController.h"
 
@@ -52,7 +52,7 @@
         GLenum glError = glGetError();
         if (glError != GL_NO_ERROR)
         {
-            AMWarn(@"glGetError() == %d", glError);
+            AMLogWarn(@"glGetError() == %d", glError);
         }
     }
     

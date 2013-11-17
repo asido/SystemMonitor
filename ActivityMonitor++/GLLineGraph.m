@@ -10,7 +10,7 @@
 //
 
 #import <OpenGLES/EAGLDrawable.h>
-#import "AMLog.h"
+#import "AMLogger.h"
 #import "AMUtils.h"
 #import "CPULoad.h"
 #import "GLDataLine.h"
@@ -305,7 +305,7 @@ static const VertexData_t legendData[] = {
     EAGLContext *glContext = [GLCommon context];
     if (!glContext)
     {
-        AMWarn(@"EAGLContext == nil");
+        AMLogWarn(@"EAGLContext == nil");
         return;
     }
     [self.glView setContext:glContext];

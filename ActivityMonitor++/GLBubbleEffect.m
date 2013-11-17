@@ -9,7 +9,7 @@
 //  Copyright (c) 2013 Arvydas Sidorenko
 //
 
-#import "AMLog.h"
+#import "AMLogger.h"
 #import "AMUtils.h"
 #import "AppDelegate.h"
 #import "GLCommon.h"
@@ -144,7 +144,7 @@ enum GLBubbleEffectUniforms {
 {
     if (!program)
     {
-        AMWarn(@"shader program is not loaded.");
+        AMLogWarn(@"shader program is not loaded.");
         return;
     }
  
@@ -180,21 +180,21 @@ enum GLBubbleEffectUniforms {
     vertexShaderFilename = [[NSBundle mainBundle] pathForResource:@"GLBubbleEffect" ofType:@"vsh"];
     if (![self compileShader:&vertexShader filename:vertexShaderFilename type:GL_VERTEX_SHADER])
     {
-        AMWarn(@"vertex shader compilation has failed.");
+        AMLogWarn(@"vertex shader compilation has failed.");
         return NO;
     }
     
     fragmentShaderFilename = [[NSBundle mainBundle] pathForResource:@"GLBubbleEffect" ofType:@"fsh"];
     if (![self compileShader:&fragmentShader filename:fragmentShaderFilename type:GL_FRAGMENT_SHADER])
     {
-        AMWarn(@"fragment shader compilation has failed.");
+        AMLogWarn(@"fragment shader compilation has failed.");
         return NO;
     }
     
     program = glCreateProgram();
     if (!program)
     {
-        AMWarn(@"program creation has failed.");
+        AMLogWarn(@"program creation has failed.");
         return NO;
     }
     
@@ -209,7 +209,7 @@ enum GLBubbleEffectUniforms {
     
     if (![self linkProgram:program])
     {
-        AMWarn(@"shader linking has failed.");
+        AMLogWarn(@"shader linking has failed.");
         
         if (vertexShader)
         {
@@ -277,7 +277,7 @@ enum GLBubbleEffectUniforms {
     CGImageRef texImage = [UIImage imageNamed:ui.GLtubeBubbleTextureFilename].CGImage;
     if (!texImage)
     {
-        AMWarn(@"loading texture has failed: %@.", ui.GLtubeBubbleTextureFilename);
+        AMLogWarn(@"loading texture has failed: %@.", ui.GLtubeBubbleTextureFilename);
         return;
     }
     

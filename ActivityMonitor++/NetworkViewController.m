@@ -11,7 +11,7 @@
 
 #import "GLLineGraph.h"
 #import "AppDelegate.h"
-#import "AMLog.h"
+#import "AMLogger.h"
 #import "AMUtils.h"
 #import "NetworkInfoController.h"
 #import "NetworkViewController.h"

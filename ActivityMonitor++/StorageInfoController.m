@@ -13,7 +13,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <AVFoundation/AVFoundation.h>
 #import <CoreMedia/CoreMedia.h>
-#import "AMLog.h"
+#import "AMLogger.h"
 #import "AMUtils.h"
 #import "StorageInfoController.h"
 
@@ -78,7 +78,7 @@
     }
     else
     {
-        AMWarn(@"attributesOfFileSystemForPat() has failed: %@", error.description);
+        AMLogWarn(@"attributesOfFileSystemForPat() has failed: %@", error.description);
         return 0.0f;
     }
 }
@@ -98,7 +98,7 @@
     }
     else
     {
-        AMWarn(@"attributesOfFileSystemForPat() has failed: %@", error.description);
+        AMLogWarn(@"attributesOfFileSystemForPat() has failed: %@", error.description);
         return 0.0f;
     }
 }
@@ -116,7 +116,7 @@
     }
     else
     {
-        AMWarn(@"attributesOfFileSystemForPat() has failed: %@", error.description);
+        AMLogWarn(@"attributesOfFileSystemForPat() has failed: %@", error.description);
         return 0.0f;
     }
 }
@@ -175,7 +175,7 @@
             }
         }];
     } failureBlock:^(NSError *error) {
-        AMWarn(@"Failed to enumerate asset groups: %@", error.description);
+        AMLogWarn(@"Failed to enumerate asset groups: %@", error.description);
     }];
     
     return 0;
@@ -208,7 +208,7 @@
             }
         }];
     } failureBlock:^(NSError *error) {
-        AMWarn(@"Failed to enumerate asset groups: %@", error.description);
+        AMLogWarn(@"Failed to enumerate asset groups: %@", error.description);
     }];
     
     return 0;

@@ -9,7 +9,7 @@
 //  Copyright (c) 2013 Arvydas Sidorenko
 //
 
-#import "AMLog.h"
+#import "AMLogger.h"
 #import "AMUtils.h"
 #import "AppDelegate.h"
 #import "ActiveConnection.h"
@@ -107,7 +107,7 @@
     
     if (!cell)
     {
-        AMWarn(@"attempt to dequeue reusable cell has failed.");
+        AMLogWarn(@"attempt to dequeue reusable cell has failed.");
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
@@ -138,7 +138,7 @@
     
     if (!cell)
     {
-        AMWarn(@"attempt to dequeue reusable cell has failed.");
+        AMLogWarn(@"attempt to dequeue reusable cell has failed.");
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
@@ -169,7 +169,7 @@
             [statusImageView setImage:self.orangeCircle];
             break;
         default:
-            AMWarn(@"unknown connection status: %d. Defaulting to red circle.", connection.status);
+            AMLogWarn(@"unknown connection status: %d. Defaulting to red circle.", connection.status);
             [statusImageView setImage:self.redCircle];
             break;
     }

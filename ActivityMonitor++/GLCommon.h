@@ -11,7 +11,7 @@
 
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
-#import "AMLog.h"
+#import "AMLogger.h"
 
 #if DEBUG
 #define GL_CHECK_ERROR()                        \
@@ -19,7 +19,7 @@
         GLenum error = glGetError();            \
         if (error != GL_NO_ERROR)               \
         {                                       \
-            AMWarn("GL Error: 0x%x",  error);   \
+            AMLogWarn("GL Error: 0x%x",  error);\
         }                                       \
     } while (0)
 #else
