@@ -58,7 +58,7 @@
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     assert(row < SORT_CHOICE_COUNT);
-    return [NSString stringWithCString:sortChoices[row] encoding:NSASCIIStringEncoding];
+    return SortChoices[row];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component

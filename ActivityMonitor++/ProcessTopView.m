@@ -50,7 +50,7 @@
 
 - (void)setProcessCount:(NSUInteger)count
 {
-    [self.processCountLabel setText:[NSString stringWithFormat:@"%d Processes Running", count]];
+    [self.processCountLabel setText:[NSString stringWithFormat:@"%lu Processes Running", (unsigned long)count]];
 }
 
 #pragma mark - UI interaction

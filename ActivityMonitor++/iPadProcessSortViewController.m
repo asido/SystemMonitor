@@ -26,7 +26,7 @@
     self = [super initWithStyle:style];
     if (self) {
         CGFloat rowHeight = [self.tableView.delegate tableView:self.tableView heightForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-        self.contentSizeForViewInPopover = CGSizeMake(300.0f, rowHeight * SORT_CHOICE_COUNT - 1); // -1 because for some reason a pixel gap appears.
+        self.preferredContentSize = CGSizeMake(300.0, rowHeight * SORT_CHOICE_COUNT - 1); // -1 because for some reason a pixel gap appears.
         
         self.currentFilter = -1;
     }
@@ -78,7 +78,7 @@
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     
-    cell.textLabel.text = [NSString stringWithCString:sortChoices[indexPath.row] encoding:NSASCIIStringEncoding];
+    cell.textLabel.text = SortChoices[indexPath.row];
     
     return cell;
 }

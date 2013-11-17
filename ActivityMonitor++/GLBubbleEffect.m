@@ -166,7 +166,7 @@ enum GLBubbleEffectUniforms {
     glUniform1f(uniforms[GLBubbleEffectMaxRightPosition], self.bounds.maxRightPosition);
     glUniform1f(uniforms[GLBubbleEffectElapsedTime], self.elapsedSeconds);
 
-    glDrawArrays(GL_POINTS, 0, [self numberOfBubbles]);
+    glDrawArrays(GL_POINTS, 0, (GLsizei)[self numberOfBubbles]);
     
     GL_CHECK_ERROR();
 }
@@ -281,13 +281,13 @@ enum GLBubbleEffectUniforms {
         return;
     }
     
-    size_t width = CGImageGetWidth(texImage);
-    size_t height = CGImageGetHeight(texImage);
+    GLsizei width = (GLsizei)CGImageGetWidth(texImage);
+    GLsizei height = (GLsizei)CGImageGetHeight(texImage);
     self.bubbleSize = width;
     
     GLubyte *texData = (GLubyte*) calloc(width * height * 4, sizeof(GLubyte));
     
-    CGContextRef texContext = CGBitmapContextCreate(texData, width, height, 8, width * 4, CGImageGetColorSpace(texImage), kCGImageAlphaPremultipliedLast);
+    CGContextRef texContext = CGBitmapContextCreate(texData, width, height, 8, width * 4, CGImageGetColorSpace(texImage), kCGBitmapAlphaInfoMask & kCGImageAlphaPremultipliedLast);
     CGContextDrawImage(texContext, CGRectMake(0, 0, width, height), texImage);
     CGContextRelease(texContext);
     

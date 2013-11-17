@@ -76,10 +76,10 @@ enum {
 {
     AppDelegate *app = [AppDelegate sharedDelegate];
     
-    [self.batteryCapacityLabel setText:[NSString stringWithFormat:@"%d mAh", app.iDevice.batteryInfo.capacity]];
+    [self.batteryCapacityLabel setText:[NSString stringWithFormat:@"%ld mAh", (long)app.iDevice.batteryInfo.capacity]];
     [self.batteryVoltageLabel setText:[NSString stringWithFormat:@"%0.1f V", app.iDevice.batteryInfo.voltage]];
     [self.batteryStatusLabel setText:app.iDevice.batteryInfo.status];
-    [self.batteryLevelLabel setText:[NSString stringWithFormat:@"%d %% (%d mAh)", app.iDevice.batteryInfo.levelPercent, app.iDevice.batteryInfo.levelMAH]];
+    [self.batteryLevelLabel setText:[NSString stringWithFormat:@"%ld %% (%ld mAh)", (long)app.iDevice.batteryInfo.levelPercent, (long)app.iDevice.batteryInfo.levelMAH]];
     
     [self.glBatteryTube setValue:app.iDevice.batteryInfo.levelPercent];
 }

@@ -334,12 +334,12 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
         return -1;
     }
     
-    size_t width = CGImageGetWidth(texImage);
-    size_t height = CGImageGetHeight(texImage);
+    GLsizei width = (GLsizei)CGImageGetWidth(texImage);
+    GLsizei height = (GLsizei)CGImageGetHeight(texImage);
     
     GLubyte *texData = (GLubyte*) calloc(width * height * 4, sizeof(GLubyte));
     
-    CGContextRef texContext = CGBitmapContextCreate(texData, width, height, 8, width * 4, CGImageGetColorSpace(texImage), kCGImageAlphaPremultipliedLast);
+    CGContextRef texContext = CGBitmapContextCreate(texData, width, height, 8, width * 4, CGImageGetColorSpace(texImage), kCGBitmapAlphaInfoMask & kCGImageAlphaPremultipliedLast);
     CGContextDrawImage(texContext, CGRectMake(0, 0, width, height), texImage);
     CGContextRelease(texContext);
     

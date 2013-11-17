@@ -89,9 +89,9 @@ enum {
     [self.totalStorageLabel setText:[AMUtils toNearestMetric:app.iDevice.storageInfo.totalSapce desiredFraction:2]];
     [self.freeStorageLabel setText:[AMUtils toNearestMetric:app.iDevice.storageInfo.freeSpace desiredFraction:2]];
     [self.usedStorageLabel setText:[AMUtils toNearestMetric:app.iDevice.storageInfo.usedSpace desiredFraction:2]];
-    [self.numberOfSongsLabel setText:[NSString stringWithFormat:@"%d", app.iDevice.storageInfo.songCount]];
-    [self.numberOfPicturesLabel setText:[NSString stringWithFormat:@"%d (%@)", app.iDevice.storageInfo.pictureCount, [AMUtils toNearestMetric:app.iDevice.storageInfo.totalPictureSize desiredFraction:1]]];
-    [self.numberOfVideosLabel setText:[NSString stringWithFormat:@"%d (%@)", app.iDevice.storageInfo.videoCount, [AMUtils toNearestMetric:app.iDevice.storageInfo.totalVideoSize desiredFraction:1]]];
+    [self.numberOfSongsLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)app.iDevice.storageInfo.songCount]];
+    [self.numberOfPicturesLabel setText:[NSString stringWithFormat:@"%lu (%@)", (unsigned long)app.iDevice.storageInfo.pictureCount, [AMUtils toNearestMetric:app.iDevice.storageInfo.totalPictureSize desiredFraction:1]]];
+    [self.numberOfVideosLabel setText:[NSString stringWithFormat:@"%lu (%@)", (unsigned long)app.iDevice.storageInfo.videoCount, [AMUtils toNearestMetric:app.iDevice.storageInfo.totalVideoSize desiredFraction:1]]];
 }
 
 #pragma mark - Table view data source

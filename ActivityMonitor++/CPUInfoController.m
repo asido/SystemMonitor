@@ -87,7 +87,7 @@
         processor_set_default(host, &processorSet);
         
         // Build the storage for the prior ticks and store the first block of data.
-        NSUInteger cpuCount;
+        natural_t cpuCount;
         processor_cpu_load_info_t processorTickInfo;
         mach_msg_type_number_t processorMsgCount;
         kern_return_t kStatus = host_processor_info(host, PROCESSOR_CPU_LOAD_INFO, &cpuCount,
@@ -95,7 +95,7 @@
         if (kStatus == KERN_SUCCESS)
         {
             priorCpuTicks = malloc(cpuCount * sizeof(*priorCpuTicks));
-            for (NSUInteger i = 0; i < cpuCount; ++i)
+            for (natural_t i = 0; i < cpuCount; ++i)
             {
                 for (NSUInteger j = 0; j < CPU_STATE_MAX; ++j)
                 {
@@ -268,7 +268,7 @@
 
 - (NSString*)getCPUSubtype
 {
-    cpu_subtype_t cpuSubtype = [AMUtils getSysCtl64WithSpecifier:"hw.cpusubtype"];
+    cpu_subtype_t cpuSubtype = (cpu_subtype_t)[AMUtils getSysCtl64WithSpecifier:"hw.cpusubtype"];
     return [self cpuSubtypeToString:cpuSubtype];
 }
 

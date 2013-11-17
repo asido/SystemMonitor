@@ -209,7 +209,7 @@ static const VertexData_t legendData[] = {
         }
         else
         {
-            NSString *formatter = [NSString stringWithFormat:@"%%0.%df%%@", self.lineLegendDesiredFraction];
+            NSString *formatter = [NSString stringWithFormat:@"%%0.%ldf%%@", (long)self.lineLegendDesiredFraction];
             dataLineLegend = [NSString stringWithFormat:formatter, value, self.lineLegendPostfix];
         }
         [dataLine setLineDataLegendText:dataLineLegend];
@@ -589,7 +589,7 @@ static const VertexData_t legendData[] = {
 {
     //glBlendEquation(GL_MAX_EXT);
     
-    glViewport(0, 0, self.glView.drawableWidth, self.glView.drawableHeight);
+    glViewport(0, 0, (GLsizei)self.glView.drawableWidth, (GLsizei)self.glView.drawableHeight);
 
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);

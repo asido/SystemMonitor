@@ -69,20 +69,20 @@
 
 - (void)test_percentageValue
 {
-    float max = 100.0f;
-    float min = 0.0f;
-    float percent = 20.0f;
-    float expected = 20.0f;
+    CGFloat max = 100.0;
+    CGFloat min = 0.0;
+    CGFloat percent = 20.0;
+    CGFloat expected = 20.0;
     
     XCTAssertTrue([AMUtils percentageValueFromMax:max min:min percent:percent] == expected, @"AMUtils::percentageValueFromMax is dodgy (1)");
 }
 
 - (void)test_valuePercent
 {
-    float from = 50.0f;
-    float to = 100.0f;
-    float value = 60.0f;
-    float expected = 20.0f;
+    CGFloat from = 50.0;
+    CGFloat to = 100.0;
+    CGFloat value = 60.0;
+    CGFloat expected = 20.0;
     
     XCTAssertTrue([AMUtils valuePercentFrom:from to:to value:value] == expected, @"AMUtils::valuePercentFrom is dodgy");
 }

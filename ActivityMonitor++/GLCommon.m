@@ -42,17 +42,19 @@
 + (UIImage*)imageWithText:(NSString*)text font:(UIFont*)font color:(UIColor*)color
 {
     UIImage *texture;
-    CGSize textureSize = [text sizeWithFont:font];
+    NSDictionary *textTextAttributes = @{ NSFontAttributeName : font,
+                                          NSForegroundColorAttributeName : color };
+    
+    CGSize textureSize = [text sizeWithAttributes:textTextAttributes];
     
     CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef imageContext = CGBitmapContextCreate(NULL, textureSize.width, textureSize.height, 8,
-                                                      textureSize.width * 4, // 4 elements per pixel (RGBA)
+    CGContextRef imageContext = CGBitmapContextCreate(NULL, (size_t)textureSize.width, (size_t)textureSize.height, 8,
+                                                      (size_t)textureSize.width * 4, // 4 elements per pixel (RGBA)
                                                       rgbColorSpace,
                                                       kCGBitmapByteOrder32Little|kCGImageAlphaPremultipliedFirst);
     UIGraphicsPushContext(imageContext);
     
-    CGContextSetFillColorWithColor(imageContext, color.CGColor);
-    [text drawAtPoint:CGPointMake(0.0f, 0.0f) withFont:font];
+    [text drawAtPoint:CGPointMake(0.0f, 0.0f) withAttributes:textTextAttributes];
     CGImageRef cgTexture = CGBitmapContextCreateImage(imageContext);
     texture = [UIImage imageWithCGImage:cgTexture];
     

@@ -31,8 +31,8 @@
 
 // Returns a value representing a specified percent of the value between max and min.
 // i.e. 20 percent in the range of 0-10 is 2.
-+ (double)percentageValueFromMax:(double)max min:(double)min percent:(float)percent;
-+ (float)valuePercentFrom:(double)from to:(double)to value:(double)value;
++ (CGFloat)percentageValueFromMax:(CGFloat)max min:(CGFloat)min percent:(CGFloat)percent;
++ (CGFloat)valuePercentFrom:(CGFloat)from to:(CGFloat)to value:(CGFloat)value;
 
 + (CGFloat)random;
 

@@ -51,10 +51,10 @@
     
     [self.cpuNameLabel setText:app.iDevice.cpuInfo.cpuName];
     [self.architectureLabel setText:app.iDevice.cpuInfo.cpuSubtype];
-    [self.physicalCoresLabel setText:[NSString stringWithFormat:@"%u", app.iDevice.cpuInfo.physicalCPUCount]];
-    [self.logicalCoresLabel setText:[NSString stringWithFormat:@"%u", app.iDevice.cpuInfo.logicalCPUCount]];
-    [self.maxLogicalCoresLabel setText:[NSString stringWithFormat:@"%u", app.iDevice.cpuInfo.logicalCPUMaxCount]];
-    [self.frequencyLabel setText:[NSString stringWithFormat:@"%u MHz", app.iDevice.cpuInfo.cpuFrequency]];
+    [self.physicalCoresLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)app.iDevice.cpuInfo.physicalCPUCount]];
+    [self.logicalCoresLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)app.iDevice.cpuInfo.logicalCPUCount]];
+    [self.maxLogicalCoresLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)app.iDevice.cpuInfo.logicalCPUMaxCount]];
+    [self.frequencyLabel setText:[NSString stringWithFormat:@"%lu MHz", (unsigned long)app.iDevice.cpuInfo.cpuFrequency]];
     [self.l1iCacheLabel setText:(app.iDevice.cpuInfo.l1ICache == 0 ? @"-" : [AMUtils toNearestMetric:(uint64_t)app.iDevice.cpuInfo.l1ICache desiredFraction:0])];
     [self.l1dCacheLabel setText:(app.iDevice.cpuInfo.l1DCache == 0 ? @"-" : [AMUtils toNearestMetric:(uint64_t)app.iDevice.cpuInfo.l1DCache desiredFraction:0])];
     [self.l2CacheLabel setText:(app.iDevice.cpuInfo.l2Cache == 0 ? @"-" : [AMUtils toNearestMetric:(uint64_t)app.iDevice.cpuInfo.l2Cache desiredFraction:0])];
@@ -94,7 +94,7 @@
         }
         avr /= data.count;
         
-        [graphData addObject:[NSArray arrayWithObject:[NSNumber numberWithFloat:avr]]];
+        [graphData addObject:[NSArray arrayWithObject:[NSNumber numberWithDouble:(double)avr]]];
     }
     
     [self.glGraph resetDataArray:graphData];

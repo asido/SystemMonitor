@@ -26,10 +26,10 @@
 #define GL_CHECK_ERROR()
 #endif
 
-#define kModelZ     (-2.0f)
+#define kModelZ     (-2.0)
 
-static const GLfloat kFontScaleMultiplierW  = 1.0f / 18.0f;
-static const GLfloat kFontScaleMultiplierH  = 1.0f / 36.0f;
+static const GLfloat kFontScaleMultiplierW  = 1.0 / 18.0;
+static const GLfloat kFontScaleMultiplierH  = 1.0 / 36.0;
 
 typedef struct {
     GLKVector3 positionCoords;

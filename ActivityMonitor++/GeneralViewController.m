@@ -66,18 +66,18 @@
     [self.screenRezolutionLabel setText:app.iDevice.deviceInfo.screenResolution];
     [self.screenSizeLabel setText:[NSString stringWithFormat:@"%0.1f\"", app.iDevice.deviceInfo.screenSize]];
     [self.retinaLabel setText:(app.iDevice.deviceInfo.retina ? @"Yes" : @"No")];
-    [self.ppiLabel setText:[NSString stringWithFormat:@"%d ppi", app.iDevice.deviceInfo.ppi]];
+    [self.ppiLabel setText:[NSString stringWithFormat:@"%ld ppi", (long)app.iDevice.deviceInfo.ppi]];
     [self.aspectRatioLabel setText:app.iDevice.deviceInfo.aspectRatio];
     [self.osNameLabel setText:app.iDevice.deviceInfo.osName];
     [self.osTypeLabel setText:app.iDevice.deviceInfo.osType];
     [self.osVersionLabel setText:app.iDevice.deviceInfo.osVersion];
     [self.osBuildLabel setText:app.iDevice.deviceInfo.osBuild];
-    [self.osRevisionLabel setText:[NSString stringWithFormat:@"%d", app.iDevice.deviceInfo.osRevision]];
+    [self.osRevisionLabel setText:[NSString stringWithFormat:@"%ld", (long)app.iDevice.deviceInfo.osRevision]];
     [self.kernelInfoLabel setText:app.iDevice.deviceInfo.kernelInfo];
-    [self.maxVNodesLabel setText:[NSString stringWithFormat:@"%d", app.iDevice.deviceInfo.maxVNodes]];
-    [self.maxProcessesLabel setText:[NSString stringWithFormat:@"%d", app.iDevice.deviceInfo.maxProcesses]];
-    [self.maxFilesLabel setText:[NSString stringWithFormat:@"%d", app.iDevice.deviceInfo.maxFiles]];
-    [self.tickFrequencyLabel setText:[NSString stringWithFormat:@"%d", app.iDevice.deviceInfo.tickFrequency]];
+    [self.maxVNodesLabel setText:[NSString stringWithFormat:@"%ld", (long)app.iDevice.deviceInfo.maxVNodes]];
+    [self.maxProcessesLabel setText:[NSString stringWithFormat:@"%ld", (long)app.iDevice.deviceInfo.maxProcesses]];
+    [self.maxFilesLabel setText:[NSString stringWithFormat:@"%ld", (long)app.iDevice.deviceInfo.maxFiles]];
+    [self.tickFrequencyLabel setText:[NSString stringWithFormat:@"%ld", (long)app.iDevice.deviceInfo.tickFrequency]];
     [self.safeBootLabel setText:(app.iDevice.deviceInfo.safeBoot ? @"Yes" : @"No")];
     [self.bootTimeLabel setText:[self formatBootTime:app.iDevice.deviceInfo.bootTime]];
     [self.uptimeLabel setText:[self formatUptime:app.iDevice.deviceInfo.bootTime]];
@@ -128,8 +128,8 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponents = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit
                                                    fromDate:date];
-    NSString *dateString = [NSString stringWithFormat:@"%04d-%02d-%02d %d:%02d:%02d",
-                            dateComponents.year, dateComponents.month, dateComponents.day, dateComponents.hour, dateComponents.minute, dateComponents.second];
+    NSString *dateString = [NSString stringWithFormat:@"%04ld-%02ld-%02ld %ld:%02ld:%02ld",
+                            (long)dateComponents.year, (long)dateComponents.month, (long)dateComponents.day, (long)dateComponents.hour, (long)dateComponents.minute, (long)dateComponents.second];
     return dateString;
 }
 
@@ -140,8 +140,8 @@
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *dateComponents = [calendar components:NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit
                                                    fromDate:fromDate toDate:toDate options:0];
-    NSString *dateString = [NSString stringWithFormat:@"%d days %d:%02d:%02d",
-                            dateComponents.day, dateComponents.hour, dateComponents.minute, dateComponents.second];
+    NSString *dateString = [NSString stringWithFormat:@"%ld days %ld:%02ld:%02ld",
+                            (long)dateComponents.day, (long)dateComponents.hour, (long)dateComponents.minute, (long)dateComponents.second];
     return dateString;
 }
 

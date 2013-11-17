@@ -120,7 +120,7 @@
     
     mib[0] = CTL_KERN;
     mib[1] = KERN_PROCARGS2;
-    mib[2] = process.pid;
+    mib[2] = (int)process.pid;
     
     size = argmax;
     if (sysctl(mib, 3, procargs, &size, NULL, 0) == -1)

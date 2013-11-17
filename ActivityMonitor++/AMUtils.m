@@ -149,21 +149,21 @@
     return val;
 }
 
-+ (double)percentageValueFromMax:(double)max min:(double)min percent:(float)percent
++ (CGFloat)percentageValueFromMax:(CGFloat)max min:(CGFloat)min percent:(CGFloat)percent
 {
     assert(max > min);
     return min + ((max - min) / 100 * percent);
 }
 
-+ (float)valuePercentFrom:(double)from to:(double)to value:(double)value
++ (CGFloat)valuePercentFrom:(CGFloat)from to:(CGFloat)to value:(CGFloat)value
 {
     // In simulator returned memory is always 0 and so messes the statistics very much.
 #if !TARGET_IPHONE_SIMULATOR
     assert(from < to);
 #endif
     
-    float phase = from;
-    float zeroBasedValue = value - phase;
+    CGFloat phase = from;
+    CGFloat zeroBasedValue = value - phase;
     return 100 / (to - from) * zeroBasedValue;
 }
 
@@ -182,9 +182,9 @@
     static const uint64_t GB  = MB * 1024;
     static const uint64_t TB  = GB * 1024;
     
-    uint64_t absValue = fabs(value);
+    uint64_t absValue = labs((long)value);
     double metricValue;
-    NSString *specifier = [NSString stringWithFormat:@"%%0.%df", fraction];
+    NSString *specifier = [NSString stringWithFormat:@"%%0.%ldf", (long)fraction];
     NSString *format;
     
     if (absValue >= B && absValue < KB)

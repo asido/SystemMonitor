@@ -117,7 +117,7 @@ enum OpenGLRow {
                     break;
                 }
                 default:
-                    AMWarn(@"invalid row(%d) for section(%d)", indexPath.section, indexPath.row);
+                    AMWarn(@"invalid row(%ld) for section(%ld)", (long)[indexPath section], (long)[indexPath row]);
                     break;
             }
             break;
@@ -130,7 +130,7 @@ enum OpenGLRow {
             break;
         }
         default:
-            AMWarn(@"invalid section(%d)", indexPath.section);
+            AMWarn(@"invalid section(%ld)", (long)[indexPath section]);
             break;
     }
     

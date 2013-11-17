@@ -106,8 +106,8 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponents = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit
                                                    fromDate:date];
-    NSString *dateString = [NSString stringWithFormat:@"%04d-%02d-%02d %d:%02d:%02d",
-                            dateComponents.year, dateComponents.month, dateComponents.day, dateComponents.hour, dateComponents.minute, dateComponents.second];
+    NSString *dateString = [NSString stringWithFormat:@"%04ld-%02ld-%02ld %ld:%02ld:%02ld",
+                            (long)dateComponents.year, (long)dateComponents.month, (long)dateComponents.day, (long)dateComponents.hour, (long)dateComponents.minute, (long)dateComponents.second];
     return dateString;
 }
 
@@ -169,8 +169,8 @@
     [nameLabel setText:process.name];
     [statusLabel setText:[process getStatusString]];
     [startTimeLabel setText:[self formatStartTime:process.startTime]];
-    [pidLabel setText:[NSString stringWithFormat:@"%d", process.pid]];
-    [priorityLabel setText:[NSString stringWithFormat:@"%d", process.priority]];
+    [pidLabel setText:[NSString stringWithFormat:@"%ld", (long)process.pid]];
+    [priorityLabel setText:[NSString stringWithFormat:@"%ld", (long)process.priority]];
     [commandLineLabel setText:process.commandLine];
     
     return cell;

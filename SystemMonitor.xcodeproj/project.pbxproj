@@ -14,6 +14,7 @@
 		03724CD8182D7E3700221FE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DB173818EC0001E3B3 /* UIKit.framework */; };
 		03724CDE182D7E3700221FE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03724CDC182D7E3700221FE8 /* InfoPlist.strings */; };
 		03724CE8182D7EA200221FE8 /* AMUtils_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03724CE7182D7EA200221FE8 /* AMUtils_Tests.m */; };
+		03F9B397183913B100804E1D /* ProcessSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F9B396183913B100804E1D /* ProcessSort.m */; };
 		03FAE654182D51330038DB7C /* DefaultCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03FAE653182D51330038DB7C /* DefaultCell@2x.png */; };
 		03FAE686182D7C200038DB7C /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D926B61755FC1C000B3800 /* libLumberjack.a */; };
 		7003E7E9175115EF00214D6A /* RAMInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ECE2731750558100B1402A /* RAMInfo.m */; };
@@ -149,6 +150,7 @@
 		03724CDD182D7E3700221FE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03724CE1182D7E3700221FE8 /* SystemMonitor Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SystemMonitor Tests-Prefix.pch"; sourceTree = "<group>"; };
 		03724CE7182D7EA200221FE8 /* AMUtils_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtils_Tests.m; sourceTree = "<group>"; };
+		03F9B396183913B100804E1D /* ProcessSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessSort.m; sourceTree = "<group>"; };
 		03FAE653182D51330038DB7C /* DefaultCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultCell@2x.png"; sourceTree = "<group>"; };
 		7003E7EA1751178700214D6A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7003E81F17513C2000214D6A /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 			isa = PBXGroup;
 			children = (
 				70D926BB1756109F000B3800 /* ProcessSort.h */,
+				03F9B396183913B100804E1D /* ProcessSort.m */,
 				701190F9174D2F1F00B5D8B1 /* iPadProcessSortViewController.h */,
 				701190FA174D2F2000B5D8B1 /* iPadProcessSortViewController.m */,
 				70D926B817561077000B3800 /* iPhoneProcessSortViewController.h */,
@@ -1043,6 +1046,7 @@
 				70D926B11755F4C5000B3800 /* iPhoneRootTableViewController.m in Sources */,
 				70D926B51755F595000B3800 /* RootTableViewController.m in Sources */,
 				70D926BA17561077000B3800 /* iPhoneProcessSortViewController.m in Sources */,
+				03F9B397183913B100804E1D /* ProcessSort.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1229,11 +1233,15 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActivityMonitor++/SystemMonitor-Prefix.pch";
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = NO;
 				INFOPLIST_FILE = "ActivityMonitor++/SystemMonitor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -1243,8 +1251,8 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = SystemMonitor;
-				PROVISIONING_PROFILE = "8907C3F4-0417-431C-B378-39106661BF23";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8907C3F4-0417-431C-B378-39106661BF23";
+				PROVISIONING_PROFILE = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1256,11 +1264,15 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ActivityMonitor++/SystemMonitor-Prefix.pch";
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = NO;
 				INFOPLIST_FILE = "ActivityMonitor++/SystemMonitor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -1269,8 +1281,8 @@
 					"/Users/asido/Documents/activity-monitor",
 				);
 				PRODUCT_NAME = SystemMonitor;
-				PROVISIONING_PROFILE = "8907C3F4-0417-431C-B378-39106661BF23";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8907C3F4-0417-431C-B378-39106661BF23";
+				PROVISIONING_PROFILE = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
