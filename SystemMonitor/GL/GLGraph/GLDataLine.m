@@ -217,11 +217,8 @@ static const VertexData_t lineLegendData[] = {
 
 - (void)setDataLineLegendIcon:(UIImage*)image
 {
-    NSDictionary *options = @{ //GLKTextureLoaderSRGB : [NSNumber numberWithBool:YES],
-                               //GLKTextureLoaderGrayscaleAsAlpha : [NSNumber numberWithBool:YES],
-                               GLKTextureLoaderApplyPremultiplication : [NSNumber numberWithBool:YES] };
     NSError *error = nil;
-    self.lineLegendIconTexture = [GLKTextureLoader textureWithCGImage:image.CGImage options:options error:&error];
+    self.lineLegendIconTexture = [GLKTextureLoader textureWithCGImage:image.CGImage options:nil error:&error];
     if (lineLegendIconTexture == nil)
     {
         AMLogError(@"GLKTextureLoader failed to load texture: %@", [error localizedDescription]);
