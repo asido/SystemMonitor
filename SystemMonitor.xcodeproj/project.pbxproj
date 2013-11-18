@@ -164,9 +164,6 @@
 		703D22E9173818EC0001E3B3 /* SystemMonitor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SystemMonitor-Prefix.pch"; sourceTree = "<group>"; };
 		703D22EA173818EC0001E3B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		703D22EB173818EC0001E3B3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		703D22ED173818EC0001E3B3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		703D22EF173818EC0001E3B3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		703D22F1173818EC0001E3B3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		703D22F4173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		703D22F7173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		703D230D173818EC0001E3B3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -498,9 +495,6 @@
 				703D22E4173818EC0001E3B3 /* InfoPlist.strings */,
 				703D22E7173818EC0001E3B3 /* main.m */,
 				703D22E9173818EC0001E3B3 /* SystemMonitor-Prefix.pch */,
-				703D22ED173818EC0001E3B3 /* Default.png */,
-				703D22EF173818EC0001E3B3 /* Default@2x.png */,
-				703D22F1173818EC0001E3B3 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			path = "ActivityMonitor++";
