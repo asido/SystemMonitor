@@ -17,9 +17,6 @@
 @property (assign, nonatomic) GLfloat   GLdataLineGraphWidth;
 @property (assign, nonatomic) GLfloat   GLdataLineWidth;
 
-@property (strong, nonatomic) NSString  *GLtubeBackgroundFilename;
-@property (strong, nonatomic) NSString  *GLtubeTextureFilename;
-@property (strong, nonatomic) NSString  *GLtubeBubbleTextureFilename;
 @property (assign, nonatomic) GLfloat   GLtubeTextureSheetW;
 @property (assign, nonatomic) GLfloat   GLtubeTextureSheetH;
 @property (assign, nonatomic) GLfloat   GLtubeTextureY;

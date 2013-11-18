@@ -1593,7 +1593,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" image="SettingsIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="nFi-KC-XB4">
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" image="SettingsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="nFi-KC-XB4">
                                             <rect key="frame" x="20" y="8" width="70" height="70"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="70" id="CFA-Bc-bmr"/>
@@ -3292,7 +3292,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SettingsIcon.png" width="35" height="35"/>
+        <image name="SettingsIcon" width="70" height="70"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

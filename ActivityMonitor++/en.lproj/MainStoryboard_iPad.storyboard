@@ -658,7 +658,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="703" height="78"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" image="SettingsIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="HeK-DA-4Kg">
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" image="SettingsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="HeK-DA-4Kg">
                                             <rect key="frame" x="20" y="5" width="70" height="70"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="EVS-ym-lT8"/>
@@ -3028,7 +3028,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SettingsIcon.png" width="35" height="35"/>
+        <image name="SettingsIcon" width="70" height="70"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

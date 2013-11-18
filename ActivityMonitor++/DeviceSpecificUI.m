@@ -22,9 +22,6 @@
 @synthesize GLdataLineGraphWidth;
 @synthesize GLdataLineWidth;
 
-@synthesize GLtubeBackgroundFilename;
-@synthesize GLtubeTextureFilename;
-@synthesize GLtubeBubbleTextureFilename;
 @synthesize GLtubeTextureSheetW;
 @synthesize GLtubeTextureSheetH;
 @synthesize GLtubeTextureY;
@@ -57,9 +54,6 @@
         self.GLdataLineGraphWidth = ([AMUtils isIPhone] ? 320.0f : 703.0f);
         self.GLdataLineWidth = (app.iDevice.deviceInfo.retina ? 3.0f : 2.0f);
         
-        self.GLtubeBackgroundFilename = (app.iDevice.deviceInfo.retina ? @"TubeBackground-retina.png" : @"TubeBackground-nonretina.png");
-        self.GLtubeTextureFilename = (app.iDevice.deviceInfo.retina ? @"TubeTexture-retina.png" : @"TubeTexture-nonretina.png");
-        self.GLtubeBubbleTextureFilename = (app.iDevice.deviceInfo.retina ? @"BubbleTexture-retina.png" : @"BubbleTexture-nonretina.png");
         self.GLtubeTextureSheetW = 128.0f;
         self.GLtubeTextureSheetH = (app.iDevice.deviceInfo.retina ? 256.0f : 128.0f);
         self.GLtubeTextureY = (app.iDevice.deviceInfo.retina ? 140.0f : 93.0f);

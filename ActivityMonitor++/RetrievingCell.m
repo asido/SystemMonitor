@@ -21,7 +21,7 @@ enum {
 {
     if (self = [super initWithCoder:aDecoder])
     {
-        self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ConnectionCell.png"]];
+        self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ConnectionCellBackground"]];
     }
     return self;
 }

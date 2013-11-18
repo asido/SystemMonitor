@@ -52,7 +52,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // Set background.
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]]];
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewBackground-1496"]]];
     
     // Refresh process list.
     AppDelegate *app = [AppDelegate sharedDelegate];

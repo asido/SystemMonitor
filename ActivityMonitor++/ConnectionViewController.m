@@ -67,11 +67,11 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // Set background.
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]]];
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewBackground-1496"]]];
     
-    self.greenCircle = [UIImage imageNamed:@"GreenCircle.png"];
-    self.orangeCircle = [UIImage imageNamed:@"OrangeCircle.png"];
-    self.redCircle = [UIImage imageNamed:@"RedCircle.png"];
+    self.greenCircle = [UIImage imageNamed:@"ConnectionGreenCircle"];
+    self.orangeCircle = [UIImage imageNamed:@"ConnectionOrangeCircle"];
+    self.redCircle = [UIImage imageNamed:@"ConnectionRedCircle"];
     
     [self setNothingToSee:NO];
     

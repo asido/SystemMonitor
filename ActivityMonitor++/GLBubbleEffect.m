@@ -273,11 +273,10 @@ enum GLBubbleEffectUniforms {
 
 - (void)setupTexture
 {
-    DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
-    CGImageRef texImage = [UIImage imageNamed:ui.GLtubeBubbleTextureFilename].CGImage;
+    CGImageRef texImage = [UIImage imageNamed:@"BubbleTexture"].CGImage;
     if (!texImage)
     {
-        AMLogWarn(@"loading texture has failed: %@.", ui.GLtubeBubbleTextureFilename);
+        AMLogWarn(@"loading texture has failed: BubbleTexture");
         return;
     }
     

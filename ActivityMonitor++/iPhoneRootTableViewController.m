@@ -20,7 +20,7 @@
 {
     [super viewDidLoad];
     
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-Left-748.png"]]];
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainMenuBackground"]]];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -64,11 +64,11 @@
     NSString *cellBg = nil;
     if (indexPath.row == 0)
     {
-        cellBg = @"RootCellTop-dark-88.png";
+        cellBg = @"MainMenuCellBackgroundTop";
     }
     else
     {
-        cellBg = @"RootCellFollowing-dark-88.png";
+        cellBg = @"MainMenuCellBackgroundFollowing";
     }
     [cell setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:cellBg]]];
     

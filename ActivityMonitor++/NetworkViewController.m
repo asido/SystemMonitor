@@ -58,7 +58,7 @@ static const CGFloat kNetworkGraphMaxValue = MB_TO_B(100);
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]]];
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewBackground-1496"]]];
 
     [self updateStatusLabels];
 
@@ -71,8 +71,8 @@ static const CGFloat kNetworkGraphMaxValue = MB_TO_B(100);
     self.networkGraph.useClosestMetrics = YES;
     [self.networkGraph setDataLineLegendFraction:1];
     [self.networkGraph setDataLineLegendPostfix:@"/s"];
-    [self.networkGraph setDataLineLegendIcon:[UIImage imageNamed:@"arrow-down.png"] forLineIndex:0];
-    [self.networkGraph setDataLineLegendIcon:[UIImage imageNamed:@"arrow-up.png"] forLineIndex:1];
+    [self.networkGraph setDataLineLegendIcon:[UIImage imageNamed:@"ArrowDownIcon"] forLineIndex:0];
+    [self.networkGraph setDataLineLegendIcon:[UIImage imageNamed:@"arrow-up.png"] forLineIndex:1]; // TODO: If we use xcassets for this arrow, it appears as PINK! oO
     self.networkGraph.preferredFramesPerSecond = kNetworkUpdateFrequency;
 
     [app.networkInfoCtrl setNetworkBandwidthHistorySize:[self.networkGraph requiredElementToFillGraph]];
@@ -152,7 +152,7 @@ static const CGFloat kNetworkGraphMaxValue = MB_TO_B(100);
 {
     if (section == SECTION_NETWORK_INFORMATION)
     {
-        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LineGraphBackground-414.png"]];
+        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LineGraphBackground-414"]];
         CGRect frame = backgroundView.frame;
         frame.origin.y = 20;
         backgroundView.frame = frame;

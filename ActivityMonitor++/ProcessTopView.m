@@ -36,7 +36,7 @@
         frame.size.width = ui.GLdataLineGraphWidth;
         self.frame = frame;
         
-        UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]];
+        UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewBackground-1496"]];
         frame = background.frame;
         frame.size.height = self.frame.size.height;
         background.frame = frame;

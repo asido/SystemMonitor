@@ -17,7 +17,7 @@
 {
     if (self = [super initWithCoder:aDecoder])
     {
-        self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DefaultCell.png"]];
+        self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DefaultCellBackground"]];
         [self setSeparatorInset:UIEdgeInsetsZero];
     }
     return self;

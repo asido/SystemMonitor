@@ -43,7 +43,7 @@ enum {
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]]];
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewBackground-1496"]]];
     
     DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
     self.glView = [[GLKView alloc] initWithFrame:ui.GLtubeGLKViewFrame];
@@ -90,8 +90,7 @@ enum {
 {
     if (section == SECTION_BATTERY_TUBE)
     {
-        DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
-        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:ui.GLtubeBackgroundFilename]];
+        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TubeBackground"]];
         CGRect frame = backgroundView.frame;
         frame.origin.y = 20;
         backgroundView.frame = frame;

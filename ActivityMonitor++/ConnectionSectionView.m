@@ -22,7 +22,7 @@
 {
     if (self = [super initWithCoder:aDecoder])
     {
-        self.background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ConnectionsSectionBackground-60.png"]];
+        self.background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ConnectionSectionBackground"]];
         [self addSubview:self.background];
         [self sendSubviewToBack:self.background];
     }

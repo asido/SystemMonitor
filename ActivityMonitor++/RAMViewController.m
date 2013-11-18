@@ -52,7 +52,7 @@ enum {
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-1496.png"]]];
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewBackground-1496"]]];
     
     AppDelegate *app = [AppDelegate sharedDelegate];
     [self.totalRamLabel setText:[AMUtils toNearestMetric:(uint64_t)app.iDevice.ramInfo.totalRam desiredFraction:0]];
@@ -139,7 +139,7 @@ enum {
 {
     if (section == SECTION_MEMORY_USAGE)
     {
-        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LineGraphBackground-414.png"]];
+        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LineGraphBackground-414"]];
         CGRect frame = backgroundView.frame;
         frame.origin.y = 20;
         backgroundView.frame = frame;

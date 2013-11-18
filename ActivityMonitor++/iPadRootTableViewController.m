@@ -34,7 +34,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background-Left-748.png"]]];
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainMenuBackground"]]];
     
     self.currentCtrl = -1;
     NSIndexPath *generalIndexPath = [NSIndexPath indexPathForRow:VIEW_CTRL_GENERAL inSection:0];
@@ -102,11 +102,11 @@
     NSString *cellBg = nil;
     if (indexPath.row == 0)
     {
-        cellBg = @"RootCellTop-dark-88.png";
+        cellBg = @"MainMenuCellBackgroundTop";
     }
     else
     {
-        cellBg = @"RootCellFollowing-dark-88.png";
+        cellBg = @"MainMenuCellBackgroundFollowing";
     }
     [cell setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:cellBg]]];
     

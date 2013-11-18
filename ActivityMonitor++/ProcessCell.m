@@ -17,7 +17,7 @@
 {
     if (self = [super initWithCoder:aDecoder])
     {
-        self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ProcessCell.png"]];
+        self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ProcessCellBackground"]];
     }
     return self;
 }

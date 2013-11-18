@@ -195,7 +195,7 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
     };
     self.bubbleEffect = [[GLBubbleEffect alloc] initWithBounds:bubbleBounds];
     
-    self.tubeTexture = [self setupTexture:ui.GLtubeTextureFilename];
+    self.tubeTexture = [self setupTexture:@"TubeTexture"];
     
     [self setupVBOs];
 }
