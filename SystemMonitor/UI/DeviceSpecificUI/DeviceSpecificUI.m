@@ -12,8 +12,6 @@
 #import "AMLogger.h"
 #import "AMUtils.h"
 #import "AppDelegate.h"
-#import "iPhoneSpecificUI.h"
-#import "iPadSpecificUI.h"
 #import "DeviceSpecificUI.h"
 
 @implementation DeviceSpecificUI

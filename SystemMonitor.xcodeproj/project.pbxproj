@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		033D9649182E94AA009477E7 /* SMSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033D9648182E94AA009477E7 /* SMSplitViewController.m */; };
 		033D9651182EC6B6009477E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 033D9650182EC6B6009477E7 /* Images.xcassets */; };
 		03724CD6182D7E3700221FE8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03724CD5182D7E3700221FE8 /* XCTest.framework */; };
 		03724CD7182D7E3700221FE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DD173818EC0001E3B3 /* Foundation.framework */; };
@@ -20,81 +19,80 @@
 		03DA2ABD183930EA0014C322 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DA2ABC183930EA0014C322 /* CoreText.framework */; };
 		03DA2ABE183930F90014C322 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7030C0B41764EDA30072DC8D /* QuartzCore.framework */; };
 		03DA2AC01839310A0014C322 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DA2ABF1839310A0014C322 /* Security.framework */; };
-		03DA2AC21839321A0014C322 /* AMLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DA2AC11839321A0014C322 /* AMLogger.m */; };
-		03DF1A0F183A021D00F7AF12 /* arrow-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A0E183A021D00F7AF12 /* arrow-up.png */; };
-		03F9B397183913B100804E1D /* ProcessSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F9B396183913B100804E1D /* ProcessSort.m */; };
+		03DF1A17183A11E700F7AF12 /* arrow-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A11183A11E700F7AF12 /* arrow-up.png */; };
+		03DF1A18183A11E700F7AF12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A12183A11E700F7AF12 /* InfoPlist.strings */; };
+		03DF1A19183A11E700F7AF12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A14183A11E700F7AF12 /* main.m */; };
+		03DF1AA9183A11FD00F7AF12 /* BatteryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A1D183A11FD00F7AF12 /* BatteryInfo.m */; };
+		03DF1AAA183A11FD00F7AF12 /* BatteryInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A1F183A11FD00F7AF12 /* BatteryInfoController.m */; };
+		03DF1AAB183A11FD00F7AF12 /* CPUInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A22183A11FD00F7AF12 /* CPUInfo.m */; };
+		03DF1AAC183A11FD00F7AF12 /* CPUInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A24183A11FD00F7AF12 /* CPUInfoController.m */; };
+		03DF1AAD183A11FD00F7AF12 /* CPULoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A26183A11FD00F7AF12 /* CPULoad.m */; };
+		03DF1AAE183A11FD00F7AF12 /* CPULoadFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A28183A11FD00F7AF12 /* CPULoadFilter.m */; };
+		03DF1AAF183A11FD00F7AF12 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A2B183A11FD00F7AF12 /* DeviceInfo.m */; };
+		03DF1AB0183A11FD00F7AF12 /* DeviceInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A2D183A11FD00F7AF12 /* DeviceInfoController.m */; };
+		03DF1AB1183A11FD00F7AF12 /* GLCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A30183A11FD00F7AF12 /* GLCommon.m */; };
+		03DF1AB2183A11FD00F7AF12 /* GLEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A32183A11FD00F7AF12 /* GLEffect.m */; };
+		03DF1AB3183A11FD00F7AF12 /* GLDataLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A35183A11FD00F7AF12 /* GLDataLine.m */; };
+		03DF1AB4183A11FD00F7AF12 /* GLLineGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A37183A11FD00F7AF12 /* GLLineGraph.m */; };
+		03DF1AB6183A11FD00F7AF12 /* GLBubbleEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A3C183A11FD00F7AF12 /* GLBubbleEffect.m */; };
+		03DF1AB8183A11FD00F7AF12 /* GLTube.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A3F183A11FD00F7AF12 /* GLTube.m */; };
+		03DF1AB9183A11FD00F7AF12 /* GPUInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A42183A11FD00F7AF12 /* GPUInfo.m */; };
+		03DF1ABA183A11FD00F7AF12 /* GPUInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A44183A11FD00F7AF12 /* GPUInfoController.m */; };
+		03DF1ABB183A11FD00F7AF12 /* ActiveConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A47183A11FD00F7AF12 /* ActiveConnection.m */; };
+		03DF1ABC183A11FD00F7AF12 /* NetworkBandwidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A4A183A11FD00F7AF12 /* NetworkBandwidth.m */; };
+		03DF1ABD183A11FD00F7AF12 /* NetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A4C183A11FD00F7AF12 /* NetworkInfo.m */; };
+		03DF1ABE183A11FD00F7AF12 /* NetworkInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A4E183A11FD00F7AF12 /* NetworkInfoController.m */; };
+		03DF1ABF183A11FD00F7AF12 /* ProcessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A51183A11FD00F7AF12 /* ProcessInfo.m */; };
+		03DF1AC0183A11FD00F7AF12 /* ProcessInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A53183A11FD00F7AF12 /* ProcessInfoController.m */; };
+		03DF1AC1183A11FD00F7AF12 /* RAMInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A56183A11FD00F7AF12 /* RAMInfo.m */; };
+		03DF1AC2183A11FD00F7AF12 /* RAMInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A58183A11FD00F7AF12 /* RAMInfoController.m */; };
+		03DF1AC3183A11FD00F7AF12 /* RAMUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A5A183A11FD00F7AF12 /* RAMUsage.m */; };
+		03DF1AC4183A11FD00F7AF12 /* StorageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A5D183A11FD00F7AF12 /* StorageInfo.m */; };
+		03DF1AC5183A11FD00F7AF12 /* StorageInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A5F183A11FD00F7AF12 /* StorageInfoController.m */; };
+		03DF1AC6183A11FD00F7AF12 /* BatteryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A63183A11FD00F7AF12 /* BatteryViewController.m */; };
+		03DF1AC7183A11FD00F7AF12 /* ConnectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A66183A11FD00F7AF12 /* ConnectionCell.m */; };
+		03DF1AC8183A11FD00F7AF12 /* ConnectionSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A68183A11FD00F7AF12 /* ConnectionSectionView.m */; };
+		03DF1AC9183A11FD00F7AF12 /* ConnectionSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A69183A11FD00F7AF12 /* ConnectionSectionView.xib */; };
+		03DF1ACA183A11FD00F7AF12 /* ConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A6B183A11FD00F7AF12 /* ConnectionViewController.m */; };
+		03DF1ACB183A11FD00F7AF12 /* RetrievingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A6D183A11FD00F7AF12 /* RetrievingCell.m */; };
+		03DF1ACC183A11FD00F7AF12 /* CPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A70183A11FD00F7AF12 /* CPUViewController.m */; };
+		03DF1ACD183A11FD00F7AF12 /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A72183A11FD00F7AF12 /* DefaultCell.m */; };
+		03DF1ACE183A11FD00F7AF12 /* DeviceSpecificUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A75183A11FD00F7AF12 /* DeviceSpecificUI.m */; };
+		03DF1ACF183A11FD00F7AF12 /* GeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A78183A11FD00F7AF12 /* GeneralViewController.m */; };
+		03DF1AD0183A11FD00F7AF12 /* GPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A7B183A11FD00F7AF12 /* GPUViewController.m */; };
+		03DF1AD1183A11FD00F7AF12 /* iPadRootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A7D183A11FD00F7AF12 /* iPadRootTableViewController.m */; };
+		03DF1AD2183A11FD00F7AF12 /* iPhoneRootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A7F183A11FD00F7AF12 /* iPhoneRootTableViewController.m */; };
+		03DF1AD3183A11FD00F7AF12 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A80183A11FD00F7AF12 /* MainStoryboard_iPad.storyboard */; };
+		03DF1AD4183A11FD00F7AF12 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A81183A11FD00F7AF12 /* MainStoryboard_iPhone.storyboard */; };
+		03DF1AD5183A11FD00F7AF12 /* NetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A84183A11FD00F7AF12 /* NetworkViewController.m */; };
+		03DF1AD6183A11FD00F7AF12 /* iPadProcessSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A87183A11FD00F7AF12 /* iPadProcessSortViewController.m */; };
+		03DF1AD7183A11FD00F7AF12 /* iPhoneProcessSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A89183A11FD00F7AF12 /* iPhoneProcessSortViewController.m */; };
+		03DF1AD8183A11FD00F7AF12 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A8B183A11FD00F7AF12 /* ProcessCell.m */; };
+		03DF1AD9183A11FD00F7AF12 /* ProcessSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A8D183A11FD00F7AF12 /* ProcessSort.m */; };
+		03DF1ADA183A11FD00F7AF12 /* ProcessTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A8F183A11FD00F7AF12 /* ProcessTopView.m */; };
+		03DF1ADB183A11FD00F7AF12 /* ProcessTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A90183A11FD00F7AF12 /* ProcessTopView.xib */; };
+		03DF1ADC183A11FD00F7AF12 /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A92183A11FD00F7AF12 /* ProcessViewController.m */; };
+		03DF1ADD183A11FD00F7AF12 /* RAMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A95183A11FD00F7AF12 /* RAMViewController.m */; };
+		03DF1ADE183A11FD00F7AF12 /* RootCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A97183A11FD00F7AF12 /* RootCell.m */; };
+		03DF1ADF183A11FD00F7AF12 /* RootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A99183A11FD00F7AF12 /* RootTableViewController.m */; };
+		03DF1AE0183A11FD00F7AF12 /* SMSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A9B183A11FD00F7AF12 /* SMSplitViewController.m */; };
+		03DF1AE1183A11FD00F7AF12 /* StorageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A9E183A11FD00F7AF12 /* StorageViewController.m */; };
+		03DF1AE2183A11FD00F7AF12 /* AMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1AA0183A11FD00F7AF12 /* AMDevice.m */; };
+		03DF1AE3183A11FD00F7AF12 /* AMLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1AA2183A11FD00F7AF12 /* AMLogger.m */; };
+		03DF1AE4183A11FD00F7AF12 /* AMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1AA4183A11FD00F7AF12 /* AMUtils.m */; };
+		03DF1AE5183A11FD00F7AF12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1AA6183A11FD00F7AF12 /* AppDelegate.m */; };
+		03DF1AE6183A11FD00F7AF12 /* HardcodedDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1AA8183A11FD00F7AF12 /* HardcodedDeviceData.m */; };
 		03F9B3A018392DD600804E1D /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F9B39F18392DD600804E1D /* libLumberjack.a */; };
-		7003E7E9175115EF00214D6A /* RAMInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ECE2731750558100B1402A /* RAMInfo.m */; };
 		7003E7EB1751178700214D6A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7003E7EA1751178700214D6A /* SystemConfiguration.framework */; };
-		700AFACB17554446003E7D40 /* RetrievingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700AFACA17554446003E7D40 /* RetrievingCell.m */; };
-		700FDC05174E1C8D000D6848 /* RAMUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC04174E1C8D000D6848 /* RAMUsage.m */; };
-		700FDC09174E3E54000D6848 /* NetworkInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC08174E3E54000D6848 /* NetworkInfoController.m */; };
-		700FDC0C174E3E61000D6848 /* NetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC0B174E3E61000D6848 /* NetworkInfo.m */; };
-		700FDC10174E5D94000D6848 /* NetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC0F174E5D94000D6848 /* NetworkViewController.m */; };
-		700FDC1B174E7250000D6848 /* NetworkBandwidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FDC1A174E7250000D6848 /* NetworkBandwidth.m */; };
-		701190D8174D063300B5D8B1 /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 701190D7174D063300B5D8B1 /* DefaultCell.m */; };
-		701190DF174D0F6200B5D8B1 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 701190DE174D0F6100B5D8B1 /* ProcessCell.m */; };
-		701190EA174D194400B5D8B1 /* ProcessTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 701190E9174D194400B5D8B1 /* ProcessTopView.m */; };
-		701190F8174D246800B5D8B1 /* ProcessTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 701190F7174D246800B5D8B1 /* ProcessTopView.xib */; };
-		701190FB174D2F2000B5D8B1 /* iPadProcessSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701190FA174D2F2000B5D8B1 /* iPadProcessSortViewController.m */; };
-		70119102174D7DA600B5D8B1 /* RootCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70119101174D7DA600B5D8B1 /* RootCell.m */; };
-		70340CB81752A810001C1F1A /* ActiveConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 70340CB71752A810001C1F1A /* ActiveConnection.m */; };
 		703D22DC173818EC0001E3B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DB173818EC0001E3B3 /* UIKit.framework */; };
 		703D22DE173818EC0001E3B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DD173818EC0001E3B3 /* Foundation.framework */; };
 		703D22E0173818EC0001E3B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DF173818EC0001E3B3 /* CoreGraphics.framework */; };
-		703D22E6173818EC0001E3B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 703D22E4173818EC0001E3B3 /* InfoPlist.strings */; };
-		703D22E8173818EC0001E3B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 703D22E7173818EC0001E3B3 /* main.m */; };
-		703D22EC173818EC0001E3B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 703D22EB173818EC0001E3B3 /* AppDelegate.m */; };
-		703D22F5173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703D22F3173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard */; };
-		703D22F8173818EC0001E3B3 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703D22F6173818EC0001E3B3 /* MainStoryboard_iPad.storyboard */; };
-		704528AC174EAD44003DD424 /* GLTube.m in Sources */ = {isa = PBXBuildFile; fileRef = 704528AB174EAD44003DD424 /* GLTube.m */; };
-		704528BB174ED3A7003DD424 /* StorageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704528BA174ED3A7003DD424 /* StorageViewController.m */; };
-		706F717E174D8C6100E5842C /* RAMInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F717D174D8C6100E5842C /* RAMInfoController.m */; };
-		706F7184174D96E000E5842C /* RAMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F7183174D96E000E5842C /* RAMViewController.m */; };
-		70AF61321739250800EF49E9 /* CPUInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF61311739250800EF49E9 /* CPUInfo.m */; };
-		70AF61351739255700EF49E9 /* CPUInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF61341739255700EF49E9 /* CPUInfoController.m */; };
-		70AF613A17392CE600EF49E9 /* AMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF613917392CE600EF49E9 /* AMUtils.m */; };
-		70AF613D173965D500EF49E9 /* iPadRootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AF613C173965D500EF49E9 /* iPadRootTableViewController.m */; };
-		70C150B817536FFE009BEB11 /* ConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C150B717536FFE009BEB11 /* ConnectionViewController.m */; };
-		70C150BD1753739A009BEB11 /* ConnectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C150BC1753739A009BEB11 /* ConnectionCell.m */; };
-		70C150C71753B770009BEB11 /* ConnectionSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70C150C61753B770009BEB11 /* ConnectionSectionView.xib */; };
-		70C150CA1753B7D0009BEB11 /* ConnectionSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C150C91753B7D0009BEB11 /* ConnectionSectionView.m */; };
-		70C2E9261739C7B7008CB1B1 /* GeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */; };
-		70C2E9291739C8D2008CB1B1 /* AMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2E9281739C8D2008CB1B1 /* AMDevice.m */; };
-		70CD01BC1739AB870047E72F /* HardcodedDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */; };
-		70D926B11755F4C5000B3800 /* iPhoneRootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D926B01755F4C5000B3800 /* iPhoneRootTableViewController.m */; };
-		70D926B51755F595000B3800 /* RootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D926B41755F595000B3800 /* RootTableViewController.m */; };
-		70D926BA17561077000B3800 /* iPhoneProcessSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D926B917561077000B3800 /* iPhoneProcessSortViewController.m */; };
-		70D92D5B173AA91300C57DEA /* CPULoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D5A173AA91300C57DEA /* CPULoad.m */; };
-		70D92D61173B299B00C57DEA /* GPUInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D60173B299B00C57DEA /* GPUInfoController.m */; };
-		70D92D64173B29AE00C57DEA /* GPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D63173B29AE00C57DEA /* GPUViewController.m */; };
-		70D92D67173B2B4D00C57DEA /* GPUInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D92D66173B2B4D00C57DEA /* GPUInfo.m */; };
 		70D92D69173B302600C57DEA /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D92D68173B302600C57DEA /* GLKit.framework */; };
 		70D92D6B173B308200C57DEA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D92D6A173B308100C57DEA /* OpenGLES.framework */; };
-		70E19A43174B718900A411C8 /* GLDataLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A42174B718900A411C8 /* GLDataLine.m */; };
-		70E19A46174B790400A411C8 /* GLCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A45174B790400A411C8 /* GLCommon.m */; };
-		70E19A4A174BBBA400A411C8 /* ProcessInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A49174BBBA400A411C8 /* ProcessInfoController.m */; };
-		70E19A4D174BBBB600A411C8 /* ProcessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A4C174BBBB600A411C8 /* ProcessInfo.m */; };
-		70E19A53174C0FA500A411C8 /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E19A52174C0FA400A411C8 /* ProcessViewController.m */; };
-		70E437101752526F00ED3876 /* DeviceSpecificUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4370F1752526F00ED3876 /* DeviceSpecificUI.m */; };
-		70ECE27C175058C300B1402A /* GLBubbleEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ECE27B175058C300B1402A /* GLBubbleEffect.m */; };
-		70ECE27F1750596C00B1402A /* GLEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ECE27E1750596C00B1402A /* GLEffect.m */; };
-		70ECE28217508E4900B1402A /* GLBubbleEffect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 70ECE276175058A500B1402A /* GLBubbleEffect.vsh */; };
-		70ECE28317508E4900B1402A /* GLBubbleEffect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 70ECE278175058B200B1402A /* GLBubbleEffect.fsh */; };
-		70F1F16D1739712D007224AD /* CPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F16C1739712C007224AD /* CPUViewController.m */; };
-		70F1F17117397CEC007224AD /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17017397CEC007224AD /* DeviceInfo.m */; };
-		70F1F17417397CFE007224AD /* DeviceInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F1F17317397CFE007224AD /* DeviceInfoController.m */; };
-		70F4D7D8173D147F007E58E2 /* CPULoadFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F4D7D7173D147F007E58E2 /* CPULoadFilter.m */; };
-		70FC38E4174F48590085EBC3 /* StorageInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FC38E3174F48590085EBC3 /* StorageInfoController.m */; };
-		70FC38E7174F48680085EBC3 /* StorageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FC38E6174F48680085EBC3 /* StorageInfo.m */; };
 		70FC38E9174F4F380085EBC3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FC38E8174F4F380085EBC3 /* MediaPlayer.framework */; };
 		70FC38EB174F51870085EBC3 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FC38EA174F51870085EBC3 /* AssetsLibrary.framework */; };
 		70FC38ED174F73F80085EBC3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FC38EC174F73F80085EBC3 /* CoreMedia.framework */; };
 		70FC38EF174F74410085EBC3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FC38EE174F74400085EBC3 /* AVFoundation.framework */; };
-		70FC38F3174F79E00085EBC3 /* BatteryInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FC38F2174F79E00085EBC3 /* BatteryInfoController.m */; };
-		70FC38F6174F79F00085EBC3 /* BatteryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FC38F5174F79F00085EBC3 /* BatteryInfo.m */; };
-		70FC38FA174F83530085EBC3 /* BatteryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FC38F9174F83530085EBC3 /* BatteryViewController.m */; };
-		70FE9F11173BC5830056B891 /* GLLineGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FE9F10173BC5830056B891 /* GLLineGraph.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,8 +106,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		033D9647182E94AA009477E7 /* SMSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSplitViewController.h; sourceTree = "<group>"; };
-		033D9648182E94AA009477E7 /* SMSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSplitViewController.m; sourceTree = "<group>"; };
 		033D9650182EC6B6009477E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SystemMonitor/Images.xcassets; sourceTree = "<group>"; };
 		03724CD4182D7E3700221FE8 /* SystemMonitor Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SystemMonitor Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03724CD5182D7E3700221FE8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -119,145 +115,147 @@
 		03724CE7182D7EA200221FE8 /* AMUtils_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtils_Tests.m; sourceTree = "<group>"; };
 		03DA2ABC183930EA0014C322 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		03DA2ABF1839310A0014C322 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		03DA2AC11839321A0014C322 /* AMLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMLogger.m; sourceTree = "<group>"; };
-		03DF1A0E183A021D00F7AF12 /* arrow-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-up.png"; sourceTree = "<group>"; };
-		03F9B396183913B100804E1D /* ProcessSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessSort.m; sourceTree = "<group>"; };
+		03DF1A11183A11E700F7AF12 /* arrow-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-up.png"; sourceTree = "<group>"; };
+		03DF1A13183A11E700F7AF12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		03DF1A14183A11E700F7AF12 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		03DF1A15183A11E700F7AF12 /* SystemMonitor-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SystemMonitor-Info.plist"; sourceTree = "<group>"; };
+		03DF1A16183A11E700F7AF12 /* SystemMonitor-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SystemMonitor-Prefix.pch"; sourceTree = "<group>"; };
+		03DF1A1C183A11FD00F7AF12 /* BatteryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatteryInfo.h; sourceTree = "<group>"; };
+		03DF1A1D183A11FD00F7AF12 /* BatteryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatteryInfo.m; sourceTree = "<group>"; };
+		03DF1A1E183A11FD00F7AF12 /* BatteryInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatteryInfoController.h; sourceTree = "<group>"; };
+		03DF1A1F183A11FD00F7AF12 /* BatteryInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatteryInfoController.m; sourceTree = "<group>"; };
+		03DF1A21183A11FD00F7AF12 /* CPUInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUInfo.h; sourceTree = "<group>"; };
+		03DF1A22183A11FD00F7AF12 /* CPUInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUInfo.m; sourceTree = "<group>"; };
+		03DF1A23183A11FD00F7AF12 /* CPUInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUInfoController.h; sourceTree = "<group>"; };
+		03DF1A24183A11FD00F7AF12 /* CPUInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUInfoController.m; sourceTree = "<group>"; };
+		03DF1A25183A11FD00F7AF12 /* CPULoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoad.h; sourceTree = "<group>"; };
+		03DF1A26183A11FD00F7AF12 /* CPULoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPULoad.m; sourceTree = "<group>"; };
+		03DF1A27183A11FD00F7AF12 /* CPULoadFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoadFilter.h; sourceTree = "<group>"; };
+		03DF1A28183A11FD00F7AF12 /* CPULoadFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPULoadFilter.m; sourceTree = "<group>"; };
+		03DF1A2A183A11FD00F7AF12 /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
+		03DF1A2B183A11FD00F7AF12 /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
+		03DF1A2C183A11FD00F7AF12 /* DeviceInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfoController.h; sourceTree = "<group>"; };
+		03DF1A2D183A11FD00F7AF12 /* DeviceInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoController.m; sourceTree = "<group>"; };
+		03DF1A2F183A11FD00F7AF12 /* GLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCommon.h; sourceTree = "<group>"; };
+		03DF1A30183A11FD00F7AF12 /* GLCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCommon.m; sourceTree = "<group>"; };
+		03DF1A31183A11FD00F7AF12 /* GLEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLEffect.h; sourceTree = "<group>"; };
+		03DF1A32183A11FD00F7AF12 /* GLEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLEffect.m; sourceTree = "<group>"; };
+		03DF1A34183A11FD00F7AF12 /* GLDataLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLDataLine.h; sourceTree = "<group>"; };
+		03DF1A35183A11FD00F7AF12 /* GLDataLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLDataLine.m; sourceTree = "<group>"; };
+		03DF1A36183A11FD00F7AF12 /* GLLineGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLLineGraph.h; sourceTree = "<group>"; };
+		03DF1A37183A11FD00F7AF12 /* GLLineGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLLineGraph.m; sourceTree = "<group>"; };
+		03DF1A3A183A11FD00F7AF12 /* GLBubbleEffect.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLBubbleEffect.fsh; sourceTree = "<group>"; };
+		03DF1A3B183A11FD00F7AF12 /* GLBubbleEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBubbleEffect.h; sourceTree = "<group>"; };
+		03DF1A3C183A11FD00F7AF12 /* GLBubbleEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLBubbleEffect.m; sourceTree = "<group>"; };
+		03DF1A3D183A11FD00F7AF12 /* GLBubbleEffect.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLBubbleEffect.vsh; sourceTree = "<group>"; };
+		03DF1A3E183A11FD00F7AF12 /* GLTube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTube.h; sourceTree = "<group>"; };
+		03DF1A3F183A11FD00F7AF12 /* GLTube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLTube.m; sourceTree = "<group>"; };
+		03DF1A41183A11FD00F7AF12 /* GPUInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUInfo.h; sourceTree = "<group>"; };
+		03DF1A42183A11FD00F7AF12 /* GPUInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUInfo.m; sourceTree = "<group>"; };
+		03DF1A43183A11FD00F7AF12 /* GPUInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUInfoController.h; sourceTree = "<group>"; };
+		03DF1A44183A11FD00F7AF12 /* GPUInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUInfoController.m; sourceTree = "<group>"; };
+		03DF1A46183A11FD00F7AF12 /* ActiveConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveConnection.h; sourceTree = "<group>"; };
+		03DF1A47183A11FD00F7AF12 /* ActiveConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveConnection.m; sourceTree = "<group>"; };
+		03DF1A48183A11FD00F7AF12 /* bsd_var.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bsd_var.h; sourceTree = "<group>"; };
+		03DF1A49183A11FD00F7AF12 /* NetworkBandwidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkBandwidth.h; sourceTree = "<group>"; };
+		03DF1A4A183A11FD00F7AF12 /* NetworkBandwidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkBandwidth.m; sourceTree = "<group>"; };
+		03DF1A4B183A11FD00F7AF12 /* NetworkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInfo.h; sourceTree = "<group>"; };
+		03DF1A4C183A11FD00F7AF12 /* NetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInfo.m; sourceTree = "<group>"; };
+		03DF1A4D183A11FD00F7AF12 /* NetworkInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInfoController.h; sourceTree = "<group>"; };
+		03DF1A4E183A11FD00F7AF12 /* NetworkInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInfoController.m; sourceTree = "<group>"; };
+		03DF1A50183A11FD00F7AF12 /* ProcessInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessInfo.h; sourceTree = "<group>"; };
+		03DF1A51183A11FD00F7AF12 /* ProcessInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessInfo.m; sourceTree = "<group>"; };
+		03DF1A52183A11FD00F7AF12 /* ProcessInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessInfoController.h; sourceTree = "<group>"; };
+		03DF1A53183A11FD00F7AF12 /* ProcessInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessInfoController.m; sourceTree = "<group>"; };
+		03DF1A55183A11FD00F7AF12 /* RAMInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfo.h; sourceTree = "<group>"; };
+		03DF1A56183A11FD00F7AF12 /* RAMInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMInfo.m; sourceTree = "<group>"; };
+		03DF1A57183A11FD00F7AF12 /* RAMInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfoController.h; sourceTree = "<group>"; };
+		03DF1A58183A11FD00F7AF12 /* RAMInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMInfoController.m; sourceTree = "<group>"; };
+		03DF1A59183A11FD00F7AF12 /* RAMUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMUsage.h; sourceTree = "<group>"; };
+		03DF1A5A183A11FD00F7AF12 /* RAMUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMUsage.m; sourceTree = "<group>"; };
+		03DF1A5C183A11FD00F7AF12 /* StorageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageInfo.h; sourceTree = "<group>"; };
+		03DF1A5D183A11FD00F7AF12 /* StorageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageInfo.m; sourceTree = "<group>"; };
+		03DF1A5E183A11FD00F7AF12 /* StorageInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageInfoController.h; sourceTree = "<group>"; };
+		03DF1A5F183A11FD00F7AF12 /* StorageInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageInfoController.m; sourceTree = "<group>"; };
+		03DF1A62183A11FD00F7AF12 /* BatteryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatteryViewController.h; sourceTree = "<group>"; };
+		03DF1A63183A11FD00F7AF12 /* BatteryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatteryViewController.m; sourceTree = "<group>"; };
+		03DF1A65183A11FD00F7AF12 /* ConnectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionCell.h; sourceTree = "<group>"; };
+		03DF1A66183A11FD00F7AF12 /* ConnectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionCell.m; sourceTree = "<group>"; };
+		03DF1A67183A11FD00F7AF12 /* ConnectionSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionSectionView.h; sourceTree = "<group>"; };
+		03DF1A68183A11FD00F7AF12 /* ConnectionSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionSectionView.m; sourceTree = "<group>"; };
+		03DF1A69183A11FD00F7AF12 /* ConnectionSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionSectionView.xib; sourceTree = "<group>"; };
+		03DF1A6A183A11FD00F7AF12 /* ConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionViewController.h; sourceTree = "<group>"; };
+		03DF1A6B183A11FD00F7AF12 /* ConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionViewController.m; sourceTree = "<group>"; };
+		03DF1A6C183A11FD00F7AF12 /* RetrievingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetrievingCell.h; sourceTree = "<group>"; };
+		03DF1A6D183A11FD00F7AF12 /* RetrievingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetrievingCell.m; sourceTree = "<group>"; };
+		03DF1A6F183A11FD00F7AF12 /* CPUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUViewController.h; sourceTree = "<group>"; };
+		03DF1A70183A11FD00F7AF12 /* CPUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUViewController.m; sourceTree = "<group>"; };
+		03DF1A71183A11FD00F7AF12 /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCell.h; sourceTree = "<group>"; };
+		03DF1A72183A11FD00F7AF12 /* DefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCell.m; sourceTree = "<group>"; };
+		03DF1A74183A11FD00F7AF12 /* DeviceSpecificUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSpecificUI.h; sourceTree = "<group>"; };
+		03DF1A75183A11FD00F7AF12 /* DeviceSpecificUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSpecificUI.m; sourceTree = "<group>"; };
+		03DF1A77183A11FD00F7AF12 /* GeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralViewController.h; sourceTree = "<group>"; };
+		03DF1A78183A11FD00F7AF12 /* GeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralViewController.m; sourceTree = "<group>"; };
+		03DF1A7A183A11FD00F7AF12 /* GPUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUViewController.h; sourceTree = "<group>"; };
+		03DF1A7B183A11FD00F7AF12 /* GPUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUViewController.m; sourceTree = "<group>"; };
+		03DF1A7C183A11FD00F7AF12 /* iPadRootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadRootTableViewController.h; sourceTree = "<group>"; };
+		03DF1A7D183A11FD00F7AF12 /* iPadRootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadRootTableViewController.m; sourceTree = "<group>"; };
+		03DF1A7E183A11FD00F7AF12 /* iPhoneRootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneRootTableViewController.h; sourceTree = "<group>"; };
+		03DF1A7F183A11FD00F7AF12 /* iPhoneRootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneRootTableViewController.m; sourceTree = "<group>"; };
+		03DF1A80183A11FD00F7AF12 /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		03DF1A81183A11FD00F7AF12 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		03DF1A83183A11FD00F7AF12 /* NetworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkViewController.h; sourceTree = "<group>"; };
+		03DF1A84183A11FD00F7AF12 /* NetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkViewController.m; sourceTree = "<group>"; };
+		03DF1A86183A11FD00F7AF12 /* iPadProcessSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProcessSortViewController.h; sourceTree = "<group>"; };
+		03DF1A87183A11FD00F7AF12 /* iPadProcessSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProcessSortViewController.m; sourceTree = "<group>"; };
+		03DF1A88183A11FD00F7AF12 /* iPhoneProcessSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneProcessSortViewController.h; sourceTree = "<group>"; };
+		03DF1A89183A11FD00F7AF12 /* iPhoneProcessSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneProcessSortViewController.m; sourceTree = "<group>"; };
+		03DF1A8A183A11FD00F7AF12 /* ProcessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessCell.h; sourceTree = "<group>"; };
+		03DF1A8B183A11FD00F7AF12 /* ProcessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessCell.m; sourceTree = "<group>"; };
+		03DF1A8C183A11FD00F7AF12 /* ProcessSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessSort.h; sourceTree = "<group>"; };
+		03DF1A8D183A11FD00F7AF12 /* ProcessSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessSort.m; sourceTree = "<group>"; };
+		03DF1A8E183A11FD00F7AF12 /* ProcessTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessTopView.h; sourceTree = "<group>"; };
+		03DF1A8F183A11FD00F7AF12 /* ProcessTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessTopView.m; sourceTree = "<group>"; };
+		03DF1A90183A11FD00F7AF12 /* ProcessTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessTopView.xib; sourceTree = "<group>"; };
+		03DF1A91183A11FD00F7AF12 /* ProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessViewController.h; sourceTree = "<group>"; };
+		03DF1A92183A11FD00F7AF12 /* ProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessViewController.m; sourceTree = "<group>"; };
+		03DF1A94183A11FD00F7AF12 /* RAMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMViewController.h; sourceTree = "<group>"; };
+		03DF1A95183A11FD00F7AF12 /* RAMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMViewController.m; sourceTree = "<group>"; };
+		03DF1A96183A11FD00F7AF12 /* RootCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootCell.h; sourceTree = "<group>"; };
+		03DF1A97183A11FD00F7AF12 /* RootCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootCell.m; sourceTree = "<group>"; };
+		03DF1A98183A11FD00F7AF12 /* RootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTableViewController.h; sourceTree = "<group>"; };
+		03DF1A99183A11FD00F7AF12 /* RootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTableViewController.m; sourceTree = "<group>"; };
+		03DF1A9A183A11FD00F7AF12 /* SMSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSplitViewController.h; sourceTree = "<group>"; };
+		03DF1A9B183A11FD00F7AF12 /* SMSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSplitViewController.m; sourceTree = "<group>"; };
+		03DF1A9D183A11FD00F7AF12 /* StorageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageViewController.h; sourceTree = "<group>"; };
+		03DF1A9E183A11FD00F7AF12 /* StorageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageViewController.m; sourceTree = "<group>"; };
+		03DF1A9F183A11FD00F7AF12 /* AMDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDevice.h; path = SystemMonitor/AMDevice.h; sourceTree = SOURCE_ROOT; };
+		03DF1AA0183A11FD00F7AF12 /* AMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDevice.m; path = SystemMonitor/AMDevice.m; sourceTree = SOURCE_ROOT; };
+		03DF1AA1183A11FD00F7AF12 /* AMLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMLogger.h; path = SystemMonitor/AMLogger.h; sourceTree = SOURCE_ROOT; };
+		03DF1AA2183A11FD00F7AF12 /* AMLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMLogger.m; path = SystemMonitor/AMLogger.m; sourceTree = SOURCE_ROOT; };
+		03DF1AA3183A11FD00F7AF12 /* AMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMUtils.h; path = SystemMonitor/AMUtils.h; sourceTree = SOURCE_ROOT; };
+		03DF1AA4183A11FD00F7AF12 /* AMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMUtils.m; path = SystemMonitor/AMUtils.m; sourceTree = SOURCE_ROOT; };
+		03DF1AA5183A11FD00F7AF12 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SystemMonitor/AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		03DF1AA6183A11FD00F7AF12 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SystemMonitor/AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		03DF1AA7183A11FD00F7AF12 /* HardcodedDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HardcodedDeviceData.h; path = SystemMonitor/HardcodedDeviceData.h; sourceTree = SOURCE_ROOT; };
+		03DF1AA8183A11FD00F7AF12 /* HardcodedDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HardcodedDeviceData.m; path = SystemMonitor/HardcodedDeviceData.m; sourceTree = SOURCE_ROOT; };
 		03F9B39B18392D7500804E1D /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
 		03F9B39D18392D7500804E1D /* HockeySDK.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = HockeySDK.xcconfig; sourceTree = "<group>"; };
 		03F9B39E18392D7500804E1D /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
 		03F9B39F18392DD600804E1D /* libLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLumberjack.a; path = 3rdParty/Lumberjack/libLumberjack.a; sourceTree = "<group>"; };
 		7003E7EA1751178700214D6A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		700AFAC917554446003E7D40 /* RetrievingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetrievingCell.h; sourceTree = "<group>"; };
-		700AFACA17554446003E7D40 /* RetrievingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetrievingCell.m; sourceTree = "<group>"; };
-		700FDC03174E1C8D000D6848 /* RAMUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMUsage.h; sourceTree = "<group>"; };
-		700FDC04174E1C8D000D6848 /* RAMUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMUsage.m; sourceTree = "<group>"; };
-		700FDC07174E3E54000D6848 /* NetworkInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInfoController.h; sourceTree = "<group>"; };
-		700FDC08174E3E54000D6848 /* NetworkInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInfoController.m; sourceTree = "<group>"; };
-		700FDC0A174E3E61000D6848 /* NetworkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInfo.h; sourceTree = "<group>"; };
-		700FDC0B174E3E61000D6848 /* NetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInfo.m; sourceTree = "<group>"; };
-		700FDC0E174E5D94000D6848 /* NetworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkViewController.h; sourceTree = "<group>"; };
-		700FDC0F174E5D94000D6848 /* NetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkViewController.m; sourceTree = "<group>"; };
-		700FDC19174E7250000D6848 /* NetworkBandwidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkBandwidth.h; sourceTree = "<group>"; };
-		700FDC1A174E7250000D6848 /* NetworkBandwidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkBandwidth.m; sourceTree = "<group>"; };
-		701190D6174D063300B5D8B1 /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCell.h; sourceTree = "<group>"; };
-		701190D7174D063300B5D8B1 /* DefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCell.m; sourceTree = "<group>"; };
-		701190DD174D0F6100B5D8B1 /* ProcessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessCell.h; sourceTree = "<group>"; };
-		701190DE174D0F6100B5D8B1 /* ProcessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessCell.m; sourceTree = "<group>"; };
-		701190E8174D194400B5D8B1 /* ProcessTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessTopView.h; sourceTree = "<group>"; };
-		701190E9174D194400B5D8B1 /* ProcessTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessTopView.m; sourceTree = "<group>"; };
-		701190F7174D246800B5D8B1 /* ProcessTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessTopView.xib; sourceTree = "<group>"; };
-		701190F9174D2F1F00B5D8B1 /* iPadProcessSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProcessSortViewController.h; sourceTree = "<group>"; };
-		701190FA174D2F2000B5D8B1 /* iPadProcessSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProcessSortViewController.m; sourceTree = "<group>"; };
-		70119100174D7DA500B5D8B1 /* RootCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootCell.h; sourceTree = "<group>"; };
-		70119101174D7DA600B5D8B1 /* RootCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootCell.m; sourceTree = "<group>"; };
 		7030C0B41764EDA30072DC8D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		70340CB61752A810001C1F1A /* ActiveConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveConnection.h; sourceTree = "<group>"; };
-		70340CB71752A810001C1F1A /* ActiveConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveConnection.m; sourceTree = "<group>"; };
-		70340CB91752B47D001C1F1A /* bsd_var.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bsd_var.h; sourceTree = "<group>"; };
 		703D22D8173818EC0001E3B3 /* SystemMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SystemMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		703D22DB173818EC0001E3B3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		703D22DD173818EC0001E3B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		703D22DF173818EC0001E3B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		703D22E3173818EC0001E3B3 /* SystemMonitor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SystemMonitor-Info.plist"; sourceTree = "<group>"; };
-		703D22E5173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		703D22E7173818EC0001E3B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		703D22E9173818EC0001E3B3 /* SystemMonitor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SystemMonitor-Prefix.pch"; sourceTree = "<group>"; };
-		703D22EA173818EC0001E3B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		703D22EB173818EC0001E3B3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		703D22F4173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		703D22F7173818EC0001E3B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		703D230D173818EC0001E3B3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		704528AA174EAD44003DD424 /* GLTube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTube.h; sourceTree = "<group>"; };
-		704528AB174EAD44003DD424 /* GLTube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLTube.m; sourceTree = "<group>"; };
-		704528B9174ED3A7003DD424 /* StorageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageViewController.h; sourceTree = "<group>"; };
-		704528BA174ED3A7003DD424 /* StorageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageViewController.m; sourceTree = "<group>"; };
-		706F717C174D8C6100E5842C /* RAMInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfoController.h; sourceTree = "<group>"; };
-		706F717D174D8C6100E5842C /* RAMInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMInfoController.m; sourceTree = "<group>"; };
-		706F717F174D8C7700E5842C /* RAMInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfo.h; sourceTree = "<group>"; };
-		706F7182174D96E000E5842C /* RAMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMViewController.h; sourceTree = "<group>"; };
-		706F7183174D96E000E5842C /* RAMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMViewController.m; sourceTree = "<group>"; };
-		70AF61301739250800EF49E9 /* CPUInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUInfo.h; sourceTree = "<group>"; };
-		70AF61311739250800EF49E9 /* CPUInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUInfo.m; sourceTree = "<group>"; };
-		70AF61331739255700EF49E9 /* CPUInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUInfoController.h; sourceTree = "<group>"; };
-		70AF61341739255700EF49E9 /* CPUInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUInfoController.m; sourceTree = "<group>"; };
-		70AF613817392CE600EF49E9 /* AMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMUtils.h; sourceTree = "<group>"; };
-		70AF613917392CE600EF49E9 /* AMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtils.m; sourceTree = "<group>"; };
-		70AF613B173965D400EF49E9 /* iPadRootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadRootTableViewController.h; sourceTree = "<group>"; };
-		70AF613C173965D500EF49E9 /* iPadRootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadRootTableViewController.m; sourceTree = "<group>"; };
-		70C150B617536FFE009BEB11 /* ConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionViewController.h; sourceTree = "<group>"; };
-		70C150B717536FFE009BEB11 /* ConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionViewController.m; sourceTree = "<group>"; };
-		70C150BB1753739A009BEB11 /* ConnectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionCell.h; sourceTree = "<group>"; };
-		70C150BC1753739A009BEB11 /* ConnectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionCell.m; sourceTree = "<group>"; };
-		70C150C61753B770009BEB11 /* ConnectionSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionSectionView.xib; sourceTree = "<group>"; };
-		70C150C81753B7D0009BEB11 /* ConnectionSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionSectionView.h; sourceTree = "<group>"; };
-		70C150C91753B7D0009BEB11 /* ConnectionSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionSectionView.m; sourceTree = "<group>"; };
-		70C2E9241739C7B6008CB1B1 /* GeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralViewController.h; sourceTree = "<group>"; };
-		70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralViewController.m; sourceTree = "<group>"; };
-		70C2E9271739C8D1008CB1B1 /* AMDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDevice.h; sourceTree = "<group>"; };
-		70C2E9281739C8D2008CB1B1 /* AMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDevice.m; sourceTree = "<group>"; };
-		70CD01BA1739AB870047E72F /* HardcodedDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardcodedDeviceData.h; sourceTree = "<group>"; };
-		70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HardcodedDeviceData.m; sourceTree = "<group>"; };
-		70D926AF1755F4C5000B3800 /* iPhoneRootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneRootTableViewController.h; sourceTree = "<group>"; };
-		70D926B01755F4C5000B3800 /* iPhoneRootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneRootTableViewController.m; sourceTree = "<group>"; };
-		70D926B31755F595000B3800 /* RootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTableViewController.h; sourceTree = "<group>"; };
-		70D926B41755F595000B3800 /* RootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTableViewController.m; sourceTree = "<group>"; };
-		70D926B817561077000B3800 /* iPhoneProcessSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneProcessSortViewController.h; sourceTree = "<group>"; };
-		70D926B917561077000B3800 /* iPhoneProcessSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneProcessSortViewController.m; sourceTree = "<group>"; };
-		70D926BB1756109F000B3800 /* ProcessSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProcessSort.h; sourceTree = "<group>"; };
-		70D92D59173AA91300C57DEA /* CPULoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoad.h; sourceTree = "<group>"; };
-		70D92D5A173AA91300C57DEA /* CPULoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPULoad.m; sourceTree = "<group>"; };
-		70D92D5F173B299B00C57DEA /* GPUInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUInfoController.h; sourceTree = "<group>"; };
-		70D92D60173B299B00C57DEA /* GPUInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUInfoController.m; sourceTree = "<group>"; };
-		70D92D62173B29AE00C57DEA /* GPUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUViewController.h; sourceTree = "<group>"; };
-		70D92D63173B29AE00C57DEA /* GPUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUViewController.m; sourceTree = "<group>"; };
-		70D92D65173B2B4D00C57DEA /* GPUInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUInfo.h; sourceTree = "<group>"; };
-		70D92D66173B2B4D00C57DEA /* GPUInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUInfo.m; sourceTree = "<group>"; };
 		70D92D68173B302600C57DEA /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		70D92D6A173B308100C57DEA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		70E19A41174B718900A411C8 /* GLDataLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLDataLine.h; sourceTree = "<group>"; };
-		70E19A42174B718900A411C8 /* GLDataLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLDataLine.m; sourceTree = "<group>"; };
-		70E19A44174B790400A411C8 /* GLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCommon.h; sourceTree = "<group>"; };
-		70E19A45174B790400A411C8 /* GLCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCommon.m; sourceTree = "<group>"; };
-		70E19A48174BBBA400A411C8 /* ProcessInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessInfoController.h; sourceTree = "<group>"; };
-		70E19A49174BBBA400A411C8 /* ProcessInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessInfoController.m; sourceTree = "<group>"; };
-		70E19A4B174BBBB600A411C8 /* ProcessInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessInfo.h; sourceTree = "<group>"; };
-		70E19A4C174BBBB600A411C8 /* ProcessInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessInfo.m; sourceTree = "<group>"; };
-		70E19A51174C0FA400A411C8 /* ProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessViewController.h; sourceTree = "<group>"; };
-		70E19A52174C0FA400A411C8 /* ProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessViewController.m; sourceTree = "<group>"; };
-		70E437061752514500ED3876 /* DeviceSpecificUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSpecificUI.h; sourceTree = "<group>"; };
-		70E4370F1752526F00ED3876 /* DeviceSpecificUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSpecificUI.m; sourceTree = "<group>"; };
-		70ECE2731750558100B1402A /* RAMInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMInfo.m; sourceTree = "<group>"; };
-		70ECE276175058A500B1402A /* GLBubbleEffect.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLBubbleEffect.vsh; sourceTree = "<group>"; };
-		70ECE278175058B200B1402A /* GLBubbleEffect.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GLBubbleEffect.fsh; sourceTree = "<group>"; };
-		70ECE27A175058C300B1402A /* GLBubbleEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBubbleEffect.h; sourceTree = "<group>"; };
-		70ECE27B175058C300B1402A /* GLBubbleEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLBubbleEffect.m; sourceTree = "<group>"; };
-		70ECE27D1750596C00B1402A /* GLEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLEffect.h; sourceTree = "<group>"; };
-		70ECE27E1750596C00B1402A /* GLEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLEffect.m; sourceTree = "<group>"; };
-		70F1F16B1739712C007224AD /* CPUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUViewController.h; sourceTree = "<group>"; };
-		70F1F16C1739712C007224AD /* CPUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUViewController.m; sourceTree = "<group>"; };
-		70F1F16F17397CEC007224AD /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
-		70F1F17017397CEC007224AD /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
-		70F1F17217397CFE007224AD /* DeviceInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfoController.h; sourceTree = "<group>"; };
-		70F1F17317397CFE007224AD /* DeviceInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoController.m; sourceTree = "<group>"; };
-		70F1F18F17398C37007224AD /* AMLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMLogger.h; sourceTree = "<group>"; };
-		70F4D7D6173D147F007E58E2 /* CPULoadFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPULoadFilter.h; sourceTree = "<group>"; };
-		70F4D7D7173D147F007E58E2 /* CPULoadFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPULoadFilter.m; sourceTree = "<group>"; };
-		70FC38E2174F48590085EBC3 /* StorageInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageInfoController.h; sourceTree = "<group>"; };
-		70FC38E3174F48590085EBC3 /* StorageInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageInfoController.m; sourceTree = "<group>"; };
-		70FC38E5174F48680085EBC3 /* StorageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageInfo.h; sourceTree = "<group>"; };
-		70FC38E6174F48680085EBC3 /* StorageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageInfo.m; sourceTree = "<group>"; };
 		70FC38E8174F4F380085EBC3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		70FC38EA174F51870085EBC3 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		70FC38EC174F73F80085EBC3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		70FC38EE174F74400085EBC3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		70FC38F1174F79E00085EBC3 /* BatteryInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatteryInfoController.h; sourceTree = "<group>"; };
-		70FC38F2174F79E00085EBC3 /* BatteryInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatteryInfoController.m; sourceTree = "<group>"; };
-		70FC38F4174F79F00085EBC3 /* BatteryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatteryInfo.h; sourceTree = "<group>"; };
-		70FC38F5174F79F00085EBC3 /* BatteryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatteryInfo.m; sourceTree = "<group>"; };
-		70FC38F8174F83530085EBC3 /* BatteryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatteryViewController.h; sourceTree = "<group>"; };
-		70FC38F9174F83530085EBC3 /* BatteryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatteryViewController.m; sourceTree = "<group>"; };
-		70FE9F0F173BC5830056B891 /* GLLineGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLLineGraph.h; sourceTree = "<group>"; };
-		70FE9F10173BC5830056B891 /* GLLineGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLLineGraph.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +313,312 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		03DF1A10183A11E700F7AF12 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A11183A11E700F7AF12 /* arrow-up.png */,
+				03DF1A12183A11E700F7AF12 /* InfoPlist.strings */,
+				03DF1A14183A11E700F7AF12 /* main.m */,
+				03DF1A15183A11E700F7AF12 /* SystemMonitor-Info.plist */,
+				03DF1A16183A11E700F7AF12 /* SystemMonitor-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			path = "SystemMonitor/Supporting Files";
+			sourceTree = "<group>";
+		};
+		03DF1A1B183A11FD00F7AF12 /* Battery */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A1C183A11FD00F7AF12 /* BatteryInfo.h */,
+				03DF1A1D183A11FD00F7AF12 /* BatteryInfo.m */,
+				03DF1A1E183A11FD00F7AF12 /* BatteryInfoController.h */,
+				03DF1A1F183A11FD00F7AF12 /* BatteryInfoController.m */,
+			);
+			name = Battery;
+			path = SystemMonitor/Battery;
+			sourceTree = SOURCE_ROOT;
+		};
+		03DF1A20183A11FD00F7AF12 /* CPU */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A21183A11FD00F7AF12 /* CPUInfo.h */,
+				03DF1A22183A11FD00F7AF12 /* CPUInfo.m */,
+				03DF1A23183A11FD00F7AF12 /* CPUInfoController.h */,
+				03DF1A24183A11FD00F7AF12 /* CPUInfoController.m */,
+				03DF1A25183A11FD00F7AF12 /* CPULoad.h */,
+				03DF1A26183A11FD00F7AF12 /* CPULoad.m */,
+				03DF1A27183A11FD00F7AF12 /* CPULoadFilter.h */,
+				03DF1A28183A11FD00F7AF12 /* CPULoadFilter.m */,
+			);
+			name = CPU;
+			path = SystemMonitor/CPU;
+			sourceTree = SOURCE_ROOT;
+		};
+		03DF1A29183A11FD00F7AF12 /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A2A183A11FD00F7AF12 /* DeviceInfo.h */,
+				03DF1A2B183A11FD00F7AF12 /* DeviceInfo.m */,
+				03DF1A2C183A11FD00F7AF12 /* DeviceInfoController.h */,
+				03DF1A2D183A11FD00F7AF12 /* DeviceInfoController.m */,
+			);
+			name = Device;
+			path = SystemMonitor/Device;
+			sourceTree = SOURCE_ROOT;
+		};
+		03DF1A2E183A11FD00F7AF12 /* GL */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A2F183A11FD00F7AF12 /* GLCommon.h */,
+				03DF1A30183A11FD00F7AF12 /* GLCommon.m */,
+				03DF1A31183A11FD00F7AF12 /* GLEffect.h */,
+				03DF1A32183A11FD00F7AF12 /* GLEffect.m */,
+				03DF1A33183A11FD00F7AF12 /* GLGraph */,
+				03DF1A38183A11FD00F7AF12 /* GLTube */,
+			);
+			name = GL;
+			path = SystemMonitor/GL;
+			sourceTree = SOURCE_ROOT;
+		};
+		03DF1A33183A11FD00F7AF12 /* GLGraph */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A34183A11FD00F7AF12 /* GLDataLine.h */,
+				03DF1A35183A11FD00F7AF12 /* GLDataLine.m */,
+				03DF1A36183A11FD00F7AF12 /* GLLineGraph.h */,
+				03DF1A37183A11FD00F7AF12 /* GLLineGraph.m */,
+			);
+			path = GLGraph;
+			sourceTree = "<group>";
+		};
+		03DF1A38183A11FD00F7AF12 /* GLTube */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A39183A11FD00F7AF12 /* BubbleEffect */,
+				03DF1A3E183A11FD00F7AF12 /* GLTube.h */,
+				03DF1A3F183A11FD00F7AF12 /* GLTube.m */,
+			);
+			path = GLTube;
+			sourceTree = "<group>";
+		};
+		03DF1A39183A11FD00F7AF12 /* BubbleEffect */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A3A183A11FD00F7AF12 /* GLBubbleEffect.fsh */,
+				03DF1A3B183A11FD00F7AF12 /* GLBubbleEffect.h */,
+				03DF1A3C183A11FD00F7AF12 /* GLBubbleEffect.m */,
+				03DF1A3D183A11FD00F7AF12 /* GLBubbleEffect.vsh */,
+			);
+			path = BubbleEffect;
+			sourceTree = "<group>";
+		};
+		03DF1A40183A11FD00F7AF12 /* GPU */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A41183A11FD00F7AF12 /* GPUInfo.h */,
+				03DF1A42183A11FD00F7AF12 /* GPUInfo.m */,
+				03DF1A43183A11FD00F7AF12 /* GPUInfoController.h */,
+				03DF1A44183A11FD00F7AF12 /* GPUInfoController.m */,
+			);
+			name = GPU;
+			path = SystemMonitor/GPU;
+			sourceTree = SOURCE_ROOT;
+		};
+		03DF1A45183A11FD00F7AF12 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A46183A11FD00F7AF12 /* ActiveConnection.h */,
+				03DF1A47183A11FD00F7AF12 /* ActiveConnection.m */,
+				03DF1A48183A11FD00F7AF12 /* bsd_var.h */,
+				03DF1A49183A11FD00F7AF12 /* NetworkBandwidth.h */,
+				03DF1A4A183A11FD00F7AF12 /* NetworkBandwidth.m */,
+				03DF1A4B183A11FD00F7AF12 /* NetworkInfo.h */,
+				03DF1A4C183A11FD00F7AF12 /* NetworkInfo.m */,
+				03DF1A4D183A11FD00F7AF12 /* NetworkInfoController.h */,
+				03DF1A4E183A11FD00F7AF12 /* NetworkInfoController.m */,
+			);
+			name = Network;
+			path = SystemMonitor/Network;
+			sourceTree = SOURCE_ROOT;
+		};
+		03DF1A4F183A11FD00F7AF12 /* Process */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A50183A11FD00F7AF12 /* ProcessInfo.h */,
+				03DF1A51183A11FD00F7AF12 /* ProcessInfo.m */,
+				03DF1A52183A11FD00F7AF12 /* ProcessInfoController.h */,
+				03DF1A53183A11FD00F7AF12 /* ProcessInfoController.m */,
+			);
+			name = Process;
+			path = SystemMonitor/Process;
+			sourceTree = SOURCE_ROOT;
+		};
+		03DF1A54183A11FD00F7AF12 /* RAM */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A55183A11FD00F7AF12 /* RAMInfo.h */,
+				03DF1A56183A11FD00F7AF12 /* RAMInfo.m */,
+				03DF1A57183A11FD00F7AF12 /* RAMInfoController.h */,
+				03DF1A58183A11FD00F7AF12 /* RAMInfoController.m */,
+				03DF1A59183A11FD00F7AF12 /* RAMUsage.h */,
+				03DF1A5A183A11FD00F7AF12 /* RAMUsage.m */,
+			);
+			name = RAM;
+			path = SystemMonitor/RAM;
+			sourceTree = SOURCE_ROOT;
+		};
+		03DF1A5B183A11FD00F7AF12 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A5C183A11FD00F7AF12 /* StorageInfo.h */,
+				03DF1A5D183A11FD00F7AF12 /* StorageInfo.m */,
+				03DF1A5E183A11FD00F7AF12 /* StorageInfoController.h */,
+				03DF1A5F183A11FD00F7AF12 /* StorageInfoController.m */,
+			);
+			name = Storage;
+			path = SystemMonitor/Storage;
+			sourceTree = SOURCE_ROOT;
+		};
+		03DF1A60183A11FD00F7AF12 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A61183A11FD00F7AF12 /* BatteryUI */,
+				03DF1A64183A11FD00F7AF12 /* ConnectionUI */,
+				03DF1A6E183A11FD00F7AF12 /* CpuUI */,
+				03DF1A71183A11FD00F7AF12 /* DefaultCell.h */,
+				03DF1A72183A11FD00F7AF12 /* DefaultCell.m */,
+				03DF1A73183A11FD00F7AF12 /* DeviceSpecificUI */,
+				03DF1A76183A11FD00F7AF12 /* GeneralUI */,
+				03DF1A79183A11FD00F7AF12 /* GpuUI */,
+				03DF1A7C183A11FD00F7AF12 /* iPadRootTableViewController.h */,
+				03DF1A7D183A11FD00F7AF12 /* iPadRootTableViewController.m */,
+				03DF1A7E183A11FD00F7AF12 /* iPhoneRootTableViewController.h */,
+				03DF1A7F183A11FD00F7AF12 /* iPhoneRootTableViewController.m */,
+				03DF1A80183A11FD00F7AF12 /* MainStoryboard_iPad.storyboard */,
+				03DF1A81183A11FD00F7AF12 /* MainStoryboard_iPhone.storyboard */,
+				03DF1A82183A11FD00F7AF12 /* NetworkUI */,
+				03DF1A85183A11FD00F7AF12 /* ProcessUI */,
+				03DF1A93183A11FD00F7AF12 /* RamUI */,
+				03DF1A96183A11FD00F7AF12 /* RootCell.h */,
+				03DF1A97183A11FD00F7AF12 /* RootCell.m */,
+				03DF1A98183A11FD00F7AF12 /* RootTableViewController.h */,
+				03DF1A99183A11FD00F7AF12 /* RootTableViewController.m */,
+				03DF1A9A183A11FD00F7AF12 /* SMSplitViewController.h */,
+				03DF1A9B183A11FD00F7AF12 /* SMSplitViewController.m */,
+				03DF1A9C183A11FD00F7AF12 /* StorageUI */,
+			);
+			name = UI;
+			path = SystemMonitor/UI;
+			sourceTree = SOURCE_ROOT;
+		};
+		03DF1A61183A11FD00F7AF12 /* BatteryUI */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A62183A11FD00F7AF12 /* BatteryViewController.h */,
+				03DF1A63183A11FD00F7AF12 /* BatteryViewController.m */,
+			);
+			path = BatteryUI;
+			sourceTree = "<group>";
+		};
+		03DF1A64183A11FD00F7AF12 /* ConnectionUI */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A65183A11FD00F7AF12 /* ConnectionCell.h */,
+				03DF1A66183A11FD00F7AF12 /* ConnectionCell.m */,
+				03DF1A67183A11FD00F7AF12 /* ConnectionSectionView.h */,
+				03DF1A68183A11FD00F7AF12 /* ConnectionSectionView.m */,
+				03DF1A69183A11FD00F7AF12 /* ConnectionSectionView.xib */,
+				03DF1A6A183A11FD00F7AF12 /* ConnectionViewController.h */,
+				03DF1A6B183A11FD00F7AF12 /* ConnectionViewController.m */,
+				03DF1A6C183A11FD00F7AF12 /* RetrievingCell.h */,
+				03DF1A6D183A11FD00F7AF12 /* RetrievingCell.m */,
+			);
+			path = ConnectionUI;
+			sourceTree = "<group>";
+		};
+		03DF1A6E183A11FD00F7AF12 /* CpuUI */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A6F183A11FD00F7AF12 /* CPUViewController.h */,
+				03DF1A70183A11FD00F7AF12 /* CPUViewController.m */,
+			);
+			path = CpuUI;
+			sourceTree = "<group>";
+		};
+		03DF1A73183A11FD00F7AF12 /* DeviceSpecificUI */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A74183A11FD00F7AF12 /* DeviceSpecificUI.h */,
+				03DF1A75183A11FD00F7AF12 /* DeviceSpecificUI.m */,
+			);
+			path = DeviceSpecificUI;
+			sourceTree = "<group>";
+		};
+		03DF1A76183A11FD00F7AF12 /* GeneralUI */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A77183A11FD00F7AF12 /* GeneralViewController.h */,
+				03DF1A78183A11FD00F7AF12 /* GeneralViewController.m */,
+			);
+			path = GeneralUI;
+			sourceTree = "<group>";
+		};
+		03DF1A79183A11FD00F7AF12 /* GpuUI */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A7A183A11FD00F7AF12 /* GPUViewController.h */,
+				03DF1A7B183A11FD00F7AF12 /* GPUViewController.m */,
+			);
+			path = GpuUI;
+			sourceTree = "<group>";
+		};
+		03DF1A82183A11FD00F7AF12 /* NetworkUI */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A83183A11FD00F7AF12 /* NetworkViewController.h */,
+				03DF1A84183A11FD00F7AF12 /* NetworkViewController.m */,
+			);
+			path = NetworkUI;
+			sourceTree = "<group>";
+		};
+		03DF1A85183A11FD00F7AF12 /* ProcessUI */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A86183A11FD00F7AF12 /* iPadProcessSortViewController.h */,
+				03DF1A87183A11FD00F7AF12 /* iPadProcessSortViewController.m */,
+				03DF1A88183A11FD00F7AF12 /* iPhoneProcessSortViewController.h */,
+				03DF1A89183A11FD00F7AF12 /* iPhoneProcessSortViewController.m */,
+				03DF1A8A183A11FD00F7AF12 /* ProcessCell.h */,
+				03DF1A8B183A11FD00F7AF12 /* ProcessCell.m */,
+				03DF1A8C183A11FD00F7AF12 /* ProcessSort.h */,
+				03DF1A8D183A11FD00F7AF12 /* ProcessSort.m */,
+				03DF1A8E183A11FD00F7AF12 /* ProcessTopView.h */,
+				03DF1A8F183A11FD00F7AF12 /* ProcessTopView.m */,
+				03DF1A90183A11FD00F7AF12 /* ProcessTopView.xib */,
+				03DF1A91183A11FD00F7AF12 /* ProcessViewController.h */,
+				03DF1A92183A11FD00F7AF12 /* ProcessViewController.m */,
+			);
+			path = ProcessUI;
+			sourceTree = "<group>";
+		};
+		03DF1A93183A11FD00F7AF12 /* RamUI */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A94183A11FD00F7AF12 /* RAMViewController.h */,
+				03DF1A95183A11FD00F7AF12 /* RAMViewController.m */,
+			);
+			path = RamUI;
+			sourceTree = "<group>";
+		};
+		03DF1A9C183A11FD00F7AF12 /* StorageUI */ = {
+			isa = PBXGroup;
+			children = (
+				03DF1A9D183A11FD00F7AF12 /* StorageViewController.h */,
+				03DF1A9E183A11FD00F7AF12 /* StorageViewController.m */,
+			);
+			path = StorageUI;
+			sourceTree = "<group>";
+		};
 		03F9B39A18392D7500804E1D /* HockeySDK.embeddedframework */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,83 +647,11 @@
 			name = 3rdParty;
 			sourceTree = "<group>";
 		};
-		700FDC06174E3187000D6848 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				70340CB61752A810001C1F1A /* ActiveConnection.h */,
-				70340CB71752A810001C1F1A /* ActiveConnection.m */,
-				700FDC19174E7250000D6848 /* NetworkBandwidth.h */,
-				700FDC1A174E7250000D6848 /* NetworkBandwidth.m */,
-				700FDC0A174E3E61000D6848 /* NetworkInfo.h */,
-				700FDC0B174E3E61000D6848 /* NetworkInfo.m */,
-				700FDC07174E3E54000D6848 /* NetworkInfoController.h */,
-				700FDC08174E3E54000D6848 /* NetworkInfoController.m */,
-				70340CB91752B47D001C1F1A /* bsd_var.h */,
-			);
-			name = Network;
-			sourceTree = "<group>";
-		};
-		700FDC0D174E5D78000D6848 /* NetworkUI */ = {
-			isa = PBXGroup;
-			children = (
-				700FDC0E174E5D94000D6848 /* NetworkViewController.h */,
-				700FDC0F174E5D94000D6848 /* NetworkViewController.m */,
-			);
-			name = NetworkUI;
-			sourceTree = "<group>";
-		};
-		701190FC174D37A100B5D8B1 /* ProcessUI */ = {
-			isa = PBXGroup;
-			children = (
-				70D926BB1756109F000B3800 /* ProcessSort.h */,
-				03F9B396183913B100804E1D /* ProcessSort.m */,
-				701190F9174D2F1F00B5D8B1 /* iPadProcessSortViewController.h */,
-				701190FA174D2F2000B5D8B1 /* iPadProcessSortViewController.m */,
-				70D926B817561077000B3800 /* iPhoneProcessSortViewController.h */,
-				70D926B917561077000B3800 /* iPhoneProcessSortViewController.m */,
-				701190DD174D0F6100B5D8B1 /* ProcessCell.h */,
-				701190DE174D0F6100B5D8B1 /* ProcessCell.m */,
-				701190F7174D246800B5D8B1 /* ProcessTopView.xib */,
-				701190E8174D194400B5D8B1 /* ProcessTopView.h */,
-				701190E9174D194400B5D8B1 /* ProcessTopView.m */,
-				70E19A51174C0FA400A411C8 /* ProcessViewController.h */,
-				70E19A52174C0FA400A411C8 /* ProcessViewController.m */,
-			);
-			name = ProcessUI;
-			sourceTree = "<group>";
-		};
-		701190FD174D37BD00B5D8B1 /* GpuUI */ = {
-			isa = PBXGroup;
-			children = (
-				70D92D62173B29AE00C57DEA /* GPUViewController.h */,
-				70D92D63173B29AE00C57DEA /* GPUViewController.m */,
-			);
-			name = GpuUI;
-			sourceTree = "<group>";
-		};
-		701190FE174D37C500B5D8B1 /* CpuUI */ = {
-			isa = PBXGroup;
-			children = (
-				70F1F16B1739712C007224AD /* CPUViewController.h */,
-				70F1F16C1739712C007224AD /* CPUViewController.m */,
-			);
-			name = CpuUI;
-			sourceTree = "<group>";
-		};
-		701190FF174D37CD00B5D8B1 /* GeneralUI */ = {
-			isa = PBXGroup;
-			children = (
-				70C2E9241739C7B6008CB1B1 /* GeneralViewController.h */,
-				70C2E9251739C7B6008CB1B1 /* GeneralViewController.m */,
-			);
-			name = GeneralUI;
-			sourceTree = "<group>";
-		};
 		703D22CF173818EB0001E3B3 = {
 			isa = PBXGroup;
 			children = (
 				033D9650182EC6B6009477E7 /* Images.xcassets */,
-				703D22E2173818EC0001E3B3 /* Supporting Files */,
+				03DF1A10183A11E700F7AF12 /* Supporting Files */,
 				703D22E1173818EC0001E3B3 /* Source */,
 				03724CD9182D7E3700221FE8 /* SystemMonitor Tests */,
 				703D22DA173818EC0001E3B3 /* Frameworks */,
@@ -462,253 +694,29 @@
 		703D22E1173818EC0001E3B3 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				704528A9174EAD0F003DD424 /* GL */,
-				70AF612E173924B100EF49E9 /* UI */,
-				70AF61361739256400EF49E9 /* CPU */,
-				70D92D5C173B21D800C57DEA /* GPU */,
-				70F1F16E17397CB7007224AD /* Device */,
-				70E19A47174BBB8600A411C8 /* Process */,
-				706F717B174D8C4A00E5842C /* RAM */,
-				700FDC06174E3187000D6848 /* Network */,
-				70FC38E1174F48450085EBC3 /* Storage */,
-				70FC38F0174F79CE0085EBC3 /* Battery */,
-				70AF613817392CE600EF49E9 /* AMUtils.h */,
-				70AF613917392CE600EF49E9 /* AMUtils.m */,
-				70F1F18F17398C37007224AD /* AMLogger.h */,
-				03DA2AC11839321A0014C322 /* AMLogger.m */,
-				70C2E9271739C8D1008CB1B1 /* AMDevice.h */,
-				70C2E9281739C8D2008CB1B1 /* AMDevice.m */,
-				70CD01BA1739AB870047E72F /* HardcodedDeviceData.h */,
-				70CD01BB1739AB870047E72F /* HardcodedDeviceData.m */,
-				703D22EA173818EC0001E3B3 /* AppDelegate.h */,
-				703D22EB173818EC0001E3B3 /* AppDelegate.m */,
+				03DF1A1B183A11FD00F7AF12 /* Battery */,
+				03DF1A20183A11FD00F7AF12 /* CPU */,
+				03DF1A29183A11FD00F7AF12 /* Device */,
+				03DF1A2E183A11FD00F7AF12 /* GL */,
+				03DF1A40183A11FD00F7AF12 /* GPU */,
+				03DF1A45183A11FD00F7AF12 /* Network */,
+				03DF1A4F183A11FD00F7AF12 /* Process */,
+				03DF1A54183A11FD00F7AF12 /* RAM */,
+				03DF1A5B183A11FD00F7AF12 /* Storage */,
+				03DF1A60183A11FD00F7AF12 /* UI */,
+				03DF1A9F183A11FD00F7AF12 /* AMDevice.h */,
+				03DF1AA0183A11FD00F7AF12 /* AMDevice.m */,
+				03DF1AA1183A11FD00F7AF12 /* AMLogger.h */,
+				03DF1AA2183A11FD00F7AF12 /* AMLogger.m */,
+				03DF1AA3183A11FD00F7AF12 /* AMUtils.h */,
+				03DF1AA4183A11FD00F7AF12 /* AMUtils.m */,
+				03DF1AA5183A11FD00F7AF12 /* AppDelegate.h */,
+				03DF1AA6183A11FD00F7AF12 /* AppDelegate.m */,
+				03DF1AA7183A11FD00F7AF12 /* HardcodedDeviceData.h */,
+				03DF1AA8183A11FD00F7AF12 /* HardcodedDeviceData.m */,
 			);
 			name = Source;
 			path = "ActivityMonitor++";
-			sourceTree = "<group>";
-		};
-		703D22E2173818EC0001E3B3 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				03DF1A0E183A021D00F7AF12 /* arrow-up.png */,
-				703D22E3173818EC0001E3B3 /* SystemMonitor-Info.plist */,
-				703D22E4173818EC0001E3B3 /* InfoPlist.strings */,
-				703D22E7173818EC0001E3B3 /* main.m */,
-				703D22E9173818EC0001E3B3 /* SystemMonitor-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			path = "ActivityMonitor++";
-			sourceTree = "<group>";
-		};
-		704528A8174EACF9003DD424 /* GLTube */ = {
-			isa = PBXGroup;
-			children = (
-				70ECE2751750588400B1402A /* BubbleEffect */,
-				704528AA174EAD44003DD424 /* GLTube.h */,
-				704528AB174EAD44003DD424 /* GLTube.m */,
-			);
-			name = GLTube;
-			sourceTree = "<group>";
-		};
-		704528A9174EAD0F003DD424 /* GL */ = {
-			isa = PBXGroup;
-			children = (
-				70FE9F0E173BC49E0056B891 /* GLGraph */,
-				704528A8174EACF9003DD424 /* GLTube */,
-				70E19A44174B790400A411C8 /* GLCommon.h */,
-				70E19A45174B790400A411C8 /* GLCommon.m */,
-				70ECE27D1750596C00B1402A /* GLEffect.h */,
-				70ECE27E1750596C00B1402A /* GLEffect.m */,
-			);
-			name = GL;
-			sourceTree = "<group>";
-		};
-		704528B8174ED395003DD424 /* StorageUI */ = {
-			isa = PBXGroup;
-			children = (
-				704528B9174ED3A7003DD424 /* StorageViewController.h */,
-				704528BA174ED3A7003DD424 /* StorageViewController.m */,
-			);
-			name = StorageUI;
-			sourceTree = "<group>";
-		};
-		706F717A174D8C3E00E5842C /* RamUI */ = {
-			isa = PBXGroup;
-			children = (
-				706F7182174D96E000E5842C /* RAMViewController.h */,
-				706F7183174D96E000E5842C /* RAMViewController.m */,
-			);
-			name = RamUI;
-			sourceTree = "<group>";
-		};
-		706F717B174D8C4A00E5842C /* RAM */ = {
-			isa = PBXGroup;
-			children = (
-				700FDC03174E1C8D000D6848 /* RAMUsage.h */,
-				700FDC04174E1C8D000D6848 /* RAMUsage.m */,
-				706F717F174D8C7700E5842C /* RAMInfo.h */,
-				70ECE2731750558100B1402A /* RAMInfo.m */,
-				706F717C174D8C6100E5842C /* RAMInfoController.h */,
-				706F717D174D8C6100E5842C /* RAMInfoController.m */,
-			);
-			name = RAM;
-			sourceTree = "<group>";
-		};
-		70AF612E173924B100EF49E9 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				70E437051752502900ED3876 /* DeviceSpecificUI */,
-				704528B8174ED395003DD424 /* StorageUI */,
-				700FDC0D174E5D78000D6848 /* NetworkUI */,
-				706F717A174D8C3E00E5842C /* RamUI */,
-				701190FF174D37CD00B5D8B1 /* GeneralUI */,
-				701190FE174D37C500B5D8B1 /* CpuUI */,
-				701190FD174D37BD00B5D8B1 /* GpuUI */,
-				701190FC174D37A100B5D8B1 /* ProcessUI */,
-				70C150B517536FE0009BEB11 /* ConnectionUI */,
-				70FC38F7174F833D0085EBC3 /* BatteryUI */,
-				703D22F3173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard */,
-				703D22F6173818EC0001E3B3 /* MainStoryboard_iPad.storyboard */,
-				701190D6174D063300B5D8B1 /* DefaultCell.h */,
-				701190D7174D063300B5D8B1 /* DefaultCell.m */,
-				70119100174D7DA500B5D8B1 /* RootCell.h */,
-				70119101174D7DA600B5D8B1 /* RootCell.m */,
-				70D926AF1755F4C5000B3800 /* iPhoneRootTableViewController.h */,
-				70D926B01755F4C5000B3800 /* iPhoneRootTableViewController.m */,
-				70AF613B173965D400EF49E9 /* iPadRootTableViewController.h */,
-				70AF613C173965D500EF49E9 /* iPadRootTableViewController.m */,
-				70D926B31755F595000B3800 /* RootTableViewController.h */,
-				70D926B41755F595000B3800 /* RootTableViewController.m */,
-				033D9647182E94AA009477E7 /* SMSplitViewController.h */,
-				033D9648182E94AA009477E7 /* SMSplitViewController.m */,
-			);
-			name = UI;
-			sourceTree = "<group>";
-		};
-		70AF61361739256400EF49E9 /* CPU */ = {
-			isa = PBXGroup;
-			children = (
-				70F4D7D6173D147F007E58E2 /* CPULoadFilter.h */,
-				70F4D7D7173D147F007E58E2 /* CPULoadFilter.m */,
-				70D92D59173AA91300C57DEA /* CPULoad.h */,
-				70D92D5A173AA91300C57DEA /* CPULoad.m */,
-				70AF61301739250800EF49E9 /* CPUInfo.h */,
-				70AF61311739250800EF49E9 /* CPUInfo.m */,
-				70AF61331739255700EF49E9 /* CPUInfoController.h */,
-				70AF61341739255700EF49E9 /* CPUInfoController.m */,
-			);
-			name = CPU;
-			sourceTree = "<group>";
-		};
-		70C150B517536FE0009BEB11 /* ConnectionUI */ = {
-			isa = PBXGroup;
-			children = (
-				70C150C61753B770009BEB11 /* ConnectionSectionView.xib */,
-				70C150C81753B7D0009BEB11 /* ConnectionSectionView.h */,
-				70C150C91753B7D0009BEB11 /* ConnectionSectionView.m */,
-				70C150BB1753739A009BEB11 /* ConnectionCell.h */,
-				70C150BC1753739A009BEB11 /* ConnectionCell.m */,
-				700AFAC917554446003E7D40 /* RetrievingCell.h */,
-				700AFACA17554446003E7D40 /* RetrievingCell.m */,
-				70C150B617536FFE009BEB11 /* ConnectionViewController.h */,
-				70C150B717536FFE009BEB11 /* ConnectionViewController.m */,
-			);
-			name = ConnectionUI;
-			sourceTree = "<group>";
-		};
-		70D92D5C173B21D800C57DEA /* GPU */ = {
-			isa = PBXGroup;
-			children = (
-				70D92D65173B2B4D00C57DEA /* GPUInfo.h */,
-				70D92D66173B2B4D00C57DEA /* GPUInfo.m */,
-				70D92D5F173B299B00C57DEA /* GPUInfoController.h */,
-				70D92D60173B299B00C57DEA /* GPUInfoController.m */,
-			);
-			name = GPU;
-			sourceTree = "<group>";
-		};
-		70E19A47174BBB8600A411C8 /* Process */ = {
-			isa = PBXGroup;
-			children = (
-				70E19A4B174BBBB600A411C8 /* ProcessInfo.h */,
-				70E19A4C174BBBB600A411C8 /* ProcessInfo.m */,
-				70E19A48174BBBA400A411C8 /* ProcessInfoController.h */,
-				70E19A49174BBBA400A411C8 /* ProcessInfoController.m */,
-			);
-			name = Process;
-			sourceTree = "<group>";
-		};
-		70E437051752502900ED3876 /* DeviceSpecificUI */ = {
-			isa = PBXGroup;
-			children = (
-				70E437061752514500ED3876 /* DeviceSpecificUI.h */,
-				70E4370F1752526F00ED3876 /* DeviceSpecificUI.m */,
-			);
-			name = DeviceSpecificUI;
-			sourceTree = "<group>";
-		};
-		70ECE2751750588400B1402A /* BubbleEffect */ = {
-			isa = PBXGroup;
-			children = (
-				70ECE276175058A500B1402A /* GLBubbleEffect.vsh */,
-				70ECE278175058B200B1402A /* GLBubbleEffect.fsh */,
-				70ECE27A175058C300B1402A /* GLBubbleEffect.h */,
-				70ECE27B175058C300B1402A /* GLBubbleEffect.m */,
-			);
-			name = BubbleEffect;
-			sourceTree = "<group>";
-		};
-		70F1F16E17397CB7007224AD /* Device */ = {
-			isa = PBXGroup;
-			children = (
-				70F1F16F17397CEC007224AD /* DeviceInfo.h */,
-				70F1F17017397CEC007224AD /* DeviceInfo.m */,
-				70F1F17217397CFE007224AD /* DeviceInfoController.h */,
-				70F1F17317397CFE007224AD /* DeviceInfoController.m */,
-			);
-			name = Device;
-			sourceTree = "<group>";
-		};
-		70FC38E1174F48450085EBC3 /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				70FC38E5174F48680085EBC3 /* StorageInfo.h */,
-				70FC38E6174F48680085EBC3 /* StorageInfo.m */,
-				70FC38E2174F48590085EBC3 /* StorageInfoController.h */,
-				70FC38E3174F48590085EBC3 /* StorageInfoController.m */,
-			);
-			name = Storage;
-			sourceTree = "<group>";
-		};
-		70FC38F0174F79CE0085EBC3 /* Battery */ = {
-			isa = PBXGroup;
-			children = (
-				70FC38F4174F79F00085EBC3 /* BatteryInfo.h */,
-				70FC38F5174F79F00085EBC3 /* BatteryInfo.m */,
-				70FC38F1174F79E00085EBC3 /* BatteryInfoController.h */,
-				70FC38F2174F79E00085EBC3 /* BatteryInfoController.m */,
-			);
-			name = Battery;
-			sourceTree = "<group>";
-		};
-		70FC38F7174F833D0085EBC3 /* BatteryUI */ = {
-			isa = PBXGroup;
-			children = (
-				70FC38F8174F83530085EBC3 /* BatteryViewController.h */,
-				70FC38F9174F83530085EBC3 /* BatteryViewController.m */,
-			);
-			name = BatteryUI;
-			sourceTree = "<group>";
-		};
-		70FE9F0E173BC49E0056B891 /* GLGraph */ = {
-			isa = PBXGroup;
-			children = (
-				70FE9F0F173BC5830056B891 /* GLLineGraph.h */,
-				70FE9F10173BC5830056B891 /* GLLineGraph.m */,
-				70E19A41174B718900A411C8 /* GLDataLine.h */,
-				70E19A42174B718900A411C8 /* GLDataLine.m */,
-			);
-			name = GLGraph;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -797,16 +805,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70ECE28217508E4900B1402A /* GLBubbleEffect.vsh in Resources */,
-				70ECE28317508E4900B1402A /* GLBubbleEffect.fsh in Resources */,
-				703D22E6173818EC0001E3B3 /* InfoPlist.strings in Resources */,
-				03DF1A0F183A021D00F7AF12 /* arrow-up.png in Resources */,
-				703D22F5173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard in Resources */,
-				703D22F8173818EC0001E3B3 /* MainStoryboard_iPad.storyboard in Resources */,
+				03DF1AD3183A11FD00F7AF12 /* MainStoryboard_iPad.storyboard in Resources */,
+				03DF1AC9183A11FD00F7AF12 /* ConnectionSectionView.xib in Resources */,
 				03DA2ABB183930CA0014C322 /* HockeySDK.xcconfig in Resources */,
-				701190F8174D246800B5D8B1 /* ProcessTopView.xib in Resources */,
+				03DF1A17183A11E700F7AF12 /* arrow-up.png in Resources */,
 				03DA2ABA183930C80014C322 /* HockeySDKResources.bundle in Resources */,
-				70C150C71753B770009BEB11 /* ConnectionSectionView.xib in Resources */,
+				03DF1ADB183A11FD00F7AF12 /* ProcessTopView.xib in Resources */,
+				03DF1AD4183A11FD00F7AF12 /* MainStoryboard_iPhone.storyboard in Resources */,
+				03DF1A18183A11E700F7AF12 /* InfoPlist.strings in Resources */,
 				033D9651182EC6B6009477E7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -826,63 +832,63 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7003E7E9175115EF00214D6A /* RAMInfo.m in Sources */,
-				703D22E8173818EC0001E3B3 /* main.m in Sources */,
-				703D22EC173818EC0001E3B3 /* AppDelegate.m in Sources */,
-				70AF61321739250800EF49E9 /* CPUInfo.m in Sources */,
-				70AF61351739255700EF49E9 /* CPUInfoController.m in Sources */,
-				70AF613A17392CE600EF49E9 /* AMUtils.m in Sources */,
-				70AF613D173965D500EF49E9 /* iPadRootTableViewController.m in Sources */,
-				70F1F16D1739712D007224AD /* CPUViewController.m in Sources */,
-				70F1F17117397CEC007224AD /* DeviceInfo.m in Sources */,
-				70F1F17417397CFE007224AD /* DeviceInfoController.m in Sources */,
-				70CD01BC1739AB870047E72F /* HardcodedDeviceData.m in Sources */,
-				70C2E9261739C7B7008CB1B1 /* GeneralViewController.m in Sources */,
-				70C2E9291739C8D2008CB1B1 /* AMDevice.m in Sources */,
-				70D92D5B173AA91300C57DEA /* CPULoad.m in Sources */,
-				70D92D61173B299B00C57DEA /* GPUInfoController.m in Sources */,
-				70D92D64173B29AE00C57DEA /* GPUViewController.m in Sources */,
-				70D92D67173B2B4D00C57DEA /* GPUInfo.m in Sources */,
-				70FE9F11173BC5830056B891 /* GLLineGraph.m in Sources */,
-				70F4D7D8173D147F007E58E2 /* CPULoadFilter.m in Sources */,
-				70E19A43174B718900A411C8 /* GLDataLine.m in Sources */,
-				70E19A46174B790400A411C8 /* GLCommon.m in Sources */,
-				70E19A4A174BBBA400A411C8 /* ProcessInfoController.m in Sources */,
-				70E19A4D174BBBB600A411C8 /* ProcessInfo.m in Sources */,
-				70E19A53174C0FA500A411C8 /* ProcessViewController.m in Sources */,
-				033D9649182E94AA009477E7 /* SMSplitViewController.m in Sources */,
-				701190D8174D063300B5D8B1 /* DefaultCell.m in Sources */,
-				701190DF174D0F6200B5D8B1 /* ProcessCell.m in Sources */,
-				701190EA174D194400B5D8B1 /* ProcessTopView.m in Sources */,
-				701190FB174D2F2000B5D8B1 /* iPadProcessSortViewController.m in Sources */,
-				70119102174D7DA600B5D8B1 /* RootCell.m in Sources */,
-				706F717E174D8C6100E5842C /* RAMInfoController.m in Sources */,
-				706F7184174D96E000E5842C /* RAMViewController.m in Sources */,
-				700FDC05174E1C8D000D6848 /* RAMUsage.m in Sources */,
-				700FDC09174E3E54000D6848 /* NetworkInfoController.m in Sources */,
-				700FDC0C174E3E61000D6848 /* NetworkInfo.m in Sources */,
-				700FDC10174E5D94000D6848 /* NetworkViewController.m in Sources */,
-				700FDC1B174E7250000D6848 /* NetworkBandwidth.m in Sources */,
-				704528AC174EAD44003DD424 /* GLTube.m in Sources */,
-				704528BB174ED3A7003DD424 /* StorageViewController.m in Sources */,
-				70FC38E4174F48590085EBC3 /* StorageInfoController.m in Sources */,
-				70FC38E7174F48680085EBC3 /* StorageInfo.m in Sources */,
-				70FC38F3174F79E00085EBC3 /* BatteryInfoController.m in Sources */,
-				70FC38F6174F79F00085EBC3 /* BatteryInfo.m in Sources */,
-				70FC38FA174F83530085EBC3 /* BatteryViewController.m in Sources */,
-				70ECE27C175058C300B1402A /* GLBubbleEffect.m in Sources */,
-				70ECE27F1750596C00B1402A /* GLEffect.m in Sources */,
-				70E437101752526F00ED3876 /* DeviceSpecificUI.m in Sources */,
-				70340CB81752A810001C1F1A /* ActiveConnection.m in Sources */,
-				70C150B817536FFE009BEB11 /* ConnectionViewController.m in Sources */,
-				70C150BD1753739A009BEB11 /* ConnectionCell.m in Sources */,
-				70C150CA1753B7D0009BEB11 /* ConnectionSectionView.m in Sources */,
-				700AFACB17554446003E7D40 /* RetrievingCell.m in Sources */,
-				03DA2AC21839321A0014C322 /* AMLogger.m in Sources */,
-				70D926B11755F4C5000B3800 /* iPhoneRootTableViewController.m in Sources */,
-				70D926B51755F595000B3800 /* RootTableViewController.m in Sources */,
-				70D926BA17561077000B3800 /* iPhoneProcessSortViewController.m in Sources */,
-				03F9B397183913B100804E1D /* ProcessSort.m in Sources */,
+				03DF1AB3183A11FD00F7AF12 /* GLDataLine.m in Sources */,
+				03DF1AE4183A11FD00F7AF12 /* AMUtils.m in Sources */,
+				03DF1AD0183A11FD00F7AF12 /* GPUViewController.m in Sources */,
+				03DF1ACF183A11FD00F7AF12 /* GeneralViewController.m in Sources */,
+				03DF1ADF183A11FD00F7AF12 /* RootTableViewController.m in Sources */,
+				03DF1AE1183A11FD00F7AF12 /* StorageViewController.m in Sources */,
+				03DF1AC6183A11FD00F7AF12 /* BatteryViewController.m in Sources */,
+				03DF1AC3183A11FD00F7AF12 /* RAMUsage.m in Sources */,
+				03DF1ABD183A11FD00F7AF12 /* NetworkInfo.m in Sources */,
+				03DF1ACB183A11FD00F7AF12 /* RetrievingCell.m in Sources */,
+				03DF1AAB183A11FD00F7AF12 /* CPUInfo.m in Sources */,
+				03DF1AB4183A11FD00F7AF12 /* GLLineGraph.m in Sources */,
+				03DF1AAC183A11FD00F7AF12 /* CPUInfoController.m in Sources */,
+				03DF1ACC183A11FD00F7AF12 /* CPUViewController.m in Sources */,
+				03DF1AAE183A11FD00F7AF12 /* CPULoadFilter.m in Sources */,
+				03DF1ACD183A11FD00F7AF12 /* DefaultCell.m in Sources */,
+				03DF1ABE183A11FD00F7AF12 /* NetworkInfoController.m in Sources */,
+				03DF1AE2183A11FD00F7AF12 /* AMDevice.m in Sources */,
+				03DF1AAF183A11FD00F7AF12 /* DeviceInfo.m in Sources */,
+				03DF1AE3183A11FD00F7AF12 /* AMLogger.m in Sources */,
+				03DF1AE0183A11FD00F7AF12 /* SMSplitViewController.m in Sources */,
+				03DF1AAD183A11FD00F7AF12 /* CPULoad.m in Sources */,
+				03DF1AB9183A11FD00F7AF12 /* GPUInfo.m in Sources */,
+				03DF1ABF183A11FD00F7AF12 /* ProcessInfo.m in Sources */,
+				03DF1ADE183A11FD00F7AF12 /* RootCell.m in Sources */,
+				03DF1AD8183A11FD00F7AF12 /* ProcessCell.m in Sources */,
+				03DF1AD1183A11FD00F7AF12 /* iPadRootTableViewController.m in Sources */,
+				03DF1A19183A11E700F7AF12 /* main.m in Sources */,
+				03DF1AD7183A11FD00F7AF12 /* iPhoneProcessSortViewController.m in Sources */,
+				03DF1AB6183A11FD00F7AF12 /* GLBubbleEffect.m in Sources */,
+				03DF1AC5183A11FD00F7AF12 /* StorageInfoController.m in Sources */,
+				03DF1AB0183A11FD00F7AF12 /* DeviceInfoController.m in Sources */,
+				03DF1AD9183A11FD00F7AF12 /* ProcessSort.m in Sources */,
+				03DF1AB2183A11FD00F7AF12 /* GLEffect.m in Sources */,
+				03DF1ABB183A11FD00F7AF12 /* ActiveConnection.m in Sources */,
+				03DF1ADD183A11FD00F7AF12 /* RAMViewController.m in Sources */,
+				03DF1ACA183A11FD00F7AF12 /* ConnectionViewController.m in Sources */,
+				03DF1AC4183A11FD00F7AF12 /* StorageInfo.m in Sources */,
+				03DF1AD2183A11FD00F7AF12 /* iPhoneRootTableViewController.m in Sources */,
+				03DF1AB1183A11FD00F7AF12 /* GLCommon.m in Sources */,
+				03DF1AC2183A11FD00F7AF12 /* RAMInfoController.m in Sources */,
+				03DF1AAA183A11FD00F7AF12 /* BatteryInfoController.m in Sources */,
+				03DF1AC1183A11FD00F7AF12 /* RAMInfo.m in Sources */,
+				03DF1AB8183A11FD00F7AF12 /* GLTube.m in Sources */,
+				03DF1AE5183A11FD00F7AF12 /* AppDelegate.m in Sources */,
+				03DF1ACE183A11FD00F7AF12 /* DeviceSpecificUI.m in Sources */,
+				03DF1AD5183A11FD00F7AF12 /* NetworkViewController.m in Sources */,
+				03DF1ADA183A11FD00F7AF12 /* ProcessTopView.m in Sources */,
+				03DF1AC7183A11FD00F7AF12 /* ConnectionCell.m in Sources */,
+				03DF1AD6183A11FD00F7AF12 /* iPadProcessSortViewController.m in Sources */,
+				03DF1AC0183A11FD00F7AF12 /* ProcessInfoController.m in Sources */,
+				03DF1ABC183A11FD00F7AF12 /* NetworkBandwidth.m in Sources */,
+				03DF1ADC183A11FD00F7AF12 /* ProcessViewController.m in Sources */,
+				03DF1AC8183A11FD00F7AF12 /* ConnectionSectionView.m in Sources */,
+				03DF1AE6183A11FD00F7AF12 /* HardcodedDeviceData.m in Sources */,
+				03DF1AA9183A11FD00F7AF12 /* BatteryInfo.m in Sources */,
+				03DF1ABA183A11FD00F7AF12 /* GPUInfoController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -905,28 +911,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		703D22E4173818EC0001E3B3 /* InfoPlist.strings */ = {
+		03DF1A12183A11E700F7AF12 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				703D22E5173818EC0001E3B3 /* en */,
+				03DF1A13183A11E700F7AF12 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		703D22F3173818EC0001E3B3 /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				703D22F4173818EC0001E3B3 /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		703D22F6173818EC0001E3B3 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				703D22F7173818EC0001E3B3 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1086,10 +1076,10 @@
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = "/Users/asido/Documents/activity-monitor/3rdParty/HockeySDK/HockeySDK.embeddedframework";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/3rdParty/HockeySDK/HockeySDK.embeddedframework";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ActivityMonitor++/SystemMonitor-Prefix.pch";
+				GCC_PREFIX_HEADER = "SystemMonitor/Supporting Files/SystemMonitor-Prefix.pch";
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1097,13 +1087,11 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/3rdParty/Lumberjack/include",
 				);
-				INFOPLIST_FILE = "ActivityMonitor++/SystemMonitor-Info.plist";
+				INFOPLIST_FILE = "SystemMonitor/Supporting Files/SystemMonitor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)",
-					"/Users/asido/Documents/activity-monitor",
-					"/Users/asido/Documents/activity-monitor/3rdParty/Lumberjack",
+					"$(SRCROOT)/3rdParty/Lumberjack",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = SystemMonitor;
@@ -1127,10 +1115,10 @@
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = "/Users/asido/Documents/activity-monitor/3rdParty/HockeySDK/HockeySDK.embeddedframework";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/3rdParty/HockeySDK/HockeySDK.embeddedframework";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ActivityMonitor++/SystemMonitor-Prefix.pch";
+				GCC_PREFIX_HEADER = "SystemMonitor/Supporting Files/SystemMonitor-Prefix.pch";
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1138,13 +1126,11 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/3rdParty/Lumberjack/include",
 				);
-				INFOPLIST_FILE = "ActivityMonitor++/SystemMonitor-Info.plist";
+				INFOPLIST_FILE = "SystemMonitor/Supporting Files/SystemMonitor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)",
-					"/Users/asido/Documents/activity-monitor",
-					"/Users/asido/Documents/activity-monitor/3rdParty/Lumberjack",
+					"$(SRCROOT)/3rdParty/Lumberjack",
 				);
 				PRODUCT_NAME = SystemMonitor;
 				PROVISIONING_PROFILE = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
