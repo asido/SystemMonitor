@@ -82,6 +82,8 @@
 		03DF1AE4183A11FD00F7AF12 /* AMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1AA4183A11FD00F7AF12 /* AMUtils.m */; };
 		03DF1AE5183A11FD00F7AF12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1AA6183A11FD00F7AF12 /* AppDelegate.m */; };
 		03DF1AE6183A11FD00F7AF12 /* HardcodedDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1AA8183A11FD00F7AF12 /* HardcodedDeviceData.m */; };
+		03E74C81183CBFD700B20A8F /* GLBubbleEffect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A3A183A11FD00F7AF12 /* GLBubbleEffect.fsh */; };
+		03E74C82183CBFDB00B20A8F /* GLBubbleEffect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A3D183A11FD00F7AF12 /* GLBubbleEffect.vsh */; };
 		03F9B3A018392DD600804E1D /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F9B39F18392DD600804E1D /* libLumberjack.a */; };
 		7003E7EB1751178700214D6A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7003E7EA1751178700214D6A /* SystemConfiguration.framework */; };
 		703D22DC173818EC0001E3B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DB173818EC0001E3B3 /* UIKit.framework */; };
@@ -814,6 +816,8 @@
 				03DF1AD4183A11FD00F7AF12 /* MainStoryboard_iPhone.storyboard in Resources */,
 				03DF1A18183A11E700F7AF12 /* InfoPlist.strings in Resources */,
 				033D9651182EC6B6009477E7 /* Images.xcassets in Resources */,
+				03E74C82183CBFDB00B20A8F /* GLBubbleEffect.vsh in Resources */,
+				03E74C81183CBFD700B20A8F /* GLBubbleEffect.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
