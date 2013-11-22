@@ -45,7 +45,8 @@
     if (self = [super init])
     {
         AppDelegate *app = [AppDelegate sharedDelegate];
-        assert(app.iDevice.deviceInfo != nil);
+        AMAssert(app.iDevice.deviceInfo != nil, @"deviceInfo == nil");
+        
         
         self.pickViewY = [UIScreen mainScreen].bounds.size.height - 276.0f;
         

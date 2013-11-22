@@ -345,7 +345,7 @@ enum GLBubbleEffectUniforms {
 
 - (BubbleEffectAttributes_t)bubbleAtIndex:(NSUInteger)index
 {
-    assert(index < [self numberOfBubbles]);
+    AMAssert(index < [self numberOfBubbles], @"Index is out of range: %ld. Number of bubbles: %ld", (long)index, (long)[self numberOfBubbles]);
     
     BubbleEffectAttributes_t *bubblesPtr = [self.bubbleAttributeData mutableBytes];
     return bubblesPtr[index];

@@ -11,6 +11,7 @@
 
 #import "AppDelegate.h"
 #import "iPhoneProcessSortViewController.h"
+#import "AMLogger.h"
 
 @interface iPhoneProcessSortViewController() <UIPickerViewDataSource, UIPickerViewDelegate>
 @property (assign, nonatomic) SortFilter_t  currentFilter;
@@ -57,7 +58,7 @@
 
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    assert(row < SORT_CHOICE_COUNT);
+    AMAssert(row < SORT_CHOICE_COUNT, @"Invalid sort choice: %ld. Max choice: %ld", (long)row, (long)SORT_CHOICE_COUNT);
     return SortChoices[row];
 }
 

@@ -151,7 +151,7 @@
 
 + (CGFloat)percentageValueFromMax:(CGFloat)max min:(CGFloat)min percent:(CGFloat)percent
 {
-    assert(max > min);
+    AMAssert(max > min, @"max=%f, min=%f", max, min);
     return min + ((max - min) / 100 * percent);
 }
 
@@ -159,7 +159,7 @@
 {
     // In simulator returned memory is always 0 and so messes the statistics very much.
 #if !TARGET_IPHONE_SIMULATOR
-    assert(from < to);
+    AMAssert(from < to, @"from=%f, to=%f", from, to);
 #endif
     
     CGFloat phase = from;

@@ -13,6 +13,7 @@
 #import "RootTableViewController.h"
 #import "iPhoneRootTableViewController.h"
 #import "AMUtils.h"
+#import "AMLogger.h"
 
 @implementation iPhoneRootTableViewController
 
@@ -59,7 +60,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RootCell *cell = (RootCell*)[super tableView:tableView cellForRowAtIndexPath:indexPath];
-    assert(cell);
+    AMAssert(cell != nil, @"cell == nil");
     
     NSString *cellBg = nil;
     if (indexPath.row == 0)

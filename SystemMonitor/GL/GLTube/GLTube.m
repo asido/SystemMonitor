@@ -153,7 +153,7 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
 
 - (void)setValue:(double)value
 {
-    assert(value >= self.fromValue && value <= self.toValue);
+    AMAssert(value >= self.fromValue && value <= self.toValue, @"Data is out of range. Value=%f, Bounds: %f - %f", value, [self fromValue], [self toValue]);
     self.currentPercentage = [AMUtils valuePercentFrom:self.fromValue to:self.toValue value:value];
     
     GLBubbleBounds_t bounds = self.bubbleEffect.bounds;

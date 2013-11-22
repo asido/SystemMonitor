@@ -186,13 +186,14 @@ static const VertexData_t legendData[] = {
 
 - (void)setDataLineLegendIcon:(UIImage*)image forLineIndex:(NSUInteger)lineIndex
 {
-    assert(lineIndex < self.dataLines.count);
+    AMAssert(lineIndex < [[self dataLines] count], @"Line index is out of range: %ld. Number of data lines: %ld", (long)lineIndex, (long)[[self dataLines] count]);
     [[self.dataLines objectAtIndex:lineIndex] setDataLineLegendIcon:image];
 }
 
 - (void)addDataValue:(NSArray*)data
 {
     assert(data.count == self.dataLines.count);
+    AMAssert([data count] == [[self dataLines] count], @"Data count (%ld) doesn't match line count (%ld).", (long)[data count], (long)[[self dataLines] count]);
     
     for (NSUInteger i = 0; i < data.count; ++i)
     {
@@ -280,8 +281,8 @@ static const VertexData_t legendData[] = {
         return;
     }
     
-    assert(self.glView.bounds.size.width > 0);
-    assert(self.glView.bounds.size.height > 0);
+    AMAssert(self.glView.bounds.size.width > 0, @"glView is invisible (0)");
+    AMAssert(self.glView.bounds.size.height > 0,  @"glView is invisible (1)");
     
     self.initialized = YES;
     

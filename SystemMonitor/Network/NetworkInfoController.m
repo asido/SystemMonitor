@@ -792,8 +792,8 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         
         which = 0;
         
-        assert(inp != NULL);
-        assert(so != NULL);
+        AMAssert(inp != NULL, @"inp == nil");
+        AMAssert(so != NULL, @"so == nil");
         
         // Ignore sockets for protocols other than the desired one.
         if (so->xso_protocol != (int)proto)
