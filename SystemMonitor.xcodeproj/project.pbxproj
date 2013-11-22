@@ -19,7 +19,6 @@
 		03DA2ABD183930EA0014C322 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DA2ABC183930EA0014C322 /* CoreText.framework */; };
 		03DA2ABE183930F90014C322 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7030C0B41764EDA30072DC8D /* QuartzCore.framework */; };
 		03DA2AC01839310A0014C322 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DA2ABF1839310A0014C322 /* Security.framework */; };
-		03DF1A17183A11E700F7AF12 /* arrow-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A11183A11E700F7AF12 /* arrow-up.png */; };
 		03DF1A18183A11E700F7AF12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A12183A11E700F7AF12 /* InfoPlist.strings */; };
 		03DF1A19183A11E700F7AF12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A14183A11E700F7AF12 /* main.m */; };
 		03DF1AA9183A11FD00F7AF12 /* BatteryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A1D183A11FD00F7AF12 /* BatteryInfo.m */; };
@@ -83,6 +82,12 @@
 		03DF1AE5183A11FD00F7AF12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1AA6183A11FD00F7AF12 /* AppDelegate.m */; };
 		03DF1AE6183A11FD00F7AF12 /* HardcodedDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1AA8183A11FD00F7AF12 /* HardcodedDeviceData.m */; };
 		03E332F5183FE0F100480CE7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E332F4183FE0F100480CE7 /* CoreTelephony.framework */; };
+		03E33300183FEE4C00480CE7 /* ArrowDownIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E332FA183FEE4C00480CE7 /* ArrowDownIcon.png */; };
+		03E33301183FEE4C00480CE7 /* ArrowUpIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E332FB183FEE4C00480CE7 /* ArrowUpIcon.png */; };
+		03E33302183FEE4C00480CE7 /* BubbleTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E332FC183FEE4C00480CE7 /* BubbleTexture.png */; };
+		03E33303183FEE4C00480CE7 /* BubbleTexture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E332FD183FEE4C00480CE7 /* BubbleTexture@2x.png */; };
+		03E33304183FEE4C00480CE7 /* TubeTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E332FE183FEE4C00480CE7 /* TubeTexture.png */; };
+		03E33305183FEE4C00480CE7 /* TubeTexture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E332FF183FEE4C00480CE7 /* TubeTexture@2x.png */; };
 		03E74C81183CBFD700B20A8F /* GLBubbleEffect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A3A183A11FD00F7AF12 /* GLBubbleEffect.fsh */; };
 		03E74C82183CBFDB00B20A8F /* GLBubbleEffect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A3D183A11FD00F7AF12 /* GLBubbleEffect.vsh */; };
 		03F9B3A018392DD600804E1D /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F9B39F18392DD600804E1D /* libLumberjack.a */; };
@@ -109,7 +114,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		033D9650182EC6B6009477E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SystemMonitor/Images.xcassets; sourceTree = "<group>"; };
+		033D9650182EC6B6009477E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		03724CD4182D7E3700221FE8 /* SystemMonitor Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SystemMonitor Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03724CD5182D7E3700221FE8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		03724CDB182D7E3700221FE8 /* SystemMonitor Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SystemMonitor Tests-Info.plist"; sourceTree = "<group>"; };
@@ -118,7 +123,6 @@
 		03724CE7182D7EA200221FE8 /* AMUtils_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtils_Tests.m; sourceTree = "<group>"; };
 		03DA2ABC183930EA0014C322 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		03DA2ABF1839310A0014C322 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		03DF1A11183A11E700F7AF12 /* arrow-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-up.png"; sourceTree = "<group>"; };
 		03DF1A13183A11E700F7AF12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03DF1A14183A11E700F7AF12 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		03DF1A15183A11E700F7AF12 /* SystemMonitor-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SystemMonitor-Info.plist"; sourceTree = "<group>"; };
@@ -243,6 +247,12 @@
 		03DF1AA7183A11FD00F7AF12 /* HardcodedDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HardcodedDeviceData.h; path = SystemMonitor/HardcodedDeviceData.h; sourceTree = SOURCE_ROOT; };
 		03DF1AA8183A11FD00F7AF12 /* HardcodedDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HardcodedDeviceData.m; path = SystemMonitor/HardcodedDeviceData.m; sourceTree = SOURCE_ROOT; };
 		03E332F4183FE0F100480CE7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		03E332FA183FEE4C00480CE7 /* ArrowDownIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowDownIcon.png; sourceTree = "<group>"; };
+		03E332FB183FEE4C00480CE7 /* ArrowUpIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowUpIcon.png; sourceTree = "<group>"; };
+		03E332FC183FEE4C00480CE7 /* BubbleTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BubbleTexture.png; sourceTree = "<group>"; };
+		03E332FD183FEE4C00480CE7 /* BubbleTexture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleTexture@2x.png"; sourceTree = "<group>"; };
+		03E332FE183FEE4C00480CE7 /* TubeTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TubeTexture.png; sourceTree = "<group>"; };
+		03E332FF183FEE4C00480CE7 /* TubeTexture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TubeTexture@2x.png"; sourceTree = "<group>"; };
 		03F9B39B18392D7500804E1D /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
 		03F9B39D18392D7500804E1D /* HockeySDK.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = HockeySDK.xcconfig; sourceTree = "<group>"; };
 		03F9B39E18392D7500804E1D /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
@@ -321,7 +331,6 @@
 		03DF1A10183A11E700F7AF12 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				03DF1A11183A11E700F7AF12 /* arrow-up.png */,
 				03DF1A12183A11E700F7AF12 /* InfoPlist.strings */,
 				03DF1A14183A11E700F7AF12 /* main.m */,
 				03DF1A15183A11E700F7AF12 /* SystemMonitor-Info.plist */,
@@ -624,6 +633,19 @@
 			path = StorageUI;
 			sourceTree = "<group>";
 		};
+		03E332F9183FEE4C00480CE7 /* GL Assets */ = {
+			isa = PBXGroup;
+			children = (
+				03E332FA183FEE4C00480CE7 /* ArrowDownIcon.png */,
+				03E332FB183FEE4C00480CE7 /* ArrowUpIcon.png */,
+				03E332FC183FEE4C00480CE7 /* BubbleTexture.png */,
+				03E332FD183FEE4C00480CE7 /* BubbleTexture@2x.png */,
+				03E332FE183FEE4C00480CE7 /* TubeTexture.png */,
+				03E332FF183FEE4C00480CE7 /* TubeTexture@2x.png */,
+			);
+			path = "GL Assets";
+			sourceTree = "<group>";
+		};
 		03F9B39A18392D7500804E1D /* HockeySDK.embeddedframework */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,6 +678,7 @@
 			isa = PBXGroup;
 			children = (
 				033D9650182EC6B6009477E7 /* Images.xcassets */,
+				03E332F9183FEE4C00480CE7 /* GL Assets */,
 				03DF1A10183A11E700F7AF12 /* Supporting Files */,
 				703D22E1173818EC0001E3B3 /* Source */,
 				03724CD9182D7E3700221FE8 /* SystemMonitor Tests */,
@@ -676,12 +699,12 @@
 		703D22DA173818EC0001E3B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				03E332F4183FE0F100480CE7 /* CoreTelephony.framework */,
 				03F9B3A118392DE600804E1D /* 3rdParty */,
 				70FC38EA174F51870085EBC3 /* AssetsLibrary.framework */,
 				70FC38EE174F74400085EBC3 /* AVFoundation.framework */,
 				703D22DF173818EC0001E3B3 /* CoreGraphics.framework */,
 				70FC38EC174F73F80085EBC3 /* CoreMedia.framework */,
+				03E332F4183FE0F100480CE7 /* CoreTelephony.framework */,
 				03DA2ABC183930EA0014C322 /* CoreText.framework */,
 				703D22DD173818EC0001E3B3 /* Foundation.framework */,
 				70D92D68173B302600C57DEA /* GLKit.framework */,
@@ -814,14 +837,19 @@
 				03DF1AD3183A11FD00F7AF12 /* MainStoryboard_iPad.storyboard in Resources */,
 				03DF1AC9183A11FD00F7AF12 /* ConnectionSectionView.xib in Resources */,
 				03DA2ABB183930CA0014C322 /* HockeySDK.xcconfig in Resources */,
-				03DF1A17183A11E700F7AF12 /* arrow-up.png in Resources */,
+				03E33300183FEE4C00480CE7 /* ArrowDownIcon.png in Resources */,
+				03E33303183FEE4C00480CE7 /* BubbleTexture@2x.png in Resources */,
 				03DA2ABA183930C80014C322 /* HockeySDKResources.bundle in Resources */,
+				03E33302183FEE4C00480CE7 /* BubbleTexture.png in Resources */,
 				03DF1ADB183A11FD00F7AF12 /* ProcessTopView.xib in Resources */,
 				03DF1AD4183A11FD00F7AF12 /* MainStoryboard_iPhone.storyboard in Resources */,
 				03DF1A18183A11E700F7AF12 /* InfoPlist.strings in Resources */,
+				03E33305183FEE4C00480CE7 /* TubeTexture@2x.png in Resources */,
+				03E33301183FEE4C00480CE7 /* ArrowUpIcon.png in Resources */,
 				033D9651182EC6B6009477E7 /* Images.xcassets in Resources */,
 				03E74C82183CBFDB00B20A8F /* GLBubbleEffect.vsh in Resources */,
 				03E74C81183CBFD700B20A8F /* GLBubbleEffect.fsh in Resources */,
+				03E33304183FEE4C00480CE7 /* TubeTexture.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

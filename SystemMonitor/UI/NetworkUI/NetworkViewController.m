@@ -72,7 +72,7 @@ static const CGFloat kNetworkGraphMaxValue = MB_TO_B(100);
     [self.networkGraph setDataLineLegendFraction:1];
     [self.networkGraph setDataLineLegendPostfix:@"/s"];
     [self.networkGraph setDataLineLegendIcon:[UIImage imageNamed:@"ArrowDownIcon"] forLineIndex:0];
-    [self.networkGraph setDataLineLegendIcon:[UIImage imageNamed:@"arrow-up.png"] forLineIndex:1]; // TODO: If we use xcassets for this arrow, it appears as PINK! oO
+    [self.networkGraph setDataLineLegendIcon:[UIImage imageNamed:@"ArrowUpIcon"] forLineIndex:1]; // TODO: If we use xcassets for this arrow, it appears as PINK! oO
     self.networkGraph.preferredFramesPerSecond = kNetworkUpdateFrequency;
 
     [app.networkInfoCtrl setNetworkBandwidthHistorySize:[self.networkGraph requiredElementToFillGraph]];
