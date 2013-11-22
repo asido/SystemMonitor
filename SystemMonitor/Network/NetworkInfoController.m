@@ -49,6 +49,7 @@ typedef enum {
 - (void)networkBandwidthUpdateCB:(NSNotification*)notification;
 
 @property (assign, nonatomic) SCNetworkReachabilityRef reachability;
+@property (strong, nonatomic) CTTelephonyNetworkInfo *telephonyNetworkInfo;
 
 - (void)initReachability;
 - (BOOL)internetConnected;
@@ -93,6 +94,7 @@ typedef enum {
 @synthesize networkBandwidthUpdateTimer;
 
 @synthesize reachability;
+@synthesize telephonyNetworkInfo;
 
 static NSString *kInterfaceWiFi = @"en0";
 static NSString *kInterfaceWWAN = @"pdp_ip0";
@@ -138,6 +140,9 @@ static NSString *kInterfaceNone = @"";
         self.networkBandwidthHistory = [[NSMutableArray alloc] init];
         self.networkBandwidthHistorySize = kDefaultDataHistorySize;
         
+        // Make sure CTTelephony is created before adding notification observer to CTRadioAccessTechnologyDidChangeNotification,
+        // because the notification is posted on CTTelephonyNetworkInfo creation.
+        self.telephonyNetworkInfo = [CTTelephonyNetworkInfo new];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(currentRadioTechnologyChangedCB) name:CTRadioAccessTechnologyDidChangeNotification object:nil];
     }
     return self;
@@ -334,9 +339,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     else if ([self.currentInterface isEqualToString:kInterfaceWWAN])
     {
         static NSString *interfaceFormat = @"Cellular (%@)";
-        
-        CTTelephonyNetworkInfo *ctInfo = [CTTelephonyNetworkInfo new];
-        NSString *currentRadioTechnology = [ctInfo currentRadioAccessTechnology];
+        NSString *currentRadioTechnology = [[self telephonyNetworkInfo] currentRadioAccessTechnology];
         
         if ([currentRadioTechnology isEqualToString:CTRadioAccessTechnologyLTE])            return [NSString stringWithFormat:interfaceFormat, @"LTE"];
         if ([currentRadioTechnology isEqualToString:CTRadioAccessTechnologyEdge])           return [NSString stringWithFormat:interfaceFormat, @"Edge"];
