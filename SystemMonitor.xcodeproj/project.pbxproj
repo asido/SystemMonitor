@@ -82,6 +82,7 @@
 		03DF1AE4183A11FD00F7AF12 /* AMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1AA4183A11FD00F7AF12 /* AMUtils.m */; };
 		03DF1AE5183A11FD00F7AF12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1AA6183A11FD00F7AF12 /* AppDelegate.m */; };
 		03DF1AE6183A11FD00F7AF12 /* HardcodedDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1AA8183A11FD00F7AF12 /* HardcodedDeviceData.m */; };
+		03E332F5183FE0F100480CE7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E332F4183FE0F100480CE7 /* CoreTelephony.framework */; };
 		03E74C81183CBFD700B20A8F /* GLBubbleEffect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A3A183A11FD00F7AF12 /* GLBubbleEffect.fsh */; };
 		03E74C82183CBFDB00B20A8F /* GLBubbleEffect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A3D183A11FD00F7AF12 /* GLBubbleEffect.vsh */; };
 		03F9B3A018392DD600804E1D /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F9B39F18392DD600804E1D /* libLumberjack.a */; };
@@ -241,6 +242,7 @@
 		03DF1AA6183A11FD00F7AF12 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SystemMonitor/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		03DF1AA7183A11FD00F7AF12 /* HardcodedDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HardcodedDeviceData.h; path = SystemMonitor/HardcodedDeviceData.h; sourceTree = SOURCE_ROOT; };
 		03DF1AA8183A11FD00F7AF12 /* HardcodedDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HardcodedDeviceData.m; path = SystemMonitor/HardcodedDeviceData.m; sourceTree = SOURCE_ROOT; };
+		03E332F4183FE0F100480CE7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		03F9B39B18392D7500804E1D /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
 		03F9B39D18392D7500804E1D /* HockeySDK.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = HockeySDK.xcconfig; sourceTree = "<group>"; };
 		03F9B39E18392D7500804E1D /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03E332F5183FE0F100480CE7 /* CoreTelephony.framework in Frameworks */,
 				03DA2AC01839310A0014C322 /* Security.framework in Frameworks */,
 				03DA2ABE183930F90014C322 /* QuartzCore.framework in Frameworks */,
 				03DA2ABD183930EA0014C322 /* CoreText.framework in Frameworks */,
@@ -673,6 +676,7 @@
 		703D22DA173818EC0001E3B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03E332F4183FE0F100480CE7 /* CoreTelephony.framework */,
 				03F9B3A118392DE600804E1D /* 3rdParty */,
 				70FC38EA174F51870085EBC3 /* AssetsLibrary.framework */,
 				70FC38EE174F74400085EBC3 /* AVFoundation.framework */,

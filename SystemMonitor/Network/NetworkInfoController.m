@@ -11,6 +11,7 @@
 
 #import <Foundation/Foundation.h>
 #import <SystemConfiguration/SystemConfiguration.h>
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <ifaddrs.h>
 #import <arpa/inet.h>
 #import <sys/types.h>
@@ -54,6 +55,7 @@ typedef enum {
 - (NSString*)internetInterface;
 - (NSString*)readableCurrentInterface;
 - (void)reachabilityStatusChangedCB;
+- (void)currentRadioTechnologyChangedCB;
 
 - (NetworkInfo*)populateNetworkInfo;
 
@@ -101,7 +103,7 @@ static NSString *kInterfaceNone = @"";
 - (void)setCurrentMaxSentBandwidth:(CGFloat)currentMaxSentBandwidth
 {
     _currentMaxSentBandwidth = currentMaxSentBandwidth;
-    if ([(NSObject*)self.delegate respondsToSelector:@selector(networkMaxBandwidthUpdated)])
+    if ([[self delegate] respondsToSelector:@selector(networkMaxBandwidthUpdated)])
     {
         [self.delegate networkMaxBandwidthUpdated];
     }
@@ -115,7 +117,7 @@ static NSString *kInterfaceNone = @"";
 - (void)setCurrentMaxReceivedBandwidth:(CGFloat)currentMaxReceivedBandwidth
 {
     _currentMaxReceivedBandwidth = currentMaxReceivedBandwidth;
-    if ([(NSObject*)self.delegate respondsToSelector:@selector(networkMaxBandwidthUpdated)])
+    if ([[self delegate] respondsToSelector:@selector(networkMaxBandwidthUpdated)])
     {
         [self.delegate networkMaxBandwidthUpdated];
     }
@@ -135,12 +137,16 @@ static NSString *kInterfaceNone = @"";
         self.networkInfo = [[NetworkInfo alloc] init];
         self.networkBandwidthHistory = [[NSMutableArray alloc] init];
         self.networkBandwidthHistorySize = kDefaultDataHistorySize;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(currentRadioTechnologyChangedCB) name:CTRadioAccessTechnologyDidChangeNotification object:nil];
     }
     return self;
 }
 
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     if (self.reachability)
     {
         CFRelease(self.reachability);
@@ -188,9 +194,9 @@ static NSString *kInterfaceNone = @"";
         //[set addObjectsFromArray:udpConnections];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            if ([(NSObject*)self.delegate respondsToSelector:@selector(networkActiveConnectionsUpdated:)])
+            if ([[self delegate] respondsToSelector:@selector(networkActiveConnectionsUpdated:)])
             {
-                [self.delegate networkActiveConnectionsUpdated:[set allObjects]];
+                [[self delegate] networkActiveConnectionsUpdated:[set allObjects]];
             }
         });
     });
@@ -202,9 +208,9 @@ static NSString *kInterfaceNone = @"";
 {
     NetworkBandwidth *bandwidth = [self getNetworkBandwidth];
     [self pushNetworkBandwidth:bandwidth];
-    if ([(NSObject*)self.delegate respondsToSelector:@selector(networkBandwidthUpdated:)])
+    if ([[self delegate] respondsToSelector:@selector(networkBandwidthUpdated:)])
     {
-        [self.delegate networkBandwidthUpdated:bandwidth];
+        [[self delegate] networkBandwidthUpdated:bandwidth];
     }
 }
 
@@ -327,6 +333,24 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     }
     else if ([self.currentInterface isEqualToString:kInterfaceWWAN])
     {
+        static NSString *interfaceFormat = @"Cellular (%@)";
+        
+        CTTelephonyNetworkInfo *ctInfo = [CTTelephonyNetworkInfo new];
+        NSString *currentRadioTechnology = [ctInfo currentRadioAccessTechnology];
+        
+        if ([currentRadioTechnology isEqualToString:CTRadioAccessTechnologyLTE])            return [NSString stringWithFormat:interfaceFormat, @"LTE"];
+        if ([currentRadioTechnology isEqualToString:CTRadioAccessTechnologyEdge])           return [NSString stringWithFormat:interfaceFormat, @"Edge"];
+        if ([currentRadioTechnology isEqualToString:CTRadioAccessTechnologyGPRS])           return [NSString stringWithFormat:interfaceFormat, @"GPRS"];
+        if ([currentRadioTechnology isEqualToString:CTRadioAccessTechnologyCDMA1x] ||
+            [currentRadioTechnology isEqualToString:CTRadioAccessTechnologyCDMAEVDORev0] ||
+            [currentRadioTechnology isEqualToString:CTRadioAccessTechnologyCDMAEVDORevA] ||
+            [currentRadioTechnology isEqualToString:CTRadioAccessTechnologyCDMAEVDORevB])   return [NSString stringWithFormat:interfaceFormat, @"CDMA"];
+        if ([currentRadioTechnology isEqualToString:CTRadioAccessTechnologyWCDMA])          return [NSString stringWithFormat:interfaceFormat, @"W-CDMA"];
+        if ([currentRadioTechnology isEqualToString:CTRadioAccessTechnologyeHRPD])          return [NSString stringWithFormat:interfaceFormat, @"eHRPD"];
+        if ([currentRadioTechnology isEqualToString:CTRadioAccessTechnologyHSDPA])          return [NSString stringWithFormat:interfaceFormat, @"HSDPA"];
+        if ([currentRadioTechnology isEqualToString:CTRadioAccessTechnologyHSUPA])          return [NSString stringWithFormat:interfaceFormat, @"HSUPA"];
+        
+        // If technology is not known, keep it generic.
         return @"Cellular";
     }
     else
@@ -338,9 +362,18 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 - (void)reachabilityStatusChangedCB
 {
     [self populateNetworkInfo];
-    if ([(NSObject*)self.delegate respondsToSelector:@selector(networkStatusUpdated)])
+    if ([[self delegate] respondsToSelector:@selector(networkStatusUpdated)])
     {
-        [self.delegate networkStatusUpdated];
+        [[self delegate] networkStatusUpdated];
+    }
+}
+
+- (void)currentRadioTechnologyChangedCB
+{
+    [self populateNetworkInfo];
+    if ([[self delegate] respondsToSelector:@selector(networkStatusUpdated)])
+    {
+        [[self delegate] networkStatusUpdated];
     }
 }
 
@@ -352,9 +385,9 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         self.networkInfo.externalIPAddress = @"-"; // Placeholder while fetching.
         self.networkInfo.externalIPAddress = [self getExternalIPAddress];
         dispatch_async(dispatch_get_main_queue(), ^{
-            if ([(NSObject*)self.delegate respondsToSelector:@selector(networkStatusUpdated)])
+            if ([[self delegate] respondsToSelector:@selector(networkStatusUpdated)])
             {
-                [self.delegate networkStatusUpdated];
+                [[self delegate] networkStatusUpdated];
             }
         });
     });

@@ -13,7 +13,7 @@
 #import "NetworkBandwidth.h"
 #import "NetworkInfo.h"
 
-@protocol NetworkInfoControllerDelegate
+@protocol NetworkInfoControllerDelegate <NSObject>
 @optional
 - (void)networkBandwidthUpdated:(NetworkBandwidth*)bandwidth;
 - (void)networkStatusUpdated;
