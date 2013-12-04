@@ -182,7 +182,7 @@
     static const uint64_t GB  = MB * 1024;
     static const uint64_t TB  = GB * 1024;
     
-    uint64_t absValue = labs((long)value);
+    uint64_t absValue = llabs((long long)value);
     double metricValue;
     NSString *specifier = [NSString stringWithFormat:@"%%0.%ldf", (long)fraction];
     NSString *format;
