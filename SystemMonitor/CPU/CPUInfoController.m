@@ -76,7 +76,7 @@
 {
     if (self = [super init])
     {
-        self.cpuLoadHistory = [[NSMutableArray alloc] init];
+        self.cpuLoadHistory = [@[] mutableCopy];
         self.cpuLoadFilter = [[CPULoadFilter alloc] init];
         
         self.cpuLoadHistorySize = kDefaultDataHistorySize;

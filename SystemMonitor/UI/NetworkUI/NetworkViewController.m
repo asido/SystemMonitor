@@ -98,7 +98,7 @@ static const CGFloat kNetworkGraphMaxValue = MB_TO_B(100);
     
     for (NSUInteger i = 0; i < bandwidthHistory.count; ++i)
     {
-        NetworkBandwidth *bandwidth = [bandwidthHistory objectAtIndex:i];
+        NetworkBandwidth *bandwidth = bandwidthHistory[i];
         NSNumber *upValue = [NSNumber numberWithFloat:bandwidth.sent];
         NSNumber *downValue = [NSNumber numberWithFloat:bandwidth.received];
         [bandwidthArray addObject:[NSArray arrayWithObjects:upValue, downValue, nil]];

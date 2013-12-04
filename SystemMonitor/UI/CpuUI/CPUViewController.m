@@ -82,12 +82,12 @@
     
     for (NSUInteger i = 0; i < cpuLoadArray.count; ++i)
     {
-        NSArray *data = [cpuLoadArray objectAtIndex:i];
+        NSArray *data = cpuLoadArray[i];
         avr = 0;
         
         for (NSUInteger j = 0; j < data.count; ++j)
         {
-            CPULoad *load = [data objectAtIndex:j];
+            CPULoad *load = data[j];
             avr += load.total;
         }
         avr /= data.count;

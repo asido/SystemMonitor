@@ -81,7 +81,7 @@
     // Start from the last one
     for (NSInteger index = count - 1; index >= 0; --index)
     {
-        DDLogFileInfo *logFileInfo = [sortedLogFileInfos objectAtIndex:index];
+        DDLogFileInfo *logFileInfo = sortedLogFileInfos[index];
         
         NSData *logData = [[NSFileManager defaultManager] contentsAtPath:[logFileInfo filePath]];
         if ([logData length] > 0)

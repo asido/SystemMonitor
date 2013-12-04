@@ -73,7 +73,7 @@
 
     if (dictionary)
     {
-        NSNumber *fileSystemSizeInBytes = [dictionary objectForKey:NSFileSystemSize];
+        NSNumber *fileSystemSizeInBytes = dictionary[NSFileSystemSize];
         return [fileSystemSizeInBytes unsignedLongLongValue];
     }
     else
@@ -91,8 +91,8 @@
     
     if (dictionary)
     {
-        NSNumber *fileSystemSize = [dictionary objectForKey:NSFileSystemSize];
-        NSNumber *fileSystemFreeSize = [dictionary objectForKey:NSFileSystemFreeSize];
+        NSNumber *fileSystemSize = dictionary[NSFileSystemSize];
+        NSNumber *fileSystemFreeSize = dictionary[NSFileSystemFreeSize];
         uint64_t usedSize = [fileSystemSize unsignedLongLongValue] - [fileSystemFreeSize unsignedLongLongValue];
         return usedSize;
     }
@@ -111,7 +111,7 @@
     
     if (dictionary)
     {
-        NSNumber *fileSystemFreeSize = [dictionary objectForKey:NSFileSystemFreeSize];
+        NSNumber *fileSystemFreeSize = dictionary[NSFileSystemFreeSize];
         return [fileSystemFreeSize unsignedLongLongValue];
     }
     else
@@ -139,7 +139,7 @@
         AVURLAsset *songAsset = [AVURLAsset URLAssetWithURL: url options:nil];
         CMTime duration = songAsset.duration;
         float durationSeconds = CMTimeGetSeconds(duration);
-        AVAssetTrack *track = [songAsset.tracks objectAtIndex:0];
+        AVAssetTrack *track = songAsset.tracks[0];
         [track loadValuesAsynchronouslyForKeys:[NSArray arrayWithObject:@"estimatedDataRate"] completionHandler:^() { NSLog(@"%f", track.estimatedDataRate); }];
         float dr = track.estimatedDataRate;
         NSLog(@"dr: %f", dr);

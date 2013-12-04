@@ -163,7 +163,7 @@
     UILabel *priorityLabel = (UILabel*) [cell viewWithTag:TAG_PRIORITY_LABEL];
     UILabel *commandLineLabel = (UILabel*) [cell viewWithTag:TAG_COMMAND_LINE_LABEL];
     
-    ProcessInfo *process = [self.filteredProcesses objectAtIndex:indexPath.row];
+    ProcessInfo *process = self.filteredProcesses[indexPath.row];
     
     //[iconView setImage:process.icon];
     [nameLabel setText:process.name];

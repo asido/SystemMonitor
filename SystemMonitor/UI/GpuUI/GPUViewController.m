@@ -124,7 +124,7 @@ enum OpenGLRow {
         }
         case SECTION_OPENGL_EXTENSIONS: {
             cell = [tableView dequeueReusableCellWithIdentifier:@"OpenGLExtensionCell"];
-            NSString *extension = [app.iDevice.gpuInfo.openGLExtensions objectAtIndex:indexPath.row];
+            NSString *extension = app.iDevice.gpuInfo.openGLExtensions[indexPath.row];
             UILabel *extensionLabel = (UILabel*)[cell viewWithTag:1];
             [extensionLabel setText:extension];
             break;

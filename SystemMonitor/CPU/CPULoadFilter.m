@@ -29,7 +29,7 @@ static const NSUInteger kCpuLoadHistoryMax = 0;
 {
     if (self = [super init])
     {
-        self.rawCpuLoadHistory = [[NSMutableArray alloc] init];
+        self.rawCpuLoadHistory = [@[] mutableCopy];
     }
     return self;
 }
@@ -49,7 +49,7 @@ static const NSUInteger kCpuLoadHistoryMax = 0;
     
     for (i = 0; i < self.rawCpuLoadHistory.count; ++i)
     {
-        CPULoad *load = [self.rawCpuLoadHistory objectAtIndex:i];
+        CPULoad *load = self.rawCpuLoadHistory[i];
         avgSystem += load.system;
         avgUser += load.user;
         avgNice += load.nice;

@@ -54,7 +54,7 @@
 {
     size_t size, processCount;
     struct kinfo_proc *procs = NULL;
-    NSMutableArray *result = [[NSMutableArray alloc] init];
+    NSMutableArray *result = [@[] mutableCopy];
     
     int mib[4] = { CTL_KERN, KERN_PROC, KERN_PROC_ALL, 0 };
     

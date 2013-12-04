@@ -161,7 +161,7 @@ static const VertexData_t legendData[] = {
         NSMutableArray *lines = [[NSMutableArray alloc] initWithCapacity:self.dataLineCount];
         for (NSUInteger i = 0; i < self.dataLineCount; ++i)
         {
-            GLDataLine *dataLine = [[GLDataLine alloc] initWithColor:[lineColors objectAtIndex:i] forGraph:self];
+            GLDataLine *dataLine = [[GLDataLine alloc] initWithColor:lineColors[i] forGraph:self];
             [lines addObject:dataLine];
         }
         self.dataLines = [[NSArray alloc] initWithArray:lines];
@@ -187,7 +187,7 @@ static const VertexData_t legendData[] = {
 - (void)setDataLineLegendIcon:(UIImage*)image forLineIndex:(NSUInteger)lineIndex
 {
     AMAssert(lineIndex < [[self dataLines] count], @"Line index is out of range: %ld. Number of data lines: %ld", (long)lineIndex, (long)[[self dataLines] count]);
-    [[self.dataLines objectAtIndex:lineIndex] setDataLineLegendIcon:image];
+    [self.dataLines[lineIndex] setDataLineLegendIcon:image];
 }
 
 - (void)addDataValue:(NSArray*)data
@@ -197,10 +197,10 @@ static const VertexData_t legendData[] = {
     
     for (NSUInteger i = 0; i < data.count; ++i)
     {
-        NSNumber *number = [data objectAtIndex:i];
+        NSNumber *number = data[i];
         GLfloat value = [number floatValue];
         GLfloat percent = [AMUtils valuePercentFrom:self.fromValue to:self.toValue value:value];
-        GLDataLine *dataLine = [self.dataLines objectAtIndex:i];
+        GLDataLine *dataLine = self.dataLines[i];
         [dataLine addLineDataValue:percent];
         
         NSString *dataLineLegend = @"";
@@ -250,7 +250,7 @@ static const VertexData_t legendData[] = {
         
         for (NSUInteger i = 0; i < dataArray.count; ++i)
         {
-            NSArray *data = [dataArray objectAtIndex:i];
+            NSArray *data = dataArray[i];
             [self addDataValue:data];
         }
     }
@@ -567,7 +567,7 @@ static const VertexData_t legendData[] = {
 {
     for (NSUInteger i = 0; i < self.dataLines.count; ++i)
     {
-        GLDataLine *line = [self.dataLines objectAtIndex:i];
+        GLDataLine *line = self.dataLines[i];
         [line renderLegend:i];
     }
 }

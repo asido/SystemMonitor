@@ -91,7 +91,7 @@ enum {
     
     for (NSUInteger i = 0; i < usageHistory.count; ++i)
     {
-        RAMUsage *usage = [usageHistory objectAtIndex:i];
+        RAMUsage *usage = usageHistory[i];
         NSNumber *value = [NSNumber numberWithInteger:usage.usedRam];
         [usageArray addObject:[NSArray arrayWithObject:value]];
     }

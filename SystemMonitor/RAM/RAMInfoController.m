@@ -47,7 +47,7 @@
     if (self = [super init])
     {
         self.ramInfo = [[RAMInfo alloc] init];
-        self.ramUsageHistory = [[NSMutableArray alloc] init];
+        self.ramUsageHistory = [@[] mutableCopy];
         self.ramUsageHistorySize = kDefaultDataHistorySize;
     }
     return self;

@@ -137,7 +137,7 @@ static NSString *kInterfaceNone = @"";
     if (self = [super init])
     {
         self.networkInfo = [[NetworkInfo alloc] init];
-        self.networkBandwidthHistory = [[NSMutableArray alloc] init];
+        self.networkBandwidthHistory = [@[] mutableCopy];
         self.networkBandwidthHistorySize = kDefaultDataHistorySize;
         
         // Make sure CTTelephony is created before adding notification observer to CTRadioAccessTechnologyDidChangeNotification,
@@ -699,7 +699,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     struct xsocket_n    *so = NULL;
     struct xsockstat_n  *so_stat = NULL;
     int                 which = 0;
-    NSMutableArray      *result = [[NSMutableArray alloc] init];
+    NSMutableArray      *result = [@[] mutableCopy];
     
     switch (connectionType) {
         case CONNECTION_TYPE_TCP4:

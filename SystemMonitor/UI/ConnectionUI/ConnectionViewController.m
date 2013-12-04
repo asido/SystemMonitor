@@ -150,9 +150,9 @@
     UILabel     *txLabel            = (UILabel*)    [cell viewWithTag:TAG_TX_LABEL];
     UILabel     *rxLabel            = (UILabel*)    [cell viewWithTag:TAG_RX_LABEL];
     
-    NSString *key = [self.activeConnectionKeys objectAtIndex:indexPath.section];
-    NSArray *connections = [self.activeConnections objectForKey:key];
-    ActiveConnection *connection = [connections objectAtIndex:indexPath.row];
+    NSString *key = self.activeConnectionKeys[indexPath.section];
+    NSArray *connections = self.activeConnections[key];
+    ActiveConnection *connection = connections[indexPath.row];
     
     [localAddressLabel setText:[NSString stringWithFormat:@"%@:%@ %@", connection.localIP, connection.localPort,
                                 (connection.localPortService.length > 0 ? [NSString stringWithFormat:@"(%@)", connection.localPortService] : @"")]];
@@ -202,8 +202,8 @@
     }
     else
     {
-        NSString *key = [self.activeConnectionKeys objectAtIndex:section];
-        NSArray *connections = [self.activeConnections objectForKey:key];
+        NSString *key = self.activeConnectionKeys[section];
+        NSArray *connections = self.activeConnections[key];
         return connections.count;
     }
 }
@@ -222,7 +222,7 @@
             
             if (self.activeConnections != nil && self.activeConnections.count > 0)
             {
-                [view.label setText:[self.activeConnectionKeys objectAtIndex:section]];
+                [view.label setText:self.activeConnectionKeys[section]];
             }
             else
             {
@@ -273,17 +273,17 @@
 
 - (void)networkActiveConnectionsUpdated:(NSArray *)connections
 {
-    self.activeConnections = [[NSMutableDictionary alloc] init];
+    self.activeConnections = [@{} mutableCopy];
     NSArray *currentConnections = [NSArray arrayWithArray:connections];
     
     for (ActiveConnection *connection in currentConnections)
     {
-        if (![self.activeConnections objectForKey:connection.statusString])
+        if (self.activeConnections[connection.statusString] == nil)
         {
-            [self.activeConnections setObject:[[NSMutableArray alloc] init] forKey:connection.statusString];
+            self.activeConnections[connection.statusString] = [@[] mutableCopy];
         }
         
-        NSMutableArray *connectionsWithStatus = [self.activeConnections objectForKey:connection.statusString];
+        NSMutableArray *connectionsWithStatus = self.activeConnections[connection.statusString];
         [connectionsWithStatus addObject:connection];
         [self.activeConnections setObject:connectionsWithStatus forKey:connection.statusString];
     }
