@@ -15,7 +15,7 @@
 #import "DeviceInfoController.h"
 
 @interface DeviceInfoController()
-@property (strong, nonatomic) DeviceInfo    *deviceInfo;
+@property (nonatomic, strong) DeviceInfo    *deviceInfo;
 
 - (const NSString*)getDeviceName;
 - (NSString*)getHostName;

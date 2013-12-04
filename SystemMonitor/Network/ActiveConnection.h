@@ -18,17 +18,17 @@ typedef enum {
 } ConnectionStatus_t;
 
 @interface ActiveConnection : NSObject
-@property (strong, nonatomic) NSString              *localIP;
-@property (strong, nonatomic) NSString              *localPort;
-@property (strong, nonatomic) NSString              *localPortService;
+@property (nonatomic, copy) NSString              *localIP;
+@property (nonatomic, copy) NSString              *localPort;
+@property (nonatomic, copy) NSString              *localPortService;
 
-@property (strong, nonatomic) NSString              *remoteIP;
-@property (strong, nonatomic) NSString              *remotePort;
-@property (strong, nonatomic) NSString              *remotePortService;
+@property (nonatomic, copy) NSString              *remoteIP;
+@property (nonatomic, copy) NSString              *remotePort;
+@property (nonatomic, copy) NSString              *remotePortService;
 
-@property (assign, nonatomic) ConnectionStatus_t    status;
-@property (strong, nonatomic) NSString              *statusString;
+@property (nonatomic, assign) ConnectionStatus_t    status;
+@property (nonatomic, copy) NSString                *statusString;
 
-@property (assign, nonatomic) CGFloat               totalTX;
-@property (assign, nonatomic) CGFloat               totalRX;
+@property (nonatomic, assign) CGFloat               totalTX;
+@property (nonatomic, assign) CGFloat               totalRX;
 @end

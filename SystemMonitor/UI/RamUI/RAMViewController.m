@@ -20,18 +20,18 @@ enum {
 };
 
 @interface RAMViewController() <RAMInfoControllerDelegate>
-@property (strong, nonatomic) GLLineGraph   *glGraph;
-@property (strong, nonatomic) GLKView       *ramUsageGLView;
+@property (nonatomic, strong) GLLineGraph   *glGraph;
+@property (nonatomic, strong) GLKView       *ramUsageGLView;
 
-@property (weak, nonatomic) IBOutlet UILabel *totalRamLabel;
-@property (weak, nonatomic) IBOutlet UILabel *ramTypeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *wiredRamLabel;
-@property (weak, nonatomic) IBOutlet UILabel *activeRamLabel;
-@property (weak, nonatomic) IBOutlet UILabel *inactiveRamLabel;
-@property (weak, nonatomic) IBOutlet UILabel *freeRamLabel;
-@property (weak, nonatomic) IBOutlet UILabel *pageInsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *pageOutsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *pageFaultsLabel;
+@property (nonatomic, weak) IBOutlet UILabel *totalRamLabel;
+@property (nonatomic, weak) IBOutlet UILabel *ramTypeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *wiredRamLabel;
+@property (nonatomic, weak) IBOutlet UILabel *activeRamLabel;
+@property (nonatomic, weak) IBOutlet UILabel *inactiveRamLabel;
+@property (nonatomic, weak) IBOutlet UILabel *freeRamLabel;
+@property (nonatomic, weak) IBOutlet UILabel *pageInsLabel;
+@property (nonatomic, weak) IBOutlet UILabel *pageOutsLabel;
+@property (nonatomic, weak) IBOutlet UILabel *pageFaultsLabel;
 
 - (void)updateUsageLabels:(RAMUsage*)usage;
 @end
@@ -92,8 +92,7 @@ enum {
     for (NSUInteger i = 0; i < usageHistory.count; ++i)
     {
         RAMUsage *usage = usageHistory[i];
-        NSNumber *value = [NSNumber numberWithInteger:usage.usedRam];
-        [usageArray addObject:[NSArray arrayWithObject:value]];
+        [usageArray addObject:@[ @(usage.usedRam) ]];
     }
     [self.glGraph resetDataArray:usageArray];
     
@@ -160,9 +159,7 @@ enum {
 - (void)ramUsageUpdated:(RAMUsage*)usage
 {
     [self updateUsageLabels:usage];
-    
-    NSNumber *number = [NSNumber numberWithInteger:usage.usedRam];
-    [self.glGraph addDataValue:[NSArray arrayWithObject:number]];
+    [self.glGraph addDataValue:@[ @(usage.usedRam) ]];
 }
 
 @end

@@ -13,26 +13,26 @@
 #import "GeneralViewController.h"
 
 @interface GeneralViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *deviceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *hostnameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *screenRezolutionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *retinaLabel;
-@property (weak, nonatomic) IBOutlet UILabel *screenSizeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *ppiLabel;
-@property (weak, nonatomic) IBOutlet UILabel *aspectRatioLabel;
-@property (weak, nonatomic) IBOutlet UILabel *osNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *osTypeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *osVersionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *osBuildLabel;
-@property (weak, nonatomic) IBOutlet UILabel *osRevisionLabel;
-@property (weak, nonatomic) IBOutlet UITextView *kernelInfoLabel;
-@property (weak, nonatomic) IBOutlet UILabel *maxVNodesLabel;
-@property (weak, nonatomic) IBOutlet UILabel *maxProcessesLabel;
-@property (weak, nonatomic) IBOutlet UILabel *maxFilesLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tickFrequencyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *safeBootLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bootTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *uptimeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *deviceLabel;
+@property (nonatomic, weak) IBOutlet UILabel *hostnameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *screenRezolutionLabel;
+@property (nonatomic, weak) IBOutlet UILabel *retinaLabel;
+@property (nonatomic, weak) IBOutlet UILabel *screenSizeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *ppiLabel;
+@property (nonatomic, weak) IBOutlet UILabel *aspectRatioLabel;
+@property (nonatomic, weak) IBOutlet UILabel *osNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *osTypeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *osVersionLabel;
+@property (nonatomic, weak) IBOutlet UILabel *osBuildLabel;
+@property (nonatomic, weak) IBOutlet UILabel *osRevisionLabel;
+@property (nonatomic, weak) IBOutlet UITextView *kernelInfoLabel;
+@property (nonatomic, weak) IBOutlet UILabel *maxVNodesLabel;
+@property (nonatomic, weak) IBOutlet UILabel *maxProcessesLabel;
+@property (nonatomic, weak) IBOutlet UILabel *maxFilesLabel;
+@property (nonatomic, weak) IBOutlet UILabel *tickFrequencyLabel;
+@property (nonatomic, weak) IBOutlet UILabel *safeBootLabel;
+@property (nonatomic, weak) IBOutlet UILabel *bootTimeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *uptimeLabel;
 
 @property (strong, nonatomic) NSTimer *uptimeTimer;
 - (void)startUptimeTimer;

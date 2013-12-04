@@ -13,12 +13,12 @@
 #import <GLKit/GLKit.h>
 
 @interface GLLineGraph : GLKViewController
-@property (strong, nonatomic) GLKBaseEffect *effect;
+@property (nonatomic, strong) GLKBaseEffect *effect;
 /* Graph boundaries determined based on projection and viewport. */
-@property (assign, nonatomic) GLfloat       graphBottom;
-@property (assign, nonatomic) GLfloat       graphTop;
-@property (assign, nonatomic) GLfloat       graphRight;
-@property (assign, nonatomic) GLfloat       graphLeft;
+@property (nonatomic, assign) GLfloat       graphBottom;
+@property (nonatomic, assign) GLfloat       graphTop;
+@property (nonatomic, assign) GLfloat       graphRight;
+@property (nonatomic, assign) GLfloat       graphLeft;
 
 @property (assign, nonatomic) BOOL          useClosestMetrics;
 

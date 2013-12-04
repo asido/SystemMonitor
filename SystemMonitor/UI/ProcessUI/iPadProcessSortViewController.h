@@ -13,7 +13,7 @@
 #import "ProcessSort.h"
 
 @interface iPadProcessSortViewController : UITableViewController
-@property (weak, nonatomic) id<ProcessSortViewControllerDelegate> sortDelegate;
+@property (nonatomic, weak) id<ProcessSortViewControllerDelegate> sortDelegate;
 
 - (void)setFilter:(SortFilter_t)filter;
 @end

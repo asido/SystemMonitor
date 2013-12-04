@@ -38,18 +38,18 @@ typedef enum {
 } ConnectionType_t;
 
 @interface NetworkInfoController()
-@property (strong, nonatomic) NetworkInfo   *networkInfo;
-@property (strong, nonatomic) NSString      *currentInterface;
-@property (assign, nonatomic) NSUInteger    bandwidthHistorySize;
+@property (nonatomic, strong) NetworkInfo   *networkInfo;
+@property (nonatomic, copy)   NSString      *currentInterface;
+@property (nonatomic, assign) NSUInteger    bandwidthHistorySize;
 
-@property (assign, nonatomic) NSUInteger    maxSentBandwidthTimes;
-@property (assign, nonatomic) NSUInteger    maxReceivedBandwidthTimes;
+@property (nonatomic, assign) NSUInteger    maxSentBandwidthTimes;
+@property (nonatomic, assign) NSUInteger    maxReceivedBandwidthTimes;
 
-@property (strong, nonatomic) NSTimer       *networkBandwidthUpdateTimer;
+@property (nonatomic, strong) NSTimer       *networkBandwidthUpdateTimer;
 - (void)networkBandwidthUpdateCB:(NSNotification*)notification;
 
-@property (assign, nonatomic) SCNetworkReachabilityRef reachability;
-@property (strong, nonatomic) CTTelephonyNetworkInfo *telephonyNetworkInfo;
+@property (nonatomic, assign) SCNetworkReachabilityRef reachability;
+@property (nonatomic, strong) CTTelephonyNetworkInfo *telephonyNetworkInfo;
 
 - (void)initReachability;
 - (BOOL)internetConnected;

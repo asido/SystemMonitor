@@ -12,17 +12,17 @@
 #import <Foundation/Foundation.h>
 
 @interface CPUInfo : NSObject
-@property (strong, nonatomic) NSString     *cpuName;
-@property (assign, nonatomic) NSUInteger   activeCPUCount;
-@property (assign, nonatomic) NSUInteger   physicalCPUCount;
-@property (assign, nonatomic) NSUInteger   physicalCPUMaxCount;
-@property (assign, nonatomic) NSUInteger   logicalCPUCount;
-@property (assign, nonatomic) NSUInteger   logicalCPUMaxCount;
-@property (assign, nonatomic) NSUInteger   cpuFrequency;
-@property (assign, nonatomic) NSUInteger   l1DCache;
-@property (assign, nonatomic) NSUInteger   l1ICache;
-@property (assign, nonatomic) NSUInteger   l2Cache;
-@property (strong, nonatomic) NSString     *cpuType;
-@property (strong, nonatomic) NSString     *cpuSubtype;
-@property (strong, nonatomic) NSString     *endianess;
+@property (nonatomic, copy)   NSString     *cpuName;
+@property (nonatomic, assign) NSUInteger   activeCPUCount;
+@property (nonatomic, assign) NSUInteger   physicalCPUCount;
+@property (nonatomic, assign) NSUInteger   physicalCPUMaxCount;
+@property (nonatomic, assign) NSUInteger   logicalCPUCount;
+@property (nonatomic, assign) NSUInteger   logicalCPUMaxCount;
+@property (nonatomic, assign) NSUInteger   cpuFrequency;
+@property (nonatomic, assign) NSUInteger   l1DCache;
+@property (nonatomic, assign) NSUInteger   l1ICache;
+@property (nonatomic, assign) NSUInteger   l2Cache;
+@property (nonatomic, copy)   NSString     *cpuType;
+@property (nonatomic, copy)   NSString     *cpuSubtype;
+@property (nonatomic, copy)   NSString     *endianess;
 @end

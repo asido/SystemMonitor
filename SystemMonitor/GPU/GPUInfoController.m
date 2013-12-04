@@ -15,7 +15,7 @@
 #import "GPUInfoController.h"
 
 @interface GPUInfoController()
-@property (strong, nonatomic) GPUInfo *gpuInfo;
+@property (nonatomic, strong) GPUInfo *gpuInfo;
 @end
 
 @implementation GPUInfoController

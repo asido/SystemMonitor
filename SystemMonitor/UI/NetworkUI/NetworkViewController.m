@@ -21,23 +21,23 @@ enum {
 };
 
 @interface NetworkViewController() <NetworkInfoControllerDelegate>
-@property (strong, nonatomic) GLLineGraph   *networkGraph;
-@property (strong, nonatomic) GLKView       *networkGLView;
+@property (nonatomic, strong) GLLineGraph   *networkGraph;
+@property (nonatomic, strong) GLKView       *networkGLView;
 
 - (void)updateStatusLabels;
 - (void)updateBandwidthLabels:(NetworkBandwidth*)bandwidth;
 - (void)updateGraphZoomLevel;
 
-@property (weak, nonatomic) IBOutlet UILabel *networkTypeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *externalIPLabel;
-@property (weak, nonatomic) IBOutlet UILabel *internalIPLabel;
-@property (weak, nonatomic) IBOutlet UILabel *netmaskLabel;
-@property (weak, nonatomic) IBOutlet UILabel *broadcastAddressLabel;
+@property (nonatomic, weak) IBOutlet UILabel *networkTypeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *externalIPLabel;
+@property (nonatomic, weak) IBOutlet UILabel *internalIPLabel;
+@property (nonatomic, weak) IBOutlet UILabel *netmaskLabel;
+@property (nonatomic, weak) IBOutlet UILabel *broadcastAddressLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *totalWiFiDownloadsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *totalWiFiUploadsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *totalWWANDownloadsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *totalWWANUploadsLabel;
+@property (nonatomic, weak) IBOutlet UILabel *totalWiFiDownloadsLabel;
+@property (nonatomic, weak) IBOutlet UILabel *totalWiFiUploadsLabel;
+@property (nonatomic, weak) IBOutlet UILabel *totalWWANDownloadsLabel;
+@property (nonatomic, weak) IBOutlet UILabel *totalWWANUploadsLabel;
 @end
 
 @implementation NetworkViewController
@@ -99,9 +99,9 @@ static const CGFloat kNetworkGraphMaxValue = MB_TO_B(100);
     for (NSUInteger i = 0; i < bandwidthHistory.count; ++i)
     {
         NetworkBandwidth *bandwidth = bandwidthHistory[i];
-        NSNumber *upValue = [NSNumber numberWithFloat:bandwidth.sent];
-        NSNumber *downValue = [NSNumber numberWithFloat:bandwidth.received];
-        [bandwidthArray addObject:[NSArray arrayWithObjects:upValue, downValue, nil]];
+        NSNumber *upValue = @(bandwidth.sent);
+        NSNumber *downValue = @(bandwidth.received);
+        [bandwidthArray addObject:@[upValue, downValue]];
     }
     [self.networkGraph resetDataArray:bandwidthArray];
     
@@ -188,9 +188,9 @@ static const CGFloat kNetworkGraphMaxValue = MB_TO_B(100);
 {
     [self updateBandwidthLabels:bandwidth];
     
-    NSNumber *upValue = [NSNumber numberWithFloat:bandwidth.sent];
-    NSNumber *downValue = [NSNumber numberWithFloat:bandwidth.received];
-    [self.networkGraph addDataValue:[NSArray arrayWithObjects:upValue, downValue, nil]];
+    NSNumber *upValue = @(bandwidth.sent);
+    NSNumber *downValue = @(bandwidth.received);
+    [self.networkGraph addDataValue:@[upValue, downValue]];
 }
 
 - (void)networkStatusUpdated

@@ -26,9 +26,9 @@
 #import "CPUInfoController.h"
 
 @interface CPUInfoController()
-@property (strong, nonatomic) CPUInfo       *cpuInfo;
-@property (strong, nonatomic) CPULoadFilter *cpuLoadFilter;
-@property (assign, nonatomic) NSUInteger    cpuLoadHistorySize;
+@property (nonatomic, strong) CPUInfo       *cpuInfo;
+@property (nonatomic, strong) CPULoadFilter *cpuLoadFilter;
+@property (nonatomic, assign) NSUInteger    cpuLoadHistorySize;
 
 - (NSString*)getCPUName;
 - (NSUInteger)getActiveCPUCount;

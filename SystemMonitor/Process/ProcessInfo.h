@@ -21,13 +21,13 @@ typedef enum {
 } ProcessStatus_t;
 
 @interface ProcessInfo : NSObject
-@property (strong, nonatomic) NSString          *name;
-@property (assign, nonatomic) NSInteger         pid;
-@property (assign, nonatomic) NSInteger         priority;
-@property (assign, nonatomic) ProcessStatus_t   status;
-@property (assign, nonatomic) time_t            startTime;
-@property (strong, nonatomic) NSString          *commandLine;
-@property (strong, nonatomic) UIImage           *icon;
+@property (nonatomic, copy)   NSString          *name;
+@property (nonatomic, assign) NSInteger         pid;
+@property (nonatomic, assign) NSInteger         priority;
+@property (nonatomic, assign) ProcessStatus_t   status;
+@property (nonatomic, assign) time_t            startTime;
+@property (nonatomic, copy)   NSString          *commandLine;
+@property (nonatomic, strong) UIImage           *icon;
 
 - (NSString*)getStatusString;
 @end

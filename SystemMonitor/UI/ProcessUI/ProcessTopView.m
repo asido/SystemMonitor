@@ -17,9 +17,9 @@
 #import "ProcessTopView.h"
 
 @interface ProcessTopView()
-@property (weak, nonatomic) IBOutlet UIButton *sortButton;
+@property (nonatomic, weak) IBOutlet UIButton *sortButton;
 
-@property (weak, nonatomic) IBOutlet UILabel *processCountLabel;
+@property (nonatomic, weak) IBOutlet UILabel *processCountLabel;
 - (IBAction)filterButtonTouchDown:(UIButton*)button;
 @end
 

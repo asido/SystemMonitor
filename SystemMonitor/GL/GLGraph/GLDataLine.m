@@ -16,28 +16,28 @@
 #import "GLDataLine.h"
 
 @interface GLDataLine()
-@property (weak, nonatomic) GLLineGraph     *graph;
+@property (nonatomic, weak) GLLineGraph     *graph;
 
-@property (assign, nonatomic) GLuint        glVertexArrayDataLine;
-@property (assign, nonatomic) GLuint        glBufferDataLine;
-@property (assign, nonatomic) VertexData_t  *dataLineData;
-@property (assign, nonatomic) NSUInteger    dataLineDataSize;
-@property (assign, nonatomic) GLuint        dataLineDataValidSize;  /* Valid buffer index count */
-@property (assign, nonatomic) GLuint        dataLineDataCurrIdx;    /* Current index to be written new values to */
-@property (assign, nonatomic) GLfloat       dataLineDataNextX;      /* Each added data element gets it's own unique X position */
+@property (nonatomic, assign) GLuint        glVertexArrayDataLine;
+@property (nonatomic, assign) GLuint        glBufferDataLine;
+@property (nonatomic, assign) VertexData_t  *dataLineData;
+@property (nonatomic, assign) NSUInteger    dataLineDataSize;
+@property (nonatomic, assign) GLuint        dataLineDataValidSize;  /* Valid buffer index count */
+@property (nonatomic, assign) GLuint        dataLineDataCurrIdx;    /* Current index to be written new values to */
+@property (nonatomic, assign) GLfloat       dataLineDataNextX;      /* Each added data element gets it's own unique X position */
 /* dataLineData is a circular array and so in order to utilize GL_LINE_STRIP without creating an
  * impression of GL_LINE_LOOP we declare 2 matrixes.
  * The first translates 0 - dataLineDataCurrIdx verticies.
  * The second translates dataLineDataCurrIdx+1 - dataLineDataValidSize-1 verticies. */
-@property (assign, nonatomic) GLKVector3    dataLinePosition1;
-@property (assign, nonatomic) GLKVector3    dataLinePosition2;
+@property (nonatomic, assign) GLKVector3    dataLinePosition1;
+@property (nonatomic, assign) GLKVector3    dataLinePosition2;
 
-@property (assign, nonatomic) GLuint        glVertexArrayLineLegend;
-@property (assign, nonatomic) GLuint        glBufferLineLegend;
-@property (strong, nonatomic) GLKTextureInfo *lineLegendTextTexture;
-@property (strong, nonatomic) GLKTextureInfo *lineLegendIconTexture;
+@property (nonatomic, assign) GLuint        glVertexArrayLineLegend;
+@property (nonatomic, assign) GLuint        glBufferLineLegend;
+@property (nonatomic, strong) GLKTextureInfo *lineLegendTextTexture;
+@property (nonatomic, strong) GLKTextureInfo *lineLegendIconTexture;
 
-@property (assign, nonatomic) GLfloat       zoom;
+@property (nonatomic, assign) GLfloat       zoom;
 
 - (void)setupVBO;
 - (void)renderDataLine;

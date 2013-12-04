@@ -18,13 +18,13 @@ enum {
 };
 
 @interface BatteryViewController() <BatteryInfoControllerDelegate>
-@property (strong, nonatomic) GLTube    *glBatteryTube;
-@property (strong, nonatomic) GLKView   *glView;
+@property (nonatomic, strong) GLTube    *glBatteryTube;
+@property (nonatomic, strong) GLKView   *glView;
 
-@property (weak, nonatomic) IBOutlet UILabel *batteryCapacityLabel;
-@property (weak, nonatomic) IBOutlet UILabel *batteryVoltageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *batteryStatusLabel;
-@property (weak, nonatomic) IBOutlet UILabel *batteryLevelLabel;
+@property (nonatomic, weak) IBOutlet UILabel *batteryCapacityLabel;
+@property (nonatomic, weak) IBOutlet UILabel *batteryVoltageLabel;
+@property (nonatomic, weak) IBOutlet UILabel *batteryStatusLabel;
+@property (nonatomic, weak) IBOutlet UILabel *batteryLevelLabel;
 
 - (void)updateBatteryLabels;
 @end

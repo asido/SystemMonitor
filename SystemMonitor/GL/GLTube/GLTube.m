@@ -16,45 +16,45 @@
 #import "GLTube.h"
 
 @interface GLTube()
-@property (weak, nonatomic) GLKView             *glView;
-@property (strong, nonatomic) GLKBaseEffect     *effect;
-@property (strong, nonatomic) GLBubbleEffect    *bubbleEffect;
-@property (assign, nonatomic) GLfloat           aspectRatio;
-@property (assign, nonatomic) GLfloat           drawableWidth;
-@property (assign, nonatomic) GLfloat           drawableHeight;
-@property (assign, nonatomic) GLfloat           projectionLeft;
-@property (assign, nonatomic) GLfloat           projectionRight;
+@property (nonatomic, weak) GLKView             *glView;
+@property (nonatomic, strong) GLKBaseEffect     *effect;
+@property (nonatomic, strong) GLBubbleEffect    *bubbleEffect;
+@property (nonatomic, assign) GLfloat           aspectRatio;
+@property (nonatomic, assign) GLfloat           drawableWidth;
+@property (nonatomic, assign) GLfloat           drawableHeight;
+@property (nonatomic, assign) GLfloat           projectionLeft;
+@property (nonatomic, assign) GLfloat           projectionRight;
 
-@property (assign, nonatomic) GLfloat           drawableLiquidMinX;
-@property (assign, nonatomic) GLfloat           drawableLiquidMaxX;
-@property (assign, nonatomic) GLfloat           drawableLiquidWidth;
+@property (nonatomic, assign) GLfloat           drawableLiquidMinX;
+@property (nonatomic, assign) GLfloat           drawableLiquidMaxX;
+@property (nonatomic, assign) GLfloat           drawableLiquidWidth;
 
-@property (assign, nonatomic) GLfloat           drawableGlassX;
-@property (assign, nonatomic) GLfloat           drawableGlassWidth;
+@property (nonatomic, assign) GLfloat           drawableGlassX;
+@property (nonatomic, assign) GLfloat           drawableGlassWidth;
 
-@property (assign, nonatomic) double            fromValue;
-@property (assign, nonatomic) double            toValue;
-@property (assign, nonatomic) GLfloat           currentPercentage;
+@property (nonatomic, assign) double            fromValue;
+@property (nonatomic, assign) double            toValue;
+@property (nonatomic, assign) GLfloat           currentPercentage;
 
-@property (assign, nonatomic) GLuint            glVertexArrayTubeLeft;
-@property (assign, nonatomic) GLuint            glVertexArrayTubeRight;
-@property (assign, nonatomic) GLuint            glVertexArrayTubeLiquid;
-@property (assign, nonatomic) GLuint            glVertexArrayTubeLiquidTop;
-@property (assign, nonatomic) GLuint            glVertexArrayTubeGlass;
+@property (nonatomic, assign) GLuint            glVertexArrayTubeLeft;
+@property (nonatomic, assign) GLuint            glVertexArrayTubeRight;
+@property (nonatomic, assign) GLuint            glVertexArrayTubeLiquid;
+@property (nonatomic, assign) GLuint            glVertexArrayTubeLiquidTop;
+@property (nonatomic, assign) GLuint            glVertexArrayTubeGlass;
 
-@property (assign, nonatomic) GLuint            glBufferTubeLeft;
-@property (assign, nonatomic) GLuint            glBufferTubeRight;
-@property (assign, nonatomic) GLuint            glBufferTubeLiquid;
-@property (assign, nonatomic) GLuint            glBufferTubeLiquidTop;
-@property (assign, nonatomic) GLuint            glBufferTubeGlass;
+@property (nonatomic, assign) GLuint            glBufferTubeLeft;
+@property (nonatomic, assign) GLuint            glBufferTubeRight;
+@property (nonatomic, assign) GLuint            glBufferTubeLiquid;
+@property (nonatomic, assign) GLuint            glBufferTubeLiquidTop;
+@property (nonatomic, assign) GLuint            glBufferTubeGlass;
 
-@property (assign, nonatomic) GLuint            tubeVertexCountLeft;
-@property (assign, nonatomic) GLuint            tubeVertexCountRight;
-@property (assign, nonatomic) GLuint            tubeVertexCountLiquid;
-@property (assign, nonatomic) GLuint            tubeVertexCountLiquidTop;
-@property (assign, nonatomic) GLuint            tubeVertexCountGlass;
+@property (nonatomic, assign) GLuint            tubeVertexCountLeft;
+@property (nonatomic, assign) GLuint            tubeVertexCountRight;
+@property (nonatomic, assign) GLuint            tubeVertexCountLiquid;
+@property (nonatomic, assign) GLuint            tubeVertexCountLiquidTop;
+@property (nonatomic, assign) GLuint            tubeVertexCountGlass;
 
-@property (assign, nonatomic) GLuint            tubeTexture;
+@property (nonatomic, assign) GLuint            tubeTexture;
 
 - (void)setupGL;
 - (void)setupVBOs;

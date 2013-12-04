@@ -20,8 +20,8 @@ enum {
 @interface RootCell()
 - (void)refreshCellImage;
 
-@property (strong, nonatomic) UIImage *cellImage;
-@property (strong, nonatomic) UIImage *cellHighlightImage;
+@property (nonatomic, strong) UIImage *cellImage;
+@property (nonatomic, strong) UIImage *cellHighlightImage;
 @end
 
 @implementation RootCell

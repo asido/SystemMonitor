@@ -21,14 +21,14 @@
  * The dictionary holds arrays of active connections with keys being
  * the connection status: ESTABLISHED, LISTEN...
  */
-@property (strong, nonatomic) NSMutableDictionary   *activeConnections;
-@property (strong, nonatomic) NSArray               *activeConnectionKeys;
-@property (assign, nonatomic) BOOL refreshingConnections;
-@property (assign, nonatomic) BOOL nothingToSee;
+@property (nonatomic, strong) NSMutableDictionary   *activeConnections;
+@property (nonatomic, copy)   NSArray               *activeConnectionKeys;
+@property (nonatomic, assign) BOOL refreshingConnections;
+@property (nonatomic, assign) BOOL nothingToSee;
 
-@property (strong, nonatomic) UIImage *greenCircle;
-@property (strong, nonatomic) UIImage *orangeCircle;
-@property (strong, nonatomic) UIImage *redCircle;
+@property (nonatomic, strong) UIImage *greenCircle;
+@property (nonatomic, strong) UIImage *orangeCircle;
+@property (nonatomic, strong) UIImage *redCircle;
 
 - (UITableViewCell*)dequeueRefreshingCellForTable:(UITableView*)table indexPath:(NSIndexPath*)indexPath;
 - (UITableViewCell*)dequeueNothingToSeeCellForTable:(UITableView*)table indexPath:(NSIndexPath*)indexPath;
@@ -285,7 +285,7 @@
         
         NSMutableArray *connectionsWithStatus = self.activeConnections[connection.statusString];
         [connectionsWithStatus addObject:connection];
-        [self.activeConnections setObject:connectionsWithStatus forKey:connection.statusString];
+        self.activeConnections[connection.statusString] = connectionsWithStatus;
     }
     self.activeConnectionKeys = [[self.activeConnections allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     

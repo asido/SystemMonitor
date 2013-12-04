@@ -21,9 +21,9 @@ typedef struct {
 } GLBubbleBounds_t;
 
 @interface GLBubbleEffect : GLEffect
-@property (assign, nonatomic) GLKMatrix4        mvpMatrix;
-@property (assign, nonatomic) GLBubbleBounds_t  bounds;
-@property (assign, nonatomic) GLfloat           elapsedSeconds;
+@property (nonatomic, assign) GLKMatrix4        mvpMatrix;
+@property (nonatomic, assign) GLBubbleBounds_t  bounds;
+@property (nonatomic, assign) GLfloat           elapsedSeconds;
 
 - (id)initWithBounds:(GLBubbleBounds_t)bound;
 - (void)spawnBubbleEffect;

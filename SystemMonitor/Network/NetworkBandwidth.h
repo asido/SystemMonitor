@@ -12,13 +12,13 @@
 #import <Foundation/Foundation.h>
 
 @interface NetworkBandwidth : NSObject
-@property (strong, nonatomic) NSString  *interface;
-@property (strong, nonatomic) NSDate    *timestamp;
+@property (nonatomic, copy)   NSString  *interface;
+@property (nonatomic, strong) NSDate    *timestamp;
 
-@property (assign, nonatomic) float     sent;
-@property (assign, nonatomic) uint64_t  totalWiFiSent;
-@property (assign, nonatomic) uint64_t  totalWWANSent;
-@property (assign, nonatomic) float     received;
-@property (assign, nonatomic) uint64_t  totalWiFiReceived;
-@property (assign, nonatomic) uint64_t  totalWWANReceived;
+@property (nonatomic, assign) float     sent;
+@property (nonatomic, assign) uint64_t  totalWiFiSent;
+@property (nonatomic, assign) uint64_t  totalWWANSent;
+@property (nonatomic, assign) float     received;
+@property (nonatomic, assign) uint64_t  totalWiFiReceived;
+@property (nonatomic, assign) uint64_t  totalWWANReceived;
 @end

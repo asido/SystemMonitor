@@ -13,8 +13,8 @@
 #import "BatteryInfoController.h"
 
 @interface BatteryInfoController()
-@property (strong, nonatomic) BatteryInfo   *batteryInfo;
-@property (assign, nonatomic) BOOL          batteryMonitoringEnabled;
+@property (nonatomic, strong) BatteryInfo   *batteryInfo;
+@property (nonatomic, assign) BOOL          batteryMonitoringEnabled;
 
 - (NSUInteger)getBatteryCapacity;
 - (CGFloat)getBatteryVoltage;

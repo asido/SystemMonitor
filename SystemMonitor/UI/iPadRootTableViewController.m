@@ -16,7 +16,7 @@
 #import "iPadRootTableViewController.h"
 
 @interface iPadRootTableViewController()
-@property (assign, nonatomic) ViewCtrl_t currentCtrl;
+@property (nonatomic, assign) ViewCtrl_t currentCtrl;
 @end
 
 @implementation iPadRootTableViewController

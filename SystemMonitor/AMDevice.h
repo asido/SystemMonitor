@@ -25,14 +25,14 @@
 #define kNetworkUpdateFrequency     1
 
 @interface AMDevice : NSObject
-@property (readonly) DeviceInfo     *deviceInfo;
-@property (readonly) CPUInfo        *cpuInfo;
-@property (readonly) GPUInfo        *gpuInfo;
-@property (readonly) NSArray        *processes;
-@property (readonly) RAMInfo        *ramInfo;
-@property (readonly) NetworkInfo    *networkInfo;
-@property (readonly) StorageInfo    *storageInfo;
-@property (readonly) BatteryInfo    *batteryInfo;
+@property (nonatomic, strong, readonly) DeviceInfo     *deviceInfo;
+@property (nonatomic, strong, readonly) CPUInfo        *cpuInfo;
+@property (nonatomic, strong, readonly) GPUInfo        *gpuInfo;
+@property (nonatomic, copy, readonly)   NSArray        *processes;
+@property (nonatomic, strong, readonly) RAMInfo        *ramInfo;
+@property (nonatomic, strong, readonly) NetworkInfo    *networkInfo;
+@property (nonatomic, strong, readonly) StorageInfo    *storageInfo;
+@property (nonatomic, strong, readonly) BatteryInfo    *batteryInfo;
 
 - (void)refreshProcesses;
 - (void)refreshStorageInfo;

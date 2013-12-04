@@ -12,9 +12,9 @@
 #import <Foundation/Foundation.h>
 
 @interface NetworkInfo : NSObject
-@property (strong, nonatomic) NSString  *readableInterface;
-@property (strong, nonatomic) NSString  *externalIPAddress;
-@property (strong, nonatomic) NSString  *internalIPAddress;
-@property (strong, nonatomic) NSString  *netmask;
-@property (strong, nonatomic) NSString  *broadcastAddress;
+@property (nonatomic, copy) NSString  *readableInterface;
+@property (nonatomic, copy) NSString  *externalIPAddress;
+@property (nonatomic, copy) NSString  *internalIPAddress;
+@property (nonatomic, copy) NSString  *netmask;
+@property (nonatomic, copy) NSString  *broadcastAddress;
 @end

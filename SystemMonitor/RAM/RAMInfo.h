@@ -12,6 +12,6 @@
 #import <Foundation/Foundation.h>
 
 @interface RAMInfo : NSObject
-@property (assign, nonatomic) uint64_t  totalRam;
-@property (strong, nonatomic) NSString  *ramType;
+@property (nonatomic, assign) uint64_t  totalRam;
+@property (nonatomic, copy)   NSString  *ramType;
 @end

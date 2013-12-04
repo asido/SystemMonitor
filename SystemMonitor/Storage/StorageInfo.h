@@ -12,15 +12,15 @@
 #import <Foundation/Foundation.h>
 
 @interface StorageInfo : NSObject
-@property (assign, nonatomic) uint64_t      totalSapce;
-@property (assign, nonatomic) uint64_t      usedSpace;
-@property (assign, nonatomic) uint64_t      freeSpace;
+@property (nonatomic, assign) uint64_t      totalSapce;
+@property (nonatomic, assign) uint64_t      usedSpace;
+@property (nonatomic, assign) uint64_t      freeSpace;
 
-@property (assign, nonatomic) NSUInteger    songCount;
-@property (assign, nonatomic) NSUInteger    pictureCount;
-@property (assign, nonatomic) NSUInteger    videoCount;
+@property (nonatomic, assign) NSUInteger    songCount;
+@property (nonatomic, assign) NSUInteger    pictureCount;
+@property (nonatomic, assign) NSUInteger    videoCount;
 
-@property (assign, nonatomic) uint64_t      totalSongSize;
-@property (assign, nonatomic) uint64_t      totalPictureSize;
-@property (assign, nonatomic) uint64_t      totalVideoSize;
+@property (nonatomic, assign) uint64_t      totalSongSize;
+@property (nonatomic, assign) uint64_t      totalPictureSize;
+@property (nonatomic, assign) uint64_t      totalVideoSize;
 @end

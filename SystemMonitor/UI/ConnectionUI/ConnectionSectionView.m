@@ -12,7 +12,7 @@
 #import "ConnectionSectionView.h"
 
 @interface ConnectionSectionView()
-@property (strong, nonatomic) UIImageView *background;
+@property (nonatomic, strong) UIImageView *background;
 @end
 
 @implementation ConnectionSectionView

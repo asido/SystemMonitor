@@ -13,7 +13,7 @@
 #import "iPadProcessSortViewController.h"
 
 @interface iPadProcessSortViewController ()
-@property (assign, nonatomic) SortFilter_t  currentFilter;
+@property (nonatomic, assign) SortFilter_t  currentFilter;
 @end
 
 @implementation iPadProcessSortViewController

@@ -12,5 +12,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ConnectionSectionView : UIView
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (nonatomic, weak) IBOutlet UILabel *label;
 @end

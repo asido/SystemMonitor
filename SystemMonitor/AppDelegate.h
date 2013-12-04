@@ -22,19 +22,19 @@
 #import "DeviceSpecificUI.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-@property (strong, nonatomic) UIWindow  *window;
+@property (nonatomic, strong) UIWindow  *window;
 
-@property (strong, nonatomic) AMDevice              *iDevice;
-@property (strong, nonatomic) CPUInfoController     *cpuInfoCtrl;
-@property (strong, nonatomic) DeviceInfoController  *deviceInfoCtrl;
-@property (strong, nonatomic) GPUInfoController     *gpuInfoCtrl;
-@property (strong, nonatomic) ProcessInfoController *processInfoCtrl;
-@property (strong, nonatomic) RAMInfoController     *ramInfoCtrl;
-@property (strong, nonatomic) NetworkInfoController *networkInfoCtrl;
-@property (strong, nonatomic) StorageInfoController *storageInfoCtrl;
-@property (strong, nonatomic) BatteryInfoController *batteryInfoCtrl;
+@property (nonatomic, strong) AMDevice              *iDevice;
+@property (nonatomic, strong) CPUInfoController     *cpuInfoCtrl;
+@property (nonatomic, strong) DeviceInfoController  *deviceInfoCtrl;
+@property (nonatomic, strong) GPUInfoController     *gpuInfoCtrl;
+@property (nonatomic, strong) ProcessInfoController *processInfoCtrl;
+@property (nonatomic, strong) RAMInfoController     *ramInfoCtrl;
+@property (nonatomic, strong) NetworkInfoController *networkInfoCtrl;
+@property (nonatomic, strong) StorageInfoController *storageInfoCtrl;
+@property (nonatomic, strong) BatteryInfoController *batteryInfoCtrl;
 
-@property (strong, nonatomic) DeviceSpecificUI      *deviceSpecificUI;
+@property (nonatomic, strong) DeviceSpecificUI      *deviceSpecificUI;
 
 + (AppDelegate*)sharedDelegate;
 @end

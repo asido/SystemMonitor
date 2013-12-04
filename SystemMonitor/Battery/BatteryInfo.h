@@ -12,10 +12,10 @@
 #import <Foundation/Foundation.h>
 
 @interface BatteryInfo : NSObject
-@property (assign, nonatomic) NSUInteger    capacity;
-@property (assign, nonatomic) CGFloat       voltage;
+@property (nonatomic, assign) NSUInteger    capacity;
+@property (nonatomic, assign) CGFloat       voltage;
 
-@property (assign, nonatomic) NSUInteger    levelPercent;
-@property (assign, nonatomic) NSUInteger    levelMAH;
-@property (assign, nonatomic) NSString      *status;
+@property (nonatomic, assign) NSUInteger    levelPercent;
+@property (nonatomic, assign) NSUInteger    levelMAH;
+@property (nonatomic, copy)   NSString      *status;
 @end

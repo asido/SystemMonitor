@@ -18,33 +18,33 @@
 #import "GLLineGraph.h"
 
 @interface GLLineGraph() <GLKViewDelegate>
-@property (assign, nonatomic) BOOL          initialized;
+@property (nonatomic, assign) BOOL          initialized;
 
-@property (assign, nonatomic) NSUInteger    dataLineCount;
-@property (assign, nonatomic) double        fromValue;
-@property (assign, nonatomic) double        toValue;
-@property (strong, nonatomic) NSString      *legend;
+@property (nonatomic, assign) NSUInteger    dataLineCount;
+@property (nonatomic, assign) double        fromValue;
+@property (nonatomic, assign) double        toValue;
+@property (nonatomic, copy)   NSString      *legend;
 
-@property (weak, nonatomic)   GLKView       *glView;
-@property (assign, nonatomic) GLfloat       aspectRatio;
-@property (assign, nonatomic) GLfloat       drawableWidth;
-@property (assign, nonatomic) GLfloat       drawableHeight;
+@property (nonatomic, weak)   GLKView       *glView;
+@property (nonatomic, assign) GLfloat       aspectRatio;
+@property (nonatomic, assign) GLfloat       drawableWidth;
+@property (nonatomic, assign) GLfloat       drawableHeight;
 
 /* Data line */
-@property (strong, nonatomic) NSArray       *dataLines;
-@property (strong, nonatomic) NSArray       *queuedDataLineData;
+@property (nonatomic, copy) NSArray       *dataLines;
+@property (nonatomic, copy) NSArray       *queuedDataLineData;
 
 /* Reference lines */
-@property (assign, nonatomic) GLuint        glVertexArrayReferenceLine;
-@property (assign, nonatomic) GLuint        glBufferReferenceLine;
+@property (nonatomic, assign) GLuint        glVertexArrayReferenceLine;
+@property (nonatomic, assign) GLuint        glBufferReferenceLine;
 
 /* Legends */
-@property (assign, nonatomic) GLuint        glVertexArrayLegends;
-@property (assign, nonatomic) GLuint        glBufferLegends;
-@property (strong, nonatomic) GLKTextureInfo *topGraphLegendTexture;
+@property (nonatomic, assign) GLuint        glVertexArrayLegends;
+@property (nonatomic, assign) GLuint        glBufferLegends;
+@property (nonatomic, strong) GLKTextureInfo *topGraphLegendTexture;
 
-@property (strong, nonatomic) NSString      *lineLegendPostfix;
-@property (assign, nonatomic) NSUInteger    lineLegendDesiredFraction;
+@property (nonatomic, copy)   NSString      *lineLegendPostfix;
+@property (nonatomic, assign) NSUInteger    lineLegendDesiredFraction;
 
 - (void)lateInit;
 
@@ -155,9 +155,8 @@ static const VertexData_t legendData[] = {
         [self setupGL];
         
         // Init data lines.
-        NSArray *lineColors = [NSArray arrayWithObjects:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f],
-                                                        [UIColor colorWithRed:171.0f/255.0f green:201.0f/255.0f blue:255.0f/255.0f alpha:1.0f],
-                                                        nil];
+        NSArray *lineColors = @[ [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f],
+                                 [UIColor colorWithRed:171.0f/255.0f green:201.0f/255.0f blue:255.0f/255.0f alpha:1.0f] ];
         NSMutableArray *lines = [[NSMutableArray alloc] initWithCapacity:self.dataLineCount];
         for (NSUInteger i = 0; i < self.dataLineCount; ++i)
         {

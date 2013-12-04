@@ -38,12 +38,12 @@ enum GLBubbleEffectUniforms {
 };
 
 @interface GLBubbleEffect()
-@property (strong, nonatomic) NSMutableData *bubbleAttributeData;
+@property (nonatomic, strong) NSMutableData *bubbleAttributeData;
 
-@property (assign, nonatomic) GLuint        glVertexArrayBubble;
-@property (assign, nonatomic) GLuint        glBufferBubble;
-@property (assign, nonatomic) GLuint        bubbleTexture;
-@property (assign, nonatomic) GLfloat       bubbleSize;
+@property (nonatomic, assign) GLuint        glVertexArrayBubble;
+@property (nonatomic, assign) GLuint        glBufferBubble;
+@property (nonatomic, assign) GLuint        bubbleTexture;
+@property (nonatomic, assign) GLfloat       bubbleSize;
 
 - (BOOL)loadShaders;
 - (void)setupVBO;

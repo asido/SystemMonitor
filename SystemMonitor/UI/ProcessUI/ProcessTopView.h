@@ -17,7 +17,7 @@
 @end
 
 @interface ProcessTopView : UIView
-@property (weak, nonatomic) id<ProcessTopViewDelegate> delegate;
+@property (nonatomic, weak) id<ProcessTopViewDelegate> delegate;
 
 - (void)setProcessCount:(NSUInteger)count;
 @end

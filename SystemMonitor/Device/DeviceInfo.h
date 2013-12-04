@@ -12,25 +12,25 @@
 #import <Foundation/Foundation.h>
 
 @interface DeviceInfo : NSObject
-@property (strong, nonatomic) const NSString    *deviceName;
-@property (strong, nonatomic) NSString          *hostName;
-@property (strong, nonatomic) NSString          *osName;
-@property (strong, nonatomic) NSString          *osType;
-@property (strong, nonatomic) NSString          *osVersion;
-@property (strong, nonatomic) NSString          *osBuild;
-@property (assign, nonatomic) NSInteger         osRevision;
-@property (strong, nonatomic) NSString          *kernelInfo;
-@property (assign, nonatomic) NSUInteger        maxVNodes;
-@property (assign, nonatomic) NSUInteger        maxProcesses;
-@property (assign, nonatomic) NSUInteger        maxFiles;
-@property (assign, nonatomic) NSUInteger        tickFrequency;
-@property (assign, nonatomic) NSUInteger        numberOfGroups;
-@property (assign, nonatomic) time_t            bootTime;
-@property (assign, nonatomic) BOOL              safeBoot;
+@property (nonatomic, copy)   const NSString    *deviceName;
+@property (nonatomic, copy)   NSString          *hostName;
+@property (nonatomic, copy)   NSString          *osName;
+@property (nonatomic, copy)   NSString          *osType;
+@property (nonatomic, copy)   NSString          *osVersion;
+@property (nonatomic, copy)   NSString          *osBuild;
+@property (nonatomic, assign) NSInteger         osRevision;
+@property (nonatomic, copy)   NSString          *kernelInfo;
+@property (nonatomic, assign) NSUInteger        maxVNodes;
+@property (nonatomic, assign) NSUInteger        maxProcesses;
+@property (nonatomic, assign) NSUInteger        maxFiles;
+@property (nonatomic, assign) NSUInteger        tickFrequency;
+@property (nonatomic, assign) NSUInteger        numberOfGroups;
+@property (nonatomic, assign) time_t            bootTime;
+@property (nonatomic, assign) BOOL              safeBoot;
 
-@property (strong, nonatomic) NSString          *screenResolution;
-@property (assign, nonatomic) CGFloat           screenSize;
-@property (assign, nonatomic) BOOL              retina;
-@property (assign, nonatomic) NSUInteger        ppi;
-@property (strong, nonatomic) NSString          *aspectRatio;
+@property (nonatomic, copy)   NSString          *screenResolution;
+@property (nonatomic, assign) CGFloat           screenSize;
+@property (nonatomic, assign) BOOL              retina;
+@property (nonatomic, assign) NSUInteger        ppi;
+@property (nonatomic, copy)   NSString          *aspectRatio;
 @end

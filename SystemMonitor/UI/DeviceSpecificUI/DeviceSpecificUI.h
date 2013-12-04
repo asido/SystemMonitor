@@ -12,26 +12,26 @@
 #import <Foundation/Foundation.h>
 
 @interface DeviceSpecificUI : NSObject
-@property (assign, nonatomic) CGFloat   pickViewY;
+@property (nonatomic, assign) CGFloat   pickViewY;
 
-@property (assign, nonatomic) GLfloat   GLdataLineGraphWidth;
-@property (assign, nonatomic) GLfloat   GLdataLineWidth;
+@property (nonatomic, assign) GLfloat   GLdataLineGraphWidth;
+@property (nonatomic, assign) GLfloat   GLdataLineWidth;
 
-@property (assign, nonatomic) GLfloat   GLtubeTextureSheetW;
-@property (assign, nonatomic) GLfloat   GLtubeTextureSheetH;
-@property (assign, nonatomic) GLfloat   GLtubeTextureY;
-@property (assign, nonatomic) GLfloat   GLtubeTextureH;
-@property (assign, nonatomic) GLfloat   GLtubeTextureLeftX;
-@property (assign, nonatomic) GLfloat   GLtubeTextureLeftW;
-@property (assign, nonatomic) GLfloat   GLtubeTextureRightX;
-@property (assign, nonatomic) GLfloat   GLtubeTextureRightW;
-@property (assign, nonatomic) GLfloat   GLtubeTextureLiquidX;
-@property (assign, nonatomic) GLfloat   GLtubeTextureLiquidW;
-@property (assign, nonatomic) GLfloat   GLtubeTextureLiquidTopX;
-@property (assign, nonatomic) GLfloat   GLtubeTextureLiquidTopW;
-@property (assign, nonatomic) GLfloat   GLtubeTextureGlassX;
-@property (assign, nonatomic) GLfloat   GLtubeTextureGlassW;
-@property (assign, nonatomic) GLfloat   GLtubeGlowH;
-@property (assign, nonatomic) GLfloat   GLtubeLiquidTopGlowL;
-@property (assign, nonatomic) CGRect    GLtubeGLKViewFrame;
+@property (nonatomic, assign) GLfloat   GLtubeTextureSheetW;
+@property (nonatomic, assign) GLfloat   GLtubeTextureSheetH;
+@property (nonatomic, assign) GLfloat   GLtubeTextureY;
+@property (nonatomic, assign) GLfloat   GLtubeTextureH;
+@property (nonatomic, assign) GLfloat   GLtubeTextureLeftX;
+@property (nonatomic, assign) GLfloat   GLtubeTextureLeftW;
+@property (nonatomic, assign) GLfloat   GLtubeTextureRightX;
+@property (nonatomic, assign) GLfloat   GLtubeTextureRightW;
+@property (nonatomic, assign) GLfloat   GLtubeTextureLiquidX;
+@property (nonatomic, assign) GLfloat   GLtubeTextureLiquidW;
+@property (nonatomic, assign) GLfloat   GLtubeTextureLiquidTopX;
+@property (nonatomic, assign) GLfloat   GLtubeTextureLiquidTopW;
+@property (nonatomic, assign) GLfloat   GLtubeTextureGlassX;
+@property (nonatomic, assign) GLfloat   GLtubeTextureGlassW;
+@property (nonatomic, assign) GLfloat   GLtubeGlowH;
+@property (nonatomic, assign) GLfloat   GLtubeLiquidTopGlowL;
+@property (nonatomic, assign) CGRect    GLtubeGLKViewFrame;
 @end

@@ -18,7 +18,7 @@
 #import "StorageInfoController.h"
 
 @interface StorageInfoController()
-@property (strong, nonatomic) StorageInfo *storageInfo;
+@property (nonatomic, strong) StorageInfo *storageInfo;
 
 - (uint64_t)getTotalSpace;
 - (uint64_t)getUsedSpace;
@@ -140,7 +140,7 @@
         CMTime duration = songAsset.duration;
         float durationSeconds = CMTimeGetSeconds(duration);
         AVAssetTrack *track = songAsset.tracks[0];
-        [track loadValuesAsynchronouslyForKeys:[NSArray arrayWithObject:@"estimatedDataRate"] completionHandler:^() { NSLog(@"%f", track.estimatedDataRate); }];
+        [track loadValuesAsynchronouslyForKeys:@[@"estimatedDataRate"] completionHandler:^() { NSLog(@"%f", track.estimatedDataRate); }];
         float dr = track.estimatedDataRate;
         NSLog(@"dr: %f", dr);
     }

@@ -19,17 +19,17 @@ enum {
 };
 
 @interface StorageViewController() <StorageInfoControllerDelegate>
-@property (strong, nonatomic) GLTube    *glTube;
-@property (strong, nonatomic) GLKView   *glTubeView;
+@property (nonatomic, strong) GLTube    *glTube;
+@property (nonatomic, strong) GLKView   *glTubeView;
 
 - (void)updateInfoLabels;
 
-@property (weak, nonatomic) IBOutlet UILabel *totalStorageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *freeStorageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *usedStorageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *numberOfSongsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *numberOfPicturesLabel;
-@property (weak, nonatomic) IBOutlet UILabel *numberOfVideosLabel;
+@property (nonatomic, weak) IBOutlet UILabel *totalStorageLabel;
+@property (nonatomic, weak) IBOutlet UILabel *freeStorageLabel;
+@property (nonatomic, weak) IBOutlet UILabel *usedStorageLabel;
+@property (nonatomic, weak) IBOutlet UILabel *numberOfSongsLabel;
+@property (nonatomic, weak) IBOutlet UILabel *numberOfPicturesLabel;
+@property (nonatomic, weak) IBOutlet UILabel *numberOfVideosLabel;
 @end
 
 @implementation StorageViewController

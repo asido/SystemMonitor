@@ -19,13 +19,13 @@
 #import "ProcessViewController.h"
 
 @interface ProcessViewController() <ProcessTopViewDelegate, ProcessSortViewControllerDelegate>
-@property (strong, nonatomic) ProcessTopView                    *topView;
-@property (strong, nonatomic) iPhoneProcessSortViewController   *iPhoneSortViewCtrl;
-@property (strong, nonatomic) UIActionSheet                     *sortSheet;
-@property (strong, nonatomic) iPadProcessSortViewController     *iPadSortViewCtrl;
-@property (strong, nonatomic) UIPopoverController               *sortPopover;
+@property (nonatomic, strong) ProcessTopView                    *topView;
+@property (nonatomic, strong) iPhoneProcessSortViewController   *iPhoneSortViewCtrl;
+@property (nonatomic, strong) UIActionSheet                     *sortSheet;
+@property (nonatomic, strong) iPadProcessSortViewController     *iPadSortViewCtrl;
+@property (nonatomic, strong) UIPopoverController               *sortPopover;
 
-@property (strong, nonatomic) NSArray                           *filteredProcesses;
+@property (nonatomic, copy) NSArray                           *filteredProcesses;
 
 - (NSString*)formatStartTime:(time_t)unixTime;
 @end

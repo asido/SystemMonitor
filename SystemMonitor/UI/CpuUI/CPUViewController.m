@@ -17,19 +17,19 @@
 #import "CPUViewController.h"
 
 @interface CPUViewController() <CPUInfoControllerDelegate>
-@property (strong, nonatomic) GLKView       *cpuUsageGLView;
-@property (strong, nonatomic) GLLineGraph   *glGraph;
+@property (nonatomic, strong) GLKView       *cpuUsageGLView;
+@property (nonatomic, strong) GLLineGraph   *glGraph;
 
-@property (weak, nonatomic) IBOutlet UILabel *cpuNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *architectureLabel;
-@property (weak, nonatomic) IBOutlet UILabel *physicalCoresLabel;
-@property (weak, nonatomic) IBOutlet UILabel *logicalCoresLabel;
-@property (weak, nonatomic) IBOutlet UILabel *maxLogicalCoresLabel;
-@property (weak, nonatomic) IBOutlet UILabel *frequencyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *l1iCacheLabel;
-@property (weak, nonatomic) IBOutlet UILabel *l1dCacheLabel;
-@property (weak, nonatomic) IBOutlet UILabel *l2CacheLabel;
-@property (weak, nonatomic) IBOutlet UILabel *endianessLabel;
+@property (nonatomic, weak) IBOutlet UILabel *cpuNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *architectureLabel;
+@property (nonatomic, weak) IBOutlet UILabel *physicalCoresLabel;
+@property (nonatomic, weak) IBOutlet UILabel *logicalCoresLabel;
+@property (nonatomic, weak) IBOutlet UILabel *maxLogicalCoresLabel;
+@property (nonatomic, weak) IBOutlet UILabel *frequencyLabel;
+@property (nonatomic, weak) IBOutlet UILabel *l1iCacheLabel;
+@property (nonatomic, weak) IBOutlet UILabel *l1dCacheLabel;
+@property (nonatomic, weak) IBOutlet UILabel *l2CacheLabel;
+@property (nonatomic, weak) IBOutlet UILabel *endianessLabel;
 @end
 
 @implementation CPUViewController
@@ -92,7 +92,7 @@
         }
         avr /= data.count;
         
-        [graphData addObject:[NSArray arrayWithObject:[NSNumber numberWithDouble:(double)avr]]];
+        [graphData addObject:@[ @((double)avr) ]];
     }
     
     [self.glGraph resetDataArray:graphData];
@@ -137,8 +137,7 @@
     }
     avr /= loadArray.count;
     
-    NSNumber *number = [NSNumber numberWithFloat:avr];
-    [self.glGraph addDataValue:[NSArray arrayWithObject:number]];
+    [self.glGraph addDataValue:@[ @(avr) ]];
 }
 
 @end

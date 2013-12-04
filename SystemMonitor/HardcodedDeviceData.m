@@ -46,7 +46,7 @@ typedef enum {
 } iDevice_t;
 
 @interface HardcodedDeviceData()
-@property (assign) iDevice_t iDevice;
+@property (nonatomic, assign) iDevice_t iDevice;
 
 - (iDevice_t)hwMachineToIdevice:(NSString*)hwMachine;
 @end

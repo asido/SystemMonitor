@@ -14,7 +14,7 @@
 #import "AMLogger.h"
 
 @interface iPhoneProcessSortViewController() <UIPickerViewDataSource, UIPickerViewDelegate>
-@property (assign, nonatomic) SortFilter_t  currentFilter;
+@property (nonatomic, assign) SortFilter_t  currentFilter;
 @end
 
 @implementation iPhoneProcessSortViewController

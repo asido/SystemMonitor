@@ -19,12 +19,12 @@
 #import "RAMInfoController.h"
 
 @interface RAMInfoController()
-@property (strong, nonatomic) RAMInfo           *ramInfo;
+@property (nonatomic, strong) RAMInfo           *ramInfo;
 
-@property (assign, nonatomic) NSUInteger        ramUsageHistorySize;
+@property (nonatomic, assign) NSUInteger        ramUsageHistorySize;
 - (void)pushRAMUsage:(RAMUsage*)ramUsage;
 
-@property (strong, nonatomic) NSTimer           *ramUsageTimer;
+@property (nonatomic, strong) NSTimer           *ramUsageTimer;
 - (void)ramUsageTimerCB:(NSNotification*)notification;
 
 - (NSUInteger)getRAMTotal;

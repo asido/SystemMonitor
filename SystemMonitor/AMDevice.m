@@ -20,19 +20,26 @@
 #import "AMDevice.h"
 
 @interface AMDevice()
+// Overriden
+@property (nonatomic, strong) DeviceInfo     *deviceInfo;
+@property (nonatomic, strong) CPUInfo        *cpuInfo;
+@property (nonatomic, strong) GPUInfo        *gpuInfo;
+@property (nonatomic, copy)   NSArray        *processes;
+@property (nonatomic, strong) RAMInfo        *ramInfo;
+@property (nonatomic, strong) NetworkInfo    *networkInfo;
+@property (nonatomic, strong) StorageInfo    *storageInfo;
+@property (nonatomic, strong) BatteryInfo    *batteryInfo;
 @end
 
 @implementation AMDevice
-{
-    DeviceInfo  *_deviceInfo;
-    CPUInfo     *_cpuInfo;
-    GPUInfo     *_gpuInfo;
-    NSArray     *_processes;
-    RAMInfo     *_ramInfo;
-    NetworkInfo *_networkInfo;
-    StorageInfo *_storageInfo;
-    BatteryInfo *_batteryInfo;
-}
+@synthesize deviceInfo;
+@synthesize cpuInfo;
+@synthesize gpuInfo;
+@synthesize processes;
+@synthesize ramInfo;
+@synthesize networkInfo;
+@synthesize storageInfo;
+@synthesize batteryInfo;
 
 - (id)init
 {
@@ -45,31 +52,31 @@
         [hardcodeData setHwMachine:hwMachine];
         
         AppDelegate *app = [AppDelegate sharedDelegate];
-        _deviceInfo = [app.deviceInfoCtrl getDeviceInfo];
-        _cpuInfo = [app.cpuInfoCtrl getCPUInfo];
-        _gpuInfo = [app.gpuInfoCtrl getGPUInfo];
-        _processes = [app.processInfoCtrl getProcesses];
-        _ramInfo = [app.ramInfoCtrl getRAMInfo];
-        _networkInfo = [app.networkInfoCtrl getNetworkInfo];
-        _storageInfo = [app.storageInfoCtrl getStorageInfo];
-        _batteryInfo = [app.batteryInfoCtrl getBatteryInfo];
+        deviceInfo = [app.deviceInfoCtrl getDeviceInfo];
+        cpuInfo = [app.cpuInfoCtrl getCPUInfo];
+        gpuInfo = [app.gpuInfoCtrl getGPUInfo];
+        processes = [app.processInfoCtrl getProcesses];
+        ramInfo = [app.ramInfoCtrl getRAMInfo];
+        networkInfo = [app.networkInfoCtrl getNetworkInfo];
+        storageInfo = [app.storageInfoCtrl getStorageInfo];
+        batteryInfo = [app.batteryInfoCtrl getBatteryInfo];
     }
     return self;
 }
 
 - (DeviceInfo*)getDeviceInfo
 {
-    return _deviceInfo;
+    return deviceInfo;
 }
 
 - (CPUInfo*)getCpuInfo
 {
-    return _cpuInfo;
+    return cpuInfo;
 }
 
 - (NSArray*)getProcesses
 {
-    return _processes;
+    return processes;
 }
 
 #pragma mark - public
@@ -77,13 +84,13 @@
 - (void)refreshProcesses
 {
     AppDelegate *app = [AppDelegate sharedDelegate];
-    _processes = [app.processInfoCtrl getProcesses];
+    processes = [app.processInfoCtrl getProcesses];
 }
 
 - (void)refreshStorageInfo
 {
     AppDelegate *app = [AppDelegate sharedDelegate];
-    _storageInfo = [app.storageInfoCtrl getStorageInfo];
+    storageInfo = [app.storageInfoCtrl getStorageInfo];
 }
 
 @end

@@ -18,8 +18,8 @@
 @end
 
 @interface CPUInfoController : NSObject
-@property (weak, nonatomic) id<CPUInfoControllerDelegate> delegate;
-@property (strong, nonatomic) NSMutableArray *cpuLoadHistory;
+@property (nonatomic, weak) id<CPUInfoControllerDelegate> delegate;
+@property (nonatomic, strong) NSMutableArray *cpuLoadHistory;
 
 - (CPUInfo*)getCPUInfo;
 - (void)startCPULoadUpdatesWithFrequency:(NSUInteger)frequency;

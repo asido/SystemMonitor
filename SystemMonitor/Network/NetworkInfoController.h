@@ -23,11 +23,11 @@
 @end
 
 @interface NetworkInfoController : NSObject
-@property (weak, nonatomic) id<NetworkInfoControllerDelegate> delegate;
-@property (strong, nonatomic) NSMutableArray    *networkBandwidthHistory;
+@property (nonatomic, weak) id<NetworkInfoControllerDelegate> delegate;
+@property (nonatomic, strong) NSMutableArray    *networkBandwidthHistory;
 
-@property (assign, nonatomic) CGFloat       currentMaxSentBandwidth;
-@property (assign, nonatomic) CGFloat       currentMaxReceivedBandwidth; 
+@property (nonatomic, assign) CGFloat       currentMaxSentBandwidth;
+@property (nonatomic, assign) CGFloat       currentMaxReceivedBandwidth;
 
 - (NetworkInfo*)getNetworkInfo;
 
