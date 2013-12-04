@@ -49,7 +49,7 @@ enum {
     self.glView = [[GLKView alloc] initWithFrame:ui.GLtubeGLKViewFrame];
     self.glView.opaque = NO;
     self.glView.backgroundColor = [UIColor clearColor];
-    self.glBatteryTube = [[GLTube alloc] initWithGLKView:self.glView fromValue:0.0f toValue:100.0f];
+    self.glBatteryTube = [[GLTube alloc] initWithGLKView:self.glView fromValue:0.0 toValue:100.0];
     
     [self updateBatteryLabels];
 }
@@ -112,7 +112,7 @@ enum {
         return ui.GLtubeGLKViewFrame.size.height + 20;
     }
     
-    return 0.0f;
+    return 0.0;
 }
 
 #pragma mark - BatteryInfoController delegate

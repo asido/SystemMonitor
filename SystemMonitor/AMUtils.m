@@ -229,10 +229,10 @@
 + (BOOL)isIPhone5
 {
     UIScreen *mainScreen = [UIScreen mainScreen];
-    CGFloat scale = ([mainScreen respondsToSelector:@selector(scale)] ? mainScreen.scale : 1.0f);
+    CGFloat scale = ([mainScreen respondsToSelector:@selector(scale)] ? mainScreen.scale : 1.0);
     CGFloat pixelHeight = (CGRectGetHeight(mainScreen.bounds) * scale);
     
-    return pixelHeight == 1136.0f;
+    return pixelHeight == 1136.0;
 }
 
 + (BOOL)dateDidTimeout:(NSDate*)date seconds:(double)sec

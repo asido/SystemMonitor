@@ -58,13 +58,13 @@ enum {
     [self.totalRamLabel setText:[AMUtils toNearestMetric:(uint64_t)app.iDevice.ramInfo.totalRam desiredFraction:0]];
     [self.ramTypeLabel setText:app.iDevice.ramInfo.ramType];
     
-    self.ramUsageGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, app.deviceSpecificUI.GLdataLineGraphWidth, 200.0f)];
+    self.ramUsageGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0, 30.0, app.deviceSpecificUI.GLdataLineGraphWidth, 200.0)];
     self.ramUsageGLView.opaque = NO;
     self.ramUsageGLView.backgroundColor = [UIColor clearColor];
     
     self.glGraph = [[GLLineGraph alloc] initWithGLKView:self.ramUsageGLView
                                           dataLineCount:1
-                                              fromValue:0.0f
+                                              fromValue:0.0
                                                 toValue:app.iDevice.ramInfo.totalRam
                                                 topLegend:[AMUtils toNearestMetric:(uint64_t)app.iDevice.ramInfo.totalRam desiredFraction:0]];
     self.glGraph.useClosestMetrics = YES;
@@ -126,11 +126,11 @@ enum {
 {
     if (section == SECTION_MEMORY_USAGE)
     {
-        return 240.0f;
+        return 240.0;
     }
     else
     {
-        return 0.0f;
+        return 0.0;
     }
 }
 

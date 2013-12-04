@@ -64,10 +64,10 @@ static const CGFloat kNetworkGraphMaxValue = MB_TO_B(100);
 
     AppDelegate *app = [AppDelegate sharedDelegate];
     
-    self.networkGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, app.deviceSpecificUI.GLdataLineGraphWidth, 200.0f)];
+    self.networkGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0, 30.0, app.deviceSpecificUI.GLdataLineGraphWidth, 200.0)];
     self.networkGLView.opaque = NO;
     self.networkGLView.backgroundColor = [UIColor clearColor];
-    self.networkGraph = [[GLLineGraph alloc] initWithGLKView:self.networkGLView dataLineCount:2 fromValue:0.0f toValue:kNetworkGraphMaxValue topLegend:@"0 B/s"];
+    self.networkGraph = [[GLLineGraph alloc] initWithGLKView:self.networkGLView dataLineCount:2 fromValue:0.0 toValue:kNetworkGraphMaxValue topLegend:@"0 B/s"];
     self.networkGraph.useClosestMetrics = YES;
     [self.networkGraph setDataLineLegendFraction:1];
     [self.networkGraph setDataLineLegendPostfix:@"/s"];
@@ -174,11 +174,11 @@ static const CGFloat kNetworkGraphMaxValue = MB_TO_B(100);
 {
     if (section == SECTION_NETWORK_INFORMATION)
     {
-        return 240.0f;
+        return 240.0;
     }
     else
     {
-        return 0.0f;
+        return 0.0;
     }
 }
 

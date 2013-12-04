@@ -79,7 +79,7 @@
     else
     {
         AMLogWarn(@"attributesOfFileSystemForPat() has failed: %@", error.description);
-        return 0.0f;
+        return 0.0;
     }
 }
 
@@ -99,7 +99,7 @@
     else
     {
         AMLogWarn(@"attributesOfFileSystemForPat() has failed: %@", error.description);
-        return 0.0f;
+        return 0.0;
     }
 }
 
@@ -117,7 +117,7 @@
     else
     {
         AMLogWarn(@"attributesOfFileSystemForPat() has failed: %@", error.description);
-        return 0.0f;
+        return 0.0;
     }
 }
 

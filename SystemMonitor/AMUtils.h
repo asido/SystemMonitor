@@ -13,14 +13,14 @@
 
 #define AM_UNUSED(var)  (void)(var)
 
-#define B_TO_KB(a)      ((a) / 1024.0f)
-#define B_TO_MB(a)      (B_TO_KB(a) / 1024.0f)
-#define B_TO_GB(a)      (B_TO_MB(a) / 1024.0f)
-#define B_TO_TB(a)      (B_TO_GB(a) / 1024.0f)
-#define KB_TO_B(a)      ((a) * 1024.0f)
-#define MB_TO_B(a)      (KB_TO_B(a) * 1024.0f)
-#define GB_TO_B(a)      (MB_TO_B(a) * 1024.0f)
-#define TB_TO_B(a)      (GB_TO_B(a) * 1024.0f)
+#define B_TO_KB(a)      ((a) / 1024.0)
+#define B_TO_MB(a)      (B_TO_KB(a) / 1024.0)
+#define B_TO_GB(a)      (B_TO_MB(a) / 1024.0)
+#define B_TO_TB(a)      (B_TO_GB(a) / 1024.0)
+#define KB_TO_B(a)      ((a) * 1024.0)
+#define MB_TO_B(a)      (KB_TO_B(a) * 1024.0)
+#define GB_TO_B(a)      (MB_TO_B(a) * 1024.0)
+#define TB_TO_B(a)      (GB_TO_B(a) * 1024.0)
 
 @interface AMUtils : NSObject
 /* SysCtl */

@@ -236,7 +236,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 30.0f;
+    return 30.0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -245,11 +245,11 @@
     // while iPhone exlusively requires 92px for connections cell to fit everything in.
     if (self.refreshingConnections || self.nothingToSee || [AMUtils isIPad])
     {
-        return 60.0f;
+        return 60.0;
     }
     else
     {
-        return 92.0f;
+        return 92.0;
     }
 }
 

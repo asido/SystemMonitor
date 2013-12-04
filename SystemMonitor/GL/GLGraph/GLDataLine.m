@@ -66,13 +66,13 @@
 
 @synthesize zoom;
 
-static const GLfloat kDataLineShiftSize     = 0.25f;
+static const GLfloat kDataLineShiftSize     = 0.25;
 
 static const VertexData_t lineLegendData[] = {
-    {{ 0.0f, 0.0f, kModelZ }, { 0.0f, 0.0f }},
-    {{ 1.0f, 0.0f, kModelZ }, { 1.0f, 0.0f }},
-    {{ 0.0f, 1.0f, kModelZ }, { 0.0f, 1.0f }},
-    {{ 1.0f, 1.0f, kModelZ }, { 1.0f, 1.0f }}
+    {{ 0.0, 0.0, kModelZ }, { 0.0, 0.0 }},
+    {{ 1.0, 0.0, kModelZ }, { 1.0, 0.0 }},
+    {{ 0.0, 1.0, kModelZ }, { 0.0, 1.0 }},
+    {{ 1.0, 1.0, kModelZ }, { 1.0, 1.0 }}
 };
 
 #pragma mark - public
@@ -89,7 +89,7 @@ static const VertexData_t lineLegendData[] = {
         self.dataLineDataSize = (self.graph.graphRight - self.graph.graphLeft) / kDataLineShiftSize;
         _dataLineData = malloc(self.dataLineDataSize * sizeof(VertexData_t));
         
-        self.zoom = 1.0f;
+        self.zoom = 1.0;
         
         [self resetLineData];
         
@@ -163,7 +163,7 @@ static const VertexData_t lineLegendData[] = {
     else
     {
         // Shift data line translation matrixes.
-        GLKVector3 shift = GLKVector3Make(-kDataLineShiftSize, 0.0f, 0.0f);
+        GLKVector3 shift = GLKVector3Make(-kDataLineShiftSize, 0.0, 0.0);
         self.dataLinePosition1 = GLKVector3Add(self.dataLinePosition1, shift);
         self.dataLinePosition2 = GLKVector3Add(self.dataLinePosition2, shift);
     }
@@ -211,7 +211,7 @@ static const VertexData_t lineLegendData[] = {
         glDeleteTextures(1, &texture);
     }
     
-    UIImage *tex = [GLCommon imageWithText:text font:[UIFont fontWithName:@"Verdana" size:22.0f] color:self.color];
+    UIImage *tex = [GLCommon imageWithText:text font:[UIFont fontWithName:@"Verdana" size:22.0] color:self.color];
     self.lineLegendTextTexture = [GLKTextureLoader textureWithCGImage:tex.CGImage options:nil error:nil];
 }
 
@@ -243,16 +243,16 @@ static const VertexData_t lineLegendData[] = {
      */
     if (self.lineLegendIconTexture)
     {
-        GLfloat x = self.graph.graphRight - 6.5f - (lineIndex * 9.0f);
-        GLfloat y = self.graph.graphBottom - 1.2f;
-        GLfloat xScale = 1.0f * (self.lineLegendIconTexture.width / self.lineLegendIconTexture.height);
-        GLfloat yScale = 1.0f;
+        GLfloat x = self.graph.graphRight - 6.5 - (lineIndex * 9.0);
+        GLfloat y = self.graph.graphBottom - 1.2;
+        GLfloat xScale = 1.0 * (self.lineLegendIconTexture.width / self.lineLegendIconTexture.height);
+        GLfloat yScale = 1.0;
         
         glBindVertexArrayOES(self.glVertexArrayLineLegend);
         
-        GLKVector3 position = GLKVector3Make(x, y, 0.0f);
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, yScale, 1.0f);
+        GLKVector3 position = GLKVector3Make(x, y, 0.0);
+        GLKVector3 rotation = GLKVector3Make(0.0, 0.0, 0.0);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, yScale, 1.0);
         GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.graph.effect.transform.modelviewMatrix = modelMatrix;
@@ -270,16 +270,16 @@ static const VertexData_t lineLegendData[] = {
      */
     if (self.lineLegendTextTexture)
     {
-        GLfloat x = self.graph.graphRight - 5.0f - (lineIndex * 9.0f);
-        GLfloat y = self.graph.graphBottom - 1.0f;
+        GLfloat x = self.graph.graphRight - 5.0 - (lineIndex * 9.0);
+        GLfloat y = self.graph.graphBottom - 1.0;
         GLfloat xScale = self.lineLegendTextTexture.width * kFontScaleMultiplierW;
         GLfloat yScale = self.lineLegendTextTexture.height * kFontScaleMultiplierH;
         
         glBindVertexArrayOES(self.glVertexArrayLineLegend);
         
-        GLKVector3 position = GLKVector3Make(x, y, 0.0f);
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, yScale, 1.0f);
+        GLKVector3 position = GLKVector3Make(x, y, 0.0);
+        GLKVector3 rotation = GLKVector3Make(0.0, 0.0, 0.0);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, yScale, 1.0);
         GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.graph.effect.transform.modelviewMatrix = modelMatrix;
@@ -348,19 +348,19 @@ static const VertexData_t lineLegendData[] = {
 
 - (void)renderDataLine
 {
-    GLfloat yScale = 1.0f / self.zoom;
+    GLfloat yScale = 1.0 / self.zoom;
     
     /*
      * Render the first batch starting from 0 to self.dataLineDataCurrIdx.
      */
     {
-        GLfloat yScale = 1.0f / self.zoom;
+        GLfloat yScale = 1.0 / self.zoom;
         
         glBindVertexArrayOES(self.glVertexArrayDataLine);
         
         GLKVector3 position = self.dataLinePosition1;
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(kDataLineShiftSize, yScale, 1.0f);
+        GLKVector3 rotation = GLKVector3Make(0.0, 0.0, 0.0);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(kDataLineShiftSize, yScale, 1.0);
         GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.graph.effect.transform.modelviewMatrix = modelMatrix;
@@ -386,8 +386,8 @@ static const VertexData_t lineLegendData[] = {
         glBindVertexArrayOES(self.glVertexArrayDataLine);
         
         GLKVector3 position = self.dataLinePosition2;
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(kDataLineShiftSize, yScale, 1.0f);
+        GLKVector3 rotation = GLKVector3Make(0.0, 0.0, 0.0);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(kDataLineShiftSize, yScale, 1.0);
         GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.graph.effect.transform.modelviewMatrix = modelMatrix;

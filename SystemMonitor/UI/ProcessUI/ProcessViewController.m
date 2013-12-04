@@ -197,7 +197,7 @@
         self.sortSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
         [self.sortSheet addSubview:self.iPhoneSortViewCtrl];
         
-        UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 40.0f)];
+        UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 40.0)];
         toolbar.barStyle = UIBarStyleBlackOpaque;
         [self.sortSheet addSubview:toolbar];
         
@@ -206,7 +206,7 @@
         pickerTitleLabel.backgroundColor = [UIColor clearColor];
         pickerTitleLabel.textColor = [UIColor whiteColor];
         pickerTitleLabel.textAlignment = NSTextAlignmentCenter;
-        pickerTitleLabel.font = [UIFont boldSystemFontOfSize:15.0f];
+        pickerTitleLabel.font = [UIFont boldSystemFontOfSize:15.0];
         [toolbar addSubview:pickerTitleLabel];
         
         [self.sortSheet showFromRect:CGRectMake(0, 480, 320, 215) inView:self.view animated:YES];

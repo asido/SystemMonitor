@@ -124,7 +124,7 @@ enum {
         return ui.GLtubeGLKViewFrame.size.height + 20;
     }
 
-    return 0.0f;
+    return 0.0;
 }
 
 #pragma mark - StorageInfoController delegate

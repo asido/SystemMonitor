@@ -45,13 +45,13 @@ enum {
     
     if (selected)
     {
-        label.textColor = [UIColor colorWithRed:167.0f/255.0f green:190.0f/255.0f blue:231.0f/255.0f alpha:255.0f/255.0f];
-        label.font = [UIFont boldSystemFontOfSize:17.0f];
+        label.textColor = [UIColor colorWithRed:167.0/255.0 green:190.0/255.0 blue:231.0/255.0 alpha:255.0/255.0];
+        label.font = [UIFont boldSystemFontOfSize:17.0];
     }
     else
     {
         label.textColor = [UIColor whiteColor];
-        label.font = [UIFont systemFontOfSize:17.0f];
+        label.font = [UIFont systemFontOfSize:17.0];
     }
     
     [self refreshCellImage];

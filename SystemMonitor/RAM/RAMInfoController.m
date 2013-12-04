@@ -66,7 +66,7 @@
 - (void)startRAMUsageUpdatesWithFrequency:(NSUInteger)frequency
 {
     [self stopRAMUsageUpdates];
-    self.ramUsageTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f / frequency
+    self.ramUsageTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 / frequency
                                                           target:self
                                                         selector:@selector(ramUsageTimerCB:)
                                                         userInfo:nil

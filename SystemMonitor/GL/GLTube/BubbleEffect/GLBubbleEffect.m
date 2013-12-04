@@ -105,7 +105,7 @@ enum GLBubbleEffectUniforms {
     bubble.position = GLKVector3Make(self.bounds.maxLeftPosition,
                                      yPosition,
                                      kModelZ);
-    bubble.velocity = GLKVector3Make(xVelocity, 0.0f, 0.0f);
+    bubble.velocity = GLKVector3Make(xVelocity, 0.0, 0.0);
     bubble.size = self.bubbleSize;
     bubble.startTime = self.elapsedSeconds;
     

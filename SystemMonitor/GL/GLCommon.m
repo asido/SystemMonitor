@@ -54,7 +54,7 @@
                                                       kCGBitmapByteOrder32Little|kCGImageAlphaPremultipliedFirst);
     UIGraphicsPushContext(imageContext);
     
-    [text drawAtPoint:CGPointMake(0.0f, 0.0f) withAttributes:textTextAttributes];
+    [text drawAtPoint:CGPointMake(0.0, 0.0) withAttributes:textTextAttributes];
     CGImageRef cgTexture = CGBitmapContextCreateImage(imageContext);
     texture = [UIImage imageWithCGImage:cgTexture];
     

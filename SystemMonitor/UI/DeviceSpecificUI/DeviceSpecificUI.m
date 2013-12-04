@@ -48,30 +48,30 @@
         AMAssert(app.iDevice.deviceInfo != nil, @"deviceInfo == nil");
         
         
-        self.pickViewY = [UIScreen mainScreen].bounds.size.height - 276.0f;
+        self.pickViewY = [UIScreen mainScreen].bounds.size.height - 276.0;
         
-        self.GLdataLineGraphWidth = ([AMUtils isIPhone] ? 320.0f : 703.0f);
-        self.GLdataLineWidth = (app.iDevice.deviceInfo.retina ? 3.0f : 2.0f);
+        self.GLdataLineGraphWidth = ([AMUtils isIPhone] ? 320.0 : 703.0);
+        self.GLdataLineWidth = (app.iDevice.deviceInfo.retina ? 3.0 : 2.0);
         
-        self.GLtubeTextureSheetW = 128.0f;
-        self.GLtubeTextureSheetH = (app.iDevice.deviceInfo.retina ? 256.0f : 128.0f);
-        self.GLtubeTextureY = (app.iDevice.deviceInfo.retina ? 140.0f : 93.0f);
-        self.GLtubeTextureH = (app.iDevice.deviceInfo.retina ? 140.0f : 93.0f);
-        self.GLtubeTextureLeftX = 0.0f;
-        self.GLtubeTextureLeftW = (app.iDevice.deviceInfo.retina ? 28.0f: 21.0f);
-        self.GLtubeTextureRightX = (app.iDevice.deviceInfo.retina ? 28.0f : 21.0f);
-        self.GLtubeTextureRightW = (app.iDevice.deviceInfo.retina ? 28.0f : 20.0f);
-        self.GLtubeTextureLiquidX = (app.iDevice.deviceInfo.retina ? 57.0f : 43.0f);
-        self.GLtubeTextureLiquidW = 1.0f;
-        self.GLtubeTextureLiquidTopX = (app.iDevice.deviceInfo.retina ? 58.0f: 44.0f);
-        self.GLtubeTextureLiquidTopW = (app.iDevice.deviceInfo.retina ? 52.0f : 38.0f);
-        self.GLtubeTextureGlassX = (app.iDevice.deviceInfo.retina ? 56.0f : 42.0f);
-        self.GLtubeTextureGlassW = 1.0f;
-        self.GLtubeGlowH = (app.iDevice.deviceInfo.retina ? 27.0f : 17.0f);
-        self.GLtubeLiquidTopGlowL = (app.iDevice.deviceInfo.retina ? 5.0f : 0.0f);
-        self.GLtubeGLKViewFrame = CGRectMake(5.0f,
-                                             (app.iDevice.deviceInfo.retina ? 16.0f : 12.0f),
-                                             ([AMUtils isIPhone] ? 310.0f : 693.0f),
+        self.GLtubeTextureSheetW = 128.0;
+        self.GLtubeTextureSheetH = (app.iDevice.deviceInfo.retina ? 256.0 : 128.0);
+        self.GLtubeTextureY = (app.iDevice.deviceInfo.retina ? 140.0 : 93.0);
+        self.GLtubeTextureH = (app.iDevice.deviceInfo.retina ? 140.0 : 93.0);
+        self.GLtubeTextureLeftX = 0.0;
+        self.GLtubeTextureLeftW = (app.iDevice.deviceInfo.retina ? 28.0: 21.0);
+        self.GLtubeTextureRightX = (app.iDevice.deviceInfo.retina ? 28.0 : 21.0);
+        self.GLtubeTextureRightW = (app.iDevice.deviceInfo.retina ? 28.0 : 20.0);
+        self.GLtubeTextureLiquidX = (app.iDevice.deviceInfo.retina ? 57.0 : 43.0);
+        self.GLtubeTextureLiquidW = 1.0;
+        self.GLtubeTextureLiquidTopX = (app.iDevice.deviceInfo.retina ? 58.0 : 44.0);
+        self.GLtubeTextureLiquidTopW = (app.iDevice.deviceInfo.retina ? 52.0 : 38.0);
+        self.GLtubeTextureGlassX = (app.iDevice.deviceInfo.retina ? 56.0 : 42.0);
+        self.GLtubeTextureGlassW = 1.0;
+        self.GLtubeGlowH = (app.iDevice.deviceInfo.retina ? 27.0 : 17.0);
+        self.GLtubeLiquidTopGlowL = (app.iDevice.deviceInfo.retina ? 5.0 : 0.0);
+        self.GLtubeGLKViewFrame = CGRectMake(5.0,
+                                             (app.iDevice.deviceInfo.retina ? 16.0 : 12.0),
+                                             ([AMUtils isIPhone] ? 310.0 : 693.0),
                                              (app.iDevice.deviceInfo.retina ? self.GLtubeTextureH / 2 : self.GLtubeTextureH));
     }
     return self;

@@ -109,7 +109,7 @@
 
 @synthesize tubeTexture=_tubeTexture;
 
-static const GLfloat kBubblesPerSecondAvrg = 1.0f;
+static const GLfloat kBubblesPerSecondAvrg = 1.0;
 
 #pragma mark - override
 
@@ -182,8 +182,8 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
     glBlendFunc(GL_SRC_ALPHA, GL_ONE);
     
     self.effect = [[GLKBaseEffect alloc] init];
-    self.effect.transform.projectionMatrix = GLKMatrix4MakeOrtho(0.0f, self.drawableWidth, 0.0f, self.drawableHeight, 1.0f, 10.0f);
-    self.effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -5.0f);
+    self.effect.transform.projectionMatrix = GLKMatrix4MakeOrtho(0.0, self.drawableWidth, 0.0, self.drawableHeight, 1.0, 10.0);
+    self.effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(0.0, 0.0, -5.0);
     
     DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
     
@@ -213,9 +213,9 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
      * Left tube side.
      */
     const VertexData_t tubeLeftVertexData[] = {
-        {{                  0.0f,                   0.0f, kModelZ }, {                           ui.GLtubeTextureLeftX / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
-        {{ ui.GLtubeTextureLeftW,                   0.0f, kModelZ }, { (ui.GLtubeTextureLeftX + ui.GLtubeTextureLeftW) / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
-        {{                  0.0f, ui.GLtubeTextureSheetH, kModelZ }, {                           ui.GLtubeTextureLeftX / ui.GLtubeTextureSheetW, (ui.GLtubeTextureY - ui.GLtubeTextureSheetH) / ui.GLtubeTextureSheetH }},
+        {{                   0.0,                    0.0, kModelZ }, {                           ui.GLtubeTextureLeftX / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
+        {{ ui.GLtubeTextureLeftW,                    0.0, kModelZ }, { (ui.GLtubeTextureLeftX + ui.GLtubeTextureLeftW) / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
+        {{                   0.0, ui.GLtubeTextureSheetH, kModelZ }, {                           ui.GLtubeTextureLeftX / ui.GLtubeTextureSheetW, (ui.GLtubeTextureY - ui.GLtubeTextureSheetH) / ui.GLtubeTextureSheetH }},
         {{ ui.GLtubeTextureLeftW, ui.GLtubeTextureSheetH, kModelZ }, { (ui.GLtubeTextureLeftX + ui.GLtubeTextureLeftW) / ui.GLtubeTextureSheetW, (ui.GLtubeTextureY - ui.GLtubeTextureSheetH) / ui.GLtubeTextureSheetH }}
     };
     self.tubeVertexCountLeft = sizeof(tubeLeftVertexData) / sizeof(VertexData_t);
@@ -226,9 +226,9 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
      * Right tube side.
      */
     const VertexData_t tubeRightVertexData[] = {
-        {{                   0.0f,                   0.0f, kModelZ }, {                            ui.GLtubeTextureRightX / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
-        {{ ui.GLtubeTextureRightW,                   0.0f, kModelZ }, { (ui.GLtubeTextureRightX + ui.GLtubeTextureRightW) / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
-        {{                   0.0f, ui.GLtubeTextureSheetH, kModelZ }, {                            ui.GLtubeTextureRightX / ui.GLtubeTextureSheetW, (ui.GLtubeTextureY - ui.GLtubeTextureSheetH) / ui.GLtubeTextureSheetH }},
+        {{                    0.0,                    0.0, kModelZ }, {                            ui.GLtubeTextureRightX / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
+        {{ ui.GLtubeTextureRightW,                    0.0, kModelZ }, { (ui.GLtubeTextureRightX + ui.GLtubeTextureRightW) / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
+        {{                    0.0, ui.GLtubeTextureSheetH, kModelZ }, {                            ui.GLtubeTextureRightX / ui.GLtubeTextureSheetW, (ui.GLtubeTextureY - ui.GLtubeTextureSheetH) / ui.GLtubeTextureSheetH }},
         {{ ui.GLtubeTextureRightW, ui.GLtubeTextureSheetH, kModelZ }, { (ui.GLtubeTextureRightX + ui.GLtubeTextureRightW) / ui.GLtubeTextureSheetW, (ui.GLtubeTextureY - ui.GLtubeTextureSheetH) / ui.GLtubeTextureSheetH }}
     };
     self.tubeVertexCountRight = sizeof(tubeRightVertexData) / sizeof(VertexData_t);
@@ -239,9 +239,9 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
      * Liquid.
      */
     const VertexData_t tubeLiquidVertexData[] = {
-        {{                    0.0f,                   0.0f, kModelZ }, {                             ui.GLtubeTextureLiquidX / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
-        {{ ui.GLtubeTextureLiquidW,                   0.0f, kModelZ }, { (ui.GLtubeTextureLiquidX + ui.GLtubeTextureLiquidW) / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
-        {{                    0.0f, ui.GLtubeTextureSheetH, kModelZ }, {                             ui.GLtubeTextureLiquidX / ui.GLtubeTextureSheetW, (ui.GLtubeTextureY - ui.GLtubeTextureSheetH) / ui.GLtubeTextureSheetH }},
+        {{                     0.0,                    0.0, kModelZ }, {                             ui.GLtubeTextureLiquidX / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
+        {{ ui.GLtubeTextureLiquidW,                    0.0, kModelZ }, { (ui.GLtubeTextureLiquidX + ui.GLtubeTextureLiquidW) / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
+        {{                     0.0, ui.GLtubeTextureSheetH, kModelZ }, {                             ui.GLtubeTextureLiquidX / ui.GLtubeTextureSheetW, (ui.GLtubeTextureY - ui.GLtubeTextureSheetH) / ui.GLtubeTextureSheetH }},
         {{ ui.GLtubeTextureLiquidW, ui.GLtubeTextureSheetH, kModelZ }, { (ui.GLtubeTextureLiquidX + ui.GLtubeTextureLiquidW) / ui.GLtubeTextureSheetW, (ui.GLtubeTextureY - ui.GLtubeTextureSheetH) / ui.GLtubeTextureSheetH }}
     };
     self.tubeVertexCountLiquid = sizeof(tubeLiquidVertexData) / sizeof(VertexData_t);
@@ -252,9 +252,9 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
      * Liquid top.
      */
     const VertexData_t tubeLiquidTopVertexData[] = {
-        {{                       0.0f,                   0.0f, kModelZ }, {                                ui.GLtubeTextureLiquidTopX / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
-        {{ ui.GLtubeTextureLiquidTopW,                   0.0f, kModelZ }, { (ui.GLtubeTextureLiquidTopX + ui.GLtubeTextureLiquidTopW) / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
-        {{                       0.0f, ui.GLtubeTextureSheetH, kModelZ }, {                                ui.GLtubeTextureLiquidTopX / ui.GLtubeTextureSheetW, (ui.GLtubeTextureY - ui.GLtubeTextureSheetH) / ui.GLtubeTextureSheetH }},
+        {{                        0.0,                    0.0, kModelZ }, {                                ui.GLtubeTextureLiquidTopX / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
+        {{ ui.GLtubeTextureLiquidTopW,                    0.0, kModelZ }, { (ui.GLtubeTextureLiquidTopX + ui.GLtubeTextureLiquidTopW) / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
+        {{                        0.0, ui.GLtubeTextureSheetH, kModelZ }, {                                ui.GLtubeTextureLiquidTopX / ui.GLtubeTextureSheetW, (ui.GLtubeTextureY - ui.GLtubeTextureSheetH) / ui.GLtubeTextureSheetH }},
         {{ ui.GLtubeTextureLiquidTopW, ui.GLtubeTextureSheetH, kModelZ }, { (ui.GLtubeTextureLiquidTopX + ui.GLtubeTextureLiquidTopW) / ui.GLtubeTextureSheetW, (ui.GLtubeTextureY - ui.GLtubeTextureSheetH) / ui.GLtubeTextureSheetH }}
     };
     self.tubeVertexCountLiquidTop = sizeof(tubeLiquidTopVertexData) / sizeof(VertexData_t);
@@ -263,9 +263,9 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
     
     
     const VertexData_t tubeGlassVertexData[] = {
-        {{                   0.0f,                   0.0f, kModelZ }, {                            ui.GLtubeTextureGlassX / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
-        {{ ui.GLtubeTextureGlassW,                   0.0f, kModelZ }, { (ui.GLtubeTextureGlassX + ui.GLtubeTextureGlassW) / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
-        {{                   0.0f, ui.GLtubeTextureSheetH, kModelZ }, {                            ui.GLtubeTextureGlassX / ui.GLtubeTextureSheetW, (ui.GLtubeTextureY - ui.GLtubeTextureSheetH) / ui.GLtubeTextureSheetH }},
+        {{                    0.0,                    0.0, kModelZ }, {                            ui.GLtubeTextureGlassX / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
+        {{ ui.GLtubeTextureGlassW,                    0.0, kModelZ }, { (ui.GLtubeTextureGlassX + ui.GLtubeTextureGlassW) / ui.GLtubeTextureSheetW,                            ui.GLtubeTextureY / ui.GLtubeTextureSheetH }},
+        {{                    0.0, ui.GLtubeTextureSheetH, kModelZ }, {                            ui.GLtubeTextureGlassX / ui.GLtubeTextureSheetW, (ui.GLtubeTextureY - ui.GLtubeTextureSheetH) / ui.GLtubeTextureSheetH }},
         {{ ui.GLtubeTextureGlassW, ui.GLtubeTextureSheetH, kModelZ }, { (ui.GLtubeTextureGlassX + ui.GLtubeTextureGlassW) / ui.GLtubeTextureSheetW, (ui.GLtubeTextureY - ui.GLtubeTextureSheetH) / ui.GLtubeTextureSheetH }}
     };
     self.tubeVertexCountGlass = sizeof(tubeGlassVertexData) / sizeof(VertexData_t);
@@ -406,9 +406,9 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
         
         glBindVertexArrayOES(self.glVertexArrayTubeLeft);
         
-        GLKVector3 position = GLKVector3Make(x, 0.0f, kModelZ);
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(1.0f, 1.0f, 1.0f);
+        GLKVector3 position = GLKVector3Make(x, 0.0, kModelZ);
+        GLKVector3 rotation = GLKVector3Make(0.0, 0.0, 0.0);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(1.0, 1.0, 1.0);
         GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.effect.transform.modelviewMatrix = modelMatrix;
@@ -435,9 +435,9 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
         
         glBindVertexArrayOES(self.glVertexArrayTubeRight);
         
-        GLKVector3 position = GLKVector3Make(x, 0.0f, kModelZ);
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(1.0f, 1.0f, 1.0f);
+        GLKVector3 position = GLKVector3Make(x, 0.0, kModelZ);
+        GLKVector3 rotation = GLKVector3Make(0.0, 0.0, 0.0);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(1.0, 1.0, 1.0);
         GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.effect.transform.modelviewMatrix = modelMatrix;
@@ -467,9 +467,9 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
         
         glBindVertexArrayOES(self.glVertexArrayTubeLiquid);
         
-        GLKVector3 position = GLKVector3Make(x, 0.0f, kModelZ);
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(scaleX, 1.0f, 1.0f);
+        GLKVector3 position = GLKVector3Make(x, 0.0, kModelZ);
+        GLKVector3 rotation = GLKVector3Make(0.0, 0.0, 0.0);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(scaleX, 1.0, 1.0);
         GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.effect.transform.modelviewMatrix = modelMatrix;
@@ -496,9 +496,9 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
         
         glBindVertexArrayOES(self.glVertexArrayTubeLiquidTop);
         
-        GLKVector3 position = GLKVector3Make(x, 0.0f, kModelZ);
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(1.0f, 1.0f, 1.0f);
+        GLKVector3 position = GLKVector3Make(x, 0.0, kModelZ);
+        GLKVector3 rotation = GLKVector3Make(0.0, 0.0, 0.0);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(1.0, 1.0, 1.0);
         GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.effect.transform.modelviewMatrix = modelMatrix;
@@ -524,9 +524,9 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
     
     glBindVertexArrayOES(self.glVertexArrayTubeGlass);
     
-    GLKVector3 position = GLKVector3Make(x, 0.0f, kModelZ);
-    GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-    GLKMatrix4 scale = GLKMatrix4MakeScale(scaleX, 1.0f, 1.0f);
+    GLKVector3 position = GLKVector3Make(x, 0.0, kModelZ);
+    GLKVector3 rotation = GLKVector3Make(0.0, 0.0, 0.0);
+    GLKMatrix4 scale = GLKMatrix4MakeScale(scaleX, 1.0, 1.0);
     GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
     
     self.effect.transform.modelviewMatrix = modelMatrix;
@@ -564,7 +564,7 @@ static const GLfloat kBubblesPerSecondAvrg = 1.0f;
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {    
-    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+    glClearColor(0.0, 0.0, 0.0, 0.0);
     glClear(GL_COLOR_BUFFER_BIT);
     
     [self renderLiquid];

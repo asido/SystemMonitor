@@ -169,7 +169,7 @@ static NSString *kInterfaceNone = @"";
 - (void)startNetworkBandwidthUpdatesWithFrequency:(NSUInteger)frequency
 {
     [self stopNetworkBandwidthUpdates];
-    self.networkBandwidthUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f / frequency
+    self.networkBandwidthUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 / frequency
                                                                         target:self
                                                                       selector:@selector(networkBandwidthUpdateCB:)
                                                                       userInfo:nil

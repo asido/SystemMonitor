@@ -94,12 +94,12 @@
 @synthesize lineLegendPostfix;
 @synthesize lineLegendDesiredFraction;
 
-static const GLfloat kProjectionLeft        = -10.0f;
-static const GLfloat kProjectionRight       =  10.0f;
-static const GLfloat kProjectionBottom      = -5.0f;
-static const GLfloat kProjectionTop         =  5.0f;
-static const GLfloat kProjectionNear        =  1.0f;
-static const GLfloat kProjectionFar         =  10.0f;
+static const GLfloat kProjectionLeft        = -10.0;
+static const GLfloat kProjectionRight       =  10.0;
+static const GLfloat kProjectionBottom      = -5.0;
+static const GLfloat kProjectionTop         =  5.0;
+static const GLfloat kProjectionNear        =  1.0;
+static const GLfloat kProjectionFar         =  10.0;
 
 static const GLfloat kGraphGapPercentLeft   = 5;
 static const GLfloat kGraphGapPercentTop    = 10;
@@ -107,17 +107,17 @@ static const GLfloat kGraphGapPercentRight  = 5;
 static const GLfloat kGraphGapPercentBottom = 20;
 
 static const VertexData_t referenceLineData[] = {
-    {{ 0.0f, 0.0f, 0.0f }},
-    {{ 1.0f, 0.0f, 0.0f }}
+    {{ 0.0, 0.0, 0.0 }},
+    {{ 1.0, 0.0, 0.0 }}
 };
 
 static const VertexData_t legendData[] = {
-    {{ 0.0f, 0.0f, 0.0f }, { 0.0f, 0.0f }},
-    {{ 1.0f, 0.0f, 0.0f }, { 1.0f, 0.0f }},
-    {{ 0.0f, 1.0f, 0.0f }, { 0.0f, 1.0f }},
-    {{ 1.0f, 0.0f, 0.0f }, { 1.0f, 0.0f }},
-    {{ 1.0f, 1.0f, 0.0f }, { 1.0f, 1.0f }},
-    {{ 0.0f, 1.0f, 0.0f }, { 0.0f, 1.0f }}
+    {{ 0.0, 0.0, 0.0 }, { 0.0, 0.0 }},
+    {{ 1.0, 0.0, 0.0 }, { 1.0, 0.0 }},
+    {{ 0.0, 1.0, 0.0 }, { 0.0, 1.0 }},
+    {{ 1.0, 0.0, 0.0 }, { 1.0, 0.0 }},
+    {{ 1.0, 1.0, 0.0 }, { 1.0, 1.0 }},
+    {{ 0.0, 1.0, 0.0 }, { 0.0, 1.0 }}
 };
 
 #pragma mark - public
@@ -155,8 +155,8 @@ static const VertexData_t legendData[] = {
         [self setupGL];
         
         // Init data lines.
-        NSArray *lineColors = @[ [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f],
-                                 [UIColor colorWithRed:171.0f/255.0f green:201.0f/255.0f blue:255.0f/255.0f alpha:1.0f] ];
+        NSArray *lineColors = @[ [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0],
+                                 [UIColor colorWithRed:171.0/255.0 green:201.0/255.0 blue:255.0/255.0 alpha:1.0] ];
         NSMutableArray *lines = [[NSMutableArray alloc] initWithCapacity:self.dataLineCount];
         for (NSUInteger i = 0; i < self.dataLineCount; ++i)
         {
@@ -226,7 +226,7 @@ static const VertexData_t legendData[] = {
         glDeleteTextures(1, &texture);
     }
     
-    UIImage *img = [GLCommon imageWithText:self.legend font:[UIFont fontWithName:@"Verdana" size:22.0f] color:[UIColor lightTextColor]];
+    UIImage *img = [GLCommon imageWithText:self.legend font:[UIFont fontWithName:@"Verdana" size:22.0] color:[UIColor lightTextColor]];
     self.topGraphLegendTexture = [GLKTextureLoader textureWithCGImage:img.CGImage options:nil error:NULL];
 }
 
@@ -315,7 +315,7 @@ static const VertexData_t legendData[] = {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE);
     
     self.effect = [[GLKBaseEffect alloc] init];
-    self.effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -5.0f);
+    self.effect.transform.modelviewMatrix = GLKMatrix4MakeTranslation(0.0, 0.0, -5.0);
     
     [self setGraphLegend:self.legend];
     
@@ -415,17 +415,17 @@ static const VertexData_t legendData[] = {
         glBindVertexArrayOES(self.glVertexArrayReferenceLine);
         
         GLKVector3 position = GLKVector3Make(x, self.graphTop, kModelZ);
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, 1.0f, 1.0f);
+        GLKVector3 rotation = GLKVector3Make(0.0, 0.0, 0.0);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, 1.0, 1.0);
         GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.effect.transform.modelviewMatrix = modelMatrix;
         self.effect.useConstantColor = YES;
-        self.effect.constantColor = GLKVector4Make(0.25f, 0.25f, 0.25f, 1.0f);
+        self.effect.constantColor = GLKVector4Make(0.25, 0.25, 0.25, 1.0);
         self.effect.texture2d0.enabled = NO;
         [self.effect prepareToDraw];
         
-        glLineWidth(1.0f);
+        glLineWidth(1.0);
         glDrawArrays(GL_LINES, 0, sizeof(referenceLineData) / sizeof(VertexData_t));
         
         GL_CHECK_ERROR();
@@ -441,17 +441,17 @@ static const VertexData_t legendData[] = {
         glBindVertexArrayOES(self.glVertexArrayReferenceLine);
         
         GLKVector3 position = GLKVector3Make(x, y, kModelZ);
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, 1.0f, 1.0f);
+        GLKVector3 rotation = GLKVector3Make(0.0, 0.0, 0.0);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, 1.0, 1.0);
         GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.effect.transform.modelviewMatrix = modelMatrix;
         self.effect.useConstantColor = YES;
-        self.effect.constantColor = GLKVector4Make(0.25f, 0.25f, 0.25f, 1.0f);
+        self.effect.constantColor = GLKVector4Make(0.25, 0.25, 0.25, 1.0);
         self.effect.texture2d0.enabled = NO;
         [self.effect prepareToDraw];
         
-        glLineWidth(1.0f);
+        glLineWidth(1.0);
         glDrawArrays(GL_LINES, 0, sizeof(referenceLineData) / sizeof(VertexData_t));
         */
         GL_CHECK_ERROR();
@@ -464,17 +464,17 @@ static const VertexData_t legendData[] = {
         glBindVertexArrayOES(self.glVertexArrayReferenceLine);
         
         GLKVector3 position = GLKVector3Make(x, self.graphBottom, kModelZ);
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-        GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, 1.0f, 1.0f);
+        GLKVector3 rotation = GLKVector3Make(0.0, 0.0, 0.0);
+        GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, 1.0, 1.0);
         GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.effect.transform.modelviewMatrix = modelMatrix;
         self.effect.useConstantColor = YES;
-        self.effect.constantColor = GLKVector4Make(0.25f, 0.25f, 0.25f, 1.0f);
+        self.effect.constantColor = GLKVector4Make(0.25, 0.25, 0.25, 1.0);
         self.effect.texture2d0.enabled = NO;
         [self.effect prepareToDraw];
         
-        glLineWidth(1.0f);
+        glLineWidth(1.0);
         glDrawArrays(GL_LINES, 0, sizeof(referenceLineData) / sizeof(VertexData_t));
         
         GL_CHECK_ERROR();
@@ -488,17 +488,17 @@ static const VertexData_t legendData[] = {
         
         GLfloat xVertical = self.graphRight;
         GLKVector3 position = GLKVector3Make(xVertical, self.graphBottom, kModelZ);
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, GLKMathDegreesToRadians(90.0f));
-        GLKMatrix4 scale = GLKMatrix4MakeScale(1.0f, yScale, 1.0f);
+        GLKVector3 rotation = GLKVector3Make(0.0, 0.0, GLKMathDegreesToRadians(90.0));
+        GLKMatrix4 scale = GLKMatrix4MakeScale(1.0, yScale, 1.0);
         GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
 
         self.effect.transform.modelviewMatrix = modelMatrix;
         self.effect.useConstantColor = YES;
-        self.effect.constantColor = GLKVector4Make(0.2f, 0.2f, 0.2f, 1.0f);
+        self.effect.constantColor = GLKVector4Make(0.2, 0.2, 0.2, 1.0);
         self.effect.texture2d0.enabled = NO;
         [self.effect prepareToDraw];
         
-        glLineWidth(1.0f);
+        glLineWidth(1.0);
         glDrawArrays(GL_LINES, 0, sizeof(referenceLineData) / sizeof(VertexData_t));
         
         GL_CHECK_ERROR();
@@ -512,17 +512,17 @@ static const VertexData_t legendData[] = {
         
         GLfloat xVertical = self.graphLeft;
         GLKVector3 position = GLKVector3Make(xVertical, self.graphBottom, kModelZ);
-        GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, GLKMathDegreesToRadians(90.0f));
-        GLKMatrix4 scale = GLKMatrix4MakeScale(1.0f, yScale, 1.0f);
+        GLKVector3 rotation = GLKVector3Make(0.0, 0.0, GLKMathDegreesToRadians(90.0));
+        GLKMatrix4 scale = GLKMatrix4MakeScale(1.0, yScale, 1.0);
         GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
         
         self.effect.transform.modelviewMatrix = modelMatrix;
         self.effect.useConstantColor = YES;
-        self.effect.constantColor = GLKVector4Make(0.2f, 0.2f, 0.2f, 1.0f);
+        self.effect.constantColor = GLKVector4Make(0.2, 0.2, 0.2, 1.0);
         self.effect.texture2d0.enabled = NO;
         [self.effect prepareToDraw];
         
-        glLineWidth(1.0f);
+        glLineWidth(1.0);
         glDrawArrays(GL_LINES, 0, sizeof(referenceLineData) / sizeof(VertexData_t));
         
         GL_CHECK_ERROR();
@@ -537,7 +537,7 @@ static const VertexData_t legendData[] = {
 
 - (void)renderTopLegend
 {
-    GLfloat x = self.graphRight - (self.topGraphLegendTexture.width * kFontScaleMultiplierW) - 2.0f;
+    GLfloat x = self.graphRight - (self.topGraphLegendTexture.width * kFontScaleMultiplierW) - 2.0;
     GLfloat y = self.graphTop;
     GLfloat xScale = self.topGraphLegendTexture.width * kFontScaleMultiplierW;
     GLfloat yScale = self.topGraphLegendTexture.height * kFontScaleMultiplierH;
@@ -545,8 +545,8 @@ static const VertexData_t legendData[] = {
     glBindVertexArrayOES(self.glVertexArrayLegends);
     
     GLKVector3 position = GLKVector3Make(x, y, kModelZ);
-    GLKVector3 rotation = GLKVector3Make(0.0f, 0.0f, 0.0f);
-    GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, yScale, 1.0f);
+    GLKVector3 rotation = GLKVector3Make(0.0, 0.0, 0.0);
+    GLKMatrix4 scale = GLKMatrix4MakeScale(xScale, yScale, 1.0);
     GLKMatrix4 modelMatrix = [GLCommon modelMatrixWithPosition:position rotation:rotation scale:scale];
     
     self.effect.transform.modelviewMatrix = modelMatrix;
@@ -591,7 +591,7 @@ static const VertexData_t legendData[] = {
     
     glViewport(0, 0, (GLsizei)self.glView.drawableWidth, (GLsizei)self.glView.drawableHeight);
 
-    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+    glClearColor(0.0, 0.0, 0.0, 0.0);
     glClear(GL_COLOR_BUFFER_BIT);
     
     [self renderReferenceLines];

@@ -59,13 +59,13 @@
     [self.l2CacheLabel setText:(app.iDevice.cpuInfo.l2Cache == 0 ? @"-" : [AMUtils toNearestMetric:(uint64_t)app.iDevice.cpuInfo.l2Cache desiredFraction:0])];
     [self.endianessLabel setText:app.iDevice.cpuInfo.endianess];
     
-    self.cpuUsageGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0f, 30.0f, app.deviceSpecificUI.GLdataLineGraphWidth, 200.0f)];
+    self.cpuUsageGLView = [[GLKView alloc] initWithFrame:CGRectMake(0.0, 30.0, app.deviceSpecificUI.GLdataLineGraphWidth, 200.0)];
     self.cpuUsageGLView.opaque = NO;
     self.cpuUsageGLView.backgroundColor = [UIColor clearColor];
     
     self.glGraph = [[GLLineGraph alloc] initWithGLKView:self.cpuUsageGLView
                                           dataLineCount:1
-                                              fromValue:0.0f toValue:100.0f
+                                              fromValue:0.0 toValue:100.0
                                                 topLegend:@"100%"];
     [self.glGraph setDataLineLegendPostfix:@"%"];
     self.glGraph.preferredFramesPerSecond = kCpuLoadUpdateFrequency;
@@ -109,7 +109,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 240.0f;
+    return 240.0;
 }
 
 - (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
