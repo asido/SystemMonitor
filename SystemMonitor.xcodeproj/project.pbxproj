@@ -15,7 +15,6 @@
 		03724CE8182D7EA200221FE8 /* AMUtils_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03724CE7182D7EA200221FE8 /* AMUtils_Tests.m */; };
 		03DA2AB9183930700014C322 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F9B39B18392D7500804E1D /* HockeySDK.framework */; };
 		03DA2ABA183930C80014C322 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 03F9B39E18392D7500804E1D /* HockeySDKResources.bundle */; };
-		03DA2ABB183930CA0014C322 /* HockeySDK.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 03F9B39D18392D7500804E1D /* HockeySDK.xcconfig */; };
 		03DA2ABD183930EA0014C322 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DA2ABC183930EA0014C322 /* CoreText.framework */; };
 		03DA2ABE183930F90014C322 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7030C0B41764EDA30072DC8D /* QuartzCore.framework */; };
 		03DA2AC01839310A0014C322 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DA2ABF1839310A0014C322 /* Security.framework */; };
@@ -792,7 +791,7 @@
 		703D22D0173818EB0001E3B3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = st;
 				TargetAttributes = {
 					03724CD3182D7E3700221FE8 = {
@@ -836,7 +835,6 @@
 			files = (
 				03DF1AD3183A11FD00F7AF12 /* MainStoryboard_iPad.storyboard in Resources */,
 				03DF1AC9183A11FD00F7AF12 /* ConnectionSectionView.xib in Resources */,
-				03DA2ABB183930CA0014C322 /* HockeySDK.xcconfig in Resources */,
 				03E33300183FEE4C00480CE7 /* ArrowDownIcon.png in Resources */,
 				03E33303183FEE4C00480CE7 /* BubbleTexture@2x.png in Resources */,
 				03DA2ABA183930C80014C322 /* HockeySDKResources.bundle in Resources */,
@@ -961,7 +959,6 @@
 		03724CE5182D7E3700221FE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SystemMonitor.app/SystemMonitor";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
@@ -996,7 +993,6 @@
 		03724CE6182D7E3700221FE8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SystemMonitor.app/SystemMonitor";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
@@ -1028,7 +1024,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1069,7 +1064,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1103,7 +1097,6 @@
 		703D231F173818EC0001E3B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
@@ -1142,7 +1135,6 @@
 		703D2320173818EC0001E3B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
