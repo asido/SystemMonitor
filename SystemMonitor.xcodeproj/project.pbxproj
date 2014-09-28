@@ -791,7 +791,7 @@
 		703D22D0173818EB0001E3B3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = st;
 				TargetAttributes = {
 					03724CD3182D7E3700221FE8 = {
@@ -1053,7 +1053,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "8907C3F4-0417-431C-B378-39106661BF23";
+				PROVISIONING_PROFILE = "8665bbbe-3d65-4234-a3c9-e29f50f47550";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1086,7 +1086,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "8907C3F4-0417-431C-B378-39106661BF23";
+				PROVISIONING_PROFILE = "8665bbbe-3d65-4234-a3c9-e29f50f47550";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1103,8 +1103,8 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/3rdParty/HockeySDK/HockeySDK.embeddedframework";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1122,10 +1122,11 @@
 					"$(inherited)",
 					"$(SRCROOT)/3rdParty/Lumberjack",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = SystemMonitor;
-				PROVISIONING_PROFILE = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
+				PROVISIONING_PROFILE = "8665bbbe-3d65-4234-a3c9-e29f50f47550";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8665bbbe-3d65-4234-a3c9-e29f50f47550";
+				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -1141,8 +1142,8 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/3rdParty/HockeySDK/HockeySDK.embeddedframework";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1161,8 +1162,9 @@
 					"$(SRCROOT)/3rdParty/Lumberjack",
 				);
 				PRODUCT_NAME = SystemMonitor;
-				PROVISIONING_PROFILE = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C6324EDC-1B35-4C54-AF64-FA30A6ED3347";
+				PROVISIONING_PROFILE = "8665bbbe-3d65-4234-a3c9-e29f50f47550";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8665bbbe-3d65-4234-a3c9-e29f50f47550";
+				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;

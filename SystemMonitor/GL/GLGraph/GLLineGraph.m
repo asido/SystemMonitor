@@ -10,6 +10,7 @@
 //
 
 #import <OpenGLES/EAGLDrawable.h>
+#import <OpenGLES/ES2/glext.h>
 #import "AMLogger.h"
 #import "AMUtils.h"
 #import "CPULoad.h"

@@ -9,6 +9,7 @@
 //  Copyright (c) 2013 Arvydas Sidorenko
 //
 
+#import <OpenGLES/ES2/glext.h>
 #import "AMUtils.h"
 #import "AppDelegate.h"
 #import "GLCommon.h"
