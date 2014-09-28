@@ -41,6 +41,7 @@
         frame = background.frame;
         frame.size.height = self.frame.size.height;
         background.frame = frame;
+        self.clipsToBounds = YES;
         [self addSubview:background];
         [self sendSubviewToBack:background];
     }

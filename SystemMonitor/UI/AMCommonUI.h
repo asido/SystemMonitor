@@ -14,4 +14,6 @@
 @interface AMCommonUI : NSObject
 + (UIView *)mainMenuBackgroundView;
 + (UIView *)sectionBackgroundView;
++ (UIView *)showActionSheetSimulationInViewController:(UIViewController *)viewController WithPickerView:(UIPickerView *)pickerView withToolbar:(UIToolbar *)pickerToolbar;
++ (void)dismissActionSheetSimulationInViewController:(UIViewController *)viewController simulation:(UIView*)actionSheetSimulation;
 @end

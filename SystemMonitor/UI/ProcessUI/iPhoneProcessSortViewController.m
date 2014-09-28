@@ -25,7 +25,7 @@
 - (id)init{
     self = [super init];
     if (self) {
-        self.frame = CGRectMake(0.0, 40.0, 320.0, 216.0);
+        self.frame = CGRectMake(0.0, 40.0, [UIScreen mainScreen].bounds.size.width, 216.0);
         self.showsSelectionIndicator = YES;
         
         self.delegate = self;

@@ -22,7 +22,7 @@
 @interface ProcessViewController() <ProcessTopViewDelegate, ProcessSortViewControllerDelegate>
 @property (nonatomic, strong) ProcessTopView                    *topView;
 @property (nonatomic, strong) iPhoneProcessSortViewController   *iPhoneSortViewCtrl;
-@property (nonatomic, strong) UIActionSheet                     *sortSheet;
+@property (nonatomic, strong) UIView                            *sortSheet;
 @property (nonatomic, strong) iPadProcessSortViewController     *iPadSortViewCtrl;
 @property (nonatomic, strong) UIPopoverController               *sortPopover;
 
@@ -190,19 +190,9 @@
             self.iPhoneSortViewCtrl.sortDelegate = self;
         }
         
-        self.sortSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                     delegate:nil
-                                            cancelButtonTitle:nil
-                                       destructiveButtonTitle:nil
-                                            otherButtonTitles:nil];
-        self.sortSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-        [self.sortSheet addSubview:self.iPhoneSortViewCtrl];
-        
-        UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 40.0)];
+        UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width, 40.0)];
         toolbar.barStyle = UIBarStyleBlackOpaque;
-        [self.sortSheet addSubview:toolbar];
-        
-        UILabel *pickerTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 8, 200, 25)];
+        UILabel *pickerTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 8, toolbar.frame.size.width, 25)];
         pickerTitleLabel.text = @"Choose";
         pickerTitleLabel.backgroundColor = [UIColor clearColor];
         pickerTitleLabel.textColor = [UIColor whiteColor];
@@ -210,8 +200,7 @@
         pickerTitleLabel.font = [UIFont boldSystemFontOfSize:15.0];
         [toolbar addSubview:pickerTitleLabel];
         
-        [self.sortSheet showFromRect:CGRectMake(0, 480, 320, 215) inView:self.view animated:YES];
-        [self.sortSheet setBounds:CGRectMake(0, 0, 320, 411)];
+        self.sortSheet = [AMCommonUI showActionSheetSimulationInViewController:self WithPickerView:self.iPhoneSortViewCtrl withToolbar:toolbar];
     }
     else
     {
@@ -226,7 +215,9 @@
             self.sortPopover = [[UIPopoverController alloc] initWithContentViewController:self.iPadSortViewCtrl];
         }
         
-        [self.sortPopover presentPopoverFromRect:button.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        CGRect popoverPoint = button.frame;
+        popoverPoint.origin.y = popoverPoint.origin.y + self.tableView.contentOffset.y + 65.0;
+        [self.sortPopover presentPopoverFromRect:popoverPoint inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
 }
 
@@ -236,7 +227,7 @@
 {
     if (self.sortSheet)
     {
-        [self.sortSheet dismissWithClickedButtonIndex:0 animated:YES];
+        [AMCommonUI dismissActionSheetSimulationInViewController:self simulation:self.sortSheet];
     }
     if (self.sortPopover)
     {
