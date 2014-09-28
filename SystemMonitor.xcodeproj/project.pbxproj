@@ -14,6 +14,7 @@
 		03724CD8182D7E3700221FE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DB173818EC0001E3B3 /* UIKit.framework */; };
 		03724CDE182D7E3700221FE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03724CDC182D7E3700221FE8 /* InfoPlist.strings */; };
 		03724CE8182D7EA200221FE8 /* AMUtils_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03724CE7182D7EA200221FE8 /* AMUtils_Tests.m */; };
+		03B6316919D8967100DA9785 /* TubeTexture@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B6316819D8967100DA9785 /* TubeTexture@3x.png */; };
 		03DA2AB9183930700014C322 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F9B39B18392D7500804E1D /* HockeySDK.framework */; };
 		03DA2ABA183930C80014C322 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 03F9B39E18392D7500804E1D /* HockeySDKResources.bundle */; };
 		03DA2ABD183930EA0014C322 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DA2ABC183930EA0014C322 /* CoreText.framework */; };
@@ -123,6 +124,7 @@
 		03724CDD182D7E3700221FE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03724CE1182D7E3700221FE8 /* SystemMonitor Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SystemMonitor Tests-Prefix.pch"; sourceTree = "<group>"; };
 		03724CE7182D7EA200221FE8 /* AMUtils_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUtils_Tests.m; sourceTree = "<group>"; };
+		03B6316819D8967100DA9785 /* TubeTexture@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TubeTexture@3x.png"; sourceTree = "<group>"; };
 		03DA2ABC183930EA0014C322 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		03DA2ABF1839310A0014C322 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		03DF1A13183A11E700F7AF12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -646,6 +648,7 @@
 				03E332FD183FEE4C00480CE7 /* BubbleTexture@2x.png */,
 				03E332FE183FEE4C00480CE7 /* TubeTexture.png */,
 				03E332FF183FEE4C00480CE7 /* TubeTexture@2x.png */,
+				03B6316819D8967100DA9785 /* TubeTexture@3x.png */,
 			);
 			path = "GL Assets";
 			sourceTree = "<group>";
@@ -839,6 +842,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03DF1AD3183A11FD00F7AF12 /* MainStoryboard_iPad.storyboard in Resources */,
+				03B6316919D8967100DA9785 /* TubeTexture@3x.png in Resources */,
 				03DF1AC9183A11FD00F7AF12 /* ConnectionSectionView.xib in Resources */,
 				03E33300183FEE4C00480CE7 /* ArrowDownIcon.png in Resources */,
 				03E33303183FEE4C00480CE7 /* BubbleTexture@2x.png in Resources */,

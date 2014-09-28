@@ -75,6 +75,7 @@
     self.deviceInfo.screenResolution = [self getScreenResolution];
     self.deviceInfo.screenSize = [self getScreenSize];
     self.deviceInfo.retina = [self isRetina];
+    self.deviceInfo.retinaHD = [self isRetinaHD];
     self.deviceInfo.ppi = [self getPPI];
     self.deviceInfo.aspectRatio = [self getAspectRatio];
     
@@ -177,7 +178,13 @@
 - (BOOL)isRetina
 {
     return ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] &&
-            [UIScreen mainScreen].scale == 2.0);
+            ([UIScreen mainScreen].scale == 2.0 || [UIScreen mainScreen].scale == 3.0));
+}
+
+- (BOOL)isRetinaHD
+{
+    return ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] &&
+            [UIScreen mainScreen].scale == 3.0);
 }
 
 - (NSUInteger)getPPI

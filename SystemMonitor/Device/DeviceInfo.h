@@ -31,6 +31,7 @@
 @property (nonatomic, copy)   NSString          *screenResolution;
 @property (nonatomic, assign) CGFloat           screenSize;
 @property (nonatomic, assign) BOOL              retina;
+@property (nonatomic, assign) BOOL              retinaHD;
 @property (nonatomic, assign) NSUInteger        ppi;
 @property (nonatomic, copy)   NSString          *aspectRatio;
 @end
