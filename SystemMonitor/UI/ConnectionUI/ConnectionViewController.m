@@ -15,6 +15,7 @@
 #import "ActiveConnection.h"
 #import "ConnectionSectionView.h"
 #import "ConnectionViewController.h"
+#import "AMCommonUI.h"
 
 @interface ConnectionViewController() <NetworkInfoControllerDelegate>
 /* 
@@ -67,7 +68,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // Set background.
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewBackground-1496"]]];
+    [self.tableView setBackgroundView:[AMCommonUI sectionBackgroundView]];
     
     self.greenCircle = [UIImage imageNamed:@"ConnectionGreenCircle"];
     self.orangeCircle = [UIImage imageNamed:@"ConnectionOrangeCircle"];

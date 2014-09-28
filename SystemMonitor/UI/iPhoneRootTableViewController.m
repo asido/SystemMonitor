@@ -12,6 +12,7 @@
 #import "RootCell.h"
 #import "RootTableViewController.h"
 #import "iPhoneRootTableViewController.h"
+#import "AMCommonUI.h"
 #import "AMUtils.h"
 #import "AMLogger.h"
 
@@ -21,7 +22,7 @@
 {
     [super viewDidLoad];
     
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainMenuBackground"]]];
+    [self.tableView setBackgroundView:[AMCommonUI mainMenuBackgroundView]];
 }
 
 - (void)viewDidAppear:(BOOL)animated

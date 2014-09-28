@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="SKu-xS-AFT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="SKu-xS-AFT">
     <dependencies>
-        <deployment version="1792" defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment version="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--I Pad Root Table View Controller - System Activity Monitor-->
+        <!--System Activity Monitor-->
         <scene sceneID="LfI-W0-ryK">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="eJD-0d-uI8" customClass="iPadRootTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uj0-sN-Oyn">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="308" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -212,7 +212,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Write a Review!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTJ-zI-xo9">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" misplaced="YES" text="Write a Review!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTJ-zI-xo9">
                                                     <rect key="frame" x="57" y="11" width="243" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -257,7 +257,6 @@
                 <navigationController id="mNR-EH-Gwq" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="black" id="bKj-5B-VzD">
-                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -268,7 +267,7 @@
             </objects>
             <point key="canvasLocation" x="2698" y="-52"/>
         </scene>
-        <!--View Controller - CPU-->
+        <!--CPU-->
         <scene sceneID="5M8-qT-cRY">
             <objects>
                 <tableViewController storyboardIdentifier="CPUViewController" title="CPU" id="iz8-gd-xPw" customClass="CPUViewController" sceneMemberID="viewController">
@@ -276,7 +275,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection headerTitle="CPU Information" id="sgP-0U-hNI">
@@ -640,7 +638,7 @@
             </objects>
             <point key="canvasLocation" x="4139" y="918"/>
         </scene>
-        <!--Process View Controller - Processes-->
+        <!--Processes-->
         <scene sceneID="2SS-Xs-en9">
             <objects>
                 <tableViewController storyboardIdentifier="ProcessViewController" title="Processes" id="t0d-iG-iIg" customClass="ProcessViewController" sceneMemberID="viewController">
@@ -648,7 +646,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProcessCell" id="1wO-eL-4bQ" customClass="ProcessCell">
@@ -658,7 +655,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="703" height="78"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" image="SettingsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="HeK-DA-4Kg">
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" image="NoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="HeK-DA-4Kg">
                                             <rect key="frame" x="20" y="5" width="70" height="70"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="EVS-ym-lT8"/>
@@ -796,7 +793,7 @@
             </objects>
             <point key="canvasLocation" x="4911" y="918"/>
         </scene>
-        <!--View Controller - RAM-->
+        <!--RAM-->
         <scene sceneID="KND-zx-rRp">
             <objects>
                 <tableViewController storyboardIdentifier="RAMViewController" title="RAM" id="aUa-dS-NTU" customClass="RAMViewController" sceneMemberID="viewController">
@@ -804,7 +801,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection headerTitle="Memory Information" id="ZLw-cn-rOb">
@@ -1138,7 +1134,7 @@
             </objects>
             <point key="canvasLocation" x="5686" y="918"/>
         </scene>
-        <!--View Controller - GPU-->
+        <!--GPU-->
         <scene sceneID="yyy-ek-OCO">
             <objects>
                 <tableViewController storyboardIdentifier="GPUViewController" title="GPU" id="8hT-mU-vZw" customClass="GPUViewController" sceneMemberID="viewController">
@@ -1146,7 +1142,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GPUNameCell" id="WPP-Ol-Wk7" customClass="DefaultCell">
@@ -1286,7 +1281,7 @@
             </objects>
             <point key="canvasLocation" x="6455" y="918"/>
         </scene>
-        <!--Network View Controller - Network-->
+        <!--Network-->
         <scene sceneID="SJf-yr-mhh">
             <objects>
                 <tableViewController storyboardIdentifier="NetworkViewController" title="Network" id="REe-Cs-R6K" customClass="NetworkViewController" sceneMemberID="viewController">
@@ -1294,7 +1289,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection headerTitle="Network Information" id="fOV-lb-vce">
@@ -1628,7 +1622,7 @@
             </objects>
             <point key="canvasLocation" x="7216" y="918"/>
         </scene>
-        <!--Connection View Controller - Connections-->
+        <!--Connections-->
         <scene sceneID="R0V-SG-gwu">
             <objects>
                 <tableViewController storyboardIdentifier="ConnectionViewController" title="Connections" id="DZ5-N2-dD5" customClass="ConnectionViewController" sceneMemberID="viewController">
@@ -1636,7 +1630,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ConnectionCell" rowHeight="60" id="0He-yX-fDQ" customClass="ConnectionCell">
@@ -1648,7 +1641,6 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Local IP:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDg-TL-PIi">
                                             <rect key="frame" x="20" y="4" width="63" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1661,7 +1653,6 @@
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Remote IP:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0J-l6-QfV">
                                             <rect key="frame" x="347" y="4" width="79" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="79" id="BXH-3C-Wua"/>
                                             </constraints>
@@ -1671,7 +1662,6 @@
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Status:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ysu-OU-f85">
                                             <rect key="frame" x="20" y="31" width="53" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="53" id="A4u-rH-DAe"/>
                                             </constraints>
@@ -1681,7 +1671,6 @@
                                         </label>
                                         <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFb-Pt-L3o">
                                             <rect key="frame" x="91" y="32" width="20" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="5a5-Rk-vJN"/>
                                                 <constraint firstAttribute="width" constant="20" id="wID-NJ-PKb"/>
@@ -1701,7 +1690,6 @@
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tx:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNV-tP-vVb">
                                             <rect key="frame" x="347" y="31" width="49" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="49" id="ClP-Dq-Tzb"/>
                                             </constraints>
@@ -1711,7 +1699,6 @@
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Rx:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRq-oL-G41">
                                             <rect key="frame" x="464" y="31" width="49" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="49" id="gce-IC-lWV"/>
                                             </constraints>
@@ -1786,7 +1773,6 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Retrieving..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roS-Jh-Mp5">
                                             <rect key="frame" x="266" y="19" width="129" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="129" id="aF3-vu-QS7"/>
                                             </constraints>
@@ -1796,7 +1782,6 @@
                                         </label>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lcy-cW-1Pj">
                                             <rect key="frame" x="398" y="11" width="37" height="37"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <constraints>
@@ -1817,7 +1802,6 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Nothing to see :(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JG6-iW-S8T">
                                             <rect key="frame" x="241" y="19" width="221" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="221" id="L84-JT-aVU"/>
                                             </constraints>
@@ -1849,7 +1833,7 @@
             </objects>
             <point key="canvasLocation" x="7989" y="918"/>
         </scene>
-        <!--Storage View Controller - Storage-->
+        <!--Storage-->
         <scene sceneID="fY6-9n-u3g">
             <objects>
                 <tableViewController storyboardIdentifier="StorageViewController" title="Storage" id="ker-ow-e9K" customClass="StorageViewController" sceneMemberID="viewController">
@@ -1857,7 +1841,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection headerTitle="Storage Information" id="dsv-mT-OLj">
@@ -2089,7 +2072,7 @@
             </objects>
             <point key="canvasLocation" x="8759" y="918"/>
         </scene>
-        <!--Battery View Controller - Battery-->
+        <!--Battery-->
         <scene sceneID="GAi-iB-slU">
             <objects>
                 <tableViewController storyboardIdentifier="BatteryViewController" title="Battery" id="qRY-q8-zhJ" customClass="BatteryViewController" sceneMemberID="viewController">
@@ -2097,7 +2080,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection headerTitle="Battery Information" id="JKa-Wh-2dj">
@@ -2288,7 +2270,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
@@ -2298,7 +2279,7 @@
             </objects>
             <point key="canvasLocation" x="2627" y="918"/>
         </scene>
-        <!--General View Controller - General-->
+        <!--General-->
         <scene sceneID="Sof-Bz-UFG">
             <objects>
                 <tableViewController storyboardIdentifier="GeneralViewController" title="General" id="rEd-SN-t0u" customClass="GeneralViewController" sceneMemberID="viewController">
@@ -2306,7 +2287,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection headerTitle="Device Information" id="xt6-fM-dkR">
@@ -3028,7 +3008,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SettingsIcon" width="70" height="70"/>
+        <image name="NoIcon" width="140" height="140"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

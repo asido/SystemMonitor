@@ -3,16 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "SettingsIcon@2x-1.png"
+      "filename" : "ProcessIcon2-1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "SettingsIcon@2x.png"
+      "filename" : "ProcessIcon2.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "ProcessIcon3.png"
     }
   ],
   "info" : {

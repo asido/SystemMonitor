@@ -15,6 +15,7 @@
 #import "iPhoneProcessSortViewController.h"
 #import "iPadProcessSortViewController.h"
 #import "ProcessTopView.h"
+#import "AMCommonUI.h"
 
 @interface ProcessTopView()
 @property (nonatomic, weak) IBOutlet UIButton *sortButton;
@@ -36,7 +37,7 @@
         frame.size.width = ui.GLdataLineGraphWidth;
         self.frame = frame;
         
-        UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewBackground-1496"]];
+        UIView *background = [AMCommonUI sectionBackgroundView];
         frame = background.frame;
         frame.size.height = self.frame.size.height;
         background.frame = frame;

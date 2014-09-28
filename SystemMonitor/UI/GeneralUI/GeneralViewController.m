@@ -11,6 +11,7 @@
 
 #import "AppDelegate.h"
 #import "GeneralViewController.h"
+#import "AMCommonUI.h"
 
 @interface GeneralViewController ()
 @property (nonatomic, weak) IBOutlet UILabel *deviceLabel;
@@ -57,7 +58,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewBackground-1496"]]];
+    [self.tableView setBackgroundView:[AMCommonUI sectionBackgroundView]];
     
     AppDelegate *app = [AppDelegate sharedDelegate];
     NSString *deviceName = [NSString stringWithFormat:@"Apple %@", app.iDevice.deviceInfo.deviceName];

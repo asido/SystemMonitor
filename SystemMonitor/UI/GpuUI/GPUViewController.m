@@ -12,6 +12,7 @@
 #import "AMLogger.h"
 #import "AppDelegate.h"
 #import "GPUViewController.h"
+#import "AMCommonUI.h"
 
 enum Section {
     SECTION_GPU=0,
@@ -46,7 +47,7 @@ enum OpenGLRow {
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewBackground-1496"]]];
+    [self.tableView setBackgroundView:[AMCommonUI sectionBackgroundView]];
     
     [self.tableView reloadData];
 }

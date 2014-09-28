@@ -14,6 +14,7 @@
 #import "RootCell.h"
 #import "RootTableViewController.h"
 #import "iPadRootTableViewController.h"
+#import "AMCommonUI.h"
 
 @interface iPadRootTableViewController()
 @property (nonatomic, assign) ViewCtrl_t currentCtrl;
@@ -34,7 +35,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainMenuBackground"]]];
+    [self.tableView setBackgroundView:[AMCommonUI mainMenuBackgroundView]];
     
     self.currentCtrl = -1;
     NSIndexPath *generalIndexPath = [NSIndexPath indexPathForRow:VIEW_CTRL_GENERAL inSection:0];

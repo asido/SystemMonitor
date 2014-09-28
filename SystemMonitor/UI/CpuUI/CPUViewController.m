@@ -15,6 +15,7 @@
 #import "AppDelegate.h"
 #import "CPUInfoController.h"
 #import "CPUViewController.h"
+#import "AMCommonUI.h"
 
 @interface CPUViewController() <CPUInfoControllerDelegate>
 @property (nonatomic, strong) GLKView       *cpuUsageGLView;
@@ -44,7 +45,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewBackground-1496"]]];
+    [self.tableView setBackgroundView:[AMCommonUI sectionBackgroundView]];
     
     AppDelegate *app = [AppDelegate sharedDelegate];
     

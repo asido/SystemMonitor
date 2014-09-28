@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "GLLineGraph.h"
 #import "RAMViewController.h"
+#import "AMCommonUI.h"
 
 enum {
     SECTION_MEMORY_INFO=0,
@@ -52,7 +53,7 @@ enum {
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewBackground-1496"]]];
+    [self.tableView setBackgroundView:[AMCommonUI sectionBackgroundView]];
     
     AppDelegate *app = [AppDelegate sharedDelegate];
     [self.totalRamLabel setText:[AMUtils toNearestMetric:(uint64_t)app.iDevice.ramInfo.totalRam desiredFraction:0]];

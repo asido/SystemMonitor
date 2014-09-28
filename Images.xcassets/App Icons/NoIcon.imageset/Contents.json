@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "OrangeCircle@2x-1.png"
+      "filename" : "NoIcon2-1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "OrangeCircle@2x.png"
+      "filename" : "NoIcon2.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "orange.png"
+      "filename" : "NoIcon3.png"
     }
   ],
   "info" : {

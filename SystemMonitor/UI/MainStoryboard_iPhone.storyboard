@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A598" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="foL-QI-fbr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="foL-QI-fbr">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -12,7 +11,6 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="WYV-N5-ESA">
-                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -23,7 +21,7 @@
             </objects>
             <point key="canvasLocation" x="-366" y="170"/>
         </scene>
-        <!--I Phone Root Table View Controller - System Activity Monitor-->
+        <!--System Activity Monitor-->
         <scene sceneID="JQM-bn-fsl">
             <objects>
                 <tableViewController id="jUU-gC-pcW" customClass="iPhoneRootTableViewController" sceneMemberID="viewController">
@@ -369,7 +367,7 @@
             </objects>
             <point key="canvasLocation" x="114" y="170"/>
         </scene>
-        <!--General View Controller - General-->
+        <!--General-->
         <scene sceneID="QmJ-MT-eQ1">
             <objects>
                 <tableViewController storyboardIdentifier="GeneralViewController" title="General" id="jle-LP-9au" customClass="GeneralViewController" sceneMemberID="viewController">
@@ -1169,7 +1167,7 @@
             </objects>
             <point key="canvasLocation" x="472" y="170"/>
         </scene>
-        <!--View Controller - CPU-->
+        <!--CPU-->
         <scene sceneID="Ncy-w3-Law">
             <objects>
                 <tableViewController storyboardIdentifier="CPUViewController" title="CPU" id="5Ly-My-x7V" customClass="CPUViewController" sceneMemberID="viewController">
@@ -1576,7 +1574,7 @@
             </objects>
             <point key="canvasLocation" x="832" y="170"/>
         </scene>
-        <!--Process View Controller - Processes-->
+        <!--Processes-->
         <scene sceneID="vvN-2s-vdp">
             <objects>
                 <tableViewController storyboardIdentifier="ProcessViewController" title="Processes" id="gbP-hM-UKe" customClass="ProcessViewController" sceneMemberID="viewController">
@@ -1593,7 +1591,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" image="SettingsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="nFi-KC-XB4">
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" image="NoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="nFi-KC-XB4">
                                             <rect key="frame" x="20" y="8" width="70" height="70"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="70" id="CFA-Bc-bmr"/>
@@ -1738,7 +1736,7 @@
             </objects>
             <point key="canvasLocation" x="1187" y="170"/>
         </scene>
-        <!--View Controller - RAM-->
+        <!--RAM-->
         <scene sceneID="csr-jg-AeG">
             <objects>
                 <tableViewController storyboardIdentifier="RAMViewController" title="RAM" id="iA2-dn-GRh" customClass="RAMViewController" sceneMemberID="viewController">
@@ -2111,7 +2109,7 @@
             </objects>
             <point key="canvasLocation" x="1545" y="170"/>
         </scene>
-        <!--View Controller - GPU-->
+        <!--GPU-->
         <scene sceneID="tfi-RN-hC7">
             <objects>
                 <tableViewController storyboardIdentifier="GPUViewController" title="GPU" id="yQA-T6-U9o" customClass="GPUViewController" sceneMemberID="viewController">
@@ -2268,7 +2266,7 @@
             </objects>
             <point key="canvasLocation" x="1900" y="170"/>
         </scene>
-        <!--Network View Controller - Network-->
+        <!--Network-->
         <scene sceneID="Lv4-Ts-e8d">
             <objects>
                 <tableViewController storyboardIdentifier="NetworkViewController" title="Network" id="3v7-3A-O0h" customClass="NetworkViewController" sceneMemberID="viewController">
@@ -2585,7 +2583,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Cellular Upload" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWG-HU-oDH">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Cellular Upload" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWG-HU-oDH">
                                                     <rect key="frame" x="30" y="11" width="115" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="OGf-SG-nkV"/>
@@ -2638,7 +2636,7 @@
             </objects>
             <point key="canvasLocation" x="2258" y="170"/>
         </scene>
-        <!--Connection View Controller - Connections-->
+        <!--Connections-->
         <scene sceneID="sxu-Yv-wnV">
             <objects>
                 <tableViewController storyboardIdentifier="ConnectionViewController" title="Connections" id="8KO-M5-i1i" customClass="ConnectionViewController" sceneMemberID="viewController">
@@ -2853,7 +2851,7 @@
             </objects>
             <point key="canvasLocation" x="2613" y="170"/>
         </scene>
-        <!--Storage View Controller - Storage-->
+        <!--Storage-->
         <scene sceneID="Zcw-vO-bxx">
             <objects>
                 <tableViewController storyboardIdentifier="StorageViewController" title="Storage" id="9xL-lb-JBV" customClass="StorageViewController" sceneMemberID="viewController">
@@ -3109,7 +3107,7 @@
             </objects>
             <point key="canvasLocation" x="2972" y="170"/>
         </scene>
-        <!--Battery View Controller - Battery-->
+        <!--Battery-->
         <scene sceneID="gFw-jr-GHe">
             <objects>
                 <tableViewController storyboardIdentifier="BatteryViewController" title="Battery" id="23H-Tf-sws" customClass="BatteryViewController" sceneMemberID="viewController">
@@ -3292,7 +3290,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SettingsIcon" width="70" height="70"/>
+        <image name="NoIcon" width="140" height="140"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

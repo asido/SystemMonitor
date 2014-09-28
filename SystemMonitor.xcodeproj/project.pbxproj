@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0300A5BC19D88F1300D5F7E1 /* AMCommonUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0300A5BB19D88F1300D5F7E1 /* AMCommonUI.m */; };
 		033D9651182EC6B6009477E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 033D9650182EC6B6009477E7 /* Images.xcassets */; };
 		03724CD6182D7E3700221FE8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03724CD5182D7E3700221FE8 /* XCTest.framework */; };
 		03724CD7182D7E3700221FE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DD173818EC0001E3B3 /* Foundation.framework */; };
@@ -113,6 +114,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0300A5BA19D88F1300D5F7E1 /* AMCommonUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCommonUI.h; sourceTree = "<group>"; };
+		0300A5BB19D88F1300D5F7E1 /* AMCommonUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCommonUI.m; sourceTree = "<group>"; };
 		033D9650182EC6B6009477E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		03724CD4182D7E3700221FE8 /* SystemMonitor Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SystemMonitor Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03724CD5182D7E3700221FE8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -498,27 +501,29 @@
 				03DF1A61183A11FD00F7AF12 /* BatteryUI */,
 				03DF1A64183A11FD00F7AF12 /* ConnectionUI */,
 				03DF1A6E183A11FD00F7AF12 /* CpuUI */,
-				03DF1A71183A11FD00F7AF12 /* DefaultCell.h */,
-				03DF1A72183A11FD00F7AF12 /* DefaultCell.m */,
 				03DF1A73183A11FD00F7AF12 /* DeviceSpecificUI */,
 				03DF1A76183A11FD00F7AF12 /* GeneralUI */,
 				03DF1A79183A11FD00F7AF12 /* GpuUI */,
+				03DF1A82183A11FD00F7AF12 /* NetworkUI */,
+				03DF1A85183A11FD00F7AF12 /* ProcessUI */,
+				03DF1A93183A11FD00F7AF12 /* RamUI */,
+				03DF1A9C183A11FD00F7AF12 /* StorageUI */,
+				03DF1A71183A11FD00F7AF12 /* DefaultCell.h */,
+				03DF1A72183A11FD00F7AF12 /* DefaultCell.m */,
 				03DF1A7C183A11FD00F7AF12 /* iPadRootTableViewController.h */,
 				03DF1A7D183A11FD00F7AF12 /* iPadRootTableViewController.m */,
 				03DF1A7E183A11FD00F7AF12 /* iPhoneRootTableViewController.h */,
 				03DF1A7F183A11FD00F7AF12 /* iPhoneRootTableViewController.m */,
 				03DF1A80183A11FD00F7AF12 /* MainStoryboard_iPad.storyboard */,
 				03DF1A81183A11FD00F7AF12 /* MainStoryboard_iPhone.storyboard */,
-				03DF1A82183A11FD00F7AF12 /* NetworkUI */,
-				03DF1A85183A11FD00F7AF12 /* ProcessUI */,
-				03DF1A93183A11FD00F7AF12 /* RamUI */,
 				03DF1A96183A11FD00F7AF12 /* RootCell.h */,
 				03DF1A97183A11FD00F7AF12 /* RootCell.m */,
 				03DF1A98183A11FD00F7AF12 /* RootTableViewController.h */,
 				03DF1A99183A11FD00F7AF12 /* RootTableViewController.m */,
 				03DF1A9A183A11FD00F7AF12 /* SMSplitViewController.h */,
 				03DF1A9B183A11FD00F7AF12 /* SMSplitViewController.m */,
-				03DF1A9C183A11FD00F7AF12 /* StorageUI */,
+				0300A5BA19D88F1300D5F7E1 /* AMCommonUI.h */,
+				0300A5BB19D88F1300D5F7E1 /* AMCommonUI.m */,
 			);
 			name = UI;
 			path = SystemMonitor/UI;
@@ -872,6 +877,7 @@
 				03DF1ACF183A11FD00F7AF12 /* GeneralViewController.m in Sources */,
 				03DF1ADF183A11FD00F7AF12 /* RootTableViewController.m in Sources */,
 				03DF1AE1183A11FD00F7AF12 /* StorageViewController.m in Sources */,
+				0300A5BC19D88F1300D5F7E1 /* AMCommonUI.m in Sources */,
 				03DF1AC6183A11FD00F7AF12 /* BatteryViewController.m in Sources */,
 				03DF1AC3183A11FD00F7AF12 /* RAMUsage.m in Sources */,
 				03DF1ABD183A11FD00F7AF12 /* NetworkInfo.m in Sources */,

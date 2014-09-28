@@ -13,6 +13,7 @@
 #import "AMUtils.h"
 #import "GLTube.h"
 #import "StorageViewController.h"
+#import "AMCommonUI.h"
 
 enum {
     SECTION_STORAGE_TUBE=0
@@ -48,7 +49,7 @@ enum {
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewBackground-1496"]]];
+    [self.tableView setBackgroundView:[AMCommonUI sectionBackgroundView]];
     
     AppDelegate      *app = [AppDelegate sharedDelegate];
     DeviceSpecificUI *ui = app.deviceSpecificUI;

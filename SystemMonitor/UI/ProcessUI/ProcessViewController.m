@@ -17,6 +17,7 @@
 #import "ProcessInfo.h"
 #import "ProcessTopView.h"
 #import "ProcessViewController.h"
+#import "AMCommonUI.h"
 
 @interface ProcessViewController() <ProcessTopViewDelegate, ProcessSortViewControllerDelegate>
 @property (nonatomic, strong) ProcessTopView                    *topView;
@@ -52,7 +53,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // Set background.
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewBackground-1496"]]];
+    [self.tableView setBackgroundView:[AMCommonUI sectionBackgroundView]];
     
     // Refresh process list.
     AppDelegate *app = [AppDelegate sharedDelegate];

@@ -15,6 +15,7 @@
 #import "AMUtils.h"
 #import "NetworkInfoController.h"
 #import "NetworkViewController.h"
+#import "AMCommonUI.h"
 
 enum {
     SECTION_NETWORK_INFORMATION=0
@@ -58,7 +59,7 @@ static const CGFloat kNetworkGraphMaxValue = MB_TO_B(100);
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewBackground-1496"]]];
+    [self.tableView setBackgroundView:[AMCommonUI sectionBackgroundView]];
 
     [self updateStatusLabels];
 

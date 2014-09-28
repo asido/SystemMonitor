@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "GLTube.h"
 #import "BatteryViewController.h"
+#import "AMCommonUI.h"
 
 enum {
     SECTION_BATTERY_TUBE=1
@@ -43,7 +44,7 @@ enum {
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ViewBackground-1496"]]];
+    [self.tableView setBackgroundView:[AMCommonUI sectionBackgroundView]];
     
     DeviceSpecificUI *ui = [AppDelegate sharedDelegate].deviceSpecificUI;
     self.glView = [[GLKView alloc] initWithFrame:ui.GLtubeGLKViewFrame];
