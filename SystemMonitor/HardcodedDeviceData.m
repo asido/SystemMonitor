@@ -458,8 +458,8 @@ static const NSString *AspectRatioTable[] = {
     if ([hwMachine isEqualToString:@"iPhone5,4"])   return iPhone_5C;
     if ([hwMachine isEqualToString:@"iPhone6,1"])   return iPhone_5S;
     if ([hwMachine isEqualToString:@"iPhone6,2"])   return iPhone_5S;
-    if ([hwMachine isEqualToString:@"iPhone7,1"])   return iPhone_6;
-    if ([hwMachine isEqualToString:@"iPhone7,2"])   return iPhone_6_Plus;
+    if ([hwMachine isEqualToString:@"iPhone7,2"])   return iPhone_6;
+    if ([hwMachine isEqualToString:@"iPhone7,1"])   return iPhone_6_Plus;
     if ([hwMachine isEqualToString:@"iPod1,1"])     return iPod_Touch_1G;
     if ([hwMachine isEqualToString:@"iPod2,1"])     return iPod_Touch_2G;
     if ([hwMachine isEqualToString:@"iPod3,1"])     return iPod_Touch_3G;
