@@ -591,6 +591,47 @@
                                             <constraint firstItem="blI-Cl-ptm" firstAttribute="baseline" secondItem="VHe-vz-9IC" secondAttribute="baseline" id="WxN-vq-FBI"/>
                                         </constraints>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="tZO-Af-crx" customClass="DefaultCell">
+                                        <rect key="frame" x="0.0" y="279" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tZO-Af-crx" id="IQA-Ih-X8o">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Retina HD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fm-al-YXV">
+                                                    <rect key="frame" x="30" y="11" width="101" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="5jp-O1-EIV"/>
+                                                        <constraint firstAttribute="width" constant="101" id="Clj-g2-x5J"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;placeholder>" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ugM-Tb-hgW">
+                                                    <rect key="frame" x="120" y="11" width="170" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="170" id="nPv-6a-5Pe"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1fm-al-YXV" firstAttribute="leading" secondItem="IQA-Ih-X8o" secondAttribute="leadingMargin" constant="22" id="mhh-2v-1DH"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ugM-Tb-hgW" secondAttribute="trailing" constant="22" id="riN-jy-pJ2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="ugM-Tb-hgW" firstAttribute="leading" secondItem="tZO-Af-crx" secondAttribute="leading" constant="120" id="Dqn-ba-mq5"/>
+                                            <constraint firstItem="1fm-al-YXV" firstAttribute="leading" secondItem="tZO-Af-crx" secondAttribute="leading" constant="30" id="QVz-sR-IEC"/>
+                                            <constraint firstItem="1fm-al-YXV" firstAttribute="top" secondItem="tZO-Af-crx" secondAttribute="top" constant="11" id="jaD-t0-y5t"/>
+                                            <constraint firstItem="ugM-Tb-hgW" firstAttribute="top" secondItem="1fm-al-YXV" secondAttribute="top" id="zpI-wu-0gb"/>
+                                            <constraint firstItem="ugM-Tb-hgW" firstAttribute="baseline" secondItem="1fm-al-YXV" secondAttribute="baseline" id="zyr-O5-00d"/>
+                                        </constraints>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ym5-K3-0zW" customClass="DefaultCell">
                                         <rect key="frame" x="0.0" y="323" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -1239,6 +1280,7 @@
                         <outlet property="osTypeLabel" destination="C9L-wn-mcS" id="qFX-sa-L0x"/>
                         <outlet property="osVersionLabel" destination="TqM-MK-7oi" id="DGH-gy-uOI"/>
                         <outlet property="ppiLabel" destination="pok-2H-SyR" id="hGv-Y8-qnS"/>
+                        <outlet property="retinaHdLabel" destination="ugM-Tb-hgW" id="Lk0-Ps-JuT"/>
                         <outlet property="retinaLabel" destination="blI-Cl-ptm" id="Fyd-lI-KIy"/>
                         <outlet property="safeBootLabel" destination="432-Mr-Pax" id="5vF-ay-470"/>
                         <outlet property="screenRezolutionLabel" destination="VfU-tn-80F" id="PEb-RW-wCO"/>

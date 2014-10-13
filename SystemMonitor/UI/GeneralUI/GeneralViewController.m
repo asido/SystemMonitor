@@ -18,6 +18,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *hostnameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *screenRezolutionLabel;
 @property (nonatomic, weak) IBOutlet UILabel *retinaLabel;
+@property (nonatomic, weak) IBOutlet UILabel *retinaHdLabel;
 @property (nonatomic, weak) IBOutlet UILabel *screenSizeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *ppiLabel;
 @property (nonatomic, weak) IBOutlet UILabel *aspectRatioLabel;
@@ -67,6 +68,7 @@
     [self.screenRezolutionLabel setText:app.iDevice.deviceInfo.screenResolution];
     [self.screenSizeLabel setText:[NSString stringWithFormat:@"%0.1f\"", app.iDevice.deviceInfo.screenSize]];
     [self.retinaLabel setText:(app.iDevice.deviceInfo.retina ? @"Yes" : @"No")];
+    [self.retinaHdLabel setText:(app.iDevice.deviceInfo.retinaHD ? @"Yes" : @"No")];
     [self.ppiLabel setText:[NSString stringWithFormat:@"%ld ppi", (long)app.iDevice.deviceInfo.ppi]];
     [self.aspectRatioLabel setText:app.iDevice.deviceInfo.aspectRatio];
     [self.osNameLabel setText:app.iDevice.deviceInfo.osName];
