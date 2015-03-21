@@ -76,6 +76,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     AppDelegate *app = [AppDelegate sharedDelegate];
     NSArray *cpuLoadArray = [app.cpuInfoCtrl cpuLoadHistory];
     NSMutableArray *graphData = [NSMutableArray arrayWithCapacity:cpuLoadArray.count];
@@ -104,6 +106,7 @@
 {
     AppDelegate *app = [AppDelegate sharedDelegate];
     app.cpuInfoCtrl.delegate = nil;
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark - Table view data source

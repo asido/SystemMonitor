@@ -44,7 +44,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
     
     // A bit ugly, but for some reason the row gets deselected if setting it selected without delay.
     double delayInSeconds = 0.1;
