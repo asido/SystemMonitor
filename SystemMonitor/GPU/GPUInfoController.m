@@ -13,6 +13,7 @@
 #import "AMLogger.h"
 #import "GPUInfo.h"
 #import "GPUInfoController.h"
+#import "HardcodedDeviceData.h"
 
 @interface GPUInfoController()
 @property (nonatomic, strong) GPUInfo *gpuInfo;
@@ -38,7 +39,7 @@
         [EAGLContext setCurrentContext:ctx];
         
         self.gpuInfo = [[GPUInfo alloc] init];
-        self.gpuInfo.gpuName = [NSString stringWithCString:(const char*)glGetString(GL_RENDERER) encoding:NSASCIIStringEncoding];
+        self.gpuInfo.gpuName = (NSString*)[[HardcodedDeviceData sharedDeviceData] getGraphicCardName];
         self.gpuInfo.openGLVendor = [NSString stringWithCString:(const char*)glGetString(GL_VENDOR) encoding:NSASCIIStringEncoding];
         self.gpuInfo.openGLVersion = [NSString stringWithCString:(const char*)glGetString(GL_VERSION) encoding:NSASCIIStringEncoding];
         

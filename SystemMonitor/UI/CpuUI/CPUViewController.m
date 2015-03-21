@@ -22,6 +22,7 @@
 @property (nonatomic, strong) GLLineGraph   *glGraph;
 
 @property (nonatomic, weak) IBOutlet UILabel *cpuNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *coprocessorLabel;
 @property (nonatomic, weak) IBOutlet UILabel *architectureLabel;
 @property (nonatomic, weak) IBOutlet UILabel *physicalCoresLabel;
 @property (nonatomic, weak) IBOutlet UILabel *logicalCoresLabel;
@@ -50,6 +51,7 @@
     AppDelegate *app = [AppDelegate sharedDelegate];
     
     [self.cpuNameLabel setText:app.iDevice.cpuInfo.cpuName];
+    [self.coprocessorLabel setText:app.iDevice.cpuInfo.coprocessor];
     [self.architectureLabel setText:app.iDevice.cpuInfo.cpuSubtype];
     [self.physicalCoresLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)app.iDevice.cpuInfo.physicalCPUCount]];
     [self.logicalCoresLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)app.iDevice.cpuInfo.logicalCPUCount]];

@@ -13,6 +13,7 @@
 
 @interface CPUInfo : NSObject
 @property (nonatomic, copy)   NSString     *cpuName;
+@property (nonatomic, copy)   NSString     *coprocessor;
 @property (nonatomic, assign) NSUInteger   activeCPUCount;
 @property (nonatomic, assign) NSUInteger   physicalCPUCount;
 @property (nonatomic, assign) NSUInteger   physicalCPUMaxCount;

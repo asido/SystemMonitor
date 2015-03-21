@@ -39,11 +39,17 @@ typedef enum {
     iPad_4_WiFi,
     iPad_4_GSM,
     iPad_4_CDMA,
-    iPad_5,
+    iPad_Air,
+    iPad_Air_Cellular,
+    iPad_Air_2,
+    iPad_Air_2_Cellular,
     iPad_Mini_WiFi,
     iPad_Mini_GSM,
     iPad_Mini_CDMA,
     iPad_Mini_2,
+    iPad_Mini_2_Cellular,
+    iPad_Mini_3,
+    iPad_Mini_3_Cellular,
     iUnknown
 } iDevice_t;
 
@@ -84,11 +90,17 @@ static const NSString *iDeviceNameTable[] = {
     [iPad_4_WiFi]       = @"iPad 4 (WiFi)",
     [iPad_4_GSM]        = @"iPad 4 (GSM)",
     [iPad_4_CDMA]       = @"iPad 4 (CDMA)",
-    [iPad_5]            = @"iPad Air",
+    [iPad_Air]          = @"iPad Air",
+    [iPad_Air_Cellular] = @"iPad Air (Cellular)",
+    [iPad_Air_2]        = @"iPad Air 2",
+    [iPad_Air_2_Cellular] = @"iPad Air 2 (Cellular)",
     [iPad_Mini_WiFi]    = @"iPad Mini (WiFi)",
     [iPad_Mini_GSM]     = @"iPad Mini (GSM)",
     [iPad_Mini_CDMA]    = @"iPad Mini (CDMA)",
     [iPad_Mini_2]       = @"iPad Mini 2",
+    [iPad_Mini_2_Cellular] = @"iPad Mini 2 (Cellular)",
+    [iPad_Mini_3]       = @"iPad Mini 3",
+    [iPad_Mini_3_Cellular] = @"iPad Mini 3 (Cellular)",
     [iUnknown]          = @"Unknown"
 };
 
@@ -120,11 +132,17 @@ static const NSUInteger CPUFrequencyTable[] = {
     [iPad_4_WiFi]       = 1400,
     [iPad_4_GSM]        = 1400,
     [iPad_4_CDMA]       = 1400,
-    [iPad_5]            = 1400,
+    [iPad_Air]          = 1400,
+    [iPad_Air_Cellular] = 1400,
+    [iPad_Air_2]        = 1500,
+    [iPad_Air_2_Cellular] = 1500,
     [iPad_Mini_WiFi]    = 1000,
     [iPad_Mini_GSM]     = 1000,
     [iPad_Mini_CDMA]    = 1000,
-    [iPad_Mini_2]       = 1400,
+    [iPad_Mini_2]       = 1300,
+    [iPad_Mini_2_Cellular] = 1300,
+    [iPad_Mini_3]       = 1300,
+    [iPad_Mini_3_Cellular] = 1300,
     [iUnknown]          = 0
 };
 
@@ -156,11 +174,101 @@ static const NSString *CPUNameTable[] = {
     [iPad_4_WiFi]       = @"Apple Swift",
     [iPad_4_GSM]        = @"Apple Swift",
     [iPad_4_CDMA]       = @"Apple Swift",
-    [iPad_5]            = @"Apple A7",
+    [iPad_Air]          = @"Apple A7",
+    [iPad_Air_Cellular] = @"Apple A7",
+    [iPad_Air_2]        = @"Apple A8X",
+    [iPad_Air_2_Cellular] = @"Apple A8X",
     [iPad_Mini_WiFi]    = @"ARM Cortex-A9",
     [iPad_Mini_GSM]     = @"ARM Cortex-A9",
     [iPad_Mini_CDMA]    = @"ARM Cortex-A9",
     [iPad_Mini_2]       = @"Apple A7",
+    [iPad_Mini_2_Cellular] = @"Apple A7",
+    [iPad_Mini_3]       = @"Apple A7",
+    [iPad_Mini_3_Cellular] = @"Apple A7",
+    [iUnknown]          = @"Unknown"
+};
+
+static const NSString *CoprocessorNameTable[] = {
+    [iPhone_1G]         = @"N/A",
+    [iPhone_3G]         = @"N/A",
+    [iPhone_3GS]        = @"N/A",
+    [iPhone_4]          = @"N/A",
+    [iPhone_4_Verizon]  = @"N/A",
+    [iPhone_4S]         = @"N/A",
+    [iPhone_5_GSM]      = @"N/A",
+    [iPhone_5_CDMA]     = @"N/A",
+    [iPhone_5C]         = @"N/A",
+    [iPhone_5S]         = @"Apple M7 motion",
+    [iPhone_6]          = @"Apple M8 motion",
+    [iPhone_6_Plus]     = @"Apple M8 motion",
+    [iPod_Touch_1G]     = @"N/A",
+    [iPod_Touch_2G]     = @"N/A",
+    [iPod_Touch_3G]     = @"N/A",
+    [iPod_Touch_4G]     = @"N/A",
+    [iPod_Touch_5]      = @"N/A",
+    [iPad_1]            = @"N/A",
+    [iPad_2_CDMA]       = @"N/A",
+    [iPad_2_GSM]        = @"N/A",
+    [iPad_2_WiFi]       = @"N/A",
+    [iPad_3_WiFi]       = @"N/A",
+    [iPad_3_GSM]        = @"N/A",
+    [iPad_3_CDMA]       = @"N/A",
+    [iPad_4_WiFi]       = @"N/A",
+    [iPad_4_GSM]        = @"N/A",
+    [iPad_4_CDMA]       = @"N/A",
+    [iPad_Air]          = @"Apple M7 motion",
+    [iPad_Air_Cellular] = @"Apple M7 motion",
+    [iPad_Air_2]        = @"Apple M8 motion",
+    [iPad_Air_2_Cellular] = @"Apple M8 motion",
+    [iPad_Mini_WiFi]    = @"N/A",
+    [iPad_Mini_GSM]     = @"N/A",
+    [iPad_Mini_CDMA]    = @"N/A",
+    [iPad_Mini_2]       = @"Apple M7 motion",
+    [iPad_Mini_2_Cellular] = @"Apple M7 motion",
+    [iPad_Mini_3]       = @"Apple M7 motion",
+    [iPad_Mini_3_Cellular] = @"Apple M7 motion",
+    [iUnknown]          = @"Unknown"
+};
+
+static const NSString *GraphicCardNameTable[] = {
+    [iPhone_1G]         = @"PowerVR MBX Lite",
+    [iPhone_3G]         = @"PowerVR MBX Lite",
+    [iPhone_3GS]        = @"PowerVR SGX535",
+    [iPhone_4]          = @"PowerVR SGX535",
+    [iPhone_4_Verizon]  = @"PowerVR SGX535",
+    [iPhone_4S]         = @"PowerVR SGX543",
+    [iPhone_5_GSM]      = @"PowerVR SGX543MP3",
+    [iPhone_5_CDMA]     = @"PowerVR SGX543MP3",
+    [iPhone_5C]         = @"PowerVR SGX543MP3",
+    [iPhone_5S]         = @"PowerVR G6430",
+    [iPhone_6]          = @"PowerVR GX6450",
+    [iPhone_6_Plus]     = @"PowerVR GX6450",
+    [iPod_Touch_1G]     = @"PowerVR MBX Lite",
+    [iPod_Touch_2G]     = @"PowerVR MBX Lite",
+    [iPod_Touch_3G]     = @"PowerVR MBX Lite",
+    [iPod_Touch_4G]     = @"PowerVR MBX Lite",
+    [iPod_Touch_5]      = @"PowerVR MBX Lite",
+    [iPad_1]            = @"PowerVR SGX535",
+    [iPad_2_CDMA]       = @"PowerVR SGX543MP2",
+    [iPad_2_GSM]        = @"PowerVR SGX543MP2",
+    [iPad_2_WiFi]       = @"PowerVR SGX543MP2",
+    [iPad_3_WiFi]       = @"PowerVR SGX543MP4",
+    [iPad_3_GSM]        = @"PowerVR SGX543MP4",
+    [iPad_3_CDMA]       = @"PowerVR SGX543MP4",
+    [iPad_4_WiFi]       = @"PowerVR SGX554MP4",
+    [iPad_4_GSM]        = @"PowerVR SGX554MP4",
+    [iPad_4_CDMA]       = @"PowerVR SGX554MP4",
+    [iPad_Air]          = @"PowerVR G6430",
+    [iPad_Air_Cellular] = @"PowerVR G6430",
+    [iPad_Air_2]        = @"PowerVR GXA6850",
+    [iPad_Air_2_Cellular] = @"PowerVR GXA6850",
+    [iPad_Mini_WiFi]    = @"PowerVR SGX543MP2",
+    [iPad_Mini_GSM]     = @"PowerVR SGX543MP2",
+    [iPad_Mini_CDMA]    = @"PowerVR SGX543MP2",
+    [iPad_Mini_2]       = @"PowerVR G6430",
+    [iPad_Mini_2_Cellular] = @"PowerVR G6430",
+    [iPad_Mini_3]       = @"PowerVR G6430",
+    [iPad_Mini_3_Cellular] = @"PowerVR G6430",
     [iUnknown]          = @"Unknown"
 };
 
@@ -192,11 +300,17 @@ static const NSString *RAMTypeTable[] = {
     [iPad_4_WiFi]       = @"LPDDR2 DRAM",
     [iPad_4_GSM]        = @"LPDDR2 DRAM",
     [iPad_4_CDMA]       = @"LPDDR2 DRAM",
-    [iPad_5]            = @"LPDDR3 DRAM",
+    [iPad_Air]          = @"LPDDR3 DRAM",
+    [iPad_Air_Cellular] = @"LPDDR3 DRAM",
+    [iPad_Air_2]        = @"LPDDR3 DRAM",
+    [iPad_Air_2_Cellular] = @"LPDDR3 DRAM",
     [iPad_Mini_WiFi]    = @"LPDDR2 DRAM",
     [iPad_Mini_GSM]     = @"LPDDR2 DRAM",
     [iPad_Mini_CDMA]    = @"LPDDR2 DRAM",
     [iPad_Mini_2]       = @"LPDDR3 DRAM",
+    [iPad_Mini_2_Cellular] = @"LPDDR3 DRAM",
+    [iPad_Mini_3]       = @"LPDDR3 DRAM",
+    [iPad_Mini_3_Cellular] = @"LPDDR3 DRAM",
     [iUnknown]          = @"Unknown"
 };
 
@@ -228,11 +342,17 @@ static const NSUInteger BatteryCapacityTable[] = {
     [iPad_4_WiFi]       = 11560,
     [iPad_4_GSM]        = 11560,
     [iPad_4_CDMA]       = 11560,
-    [iPad_5]            = 8827,
+    [iPad_Air]          = 8827,
+    [iPad_Air_Cellular] = 8827,
+    [iPad_Air_2]        = 7340,
+    [iPad_Air_2_Cellular] = 7340,
     [iPad_Mini_WiFi]    = 4440,
     [iPad_Mini_GSM]     = 4440,
     [iPad_Mini_CDMA]    = 4440,
-    [iPad_Mini_2]       = 4440,
+    [iPad_Mini_2]       = 6471,
+    [iPad_Mini_2_Cellular] = 6471,
+    [iPad_Mini_3]       = 6471,
+    [iPad_Mini_3_Cellular] = 6471,
     [iUnknown]          = 0
 };
 
@@ -264,11 +384,17 @@ static const CGFloat BatteryVoltageTable[] = {
     [iPad_4_WiFi]       = 3.7,
     [iPad_4_GSM]        = 3.7,
     [iPad_4_CDMA]       = 3.7,
-    [iPad_5]            = 3.7,
+    [iPad_Air]          = 3.73,
+    [iPad_Air_Cellular] = 3.73,
+    [iPad_Air_2]        = 3.76,
+    [iPad_Air_2_Cellular] = 3.76,
     [iPad_Mini_WiFi]    = 3.72,
     [iPad_Mini_GSM]     = 3.72,
     [iPad_Mini_CDMA]    = 3.72,
-    [iPad_Mini_2]       = 3.72,
+    [iPad_Mini_2]       = 3.75,
+    [iPad_Mini_2_Cellular] = 3.75,
+    [iPad_Mini_3]       = 3.75,
+    [iPad_Mini_3_Cellular] = 3.75,
     [iUnknown]          = 0
 };
 
@@ -300,11 +426,17 @@ static const CGFloat ScreenSizeTable[] = {
     [iPad_4_WiFi]       = 9.7,
     [iPad_4_GSM]        = 9.7,
     [iPad_4_CDMA]       = 9.7,
-    [iPad_5]            = 9.7,
+    [iPad_Air]          = 9.7,
+    [iPad_Air_Cellular] = 9.7,
+    [iPad_Air_2]        = 9.7,
+    [iPad_Air_2_Cellular] = 9.7,
     [iPad_Mini_WiFi]    = 7.9,
     [iPad_Mini_GSM]     = 7.9,
     [iPad_Mini_CDMA]    = 7.9,
     [iPad_Mini_2]       = 7.9,
+    [iPad_Mini_2_Cellular] = 7.9,
+    [iPad_Mini_3]       = 7.9,
+    [iPad_Mini_3_Cellular] = 7.9,
     [iUnknown]          = 0.0
 };
 
@@ -336,11 +468,17 @@ static const NSUInteger ScreenPPITable[] = {
     [iPad_4_WiFi]       = 264,
     [iPad_4_GSM]        = 264,
     [iPad_4_CDMA]       = 264,
-    [iPad_5]            = 264,
+    [iPad_Air]          = 264,
+    [iPad_Air_Cellular] = 264,
+    [iPad_Air_2]        = 264,
+    [iPad_Air_2_Cellular] = 264,
     [iPad_Mini_WiFi]    = 163,
     [iPad_Mini_GSM]     = 163,
     [iPad_Mini_CDMA]    = 163,
     [iPad_Mini_2]       = 326,
+    [iPad_Mini_2_Cellular] = 326,
+    [iPad_Mini_3]       = 326,
+    [iPad_Mini_3_Cellular] = 326,
     [iUnknown]          = 0.0
 };
 
@@ -372,11 +510,17 @@ static const NSString *AspectRatioTable[] = {
     [iPad_4_WiFi]       = @"4:3",
     [iPad_4_GSM]        = @"4:3",
     [iPad_4_CDMA]       = @"4:3",
-    [iPad_5]            = @"4:3",
+    [iPad_Air]          = @"4:3",
+    [iPad_Air_Cellular] = @"4:3",
+    [iPad_Air_2]        = @"4:3",
+    [iPad_Air_2_Cellular] = @"4:3",
     [iPad_Mini_WiFi]    = @"4:3",
     [iPad_Mini_GSM]     = @"4:3",
     [iPad_Mini_CDMA]    = @"4:3",
     [iPad_Mini_2]       = @"4:3",
+    [iPad_Mini_2_Cellular] = @"4:3",
+    [iPad_Mini_3]       = @"4:3",
+    [iPad_Mini_3_Cellular] = @"4:3",
     [iUnknown]          = @"0:0"
 };
    
@@ -410,6 +554,16 @@ static const NSString *AspectRatioTable[] = {
 - (NSUInteger)getCPUFrequency
 {
     return CPUFrequencyTable[self.iDevice];
+}
+
+- (const NSString*)getCoprocessorName
+{
+    return CoprocessorNameTable[self.iDevice];
+}
+
+- (const NSString*)getGraphicCardName
+{
+    return GraphicCardNameTable[self.iDevice];
 }
 
 - (const NSString*)getRAMType
@@ -479,10 +633,14 @@ static const NSString *AspectRatioTable[] = {
     if ([hwMachine isEqualToString:@"iPad3,4"])     return iPad_4_WiFi;
     if ([hwMachine isEqualToString:@"iPad3,5"])     return iPad_4_GSM;
     if ([hwMachine isEqualToString:@"iPad3,6"])     return iPad_4_CDMA;
-    if ([hwMachine isEqualToString:@"iPad4,1"])     return iPad_5;
-    if ([hwMachine isEqualToString:@"iPad4,2"])     return iPad_5;
+    if ([hwMachine isEqualToString:@"iPad4,1"])     return iPad_Air;
+    if ([hwMachine isEqualToString:@"iPad4,2"])     return iPad_Air_Cellular;
+    if ([hwMachine isEqualToString:@"iPad5,3"])     return iPad_Air_2;
+    if ([hwMachine isEqualToString:@"iPad5,4"])     return iPad_Air_2_Cellular;
     if ([hwMachine isEqualToString:@"iPad4,4"])     return iPad_Mini_2;
-    if ([hwMachine isEqualToString:@"iPad4,5"])     return iPad_Mini_2;
+    if ([hwMachine isEqualToString:@"iPad4,5"])     return iPad_Mini_2_Cellular;
+    if ([hwMachine isEqualToString:@"iPad4,7"])     return iPad_Mini_3;
+    if ([hwMachine isEqualToString:@"iPad4,8"])     return iPad_Mini_3_Cellular;
 
     return iUnknown;
 }

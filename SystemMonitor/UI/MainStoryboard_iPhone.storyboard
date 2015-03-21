@@ -1345,6 +1345,47 @@
                                             <constraint firstItem="Nuv-FJ-JNy" firstAttribute="centerY" secondItem="3Q1-aq-mXl" secondAttribute="centerY" id="qSH-K5-s7M"/>
                                         </constraints>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dw6-Eh-DQp" customClass="DefaultCell">
+                                        <rect key="frame" x="0.0" y="55" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dw6-Eh-DQp" id="oeX-Zk-MZr">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Coprocessor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo4-ur-MGY">
+                                                    <rect key="frame" x="30" y="11" width="101" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="ijP-qw-ijm"/>
+                                                        <constraint firstAttribute="width" constant="101" id="vVZ-bK-rDW"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;placeholder&gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lgL-bm-SUt">
+                                                    <rect key="frame" x="120" y="11" width="170" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="170" id="NqA-ir-BE8"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.65630882909999999" green="0.74370528989999996" blue="0.90636765809999997" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jo4-ur-MGY" firstAttribute="leading" secondItem="oeX-Zk-MZr" secondAttribute="leadingMargin" constant="22" id="CYY-tA-lN6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="lgL-bm-SUt" secondAttribute="trailing" constant="22" id="G7M-kM-mtz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="jo4-ur-MGY" firstAttribute="top" secondItem="lgL-bm-SUt" secondAttribute="top" id="0pP-ct-VlT"/>
+                                            <constraint firstItem="jo4-ur-MGY" firstAttribute="leading" secondItem="dw6-Eh-DQp" secondAttribute="leading" constant="30" id="6IS-Uj-nrG"/>
+                                            <constraint firstItem="lgL-bm-SUt" firstAttribute="baseline" secondItem="jo4-ur-MGY" secondAttribute="baseline" id="GRy-Pq-MoE"/>
+                                            <constraint firstItem="jo4-ur-MGY" firstAttribute="centerY" secondItem="dw6-Eh-DQp" secondAttribute="centerY" id="Mti-2e-jRy"/>
+                                            <constraint firstItem="lgL-bm-SUt" firstAttribute="leading" secondItem="dw6-Eh-DQp" secondAttribute="leading" constant="120" id="rK4-n9-HTR"/>
+                                        </constraints>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="8DF-6F-R0j" customClass="DefaultCell">
                                         <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -1724,6 +1765,7 @@
                     </tableView>
                     <connections>
                         <outlet property="architectureLabel" destination="lsO-gq-z2J" id="vhq-Sc-PJV"/>
+                        <outlet property="coprocessorLabel" destination="lgL-bm-SUt" id="MZ2-Bj-Ywr"/>
                         <outlet property="cpuNameLabel" destination="5dB-kL-wwF" id="Y3u-Tn-OSA"/>
                         <outlet property="endianessLabel" destination="xcF-bM-ksc" id="T0L-NI-95e"/>
                         <outlet property="frequencyLabel" destination="3Wi-BC-3el" id="H2R-vC-yAf"/>

@@ -31,6 +31,7 @@
 @property (nonatomic, assign) NSUInteger    cpuLoadHistorySize;
 
 - (NSString*)getCPUName;
+- (NSString*)getCoprocessor;
 - (NSUInteger)getActiveCPUCount;
 - (NSUInteger)getPhysicalCPUCount;
 - (NSUInteger)getPhysicalCPUMaxCount;
@@ -126,6 +127,7 @@
         self.cpuInfo = [[CPUInfo alloc] init];
         
         self.cpuInfo.cpuName = [self getCPUName];
+        self.cpuInfo.coprocessor = [self getCoprocessor];
         self.cpuInfo.activeCPUCount = [self getActiveCPUCount];
         self.cpuInfo.physicalCPUCount = [self getPhysicalCPUCount];
         self.cpuInfo.physicalCPUMaxCount = [self getPhysicalCPUMaxCount];
@@ -171,6 +173,12 @@
 {
     HardcodedDeviceData *hardcodeData = [HardcodedDeviceData sharedDeviceData];
     return (NSString*)[hardcodeData getCPUName];
+}
+
+- (NSString*)getCoprocessor
+{
+    HardcodedDeviceData *hardcodeData = [HardcodedDeviceData sharedDeviceData];
+    return (NSString*)[hardcodeData getCoprocessorName];
 }
 
 - (NSUInteger)getActiveCPUCount

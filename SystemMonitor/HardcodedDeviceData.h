@@ -18,6 +18,8 @@
 - (const NSString*)getiDeviceName;
 - (const NSString*)getCPUName;
 - (NSUInteger)getCPUFrequency;
+- (const NSString*)getCoprocessorName;
+- (const NSString*)getGraphicCardName;
 - (const NSString*)getRAMType;
 - (NSUInteger)getBatteryCapacity;
 - (CGFloat)getBatteryVoltage;

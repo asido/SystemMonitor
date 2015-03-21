@@ -13,6 +13,7 @@
 
 @implementation CPUInfo
 @synthesize cpuName;
+@synthesize coprocessor;
 @synthesize activeCPUCount;
 @synthesize physicalCPUCount;
 @synthesize physicalCPUMaxCount;
