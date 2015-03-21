@@ -743,7 +743,7 @@ static void reachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     }
     
 #define ROUNDUP64(a)    \
-    ((a) > 0 ? (1 + (((a) - 1) | (sizeof(uint64_t) - 1))) : sizeof(uint64_t))
+    ((a) > 0 ? (1 + (((a) - 1) | (sizeof(UInt64) - 1))) : sizeof(UInt64))
     
     oxig = xig = (struct xinpgen *)buf;
     for (next = buf + ROUNDUP64(xig->xig_len); next < buf + len; next += ROUNDUP64(xgn->xgn_len))

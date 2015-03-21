@@ -995,6 +995,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e9ef375f-6381-4a77-8a21-b3bff8518385";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1025,6 +1026,7 @@
 				INFOPLIST_FILE = "SystemMonitor Tests/SystemMonitor Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e9ef375f-6381-4a77-8a21-b3bff8518385";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1063,7 +1065,6 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "8665bbbe-3d65-4234-a3c9-e29f50f47550";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1096,7 +1097,6 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "8665bbbe-3d65-4234-a3c9-e29f50f47550";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1107,14 +1107,15 @@
 		703D231F173818EC0001E3B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/3rdParty/HockeySDK/HockeySDK.embeddedframework";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1134,11 +1135,11 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = SystemMonitor;
-				PROVISIONING_PROFILE = "8665bbbe-3d65-4234-a3c9-e29f50f47550";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8665bbbe-3d65-4234-a3c9-e29f50f47550";
+				PROVISIONING_PROFILE = "e9ef375f-6381-4a77-8a21-b3bff8518385";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "e9ef375f-6381-4a77-8a21-b3bff8518385";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1146,14 +1147,15 @@
 		703D2320173818EC0001E3B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/3rdParty/HockeySDK/HockeySDK.embeddedframework";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1171,12 +1173,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/3rdParty/Lumberjack",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = SystemMonitor;
-				PROVISIONING_PROFILE = "8665bbbe-3d65-4234-a3c9-e29f50f47550";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8665bbbe-3d65-4234-a3c9-e29f50f47550";
+				PROVISIONING_PROFILE = "e9ef375f-6381-4a77-8a21-b3bff8518385";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "e9ef375f-6381-4a77-8a21-b3bff8518385";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
