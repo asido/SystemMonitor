@@ -64,7 +64,7 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.currentFilter = row;
+    self.currentFilter = (SortFilter_t)row;
     [self.sortDelegate processSortFilterChanged:self.currentFilter];
 }
 

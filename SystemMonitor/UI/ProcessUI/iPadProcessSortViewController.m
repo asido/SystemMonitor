@@ -87,7 +87,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.currentFilter = indexPath.row;
+    self.currentFilter = (SortFilter_t)indexPath.row;
     [self.sortDelegate processSortFilterChanged:self.currentFilter];
     
     // In order to checkmark the cell.
