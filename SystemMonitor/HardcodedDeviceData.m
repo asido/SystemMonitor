@@ -24,6 +24,8 @@ typedef enum {
     iPhone_5S,
     iPhone_6,
     iPhone_6_Plus,
+    iPhone_6S,
+    iPhone_6S_Plus,
     iPod_Touch_1G,
     iPod_Touch_2G,
     iPod_Touch_3G,
@@ -43,6 +45,7 @@ typedef enum {
     iPad_Air_Cellular,
     iPad_Air_2,
     iPad_Air_2_Cellular,
+    iPad_Pro,
     iPad_Mini_WiFi,
     iPad_Mini_GSM,
     iPad_Mini_CDMA,
@@ -75,6 +78,8 @@ static const NSString *iDeviceNameTable[] = {
     [iPhone_5S]         = @"iPhone 5S",
     [iPhone_6]          = @"iPhone 6",
     [iPhone_6_Plus]     = @"iPhone 6 Plus",
+    [iPhone_6S]         = @"iPhone 6S",
+    [iPhone_6S_Plus]    = @"iPhone 6S Plus",
     [iPod_Touch_1G]     = @"iPod Touch 1G",
     [iPod_Touch_2G]     = @"iPod Touch 2G",
     [iPod_Touch_3G]     = @"iPod Touch 3G",
@@ -101,6 +106,7 @@ static const NSString *iDeviceNameTable[] = {
     [iPad_Mini_2_Cellular] = @"iPad Mini 2 (Cellular)",
     [iPad_Mini_3]       = @"iPad Mini 3",
     [iPad_Mini_3_Cellular] = @"iPad Mini 3 (Cellular)",
+    [iPad_Pro]          = @"iPad Pro",
     [iUnknown]          = @"Unknown"
 };
 
@@ -117,6 +123,8 @@ static const NSUInteger CPUFrequencyTable[] = {
     [iPhone_5S]         = 1300,
     [iPhone_6]          = 1400,
     [iPhone_6_Plus]     = 1400,
+    [iPhone_6S]         = 1850,
+    [iPhone_6S_Plus]    = 1850,
     [iPod_Touch_1G]     = 400,
     [iPod_Touch_2G]     = 533,
     [iPod_Touch_3G]     = 600,
@@ -136,6 +144,7 @@ static const NSUInteger CPUFrequencyTable[] = {
     [iPad_Air_Cellular] = 1400,
     [iPad_Air_2]        = 1500,
     [iPad_Air_2_Cellular] = 1500,
+    [iPad_Pro]          = 2260,
     [iPad_Mini_WiFi]    = 1000,
     [iPad_Mini_GSM]     = 1000,
     [iPad_Mini_CDMA]    = 1000,
@@ -159,6 +168,8 @@ static const NSString *CPUNameTable[] = {
     [iPhone_5S]         = @"Apple A7",
     [iPhone_6]          = @"Apple A8",
     [iPhone_6_Plus]     = @"Apple A8",
+    [iPhone_6S]         = @"Apple A9",
+    [iPhone_6S_Plus]    = @"Apple A9",
     [iPod_Touch_1G]     = @"ARM 1176JZ",
     [iPod_Touch_2G]     = @"ARM 1176JZ",
     [iPod_Touch_3G]     = @"ARM Cortex-A8",
@@ -178,6 +189,7 @@ static const NSString *CPUNameTable[] = {
     [iPad_Air_Cellular] = @"Apple A7",
     [iPad_Air_2]        = @"Apple A8X",
     [iPad_Air_2_Cellular] = @"Apple A8X",
+    [iPad_Pro]          = @"Apple A9X",
     [iPad_Mini_WiFi]    = @"ARM Cortex-A9",
     [iPad_Mini_GSM]     = @"ARM Cortex-A9",
     [iPad_Mini_CDMA]    = @"ARM Cortex-A9",
@@ -201,6 +213,8 @@ static const NSString *CoprocessorNameTable[] = {
     [iPhone_5S]         = @"Apple M7 motion",
     [iPhone_6]          = @"Apple M8 motion",
     [iPhone_6_Plus]     = @"Apple M8 motion",
+    [iPhone_6S]          = @"Apple M9 motion",
+    [iPhone_6S_Plus]     = @"Apple M9 motion",
     [iPod_Touch_1G]     = @"N/A",
     [iPod_Touch_2G]     = @"N/A",
     [iPod_Touch_3G]     = @"N/A",
@@ -220,6 +234,7 @@ static const NSString *CoprocessorNameTable[] = {
     [iPad_Air_Cellular] = @"Apple M7 motion",
     [iPad_Air_2]        = @"Apple M8 motion",
     [iPad_Air_2_Cellular] = @"Apple M8 motion",
+    [iPad_Pro]          = @"Apple M9 motion",
     [iPad_Mini_WiFi]    = @"N/A",
     [iPad_Mini_GSM]     = @"N/A",
     [iPad_Mini_CDMA]    = @"N/A",
@@ -243,6 +258,8 @@ static const NSString *GraphicCardNameTable[] = {
     [iPhone_5S]         = @"PowerVR G6430",
     [iPhone_6]          = @"PowerVR GX6450",
     [iPhone_6_Plus]     = @"PowerVR GX6450",
+    [iPhone_6S]          = @"PowerVR GT6700",
+    [iPhone_6S_Plus]     = @"PowerVR GT6700",
     [iPod_Touch_1G]     = @"PowerVR MBX Lite",
     [iPod_Touch_2G]     = @"PowerVR MBX Lite",
     [iPod_Touch_3G]     = @"PowerVR MBX Lite",
@@ -262,6 +279,7 @@ static const NSString *GraphicCardNameTable[] = {
     [iPad_Air_Cellular] = @"PowerVR G6430",
     [iPad_Air_2]        = @"PowerVR GXA6850",
     [iPad_Air_2_Cellular] = @"PowerVR GXA6850",
+    [iPad_Pro]          = @"PowerVR Series 7XT",
     [iPad_Mini_WiFi]    = @"PowerVR SGX543MP2",
     [iPad_Mini_GSM]     = @"PowerVR SGX543MP2",
     [iPad_Mini_CDMA]    = @"PowerVR SGX543MP2",
@@ -285,6 +303,8 @@ static const NSString *RAMTypeTable[] = {
     [iPhone_5S]         = @"LPDDR3 DRAM",
     [iPhone_6]          = @"LPDDR3 DRAM",
     [iPhone_6_Plus]     = @"LPDDR3 DRAM",
+    [iPhone_6S]         = @"LPDDR4 DRAM",
+    [iPhone_6S_Plus]    = @"LPDDR4 DRAM",
     [iPod_Touch_1G]     = @"LPDDR DRAM",
     [iPod_Touch_2G]     = @"LPDDR DRAM",
     [iPod_Touch_3G]     = @"LPDDR DRAM",
@@ -304,6 +324,7 @@ static const NSString *RAMTypeTable[] = {
     [iPad_Air_Cellular] = @"LPDDR3 DRAM",
     [iPad_Air_2]        = @"LPDDR3 DRAM",
     [iPad_Air_2_Cellular] = @"LPDDR3 DRAM",
+    [iPad_Pro]          = @"LPDDR4 DRAM",
     [iPad_Mini_WiFi]    = @"LPDDR2 DRAM",
     [iPad_Mini_GSM]     = @"LPDDR2 DRAM",
     [iPad_Mini_CDMA]    = @"LPDDR2 DRAM",
@@ -327,6 +348,8 @@ static const NSUInteger BatteryCapacityTable[] = {
     [iPhone_5S]         = 1570,
     [iPhone_6]          = 1810,
     [iPhone_6_Plus]     = 2915,
+    [iPhone_6S]         = 1715,
+    [iPhone_6S_Plus]    = 2750,
     [iPod_Touch_1G]     = 789,
     [iPod_Touch_2G]     = 789,
     [iPod_Touch_3G]     = 930,
@@ -346,6 +369,7 @@ static const NSUInteger BatteryCapacityTable[] = {
     [iPad_Air_Cellular] = 8827,
     [iPad_Air_2]        = 7340,
     [iPad_Air_2_Cellular] = 7340,
+    [iPad_Pro]          = 10307,
     [iPad_Mini_WiFi]    = 4440,
     [iPad_Mini_GSM]     = 4440,
     [iPad_Mini_CDMA]    = 4440,
@@ -369,6 +393,8 @@ static const CGFloat BatteryVoltageTable[] = {
     [iPhone_5S]         = 3.8,
     [iPhone_6]          = 3.82,
     [iPhone_6_Plus]     = 3.82,
+    [iPhone_6S]         = 3.82,
+    [iPhone_6S_Plus]    = 3.8,
     [iPod_Touch_1G]     = 3.7,
     [iPod_Touch_2G]     = 3.7,
     [iPod_Touch_3G]     = 3.7,
@@ -388,6 +414,7 @@ static const CGFloat BatteryVoltageTable[] = {
     [iPad_Air_Cellular] = 3.73,
     [iPad_Air_2]        = 3.76,
     [iPad_Air_2_Cellular] = 3.76,
+    [iPad_Pro]          = 3.77,
     [iPad_Mini_WiFi]    = 3.72,
     [iPad_Mini_GSM]     = 3.72,
     [iPad_Mini_CDMA]    = 3.72,
@@ -411,6 +438,8 @@ static const CGFloat ScreenSizeTable[] = {
     [iPhone_5S]         = 4.0,
     [iPhone_6]          = 4.7,
     [iPhone_6_Plus]     = 5.5,
+    [iPhone_6S]          = 4.7,
+    [iPhone_6S_Plus]     = 5.5,
     [iPod_Touch_1G]     = 3.5,
     [iPod_Touch_2G]     = 3.5,
     [iPod_Touch_3G]     = 3.5,
@@ -430,6 +459,7 @@ static const CGFloat ScreenSizeTable[] = {
     [iPad_Air_Cellular] = 9.7,
     [iPad_Air_2]        = 9.7,
     [iPad_Air_2_Cellular] = 9.7,
+    [iPad_Pro]          = 12.9,
     [iPad_Mini_WiFi]    = 7.9,
     [iPad_Mini_GSM]     = 7.9,
     [iPad_Mini_CDMA]    = 7.9,
@@ -458,6 +488,8 @@ static const NSUInteger ScreenPPITable[] = {
     [iPod_Touch_5]      = 326,
     [iPhone_6]          = 326,
     [iPhone_6_Plus]     = 401,
+    [iPhone_6S]          = 326,
+    [iPhone_6S_Plus]     = 401,
     [iPad_1]            = 132,
     [iPad_2_CDMA]       = 132,
     [iPad_2_GSM]        = 132,
@@ -472,6 +504,7 @@ static const NSUInteger ScreenPPITable[] = {
     [iPad_Air_Cellular] = 264,
     [iPad_Air_2]        = 264,
     [iPad_Air_2_Cellular] = 264,
+    [iPad_Pro]          = 264,
     [iPad_Mini_WiFi]    = 163,
     [iPad_Mini_GSM]     = 163,
     [iPad_Mini_CDMA]    = 163,
@@ -495,6 +528,8 @@ static const NSString *AspectRatioTable[] = {
     [iPhone_5S]         = @"16:9",
     [iPhone_6]          = @"16:9",
     [iPhone_6_Plus]     = @"16:9",
+    [iPhone_6S]          = @"16:9",
+    [iPhone_6S_Plus]     = @"16:9",
     [iPod_Touch_1G]     = @"3:2",
     [iPod_Touch_2G]     = @"3:2",
     [iPod_Touch_3G]     = @"3:2",
@@ -514,6 +549,7 @@ static const NSString *AspectRatioTable[] = {
     [iPad_Air_Cellular] = @"4:3",
     [iPad_Air_2]        = @"4:3",
     [iPad_Air_2_Cellular] = @"4:3",
+    [iPad_Pro]          = @"4:3",
     [iPad_Mini_WiFi]    = @"4:3",
     [iPad_Mini_GSM]     = @"4:3",
     [iPad_Mini_CDMA]    = @"4:3",
@@ -614,6 +650,8 @@ static const NSString *AspectRatioTable[] = {
     if ([hwMachine isEqualToString:@"iPhone6,2"])   return iPhone_5S;
     if ([hwMachine isEqualToString:@"iPhone7,2"])   return iPhone_6;
     if ([hwMachine isEqualToString:@"iPhone7,1"])   return iPhone_6_Plus;
+    if ([hwMachine isEqualToString:@"iPhone8,1"])   return iPhone_6S;
+    if ([hwMachine isEqualToString:@"iPhone8,2"])   return iPhone_6S_Plus;
     if ([hwMachine isEqualToString:@"iPod1,1"])     return iPod_Touch_1G;
     if ([hwMachine isEqualToString:@"iPod2,1"])     return iPod_Touch_2G;
     if ([hwMachine isEqualToString:@"iPod3,1"])     return iPod_Touch_3G;
@@ -637,6 +675,7 @@ static const NSString *AspectRatioTable[] = {
     if ([hwMachine isEqualToString:@"iPad4,2"])     return iPad_Air_Cellular;
     if ([hwMachine isEqualToString:@"iPad5,3"])     return iPad_Air_2;
     if ([hwMachine isEqualToString:@"iPad5,4"])     return iPad_Air_2_Cellular;
+    if ([hwMachine isEqualToString:@"iPad6,8"])     return iPad_Pro;
     if ([hwMachine isEqualToString:@"iPad4,4"])     return iPad_Mini_2;
     if ([hwMachine isEqualToString:@"iPad4,5"])     return iPad_Mini_2_Cellular;
     if ([hwMachine isEqualToString:@"iPad4,7"])     return iPad_Mini_3;

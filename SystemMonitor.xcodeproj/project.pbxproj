@@ -9,14 +9,18 @@
 /* Begin PBXBuildFile section */
 		0300A5BC19D88F1300D5F7E1 /* AMCommonUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0300A5BB19D88F1300D5F7E1 /* AMCommonUI.m */; };
 		033D9651182EC6B6009477E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 033D9650182EC6B6009477E7 /* Images.xcassets */; };
+		036C8C8B1C4A42B500CE7518 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036C8C881C4A42B500CE7518 /* HockeySDK.framework */; };
+		036C8C8E1C4A433000CE7518 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036C8C8D1C4A433000CE7518 /* CocoaLumberjack.framework */; };
+		036C8C8F1C4A45A500CE7518 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 036C8C8A1C4A42B500CE7518 /* HockeySDKResources.bundle */; };
+		036C8C911C4A46F600CE7518 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036C8C901C4A46F600CE7518 /* MobileCoreServices.framework */; };
+		036C8C931C4A470400CE7518 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036C8C921C4A470400CE7518 /* QuickLook.framework */; };
+		036C8C951C4A471F00CE7518 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 036C8C941C4A471F00CE7518 /* libc++.tbd */; };
 		03724CD6182D7E3700221FE8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03724CD5182D7E3700221FE8 /* XCTest.framework */; };
 		03724CD7182D7E3700221FE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DD173818EC0001E3B3 /* Foundation.framework */; };
 		03724CD8182D7E3700221FE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DB173818EC0001E3B3 /* UIKit.framework */; };
 		03724CDE182D7E3700221FE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03724CDC182D7E3700221FE8 /* InfoPlist.strings */; };
 		03724CE8182D7EA200221FE8 /* AMUtils_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03724CE7182D7EA200221FE8 /* AMUtils_Tests.m */; };
 		03B6316919D8967100DA9785 /* TubeTexture@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B6316819D8967100DA9785 /* TubeTexture@3x.png */; };
-		03DA2AB9183930700014C322 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F9B39B18392D7500804E1D /* HockeySDK.framework */; };
-		03DA2ABA183930C80014C322 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 03F9B39E18392D7500804E1D /* HockeySDKResources.bundle */; };
 		03DA2ABD183930EA0014C322 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DA2ABC183930EA0014C322 /* CoreText.framework */; };
 		03DA2ABE183930F90014C322 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7030C0B41764EDA30072DC8D /* QuartzCore.framework */; };
 		03DA2AC01839310A0014C322 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DA2ABF1839310A0014C322 /* Security.framework */; };
@@ -91,7 +95,8 @@
 		03E33305183FEE4C00480CE7 /* TubeTexture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E332FF183FEE4C00480CE7 /* TubeTexture@2x.png */; };
 		03E74C81183CBFD700B20A8F /* GLBubbleEffect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A3A183A11FD00F7AF12 /* GLBubbleEffect.fsh */; };
 		03E74C82183CBFDB00B20A8F /* GLBubbleEffect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A3D183A11FD00F7AF12 /* GLBubbleEffect.vsh */; };
-		03F9B3A018392DD600804E1D /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F9B39F18392DD600804E1D /* libLumberjack.a */; };
+		03F219451C4A495A006F108E /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036C8C8D1C4A433000CE7518 /* CocoaLumberjack.framework */; };
+		03F219461C4A495A006F108E /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 036C8C8D1C4A433000CE7518 /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7003E7EB1751178700214D6A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7003E7EA1751178700214D6A /* SystemConfiguration.framework */; };
 		703D22DC173818EC0001E3B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DB173818EC0001E3B3 /* UIKit.framework */; };
 		703D22DE173818EC0001E3B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703D22DD173818EC0001E3B3 /* Foundation.framework */; };
@@ -114,10 +119,30 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		03F219471C4A495B006F108E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				03F219461C4A495A006F108E /* CocoaLumberjack.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0300A5BA19D88F1300D5F7E1 /* AMCommonUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCommonUI.h; sourceTree = "<group>"; };
 		0300A5BB19D88F1300D5F7E1 /* AMCommonUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCommonUI.m; sourceTree = "<group>"; };
 		033D9650182EC6B6009477E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		036C8C881C4A42B500CE7518 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
+		036C8C8A1C4A42B500CE7518 /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
+		036C8C8D1C4A433000CE7518 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = 3rdParty/Lumberjack/CocoaLumberjack.framework; sourceTree = "<group>"; };
+		036C8C901C4A46F600CE7518 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		036C8C921C4A470400CE7518 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		036C8C941C4A471F00CE7518 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		03724CD4182D7E3700221FE8 /* SystemMonitor Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SystemMonitor Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03724CD5182D7E3700221FE8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		03724CDB182D7E3700221FE8 /* SystemMonitor Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SystemMonitor Tests-Info.plist"; sourceTree = "<group>"; };
@@ -257,10 +282,6 @@
 		03E332FD183FEE4C00480CE7 /* BubbleTexture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BubbleTexture@2x.png"; sourceTree = "<group>"; };
 		03E332FE183FEE4C00480CE7 /* TubeTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TubeTexture.png; sourceTree = "<group>"; };
 		03E332FF183FEE4C00480CE7 /* TubeTexture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TubeTexture@2x.png"; sourceTree = "<group>"; };
-		03F9B39B18392D7500804E1D /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
-		03F9B39D18392D7500804E1D /* HockeySDK.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = HockeySDK.xcconfig; sourceTree = "<group>"; };
-		03F9B39E18392D7500804E1D /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
-		03F9B39F18392DD600804E1D /* libLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLumberjack.a; path = 3rdParty/Lumberjack/libLumberjack.a; sourceTree = "<group>"; };
 		7003E7EA1751178700214D6A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7030C0B41764EDA30072DC8D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		703D22D8173818EC0001E3B3 /* SystemMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SystemMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -291,28 +312,50 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03E332F5183FE0F100480CE7 /* CoreTelephony.framework in Frameworks */,
+				036C8C951C4A471F00CE7518 /* libc++.tbd in Frameworks */,
 				03DA2AC01839310A0014C322 /* Security.framework in Frameworks */,
+				03F219451C4A495A006F108E /* CocoaLumberjack.framework in Frameworks */,
+				036C8C931C4A470400CE7518 /* QuickLook.framework in Frameworks */,
+				036C8C911C4A46F600CE7518 /* MobileCoreServices.framework in Frameworks */,
+				703D22E0173818EC0001E3B3 /* CoreGraphics.framework in Frameworks */,
+				70FC38EB174F51870085EBC3 /* AssetsLibrary.framework in Frameworks */,
+				03E332F5183FE0F100480CE7 /* CoreTelephony.framework in Frameworks */,
 				03DA2ABE183930F90014C322 /* QuartzCore.framework in Frameworks */,
 				03DA2ABD183930EA0014C322 /* CoreText.framework in Frameworks */,
-				03F9B3A018392DD600804E1D /* libLumberjack.a in Frameworks */,
+				036C8C8B1C4A42B500CE7518 /* HockeySDK.framework in Frameworks */,
 				7003E7EB1751178700214D6A /* SystemConfiguration.framework in Frameworks */,
 				70FC38EF174F74410085EBC3 /* AVFoundation.framework in Frameworks */,
 				70FC38ED174F73F80085EBC3 /* CoreMedia.framework in Frameworks */,
-				70FC38EB174F51870085EBC3 /* AssetsLibrary.framework in Frameworks */,
 				70FC38E9174F4F380085EBC3 /* MediaPlayer.framework in Frameworks */,
 				70D92D6B173B308200C57DEA /* OpenGLES.framework in Frameworks */,
 				70D92D69173B302600C57DEA /* GLKit.framework in Frameworks */,
-				03DA2AB9183930700014C322 /* HockeySDK.framework in Frameworks */,
 				703D22DC173818EC0001E3B3 /* UIKit.framework in Frameworks */,
 				703D22DE173818EC0001E3B3 /* Foundation.framework in Frameworks */,
-				703D22E0173818EC0001E3B3 /* CoreGraphics.framework in Frameworks */,
+				036C8C8E1C4A433000CE7518 /* CocoaLumberjack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		036C8C871C4A42B500CE7518 /* HockeySDK.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				036C8C881C4A42B500CE7518 /* HockeySDK.framework */,
+				036C8C891C4A42B500CE7518 /* Resources */,
+			);
+			name = HockeySDK.embeddedframework;
+			path = 3rdParty/HockeySDK.embeddedframework;
+			sourceTree = "<group>";
+		};
+		036C8C891C4A42B500CE7518 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				036C8C8A1C4A42B500CE7518 /* HockeySDKResources.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		03724CD9182D7E3700221FE8 /* SystemMonitor Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -653,30 +696,11 @@
 			path = "GL Assets";
 			sourceTree = "<group>";
 		};
-		03F9B39A18392D7500804E1D /* HockeySDK.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				03F9B39B18392D7500804E1D /* HockeySDK.framework */,
-				03F9B39C18392D7500804E1D /* Resources */,
-			);
-			name = HockeySDK.embeddedframework;
-			path = 3rdParty/HockeySDK/HockeySDK.embeddedframework;
-			sourceTree = "<group>";
-		};
-		03F9B39C18392D7500804E1D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				03F9B39D18392D7500804E1D /* HockeySDK.xcconfig */,
-				03F9B39E18392D7500804E1D /* HockeySDKResources.bundle */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		03F9B3A118392DE600804E1D /* 3rdParty */ = {
 			isa = PBXGroup;
 			children = (
-				03F9B39F18392DD600804E1D /* libLumberjack.a */,
-				03F9B39A18392D7500804E1D /* HockeySDK.embeddedframework */,
+				036C8C8D1C4A433000CE7518 /* CocoaLumberjack.framework */,
+				036C8C871C4A42B500CE7518 /* HockeySDK.embeddedframework */,
 			);
 			name = 3rdParty;
 			sourceTree = "<group>";
@@ -706,6 +730,9 @@
 		703D22DA173818EC0001E3B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				036C8C941C4A471F00CE7518 /* libc++.tbd */,
+				036C8C921C4A470400CE7518 /* QuickLook.framework */,
+				036C8C901C4A46F600CE7518 /* MobileCoreServices.framework */,
 				03F9B3A118392DE600804E1D /* 3rdParty */,
 				70FC38EA174F51870085EBC3 /* AssetsLibrary.framework */,
 				70FC38EE174F74400085EBC3 /* AVFoundation.framework */,
@@ -783,6 +810,7 @@
 				703D22D4173818EC0001E3B3 /* Sources */,
 				703D22D5173818EC0001E3B3 /* Frameworks */,
 				703D22D6173818EC0001E3B3 /* Resources */,
+				03F219471C4A495B006F108E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -799,10 +827,11 @@
 		703D22D0173818EB0001E3B3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = st;
 				TargetAttributes = {
 					03724CD3182D7E3700221FE8 = {
+						DevelopmentTeam = C8Q8Y4HWTP;
 						TestTargetID = 703D22D7173818EC0001E3B3;
 					};
 					703D22D7173818EC0001E3B3 = {
@@ -841,12 +870,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				036C8C8F1C4A45A500CE7518 /* HockeySDKResources.bundle in Resources */,
 				03DF1AD3183A11FD00F7AF12 /* MainStoryboard_iPad.storyboard in Resources */,
 				03B6316919D8967100DA9785 /* TubeTexture@3x.png in Resources */,
 				03DF1AC9183A11FD00F7AF12 /* ConnectionSectionView.xib in Resources */,
 				03E33300183FEE4C00480CE7 /* ArrowDownIcon.png in Resources */,
 				03E33303183FEE4C00480CE7 /* BubbleTexture@2x.png in Resources */,
-				03DA2ABA183930C80014C322 /* HockeySDKResources.bundle in Resources */,
 				03E33302183FEE4C00480CE7 /* BubbleTexture.png in Resources */,
 				03DF1ADB183A11FD00F7AF12 /* ProcessTopView.xib in Resources */,
 				03DF1AD4183A11FD00F7AF12 /* MainStoryboard_iPhone.storyboard in Resources */,
@@ -975,6 +1004,8 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -994,8 +1025,9 @@
 				INFOPLIST_FILE = "SystemMonitor Tests/SystemMonitor Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "N-A.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e9ef375f-6381-4a77-8a21-b3bff8518385";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1010,6 +1042,8 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1025,8 +1059,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "SystemMonitor Tests/SystemMonitor Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "N-A.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e9ef375f-6381-4a77-8a21-b3bff8518385";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1044,9 +1079,10 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1083,8 +1119,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
@@ -1107,16 +1143,19 @@
 		703D231F173818EC0001E3B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/3rdParty/HockeySDK/HockeySDK.embeddedframework";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/3rdParty/HockeySDK.embeddedframework",
+					"$(PROJECT_DIR)/3rdParty/Lumberjack",
+				);
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SystemMonitor/Supporting Files/SystemMonitor-Prefix.pch";
@@ -1128,15 +1167,17 @@
 					"$(SRCROOT)/3rdParty/Lumberjack/include",
 				);
 				INFOPLIST_FILE = "SystemMonitor/Supporting Files/SystemMonitor-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/3rdParty/Lumberjack",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asido.systemmonitor;
 				PRODUCT_NAME = SystemMonitor;
-				PROVISIONING_PROFILE = "d3961d8e-1e66-4df4-aeeb-4c5bdce6f5e7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "d3961d8e-1e66-4df4-aeeb-4c5bdce6f5e7";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
@@ -1147,16 +1188,19 @@
 		703D2320173818EC0001E3B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/3rdParty/HockeySDK/HockeySDK.embeddedframework";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/3rdParty/HockeySDK.embeddedframework",
+					"$(PROJECT_DIR)/3rdParty/Lumberjack",
+				);
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SystemMonitor/Supporting Files/SystemMonitor-Prefix.pch";
@@ -1168,15 +1212,17 @@
 					"$(SRCROOT)/3rdParty/Lumberjack/include",
 				);
 				INFOPLIST_FILE = "SystemMonitor/Supporting Files/SystemMonitor-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/3rdParty/Lumberjack",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asido.systemmonitor;
 				PRODUCT_NAME = SystemMonitor;
-				PROVISIONING_PROFILE = "d3961d8e-1e66-4df4-aeeb-4c5bdce6f5e7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "d3961d8e-1e66-4df4-aeeb-4c5bdce6f5e7";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv7s arm64";

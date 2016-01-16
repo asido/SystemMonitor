@@ -52,12 +52,16 @@
 
 - (NSArray*)getAllProcesses
 {
-    size_t size, processCount;
-    struct kinfo_proc *procs = NULL;
     NSMutableArray *result = [@[] mutableCopy];
     
-    int mib[4] = { CTL_KERN, KERN_PROC, KERN_PROC_ALL, 0 };
+    // Apple broke sysctl() for KERN_PROC_ALL in iOS 9.
+#ifdef BROKEN
+    size_t size, processCount;
+    struct kinfo_proc *procs = NULL;
     
+    
+    int mib[4] = { CTL_KERN, KERN_PROC, KERN_PROC_ALL, 0 };
+
     if (sysctl(mib, 4, NULL, &size, NULL, 0) == -1)
     {
         AMLogWarn(@"sysctl to retrieve size has failed");
@@ -93,6 +97,8 @@
     }
 
     free(procs);
+#endif
+    
     return result;
 }
 

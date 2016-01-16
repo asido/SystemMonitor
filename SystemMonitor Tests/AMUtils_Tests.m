@@ -9,6 +9,15 @@
 //  Copyright (c) 2013 Arvydas Sidorenko
 //
 
+#import <sys/sysctl.h>
+//#import <mach/mach_host.h>
+//#import <mach/task_info.h>
+//#import <mach/task.h>
+//#import <mach/machine.h>
+//#import <mach/mach_types.h>
+//#import <mach/mach_init.h>
+//#import <dlfcn.h>
+
 #import <XCTest/XCTest.h>
 #import "AMUtils.h"
 
@@ -65,6 +74,10 @@
     [self _doTestSysCtlChrWithSpecifier:"hw.machine" forSuccess:YES];
     [self _doTestSysCtlChrWithSpecifier:"hw.machinemodel" forSuccess:NO];
     [self _doTestSysCtlChrWithSpecifier:"hw.machinearch" forSuccess:NO];
+    
+    // iOS 9 doesn't allow a sandboxed app to retrieve all processes anymore.
+    int mib[4] = { CTL_KERN, KERN_PROC, KERN_PROC_ALL, 0 };
+    [self _doTestSysCtl:mib specifiedCount:4 forSuccess:NO];
 }
 
 - (void)test_percentageValue
@@ -140,6 +153,20 @@
         XCTAssertTrue([val1 isEqualToString:@""], @"'%s' failed. val1 is empty", specifier);
         XCTAssertTrue([val2 isEqualToString:@""], @"'%s' failed: val2 is empty", specifier);
         XCTAssertTrue([val3 isEqualToString:@""], @"'%s' failed: val3 is empty", specifier);
+    }
+}
+
+- (void)_doTestSysCtl:(int *)specifier specifiedCount:(int)count forSuccess:(BOOL)success
+{
+    size_t size;
+    int result = sysctl(specifier, count, NULL, &size, NULL, 0);
+    if (success && result == -1)
+    {
+        XCTFail("Expected success, but got failure. Failed to run sysctl with %d specifiers.", count);
+    }
+    else if (!success && result != -1)
+    {
+        XCTFail("Expected failure, but got success. Good news!");
     }
 }
 
