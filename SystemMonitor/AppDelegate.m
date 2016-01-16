@@ -22,7 +22,6 @@
 @synthesize cpuInfoCtrl;
 @synthesize deviceInfoCtrl;
 @synthesize gpuInfoCtrl;
-@synthesize processInfoCtrl;
 @synthesize ramInfoCtrl;
 @synthesize networkInfoCtrl;
 @synthesize storageInfoCtrl;
@@ -61,7 +60,6 @@
     self.cpuInfoCtrl = [[CPUInfoController alloc] init];
     self.deviceInfoCtrl = [[DeviceInfoController alloc] init];
     self.gpuInfoCtrl = [[GPUInfoController alloc] init];
-    self.processInfoCtrl = [[ProcessInfoController alloc] init];
     self.ramInfoCtrl = [[RAMInfoController alloc] init];
     self.networkInfoCtrl = [[NetworkInfoController alloc] init];
     self.storageInfoCtrl = [[StorageInfoController alloc] init];

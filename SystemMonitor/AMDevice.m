@@ -55,7 +55,6 @@
         deviceInfo = [app.deviceInfoCtrl getDeviceInfo];
         cpuInfo = [app.cpuInfoCtrl getCPUInfo];
         gpuInfo = [app.gpuInfoCtrl getGPUInfo];
-        processes = [app.processInfoCtrl getProcesses];
         ramInfo = [app.ramInfoCtrl getRAMInfo];
         networkInfo = [app.networkInfoCtrl getNetworkInfo];
         storageInfo = [app.storageInfoCtrl getStorageInfo];
@@ -80,12 +79,6 @@
 }
 
 #pragma mark - public
-
-- (void)refreshProcesses
-{
-    AppDelegate *app = [AppDelegate sharedDelegate];
-    processes = [app.processInfoCtrl getProcesses];
-}
 
 - (void)refreshStorageInfo
 {

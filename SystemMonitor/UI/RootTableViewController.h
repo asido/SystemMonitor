@@ -14,7 +14,6 @@
 typedef enum {
     VIEW_CTRL_GENERAL=0,
     VIEW_CTRL_CPU,
-    VIEW_CTRL_PROCESSES,
     VIEW_CTRL_RAM,
     VIEW_CTRL_GPU,
     VIEW_CTRL_NETWORK,
@@ -28,7 +27,6 @@ typedef enum {
 static NSString *ViewCtrlIdentifiers[] = {
     [VIEW_CTRL_GENERAL]     = @"GeneralViewController",
     [VIEW_CTRL_CPU]         = @"CPUViewController",
-    [VIEW_CTRL_PROCESSES]   = @"ProcessViewController",
     [VIEW_CTRL_RAM]         = @"RAMViewController",
     [VIEW_CTRL_GPU]         = @"GPUViewController",
     [VIEW_CTRL_NETWORK]     = @"NetworkViewController",
@@ -41,7 +39,6 @@ static NSString *ViewCtrlIdentifiers[] = {
 static NSString *CellImageFilenames[] = {
     [VIEW_CTRL_GENERAL]     = @"GeneralIcon-normal",
     [VIEW_CTRL_CPU]         = @"CpuIcon-normal",
-    [VIEW_CTRL_PROCESSES]   = @"ProcessesIcon-normal",
     [VIEW_CTRL_RAM]         = @"RamIcon-normal",
     [VIEW_CTRL_GPU]         = @"GpuIcon-normal",
     [VIEW_CTRL_NETWORK]     = @"NetworkIcon-normal",
@@ -54,7 +51,6 @@ static NSString *CellImageFilenames[] = {
 static NSString *CellHighlightImageFilenames[] = {
     [VIEW_CTRL_GENERAL]     = @"GeneralIcon-highlight",
     [VIEW_CTRL_CPU]         = @"CpuIcon-highlight",
-    [VIEW_CTRL_PROCESSES]   = @"ProcessesIcon-highlight",
     [VIEW_CTRL_RAM]         = @"RamIcon-highlight",
     [VIEW_CTRL_GPU]         = @"GpuIcon-highlight",
     [VIEW_CTRL_NETWORK]     = @"NetworkIcon-highlight",

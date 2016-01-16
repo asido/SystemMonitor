@@ -15,7 +15,6 @@
 #import "CPUInfoController.h"
 #import "GPUInfoController.h"
 #import "RAMInfoController.h"
-#import "ProcessInfoController.h"
 #import "NetworkInfoController.h"
 #import "StorageInfoController.h"
 #import "BatteryInfoController.h"
@@ -28,7 +27,6 @@
 @property (nonatomic, strong) CPUInfoController     *cpuInfoCtrl;
 @property (nonatomic, strong) DeviceInfoController  *deviceInfoCtrl;
 @property (nonatomic, strong) GPUInfoController     *gpuInfoCtrl;
-@property (nonatomic, strong) ProcessInfoController *processInfoCtrl;
 @property (nonatomic, strong) RAMInfoController     *ramInfoCtrl;
 @property (nonatomic, strong) NetworkInfoController *networkInfoCtrl;
 @property (nonatomic, strong) StorageInfoController *storageInfoCtrl;

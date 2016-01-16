@@ -46,8 +46,6 @@
 		03DF1ABC183A11FD00F7AF12 /* NetworkBandwidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A4A183A11FD00F7AF12 /* NetworkBandwidth.m */; };
 		03DF1ABD183A11FD00F7AF12 /* NetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A4C183A11FD00F7AF12 /* NetworkInfo.m */; };
 		03DF1ABE183A11FD00F7AF12 /* NetworkInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A4E183A11FD00F7AF12 /* NetworkInfoController.m */; };
-		03DF1ABF183A11FD00F7AF12 /* ProcessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A51183A11FD00F7AF12 /* ProcessInfo.m */; };
-		03DF1AC0183A11FD00F7AF12 /* ProcessInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A53183A11FD00F7AF12 /* ProcessInfoController.m */; };
 		03DF1AC1183A11FD00F7AF12 /* RAMInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A56183A11FD00F7AF12 /* RAMInfo.m */; };
 		03DF1AC2183A11FD00F7AF12 /* RAMInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A58183A11FD00F7AF12 /* RAMInfoController.m */; };
 		03DF1AC3183A11FD00F7AF12 /* RAMUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A5A183A11FD00F7AF12 /* RAMUsage.m */; };
@@ -69,13 +67,6 @@
 		03DF1AD3183A11FD00F7AF12 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A80183A11FD00F7AF12 /* MainStoryboard_iPad.storyboard */; };
 		03DF1AD4183A11FD00F7AF12 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A81183A11FD00F7AF12 /* MainStoryboard_iPhone.storyboard */; };
 		03DF1AD5183A11FD00F7AF12 /* NetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A84183A11FD00F7AF12 /* NetworkViewController.m */; };
-		03DF1AD6183A11FD00F7AF12 /* iPadProcessSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A87183A11FD00F7AF12 /* iPadProcessSortViewController.m */; };
-		03DF1AD7183A11FD00F7AF12 /* iPhoneProcessSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A89183A11FD00F7AF12 /* iPhoneProcessSortViewController.m */; };
-		03DF1AD8183A11FD00F7AF12 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A8B183A11FD00F7AF12 /* ProcessCell.m */; };
-		03DF1AD9183A11FD00F7AF12 /* ProcessSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A8D183A11FD00F7AF12 /* ProcessSort.m */; };
-		03DF1ADA183A11FD00F7AF12 /* ProcessTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A8F183A11FD00F7AF12 /* ProcessTopView.m */; };
-		03DF1ADB183A11FD00F7AF12 /* ProcessTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03DF1A90183A11FD00F7AF12 /* ProcessTopView.xib */; };
-		03DF1ADC183A11FD00F7AF12 /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A92183A11FD00F7AF12 /* ProcessViewController.m */; };
 		03DF1ADD183A11FD00F7AF12 /* RAMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A95183A11FD00F7AF12 /* RAMViewController.m */; };
 		03DF1ADE183A11FD00F7AF12 /* RootCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A97183A11FD00F7AF12 /* RootCell.m */; };
 		03DF1ADF183A11FD00F7AF12 /* RootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF1A99183A11FD00F7AF12 /* RootTableViewController.m */; };
@@ -199,10 +190,6 @@
 		03DF1A4C183A11FD00F7AF12 /* NetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInfo.m; sourceTree = "<group>"; };
 		03DF1A4D183A11FD00F7AF12 /* NetworkInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInfoController.h; sourceTree = "<group>"; };
 		03DF1A4E183A11FD00F7AF12 /* NetworkInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInfoController.m; sourceTree = "<group>"; };
-		03DF1A50183A11FD00F7AF12 /* ProcessInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessInfo.h; sourceTree = "<group>"; };
-		03DF1A51183A11FD00F7AF12 /* ProcessInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessInfo.m; sourceTree = "<group>"; };
-		03DF1A52183A11FD00F7AF12 /* ProcessInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessInfoController.h; sourceTree = "<group>"; };
-		03DF1A53183A11FD00F7AF12 /* ProcessInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessInfoController.m; sourceTree = "<group>"; };
 		03DF1A55183A11FD00F7AF12 /* RAMInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfo.h; sourceTree = "<group>"; };
 		03DF1A56183A11FD00F7AF12 /* RAMInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMInfo.m; sourceTree = "<group>"; };
 		03DF1A57183A11FD00F7AF12 /* RAMInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMInfoController.h; sourceTree = "<group>"; };
@@ -242,19 +229,6 @@
 		03DF1A81183A11FD00F7AF12 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		03DF1A83183A11FD00F7AF12 /* NetworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkViewController.h; sourceTree = "<group>"; };
 		03DF1A84183A11FD00F7AF12 /* NetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkViewController.m; sourceTree = "<group>"; };
-		03DF1A86183A11FD00F7AF12 /* iPadProcessSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProcessSortViewController.h; sourceTree = "<group>"; };
-		03DF1A87183A11FD00F7AF12 /* iPadProcessSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProcessSortViewController.m; sourceTree = "<group>"; };
-		03DF1A88183A11FD00F7AF12 /* iPhoneProcessSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneProcessSortViewController.h; sourceTree = "<group>"; };
-		03DF1A89183A11FD00F7AF12 /* iPhoneProcessSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneProcessSortViewController.m; sourceTree = "<group>"; };
-		03DF1A8A183A11FD00F7AF12 /* ProcessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessCell.h; sourceTree = "<group>"; };
-		03DF1A8B183A11FD00F7AF12 /* ProcessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessCell.m; sourceTree = "<group>"; };
-		03DF1A8C183A11FD00F7AF12 /* ProcessSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessSort.h; sourceTree = "<group>"; };
-		03DF1A8D183A11FD00F7AF12 /* ProcessSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessSort.m; sourceTree = "<group>"; };
-		03DF1A8E183A11FD00F7AF12 /* ProcessTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessTopView.h; sourceTree = "<group>"; };
-		03DF1A8F183A11FD00F7AF12 /* ProcessTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessTopView.m; sourceTree = "<group>"; };
-		03DF1A90183A11FD00F7AF12 /* ProcessTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessTopView.xib; sourceTree = "<group>"; };
-		03DF1A91183A11FD00F7AF12 /* ProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessViewController.h; sourceTree = "<group>"; };
-		03DF1A92183A11FD00F7AF12 /* ProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessViewController.m; sourceTree = "<group>"; };
 		03DF1A94183A11FD00F7AF12 /* RAMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMViewController.h; sourceTree = "<group>"; };
 		03DF1A95183A11FD00F7AF12 /* RAMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMViewController.m; sourceTree = "<group>"; };
 		03DF1A96183A11FD00F7AF12 /* RootCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootCell.h; sourceTree = "<group>"; };
@@ -502,18 +476,6 @@
 			path = SystemMonitor/Network;
 			sourceTree = SOURCE_ROOT;
 		};
-		03DF1A4F183A11FD00F7AF12 /* Process */ = {
-			isa = PBXGroup;
-			children = (
-				03DF1A50183A11FD00F7AF12 /* ProcessInfo.h */,
-				03DF1A51183A11FD00F7AF12 /* ProcessInfo.m */,
-				03DF1A52183A11FD00F7AF12 /* ProcessInfoController.h */,
-				03DF1A53183A11FD00F7AF12 /* ProcessInfoController.m */,
-			);
-			name = Process;
-			path = SystemMonitor/Process;
-			sourceTree = SOURCE_ROOT;
-		};
 		03DF1A54183A11FD00F7AF12 /* RAM */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,7 +512,6 @@
 				03DF1A76183A11FD00F7AF12 /* GeneralUI */,
 				03DF1A79183A11FD00F7AF12 /* GpuUI */,
 				03DF1A82183A11FD00F7AF12 /* NetworkUI */,
-				03DF1A85183A11FD00F7AF12 /* ProcessUI */,
 				03DF1A93183A11FD00F7AF12 /* RamUI */,
 				03DF1A9C183A11FD00F7AF12 /* StorageUI */,
 				03DF1A71183A11FD00F7AF12 /* DefaultCell.h */,
@@ -642,26 +603,6 @@
 				03DF1A84183A11FD00F7AF12 /* NetworkViewController.m */,
 			);
 			path = NetworkUI;
-			sourceTree = "<group>";
-		};
-		03DF1A85183A11FD00F7AF12 /* ProcessUI */ = {
-			isa = PBXGroup;
-			children = (
-				03DF1A86183A11FD00F7AF12 /* iPadProcessSortViewController.h */,
-				03DF1A87183A11FD00F7AF12 /* iPadProcessSortViewController.m */,
-				03DF1A88183A11FD00F7AF12 /* iPhoneProcessSortViewController.h */,
-				03DF1A89183A11FD00F7AF12 /* iPhoneProcessSortViewController.m */,
-				03DF1A8A183A11FD00F7AF12 /* ProcessCell.h */,
-				03DF1A8B183A11FD00F7AF12 /* ProcessCell.m */,
-				03DF1A8C183A11FD00F7AF12 /* ProcessSort.h */,
-				03DF1A8D183A11FD00F7AF12 /* ProcessSort.m */,
-				03DF1A8E183A11FD00F7AF12 /* ProcessTopView.h */,
-				03DF1A8F183A11FD00F7AF12 /* ProcessTopView.m */,
-				03DF1A90183A11FD00F7AF12 /* ProcessTopView.xib */,
-				03DF1A91183A11FD00F7AF12 /* ProcessViewController.h */,
-				03DF1A92183A11FD00F7AF12 /* ProcessViewController.m */,
-			);
-			path = ProcessUI;
 			sourceTree = "<group>";
 		};
 		03DF1A93183A11FD00F7AF12 /* RamUI */ = {
@@ -763,7 +704,6 @@
 				03DF1A2E183A11FD00F7AF12 /* GL */,
 				03DF1A40183A11FD00F7AF12 /* GPU */,
 				03DF1A45183A11FD00F7AF12 /* Network */,
-				03DF1A4F183A11FD00F7AF12 /* Process */,
 				03DF1A54183A11FD00F7AF12 /* RAM */,
 				03DF1A5B183A11FD00F7AF12 /* Storage */,
 				03DF1A60183A11FD00F7AF12 /* UI */,
@@ -877,7 +817,6 @@
 				03E33300183FEE4C00480CE7 /* ArrowDownIcon.png in Resources */,
 				03E33303183FEE4C00480CE7 /* BubbleTexture@2x.png in Resources */,
 				03E33302183FEE4C00480CE7 /* BubbleTexture.png in Resources */,
-				03DF1ADB183A11FD00F7AF12 /* ProcessTopView.xib in Resources */,
 				03DF1AD4183A11FD00F7AF12 /* MainStoryboard_iPhone.storyboard in Resources */,
 				03DF1A18183A11E700F7AF12 /* InfoPlist.strings in Resources */,
 				03E33305183FEE4C00480CE7 /* TubeTexture@2x.png in Resources */,
@@ -928,16 +867,12 @@
 				03DF1AE0183A11FD00F7AF12 /* SMSplitViewController.m in Sources */,
 				03DF1AAD183A11FD00F7AF12 /* CPULoad.m in Sources */,
 				03DF1AB9183A11FD00F7AF12 /* GPUInfo.m in Sources */,
-				03DF1ABF183A11FD00F7AF12 /* ProcessInfo.m in Sources */,
 				03DF1ADE183A11FD00F7AF12 /* RootCell.m in Sources */,
-				03DF1AD8183A11FD00F7AF12 /* ProcessCell.m in Sources */,
 				03DF1AD1183A11FD00F7AF12 /* iPadRootTableViewController.m in Sources */,
 				03DF1A19183A11E700F7AF12 /* main.m in Sources */,
-				03DF1AD7183A11FD00F7AF12 /* iPhoneProcessSortViewController.m in Sources */,
 				03DF1AB6183A11FD00F7AF12 /* GLBubbleEffect.m in Sources */,
 				03DF1AC5183A11FD00F7AF12 /* StorageInfoController.m in Sources */,
 				03DF1AB0183A11FD00F7AF12 /* DeviceInfoController.m in Sources */,
-				03DF1AD9183A11FD00F7AF12 /* ProcessSort.m in Sources */,
 				03DF1AB2183A11FD00F7AF12 /* GLEffect.m in Sources */,
 				03DF1ABB183A11FD00F7AF12 /* ActiveConnection.m in Sources */,
 				03DF1ADD183A11FD00F7AF12 /* RAMViewController.m in Sources */,
@@ -952,12 +887,8 @@
 				03DF1AE5183A11FD00F7AF12 /* AppDelegate.m in Sources */,
 				03DF1ACE183A11FD00F7AF12 /* DeviceSpecificUI.m in Sources */,
 				03DF1AD5183A11FD00F7AF12 /* NetworkViewController.m in Sources */,
-				03DF1ADA183A11FD00F7AF12 /* ProcessTopView.m in Sources */,
 				03DF1AC7183A11FD00F7AF12 /* ConnectionCell.m in Sources */,
-				03DF1AD6183A11FD00F7AF12 /* iPadProcessSortViewController.m in Sources */,
-				03DF1AC0183A11FD00F7AF12 /* ProcessInfoController.m in Sources */,
 				03DF1ABC183A11FD00F7AF12 /* NetworkBandwidth.m in Sources */,
-				03DF1ADC183A11FD00F7AF12 /* ProcessViewController.m in Sources */,
 				03DF1AC8183A11FD00F7AF12 /* ConnectionSectionView.m in Sources */,
 				03DF1AE6183A11FD00F7AF12 /* HardcodedDeviceData.m in Sources */,
 				03DF1AA9183A11FD00F7AF12 /* BatteryInfo.m in Sources */,
@@ -1007,7 +938,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
@@ -1046,7 +976,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
@@ -1149,8 +1078,8 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Arvydas Sidorenko (C8Q8Y4HWTP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Arvydas Sidorenko (C8Q8Y4HWTP)";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/3rdParty/HockeySDK.embeddedframework",
@@ -1194,8 +1123,8 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arvydas Sidorenko (H5356Y5D3V)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Arvydas Sidorenko (C8Q8Y4HWTP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Arvydas Sidorenko (C8Q8Y4HWTP)";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/3rdParty/HockeySDK.embeddedframework",

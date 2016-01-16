@@ -34,6 +34,5 @@
 @property (nonatomic, strong, readonly) StorageInfo    *storageInfo;
 @property (nonatomic, strong, readonly) BatteryInfo    *batteryInfo;
 
-- (void)refreshProcesses;
 - (void)refreshStorageInfo;
 @end
